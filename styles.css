@@ -499,7 +499,7 @@ body {
 }
 
 .project-card.expanded .project-details {
-    max-height: 1000px;
+    max-height: 2000px;
 }
 
 .details-section {
