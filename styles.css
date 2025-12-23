@@ -164,7 +164,7 @@ body {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center 15%;
+    object-position: 52% 18%;
     background: var(--bg-secondary);
 }
 
