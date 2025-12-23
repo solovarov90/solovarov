@@ -3,204 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Петр Соловаров — Визитка</title>
-    <meta name="description" content="Персональный сайт-визитка">
+    <title>Пётр Соловаров — Разработчик AI-продуктов</title>
+    <meta name="description" content="Создаю цифровые продукты и автоматизирую процессы с помощью AI. Smart Posting, Smart Tales, Smart Tarot.">
+    <meta name="keywords" content="Пётр Соловаров, AI, разработчик, Smart Posting, Smart Tales, Smart Tarot">
+    <meta name="author" content="Пётр Соловаров">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Пётр Соловаров — Разработчик AI-продуктов">
+    <meta property="og:description" content="Создаю цифровые продукты и автоматизирую процессы с помощью AI">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://petrsolovarov.ru">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            min-height: 100vh;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 48px 40px;
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.4),
-                0 0 100px rgba(99, 102, 241, 0.1);
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .photo-container {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 28px;
-            border-radius: 50%;
-            padding: 4px;
-            background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
-            animation: glow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
-            }
-            to {
-                box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
-            }
-        }
-
-        .photo {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .name {
-            font-size: 28px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .title {
-            font-size: 16px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 28px;
-        }
-
-        .bio {
-            font-size: 15px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 32px;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 24px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .link:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .link svg {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-        }
-
-        .link.telegram:hover {
-            background: rgba(0, 136, 204, 0.2);
-            border-color: rgba(0, 136, 204, 0.4);
-        }
-
-        .link.instagram:hover {
-            background: rgba(225, 48, 108, 0.2);
-            border-color: rgba(225, 48, 108, 0.4);
-        }
-
-        .link.email:hover {
-            background: rgba(99, 102, 241, 0.2);
-            border-color: rgba(99, 102, 241, 0.4);
-        }
-
-        @media (max-width: 480px) {
-            .card {
-                padding: 36px 28px;
-            }
-
-            .photo-container {
-                width: 140px;
-                height: 140px;
-            }
-
-            .name {
-                font-size: 24px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="card">
-        <div class="photo-container">
-            <img src="photo_2025-10-16_22-35-32.jpg" alt="Фото" class="photo">
+    <!-- Background Effects -->
+    <div class="bg-gradient"></div>
+    <div class="stars"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-photo-wrapper">
+            <div class="hero-photo-glow"></div>
+            <div class="hero-photo-border">
+                <img src="photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" class="hero-photo">
+            </div>
         </div>
         
-        <h1 class="name">Петр Соловаров</h1>
-        <p class="title">Разработчик • Предприниматель</p>
+        <h1 class="hero-name">Пётр Соловаров</h1>
+        <p class="hero-title">Разработчик • AI-предприниматель</p>
         
-        <p class="bio">
-            Создаю цифровые продукты и автоматизирую бизнес-процессы с помощью AI
+        <p class="hero-bio">
+            Создаю цифровые продукты и автоматизирую процессы с помощью искусственного интеллекта
         </p>
         
-        <div class="links">
-            <a href="https://t.me/username" class="link telegram">
+        <div class="hero-socials">
+            <a href="https://t.me/solovarov" target="_blank" rel="noopener" class="social-link">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                 </svg>
                 Telegram
             </a>
-            
-            <a href="https://instagram.com/username" class="link instagram">
+            <a href="https://t.me/solovarovp" target="_blank" rel="noopener" class="social-link">
                 <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
                 </svg>
-                Instagram
-            </a>
-            
-            <a href="mailto:email@example.com" class="link email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="4" width="20" height="16" rx="2"/>
-                    <path d="M22 6l-10 7L2 6"/>
-                </svg>
-                Написать
+                Канал
             </a>
         </div>
-    </div>
+        
+        <div class="scroll-indicator">
+            <a href="#projects">
+                <span>Проекты</span>
+                <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-label">Мои проекты</span>
+                <h2 class="section-title">AI-продукты для жизни и бизнеса</h2>
+            </header>
+            
+            <div class="projects-grid">
+                <!-- Smart Posting -->
+                <a href="https://smart-posting.ru" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-icon">✍️</div>
+                    <h3 class="project-name">Smart Posting</h3>
+                    <p class="project-description">
+                        AI-платформа для создания контента. От идеи до публикации за минуты — генерация постов, анализ качества, планирование и автопостинг в Telegram.
+                    </p>
+                    <span class="project-link">
+                        smart-posting.ru
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17l10-10M7 7h10v10"/>
+                        </svg>
+                    </span>
+                </a>
+                
+                <!-- Smart Tales -->
+                <a href="https://tales.petrsolovarov.ru" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-icon">📖</div>
+                    <h3 class="project-name">Smart Tales</h3>
+                    <p class="project-description">
+                        Интерактивные AI-истории с персонализированным сюжетом. Каждая история уникальна и адаптируется к вашим решениям.
+                    </p>
+                    <span class="project-link">
+                        tales.petrsolovarov.ru
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17l10-10M7 7h10v10"/>
+                        </svg>
+                    </span>
+                </a>
+                
+                <!-- Smart Tarot -->
+                <a href="https://tarot.petrsolovarov.ru" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-icon">🔮</div>
+                    <h3 class="project-name">Smart Tarot</h3>
+                    <p class="project-description">
+                        AI-гадание на картах Таро с глубокой персонализацией. Интегральный подход к интерпретации через призму современной психологии.
+                    </p>
+                    <span class="project-link">
+                        tarot.petrsolovarov.ru
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17l10-10M7 7h10v10"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-content">
+            <h2 class="contact-title">Давайте создадим что-то вместе</h2>
+            <p class="contact-text">
+                Открыт к интересным проектам и коллаборациям
+            </p>
+            <div class="contact-buttons">
+                <a href="https://t.me/solovarov" target="_blank" rel="noopener" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                    Написать в Telegram
+                </a>
+                <a href="https://t.me/solovarovp" target="_blank" rel="noopener" class="contact-btn contact-btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <path d="M22 6l-10 7L2 6"/>
+                    </svg>
+                    Подписаться на канал
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2024 Пётр Соловаров. Сделано с ❤️ и AI</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
