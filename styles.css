@@ -442,6 +442,12 @@ body {
     font-weight: 500;
 }
 
+.project-status-nda {
+    background: rgba(251, 146, 60, 0.15);
+    border-color: rgba(251, 146, 60, 0.3);
+    color: #fb923c;
+}
+
 /* Project Description */
 .project-description {
     padding: 0 28px 20px;
