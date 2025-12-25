@@ -17,10 +17,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://petrsolovarov.ru">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts - системный стек без зависимости от Google (для России) -->
+    <style>
+        /* Локальный fallback на системные шрифты */
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+    </style>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml"
