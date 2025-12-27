@@ -350,15 +350,27 @@ body {
     overflow: hidden;
     backdrop-filter: blur(10px);
     transition: all var(--transition-base);
+    /* Start invisible for animation, but fallback to visible after delay */
     opacity: 0;
     transform: translateY(30px);
+    /* CSS fallback: show cards after 1.5s even if JS fails */
+    animation: cardFallback 0.6s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
 }
 
+/* When JS adds .visible class, override the fallback animation */
 .project-card.visible {
     animation: cardReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes cardReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fallback animation - same as reveal but with delay built into the card */
+@keyframes cardFallback {
     to {
         opacity: 1;
         transform: translateY(0);
@@ -692,6 +704,13 @@ body {
    RESPONSIVE
    ======================================== */
 @media (max-width: 768px) {
+
+    /* Disable heavy blur effects on mobile for performance */
+    .project-card,
+    .social-link {
+        backdrop-filter: none;
+    }
+
     .hero {
         padding: 60px 20px;
         min-height: auto;
