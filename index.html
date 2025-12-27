@@ -17,11 +17,70 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://petrsolovarov.ru">
 
-    <!-- Fonts - системный стек без зависимости от Google (для России) -->
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="photo_2025-10-16_22-35-32.jpg" as="image">
+
+    <!-- DNS Prefetch for external links -->
+    <link rel="dns-prefetch" href="https://t.me">
+
+    <!-- Critical CSS (above-the-fold) -->
     <style>
-        /* Локальный fallback на системные шрифты */
+        /* Минимальный критический CSS для быстрого первого рендера */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
         body {
             font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #050508;
+            color: #fff;
+            min-height: 100vh
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 24px
+        }
+
+        .hero-photo-wrapper {
+            margin-bottom: 32px
+        }
+
+        .hero-photo-border {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4, #ec4899)
+        }
+
+        .hero-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 52% 18%;
+            background: #0a0a10
+        }
+
+        .hero-name {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 12px
+        }
+
+        .hero-title {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px
         }
     </style>
 
@@ -29,8 +88,11 @@
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Styles (deferred loading for non-critical) -->
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="styles.css">
+    </noscript>
 </head>
 
 <body>
@@ -43,7 +105,8 @@
         <div class="hero-photo-wrapper">
             <div class="hero-photo-glow"></div>
             <div class="hero-photo-border">
-                <img src="photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" class="hero-photo">
+                <img src="photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" class="hero-photo" decoding="async"
+                    fetchpriority="high">
             </div>
         </div>
 
@@ -595,8 +658,8 @@
         <p class="footer-text">© 2024 Пётр Соловаров. Сделано с ❤️ и AI</p>
     </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <!-- Scripts (deferred for faster initial load) -->
+    <script src="script.js" defer></script>
 </body>
 
 </html>
