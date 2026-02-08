@@ -296,6 +296,181 @@ body {
 }
 
 /* ========================================
+   BROADCAST SECTION (Redesign)
+   ======================================== */
+.broadcast-section {
+    padding: 40px 24px;
+    position: relative;
+    z-index: 10;
+}
+
+.broadcast-banner {
+    background: rgba(20, 20, 35, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.broadcast-banner:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.1);
+}
+
+.broadcast-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.broadcast-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.broadcast-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(139, 92, 246, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.broadcast-icon {
+    font-size: 28px;
+}
+
+.broadcast-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.broadcast-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: linear-gradient(90deg, #fff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+.broadcast-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+    max-width: 600px;
+}
+
+.broadcast-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.broadcast-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+}
+
+.broadcast-btn.btn-primary {
+    background: var(--gradient-primary);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.25);
+}
+
+.broadcast-btn.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.broadcast-btn.btn-secondary {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+}
+
+.broadcast-btn.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+}
+
+.broadcast-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Broadcast Responsive */
+@media (max-width: 768px) {
+    .broadcast-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 20px;
+        text-align: left;
+        /* Align text left on mobile too for cleaner look */
+    }
+
+    .broadcast-info {
+        width: 100%;
+    }
+
+    .broadcast-actions {
+        width: 100%;
+        justify-content: flex-start;
+        /* Left align buttons */
+        flex-wrap: wrap;
+    }
+
+    .broadcast-btn {
+        flex: 1;
+        /* Stretch buttons slightly */
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   BROADCAST SECTION (End)
+   ======================================== */
+/* ========================================
    PROJECTS SECTION
    ======================================== */
 .projects {
@@ -686,117 +861,7 @@ body {
     box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
 }
 
-/* ========================================
-   BROADCAST SECTION
-   ======================================== */
-.broadcast-section {
-    padding: 60px 24px;
-    position: relative;
-    z-index: 1;
-}
 
-.broadcast-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 24px;
-    padding: 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(12px);
-    transition: all var(--transition-base);
-}
-
-.broadcast-card:hover {
-    border-color: var(--accent-violet);
-    box-shadow: 0 20px 50px rgba(139, 92, 246, 0.15);
-}
-
-.broadcast-glow {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: -1;
-}
-
-.broadcast-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    display: inline-block;
-    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.3));
-}
-
-.broadcast-title {
-    font-size: clamp(1.5rem, 4vw, 2.25rem);
-    font-weight: 700;
-    margin-bottom: 16px;
-    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.broadcast-text {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto 32px;
-    line-height: 1.7;
-}
-
-.broadcast-actions {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.broadcast-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 28px;
-    border-radius: 14px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all var(--transition-base);
-    position: relative;
-    overflow: hidden;
-}
-
-.channel-btn {
-    background: var(--gradient-primary);
-    color: white;
-    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
-}
-
-.channel-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.5);
-}
-
-.dm-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-primary);
-}
-
-.dm-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--accent-cyan);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(6, 182, 212, 0.2);
-}
-
-.broadcast-btn svg {
-    width: 20px;
-    height: 20px;
-}
 
 /* ========================================
    FOOTER
