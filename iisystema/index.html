@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кейс ii.systema</title>
+<meta name="description" content="Кейс: как один человек запустил медиа-конвейер на ИИ. 44 ролика за 14 дней, 170 942 просмотра, 994 кодовых слова в комментариях. Этапы, проблемы, цифры, снимки экранов и условия внедрения.">
+<meta property="og:title" content="Кейс ii.systema: медиа-студия из одного человека на ИИ">
+<meta property="og:description" content="От чужого референса до выложенного ролика без ручной рутины. 44 ролика за 14 дней, 170 942 просмотра.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://petrsolovarov.ru/iisystema/">
+<meta property="og:image" content="https://petrsolovarov.ru/iisystema/img/instagram-grid.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<style>
+/* Одна колонка чтения; снимки шире текста. Даты этапов слева. Палитра ii.systema: графит и золото. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --yt: #d9433a; --ig: #c13f8f; --tt: #3a9bd9;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+    --yt: #ef6a60; --ig: #e26cb4; --tt: #6cbcf0;
+  }
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; }
+img { max-width: 100%; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top b { color: var(--fg); font-weight: 600; }
+
+.hero { padding-block: 48px 40px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(34px, 5.6vw, 60px); font-weight: 700; max-width: 15em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 24px; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px 32px; margin-top: 40px; }
+.meta dt { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 600; }
+.meta dd { margin: 4px 0 0; font-weight: 600; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); margin-block: 40px; border: 1px solid var(--line); background: var(--surface); }
+.figures div { padding: 22px 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 38px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.stage { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 0 40px; padding-block: 64px 8px; border-top: 1px solid var(--line); }
+.stage > .when { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--accent); letter-spacing: .04em; padding-top: 6px; position: sticky; top: 16px; align-self: start; }
+.stage > .when small { display: block; color: var(--muted); font-weight: 500; font-size: 13px; margin-top: 2px; letter-spacing: 0; }
+.stage h2 { font-size: clamp(28px, 3.6vw, 38px); margin-bottom: 20px; }
+.stage h3 { font-size: 20px; margin: 28px 0 8px; }
+.stage ul, .stage ol.plain { padding-left: 1.2em; margin: 0 0 1em; }
+.stage li { margin-bottom: .45em; }
+.stage li::marker { color: var(--accent); }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 28px; }
+.pair .shot { margin: 0; }
+.narrow { max-width: 440px; }
+.shot + ul { margin-top: 24px; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 170px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.note.warn { border-left-color: var(--warn); }
+
+.doc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px 26px; margin: 28px 0 8px; font-size: 16px; line-height: 1.55; }
+.doc h4 { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 18px 0 8px; font-weight: 600; }
+.doc h4:first-child { margin-top: 0; }
+.doc ol { margin: 0; padding-left: 1.3em; }
+.doc .row { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.doc .row:last-child { border-bottom: 0; }
+.doc .row span { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 14px; padding-top: 2px; }
+.doc .cta { color: var(--accent); font-weight: 600; }
+
+.hb { margin: 10px 0; }
+.hb-t { font-size: 14px; margin-bottom: 4px; }
+.hb-row { display: flex; align-items: center; gap: 10px; }
+.hb-bar { display: flex; height: 18px; border-radius: 3px; overflow: hidden; min-width: 4px; }
+.hb-bar i { display: block; height: 100%; }
+.hb-row b { font-family: var(--font-display); font-variant-numeric: tabular-nums; font-size: 15px; white-space: nowrap; }
+.yt { background: var(--yt); } .ig { background: var(--ig); } .tt { background: var(--tt); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--muted); margin: 14px 0 0; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; }
+.chartbox { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px 26px; margin: 28px 0 8px; }
+.chartbox h3 { margin: 0 0 14px !important; font-size: 18px !important; }
+.vcols { display: flex; align-items: flex-end; gap: 6px; height: 170px; padding-top: 22px; }
+.vc { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; min-width: 0; }
+.vc b { font-family: var(--font-display); font-size: 13px; font-variant-numeric: tabular-nums; margin-bottom: 4px; }
+.vc-bar { width: 100%; background: var(--accent); border-radius: 3px 3px 0 0; min-height: 3px; }
+.vc span { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+.lessons { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px 40px; margin-top: 24px; }
+.lessons h3 { margin-top: 0 !important; }
+
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px !important; font-size: 21px !important; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+
+.end { padding-block: 64px 0; border-top: 1px solid var(--line); margin-top: 64px; }
+.end h2 { font-size: clamp(28px, 3.6vw, 38px); margin-bottom: 20px; }
+.footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .stage { grid-template-columns: minmax(0, 1fr); padding-block-start: 44px; }
+  .stage > .when { position: static; margin-bottom: 10px; }
+  .doc .row { grid-template-columns: 44px 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="https://petrsolovarov.ru" style="color:inherit;text-decoration:none"><b>Пётр Соловаров</b> · кейсы</a><span>Октябрь 2026</span></div>
+
+  <header class="hero">
+    <div class="eyebrow">Кейс · контент на ИИ · собственный проект</div>
+    <h1>Медиа-студия из одного человека: <span>от референса до выложенного ролика</span> без ручной рутины</h1>
+    <p class="lead">За две недели я собрал конвейер, который сам разбирает залетевшие ролики, пишет сценарии под мой голос, монтирует, выкладывает на три площадки, отвечает на комментарии и считает воронку. От меня нужны две вещи: ссылки на примеры и записанные дубли. Ниже этапы, поломки, цифры и снимки экранов, а в конце условия, на которых я подключаю такую систему другим.</p>
+    <dl class="meta">
+      <div><dt>Проект</dt><dd>ii.systema, мой блог про внедрение ИИ в бизнес</dd></div>
+      <div><dt>Период</dt><dd>30 сентября – 16 октября 2026</dd></div>
+      <div><dt>Что сделано</dt><dd>Разбор референсов, сценарии, суфлёр, автомонтаж, выкладка, комментарии, воронка, учёт в Notion</dd></div>
+      <div><dt>Статус</dt><dd>Работает каждый день, конвейер включён</dd></div>
+    </dl>
+    <div class="cta-row">
+      <a class="btn" href="#offer">Как подключить у себя</a>
+      <a class="btn ghost" href="#proof">Где проверить цифры</a>
+    </div>
+  </header>
+
+  <section class="figures" aria-label="Итоги в цифрах">
+    <div><strong>44</strong><span>ролика вышли за 14 дней (2–15 октября), в среднем три в день</span></div>
+    <div><strong>170 942</strong><span>просмотра на трёх площадках: YouTube, Instagram, TikTok</span></div>
+    <div><strong>994</strong><span>человека написали кодовое слово «система» под роликами</span></div>
+    <div><strong>825</strong><span>автоответов с инструкцией отправил бот (счёт с 6 октября)</span></div>
+    <div><strong>515 → 620</strong><span>подписчиков в Telegram-канале за неделю, с 9 по 16 октября</span></div>
+    <div><strong>≈ 1 ¢</strong><span>стоит ИИ-разбор одного референса, остальное идёт по подписке</span></div>
+  </section>
+
+  <section class="stage" id="start">
+    <div class="when">30 сентября<small>Задача</small></div>
+    <div>
+      <h2>Что строим и зачем</h2>
+      <div class="read">
+        <p>Блог про ИИ в бизнесе нужен как вход для клиентов: человек смотрит короткий ролик, пишет слово под ним, получает инструкцию и попадает в Telegram. Для этого роликов должно выходить много и регулярно, а у одного человека на это нет ни времени, ни команды.</p>
+        <p>Поэтому я не стал «делать контент», а собрал систему, где каждый шаг делает программа, а человек остаётся там, где нужен: выбрать, что хорошо заходит, и записать себя на камеру.</p>
+      </div>
+      <ol class="flow">
+        <li><b>Референс</b>ссылка на залетевший ролик</li>
+        <li><b>Разбор</b>что сказано, как построено, что показано</li>
+        <li><b>Сценарий</b>свои слова, три хука, три концовки</li>
+        <li><b>Запись</b>по суфлёру на телефоне</li>
+        <li><b>Монтаж</b>вставки, субтитры, звук, обложки</li>
+        <li><b>Выкладка</b>три площадки по расписанию</li>
+        <li><b>Комментарии</b>кодовое слово → инструкция</li>
+        <li><b>Цифры</b>воронка и статистика в Notion</li>
+      </ol>
+      <ul class="read">
+        <li>Руками остаются только два шага: прислать ссылку и записать дубль.</li>
+        <li>Всё общение с системой идёт через Telegram-группу с темами, а учёт — в Notion.</li>
+        <li>Бесплатные пути в приоритете: подписка на нейросеть вместо оплаты за каждый вызов.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stage" id="refs">
+    <div class="when">30 сентября – 2 октября<small>Разбор и учёт</small></div>
+    <div>
+      <h2>Референсы превращаются в карточки с планом</h2>
+      <div class="read">
+        <p>Я кидаю в Telegram-тему ссылку на залетевший ролик. Сервер скачивает его, расшифровывает речь, нейросеть смотрит видео и записывает, о чём оно, как построено и что показано на экране. Результат сам ложится строкой в «Контент-план» в Notion: заголовок, хук, статус, дальше цифры по площадкам.</p>
+        <p>За две недели через разбор прошло 68 референсов. Каждое изменение в проекте записывается в журнал Notion, на 16 октября там 106 записей. Через него видно, что и когда менялось.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame"><img src="/iisystema/img/notion-plan.jpg" alt="Контент-план в Notion с видами: таблица, доска, календарь, расписание, конвейер" loading="lazy"></div>
+        <figcaption>«Контент-план» в Notion: каждая строка — ролик от идеи до публикации. Сверху виды: таблица, доска, календарь, расписание и конвейер. В списке видны сценарии REEL-60…72, готовые к записи.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="/iisystema/img/notion-conveyor.jpg" alt="Доска «Конвейер» по статусам: Готов, Запись, Сценарий, Опубликован" loading="lazy"></div>
+        <figcaption>Вид «Конвейер»: ролики по этапам — «Готов», «Запись», «Сценарий», «Опубликован». Даты у готовых — время, когда бот сам выложит их по расписанию.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage" id="script">
+    <div class="when">1–4 октября<small>Сценарий</small></div>
+    <div>
+      <h2>Свои слова вместо чужих, и суфлёр, чтобы это записать</h2>
+      <div class="read">
+        <p>Я беру структуру и тему залетевшего ролика, а слова пишу свои. Сценарий собирается по жёстким правилам: три разных хука, текст по фразам и три концовки с одним целевым действием. Хуки, текст и концовки пишет Claude Opus 5.5 по подписке. Если он недоступен, подключается Gemini.</p>
+        <p>Правила тона вынесены в отдельные файлы: живая речь без канцелярита, жаргон простыми словами, никаких выдуманных фактов и обещанных материалов. Особый разбор ловит штампы вроде «не только…, но и…» и возвращает текст на переписывание.</p>
+        <p>Готовый текст приезжает на телефон в моё приложение-суфлёр: полоска текста поверх камеры у фронталки. Я читаю и записываю дубль.</p>
+      </div>
+      <div class="doc" role="group" aria-label="Фрагмент сценария из Notion">
+        <h4>Хук — три варианта на выбор</h4>
+        <ol>
+          <li>Свой Джарвис за выходные. Держи девять шагов.</li>
+          <li>Старый ноутбук в шкафу? Сделай из него ИИ-сотрудника.</li>
+          <li>Думал, такое бывает только в кино. Собрал за два дня.</li>
+        </ol>
+        <h4>Мой текст — фрагмент по фразам</h4>
+        <div class="row"><span>00:00</span><div>Окей, сейчас я покажу, как собрать своего Джарвиса. Девять шагов — и хватит одних выходных.</div></div>
+        <div class="row"><span>00:03</span><div>Шаг первый. Дай ему тело. Старый ноутбук, Mac mini или сервер — подойдёт всё.</div></div>
+        <div class="row"><span>00:12</span><div>Шаг третий. Обвязка, по-английски harness. Она превращает нейросеть из собеседника в помощника, который сам действует.</div></div>
+        <div class="row"><span>00:29</span><div>Шаг шестой. Дай ему постоянную память. Например, через State.</div></div>
+        <h4>Концовка</h4>
+        <div>Джарвис — не игрушка из кино. Это сотрудник, который забирает у тебя рутину. <span class="cta">Напиши «система» в комментариях — пришлю гайд по сборке.</span></div>
+      </div>
+      <p class="shot" style="margin-top:10px"><small style="color:var(--muted)">Фрагмент страницы сценария REEL-6 в Notion, текст скопирован как есть. Четвёртая колонка таблицы, «Вклейка», описывает, что показать на экране на каждой фразе.</small></p>
+      <div class="note read"><b>Решение.</b> Старые сценарии я переписываю по свежим правилам одной кнопкой «Переписать живее»: Opus переписывает, проверка ловит штампы, прежняя версия остаётся в архиве. Хорошее правило применяется ко всем роликам сразу, а не к следующему.</div>
+    </div>
+  </section>
+
+  <section class="stage" id="montage">
+    <div class="when">1–10 октября<small>Монтаж</small></div>
+    <div>
+      <h2>Автомонтаж в стиле, который снят с реальных роликов</h2>
+      <div class="read">
+        <p>Стиль монтажа я не придумывал: покадрово измерил три залетевших ролика (темп 3,1 слова в секунду, первая смена картинки примерно на первой секунде, бит около двух секунд) и записал как правила для Claude. Остальное делает связка на моём компьютере: распознавание речи на видеокарте, вырезка фигуры, анимированные вставки с интерфейсами, субтитры по два слова, звуки, финальная плашка «СИСТЕМА».</p>
+        <p>Дубль отправляется в Telegram-тему, бот передаёт задачу на компьютер, а обратно приходит готовый ролик. На экране видно живой статус: этапы, проценты и оставшееся время. Здесь монтаж REEL-6 «Свой Джарвис»: из 108 секунд сырого дубля после вырезки пауз и вставок получилось 82 секунды.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame"><img src="/iisystema/img/before-after.jpg" alt="Сырой дубль и пять кадров готового ролика: крупный план и анимированные вставки" loading="lazy"></div>
+        <figcaption>Слева сырой дубль, справа кадры готового ролика REEL-6. Вставки с интерфейсами («Шаг 1 · Тело», «Шаг 2 · Нейросеть», «Шаг 6 · Память») нарисованы системой под каждую фразу, это не чужие кадры.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="/iisystema/img/montage-sheet.jpg" alt="Контрольная раскадровка монтажа: десятки кадров по порядку" loading="lazy"></div>
+        <figcaption>Контрольная раскадровка, которую система делает после каждого монтажа: можно пролистать весь ролик глазами и поймать ошибку до выкладки.</figcaption>
+      </figure>
+      <ul class="read">
+        <li>Вырезка фигуры на видеокарте занимает около 2,5 минуты на минуту дубля вместо получаса на процессоре.</li>
+        <li>Если закончился лимит подписки, система сама ждёт сброса и продолжает с того места, где остановилась.</li>
+        <li>Две обложки на каждый ролик, с лицом и с графикой, чтобы сетка профиля чередовалась шахматкой.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stage" id="publish">
+    <div class="when">2–5 октября<small>Выкладка</small></div>
+    <div>
+      <h2>Конвейер с рубильником: выложит сам, в свой слот</h2>
+      <div class="read">
+        <p>Готовый монтаж бот сам кладёт в первый свободный слот расписания, пишет заголовок, описание и теги, выкладывает на YouTube и в Instagram строго по одному и отправляет черновик в TikTok. Слот каждый день сдвигается на несколько минут, чтобы публикации не выходили ровно в одно и то же время.</p>
+        <p>Весь конвейер выключается и включается одной кнопкой на закреплённом табло. 4 октября я включил его впервые: в тот же вечер три ролика вышли сами, а сетка Instagram получилась идеальной шахматкой.</p>
+      </div>
+      <div class="pair">
+        <figure class="shot">
+          <div class="frame"><img src="/iisystema/img/instagram-grid.jpg" alt="Сетка профиля Instagram ii.systema с чередованием обложек" loading="lazy"></div>
+          <figcaption>Профиль @ii.systema: 509 подписчиков. Обложки чередуются лицо / графика, так решает бот.</figcaption>
+        </figure>
+        <figure class="shot narrow">
+          <div class="frame"><img src="/iisystema/img/youtube-short.jpg" alt="Ролик «Свой Джарвис» в YouTube Shorts: 354 лайка, 291 комментарий" loading="lazy"></div>
+          <figcaption>Тот же ролик REEL-6 на YouTube Shorts: 354 лайка и 291 комментарий.</figcaption>
+        </figure>
+      </div>
+      <div class="note read"><b>Откуда взялся рубильник.</b> 4 октября три параллельных нажатия «Выложить» перепутали порядок в Instagram. После этого выкладка идёт строго по одному, а очередь и шахматка считаются ботом.</div>
+    </div>
+  </section>
+
+  <section class="stage" id="leads">
+    <div class="when">3–9 октября<small>Комментарии и воронка</small></div>
+    <div>
+      <h2>Кодовое слово превращает зрителя в подписчика</h2>
+      <div class="read">
+        <p>В каждом ролике я обещаю инструкцию: «напиши „система“ в комментариях». Раз в пять минут система ищет это слово под выложенными роликами. В Instagram она отвечает под комментарием и присылает ссылку в личные сообщения, на YouTube отвечает коротко и отправляет в шапку канала. Тексты ответов каждый раз разные.</p>
+        <p>Инструкцию к ролику система делает сама: нейросеть с поиском собирает её страницей, а я получаю готовый материал в Notion. С 9 октября в личные сообщения идёт ссылка на закреплённый пост Telegram-канала, так что трафик из роликов собирается в одном месте.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame"><img src="/iisystema/img/materials-hub.jpg" alt="Страница «Материалы»: инструкции к роликам ii.systema" loading="lazy"></div>
+        <figcaption>Публичная страница «Материалы»: инструкции к роликам, свежие сверху. Её создаёт и обновляет система.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="/iisystema/img/telegram-channel.jpg" alt="Telegram-канал ii.systema: 620 подписчиков и закреплённый пост со ссылкой на инструкции" loading="lazy"></div>
+        <figcaption>Telegram-канал: 620 подписчиков и закреплённый пост «Инструкции здесь» с просмотрами.</figcaption>
+      </figure>
+      <div class="chartbox">
+        <h3>Кодовых слов под роликами по дням</h3>
+        <div class="vcols" role="img" aria-label="Столбчатая диаграмма кодовых слов по дням с 3 по 15 октября">
+<div class="vc"><b>8</b><div class="vc-bar" style="height:3.7%"></div><span>3.10</span></div>
+<div class="vc"><b>72</b><div class="vc-bar" style="height:33.0%"></div><span>4.10</span></div>
+<div class="vc"><b>81</b><div class="vc-bar" style="height:37.2%"></div><span>5.10</span></div>
+<div class="vc"><b>54</b><div class="vc-bar" style="height:24.8%"></div><span>6.10</span></div>
+<div class="vc"><b>64</b><div class="vc-bar" style="height:29.4%"></div><span>7.10</span></div>
+<div class="vc"><b>121</b><div class="vc-bar" style="height:55.5%"></div><span>8.10</span></div>
+<div class="vc"><b>218</b><div class="vc-bar" style="height:100.0%"></div><span>9.10</span></div>
+<div class="vc"><b>115</b><div class="vc-bar" style="height:52.8%"></div><span>10.10</span></div>
+<div class="vc"><b>85</b><div class="vc-bar" style="height:39.0%"></div><span>11.10</span></div>
+<div class="vc"><b>112</b><div class="vc-bar" style="height:51.4%"></div><span>12.10</span></div>
+<div class="vc"><b>37</b><div class="vc-bar" style="height:17.0%"></div><span>13.10</span></div>
+<div class="vc"><b>20</b><div class="vc-bar" style="height:9.2%"></div><span>14.10</span></div>
+<div class="vc"><b>7</b><div class="vc-bar" style="height:3.2%"></div><span>15.10</span></div>
+        </div>
+        <p style="font-size:14px;color:var(--muted);margin:14px 0 0">Данные из базы «Воронка» в Notion. Пик 9 октября (218) пришёлся на день после роликов про AGENTS.md и скилл Watch. Последние дни ниже: на свежих роликах слова ещё копятся.</p>
+      </div>
+      <div class="lessons" style="margin-top:28px">
+        <div><h3>Воронка в цифрах</h3>
+          <ul>
+            <li>994 кодовых слова под роликами</li>
+            <li>825 отправленных ответов с инструкцией (с 6 октября)</li>
+            <li>338 открытий инструкций на сайте «Материалы»</li>
+            <li>209 переходов из личных сообщений в Telegram (с 9 октября)</li>
+          </ul>
+        </div>
+        <div><h3>Как читать эти цифры</h3>
+          <p style="font-size:15px;color:var(--muted)">Счётчики вели с разных дат, поэтому это не строгая воронка «из N в M». Это пять независимых замеров, каждый можно проверить в Notion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="fails">
+    <div class="when">Всё время<small>Что ломалось</small></div>
+    <div>
+      <h2>Поломки и что с ними сделали</h2>
+      <div class="read">
+        <p>За две недели система падала. Каждую поломку я разбирал до причины и закрывал так, чтобы она не повторилась.</p>
+      </div>
+      <div class="tablewrap"><table class="fix">
+        <thead><tr><th>Что случилось</th><th>Что сделали</th></tr></thead>
+        <tbody>
+          <tr><td>Первый монтаж остановил лимит подписки на шаге 4 из 7</td><td>Раннер сам ждёт сброса лимита и продолжает ту же сессию, готовые шаги не повторяются. Есть кнопка «Продолжить».</td></tr>
+          <tr><td>Вырезка фигуры занимала 35+ минут на дубль</td><td>Перенёс на видеокарту: около 2,5 минуты. Поставил скриптом, который накатывается одной командой.</td></tr>
+          <tr><td>Диск на компьютере заполнился, синхронизация встала, статусы монтажа замёрзли</td><td>Система сама облегчает старые проекты, чистит кэш и предупреждает в Telegram, когда свободно меньше 15 ГБ.</td></tr>
+          <tr><td>Сон компьютера оборвал монтаж восьми роликов (10 октября)</td><td>Три автоповтора, автоочистка при нехватке места, бот сам продолжает прерванное.</td></tr>
+          <tr><td>Три параллельных «Выложить» перепутали порядок в Instagram</td><td>Выкладка строго по одному, очередь со слотами, шахматка считается ботом.</td></tr>
+          <tr><td>Instagram в режиме разработки скрывал чужие комментарии</td><td>Перевёл приложение в рабочий режим: комментарии стали видны, автоответ заработал.</td></tr>
+          <tr><td>Ошибка запроса к Notion сломала узнавание дублей без подписи</td><td>Фильтр перенесён на нашу сторону, бот повторяет попытку и сообщает о копиях сценария.</td></tr>
+          <tr><td>Звуковые эффекты тонули под тихим голосом</td><td>Замерил громкость, пересвёл ролик заново и закрепил правило в стиле монтажа.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section class="stage" id="results">
+    <div class="when">Итоги<small>На 16 октября</small></div>
+    <div>
+      <h2>Результаты и польза</h2>
+      <div class="read">
+        <p>Цифры взяты из «Контент-плана» в Notion, куда их записывает бот по API площадок: через 2 часа, сутки, 3 дня, неделю и месяц после выхода. Свежие ролики ещё добирают просмотры.</p>
+      </div>
+      <div class="chartbox">
+        <h3>Восемь самых просматриваемых роликов</h3>
+<div class="hb"><div class="hb-t">Файл AGENTS.md: код без ошибок</div><div class="hb-row"><div class="hb-bar" style="width:100.00%"><i class="yt" style="flex:2412"></i><i class="ig" style="flex:26364"></i><i class="tt" style="flex:219"></i></div><b>28 995</b></div></div>
+<div class="hb"><div class="hb-t">Скилл Watch: разбор любых видео</div><div class="hb-row"><div class="hb-bar" style="width:81.29%"><i class="yt" style="flex:1436"></i><i class="ig" style="flex:22023"></i><i class="tt" style="flex:112"></i></div><b>23 571</b></div></div>
+<div class="hb"><div class="hb-t">Свой Джарвис за 9 шагов</div><div class="hb-row"><div class="hb-bar" style="width:58.06%"><i class="yt" style="flex:14664"></i><i class="ig" style="flex:1869"></i><i class="tt" style="flex:302"></i></div><b>16 835</b></div></div>
+<div class="hb"><div class="hb-t">4 плагина для Claude Code</div><div class="hb-row"><div class="hb-bar" style="width:30.05%"><i class="yt" style="flex:150"></i><i class="ig" style="flex:7847"></i><i class="tt" style="flex:716"></i></div><b>8 713</b></div></div>
+<div class="hb"><div class="hb-t">5 безопасных скиллов для Claude Code</div><div class="hb-row"><div class="hb-bar" style="width:27.65%"><i class="yt" style="flex:2604"></i><i class="ig" style="flex:4998"></i><i class="tt" style="flex:414"></i></div><b>8 016</b></div></div>
+<div class="hb"><div class="hb-t">Бесплатный Claude Code через OmniRoute</div><div class="hb-row"><div class="hb-bar" style="width:27.15%"><i class="yt" style="flex:1358"></i><i class="ig" style="flex:6205"></i><i class="tt" style="flex:310"></i></div><b>7 873</b></div></div>
+<div class="hb"><div class="hb-t">Секретная базовая аналитика Claude</div><div class="hb-row"><div class="hb-bar" style="width:21.17%"><i class="yt" style="flex:40"></i><i class="ig" style="flex:5824"></i><i class="tt" style="flex:275"></i></div><b>6 139</b></div></div>
+<div class="hb"><div class="hb-t">3 библиотеки для дорогого дизайна</div><div class="hb-row"><div class="hb-bar" style="width:14.56%"><i class="yt" style="flex:2658"></i><i class="ig" style="flex:1178"></i><i class="tt" style="flex:385"></i></div><b>4 221</b></div></div>
+        <div class="legend"><span><i class="yt"></i>YouTube Shorts</span><span><i class="ig"></i>Instagram Reels</span><span><i class="tt"></i>TikTok</span></div>
+      </div>
+      <div class="lessons">
+        <div><h3>Для автора</h3>
+          <ul>
+            <li>Из рутины остались две задачи: прислать ссылку и записать дубль. Всё остальное делает конвейер.</li>
+            <li>В запасе всегда есть сценарии: на скриншоте «Контент-плана» выше сценарии REEL-60…72 уже ждут записи. Дубли пишу пачками: 12 роликов 14 октября записаны за 25 минут.</li>
+            <li>Система сама подсказывает, сколько роликов и каких нужно снять, чтобы очередь не опустела.</li>
+          </ul>
+        </div>
+        <div><h3>Для канала</h3>
+          <ul>
+            <li>44 ролика вышли за 14 дней: 170 942 просмотра, 3 607 лайков, 2 130 комментариев, 5 500 сохранений.</li>
+            <li>Структура просмотров: YouTube 60 378, Instagram 96 929, TikTok 13 635.</li>
+            <li>Три ролика набрали больше 16 тысяч, семь из 44 перешли за 5 000.</li>
+            <li>Telegram-канал вырос с 515 до 620 подписчиков за неделю.</li>
+          </ul>
+        </div>
+        <div><h3>Для бизнеса</h3>
+          <ul>
+            <li>ИИ-разбор референса стоит около цента, сценарии и монтаж идут по подписке без оплаты за каждый вызов.</li>
+            <li>Каждый ролик заканчивается одним целевым действием, и воронка считает, сколько людей дошло до каждого шага.</li>
+            <li>Система повторяема: её можно настроить под другой голос, нишу и набор площадок.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note warn read"><b>Что честно стоит сказать.</b> Просмотры распределены неровно: медиана 1 910 просмотров на ролик, 9 роликов не дошли до тысячи. TikTok даёт всего 8% просмотров и 16 подписчиков, часть роликов там ещё выкладывается через черновики, пока приложение проходит проверку на прямую публикацию. Клиентов и выручки с этого блога пока не измерено: проект две недели, а цикл продажи длиннее. Эта цифра появится после первых договоров.</div>
+    </div>
+  </section>
+
+  <section class="stage" id="proof">
+    <div class="when">Доказательства<small>Где проверить</small></div>
+    <div>
+      <h2>Каждую цифру можно проверить самому</h2>
+      <div class="read">
+        <p>Часть источников открыта всем, часть живёт в моём Notion. Всё, что открыто, привожу ссылками. Скриншоты выше сняты 16 октября 2026.</p>
+      </div>
+      <div class="tablewrap"><table class="fix">
+        <thead><tr><th>Что проверяем</th><th>Где смотреть</th></tr></thead>
+        <tbody>
+          <tr><td>Профиль и сетка обложек</td><td><a href="https://www.instagram.com/ii.systema/" rel="noopener">instagram.com/ii.systema</a></td></tr>
+          <tr><td>Ролики и просмотры на YouTube</td><td><a href="https://youtube.com/shorts/EfDf9lFcr7g" rel="noopener">«Свой Джарвис»</a>, <a href="https://youtube.com/shorts/8O4G_BabmwY" rel="noopener">«AGENTS.md»</a>, <a href="https://youtube.com/shorts/1g2km9gt7iA" rel="noopener">«Скилл Watch»</a>, <a href="https://youtube.com/shorts/EceVim2BlzU" rel="noopener">«4 плагина»</a></td></tr>
+          <tr><td>Ролики в Instagram</td><td><a href="https://www.instagram.com/reel/DeO5WWolK-J/" rel="noopener">«AGENTS.md»</a>, <a href="https://www.instagram.com/reel/DePVFNMCvb2/" rel="noopener">«Скилл Watch»</a>, <a href="https://www.instagram.com/reel/DeXDSrEjRg_/" rel="noopener">«4 плагина»</a></td></tr>
+          <tr><td>Инструкции по кодовому слову</td><td><a href="https://video.petrsolovarov.ru/materials" rel="noopener">video.petrsolovarov.ru/materials</a></td></tr>
+          <tr><td>Подписчики Telegram</td><td><a href="https://t.me/s/solovarovp" rel="noopener">t.me/solovarovp</a></td></tr>
+          <tr><td>Контент-план, воронка, журнал изменений</td><td>Notion «ii.systema — Медиа-штаб», показываю экран на созвоне или даю доступ на просмотр под NDA</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section class="stage" id="offer">
+    <div class="when">Предложение<small>Как подключить</small></div>
+    <div>
+      <h2>Как подключить такую систему у вас</h2>
+      <div class="read">
+        <p>Я не продаю «ролики» и не обещаю просмотры. Я настраиваю систему, которую вы видели выше, под вашу нишу, ваш голос и ваши площадки. Снимаете вы или эксперт вашей компании, всё остальное делает конвейер.</p>
+        <h3>Кому подходит</h3>
+        <ul>
+          <li>Экспертам, клиникам, школам, студиям и агентствам, у кого есть что сказать, но нет команды и времени на монтаж.</li>
+          <li>Тем, кому нужно 20–30 роликов в месяц при одной короткой съёмочной сессии в неделю.</li>
+          <li>Не подойдёт, если нужны постановочные ролики с актёрами и сложной графикой, или если никто не готов сниматься.</li>
+        </ul>
+      </div>
+      <div class="pkgs">
+        <div class="pkg">
+          <h3>Пилот</h3>
+          <div class="price">59 000 ₽</div>
+          <div class="term">14 дней, 10 роликов</div>
+          <ul>
+            <li>Настройка стиля монтажа под ваш бренд</li>
+            <li>Подключение YouTube, Instagram и TikTok</li>
+            <li>10 роликов от референса до выкладки; вы записываете дубли по суфлёру, около двух часов</li>
+            <li>Отчёт с цифрами по каждому ролику</li>
+            <li>Результат: 10 вышедших роликов и понимание, подходит ли вам формат</li>
+          </ul>
+        </div>
+        <div class="pkg main">
+          <h3>Конвейер под ключ</h3>
+          <div class="price">190 000 ₽</div>
+          <div class="term">10–14 рабочих дней, разово</div>
+          <ul>
+            <li>Всё из пилота, но система остаётся у вас: сервер, Telegram-бот, суфлёр, учёт в Notion</li>
+            <li>Кодовое слово, автоответы в комментариях и страница «Материалы»</li>
+            <li>Воронка с отчётом каждое утро</li>
+            <li>Обучение вашего сотрудника и 30 дней сопровождения</li>
+            <li>Стоимость пилота засчитывается в эту сумму</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <h3>Сопровождение</h3>
+          <div class="price">29 000 ₽ <small>в месяц</small></div>
+          <div class="term">после запуска, можно отменить в любой месяц</div>
+          <ul>
+            <li>Слежу, чтобы конвейер работал, и чиню поломки</li>
+            <li>Обновляю правила под новые возможности площадок и нейросетей</li>
+            <li>Еженедельный отчёт и разбор, что заходит лучше</li>
+            <li>До четырёх часов доработок в месяц</li>
+          </ul>
+        </div>
+      </div>
+      <div class="read">
+        <h3>Условия</h3>
+        <ul>
+          <li><b>Оплата.</b> Пилот: 50% до старта, 50% после сдачи. Под ключ: 50% до старта, 30% после запуска, 20% после обучения.</li>
+          <li><b>Расходы на сервисы</b> платите вы напрямую, я ничего не перепродаю: подписка на нейросеть (Claude), небольшой сервер от 500 ₽ в месяц, ИИ-разбор референсов копейки на ролик. Все аккаунты и доступы остаются на вас.</li>
+          <li><b>Что на вашей стороне.</b> Записать дубли, выдать доступ к площадкам, согласовать стиль на первом ролике и отвечать в течение рабочего дня.</li>
+          <li><b>Что я гарантирую.</b> Срок и работающую цепочку, как на этой странице. Просмотры, подписчиков и заявки не гарантирую: они зависят от темы, ваших записей и рынка. Если по моей вине пилот не выпустил 10 роликов за 14 дней, возвращаю оплату за невыпущенные ролики.</li>
+          <li><b>Данные.</b> Контент, расшифровки и настройки принадлежат вам. Подпишу NDA до того, как вы покажете внутренние материалы.</li>
+          <li><b>Ограничения площадок.</b> Прямая выкладка в TikTok зависит от проверки приложения самой площадкой. Пока она не пройдена, в TikTok ролики попадают в черновики, и вы публикуете их одним нажатием.</li>
+        </ul>
+        <div class="note"><b>Первый шаг бесплатный.</b> Напишите мне в Telegram слово «система». Мы за 30 минут посмотрим вашу нишу и три ролика-примера, и я скажу, подходит ли вам пилот и чего от него ждать. Цены выше ориентировочные, итог зависит от числа площадок и объёма.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="end" id="next">
+    <div class="read">
+      <h2>Что получилось и что дальше</h2>
+      <p>Блог с нуля превратился в конвейер, который держит регулярный выход роликов, отвечает людям и считает результат. Главное в нём не набор программ, а цепочка проверок: сценарий проходит правила, монтаж проходит контрольную раскадровку, выкладка идёт строго по очереди, а цифры возвращаются в одну таблицу. Что это даст в клиентах и деньгах, покажут ближайшие недели.</p>
+    </div>
+    <div class="lessons">
+      <div><h3>Что сработало</h3>
+        <ul>
+          <li>Правила тона и стиля в файлах, а не в голове: их можно улучшить один раз для всех роликов.</li>
+          <li>Единый учёт в Notion: видно, где каждый ролик и сколько он дал.</li>
+          <li>Кодовое слово вместо ссылок: площадки не режут охват, а человек сам просит материал.</li>
+        </ul>
+      </div>
+      <div><h3>Чему научился</h3>
+        <ul>
+          <li>Цепочка ломается на стыках: диски, сон компьютера, лимиты, режимы приложений. Нужны автоповторы и понятные статусы.</li>
+          <li>Автоматизация не отменяет контроль: раскадровка и ручной выбор обложки остались.</li>
+          <li>Метрики нужно вести с первого дня, иначе нет базы для сравнения.</li>
+        </ul>
+      </div>
+      <div><h3>Следующие шаги</h3>
+        <ul>
+          <li>Подключить прямую выкладку в TikTok после проверки приложения.</li>
+          <li>Замерить, сколько подписчиков из роликов становится клиентами.</li>
+          <li>Собрать пакет «ИИ-монтажёр» для самостоятельной установки.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer"><span>Пётр Соловаров</span><span>petrsolovarov.ru</span></p>
+  </section>
+</div>
+</body>
+</html>
