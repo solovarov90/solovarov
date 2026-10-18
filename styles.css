@@ -1066,3 +1066,15 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+/* Ссылка на сайт с кейсами */
+.case-site-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--accent-cyan);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.case-site-link:hover {
+    text-decoration: underline;
+}
