@@ -16,6 +16,8 @@
     <meta property="og:description" content="Создаю цифровые продукты и автоматизирую процессы с помощью AI">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://petrsolovarov.ru">
+    <link rel="canonical" href="https://petrsolovarov.ru/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
 
     <!-- Preload critical resources -->
     <link rel="stylesheet" href="styles.css">
@@ -31,6 +33,41 @@
         gtag('config', 'G-L8LDD3GC32');
     </script>
 
+
+    <script type="application/ld+json" id="ld-site">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            "@id": "https://petrsolovarov.ru/#person",
+            "name": "Пётр Соловаров",
+            "url": "https://petrsolovarov.ru/",
+            "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+            "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+            "sameAs": [
+                "https://t.me/solovarov",
+                "https://t.me/solovarovp",
+                "https://www.instagram.com/ii.systema/"
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://petrsolovarov.ru/#website",
+            "url": "https://petrsolovarov.ru/",
+            "name": "Пётр Соловаров",
+            "description": "Внедряю ИИ в бизнес и показываю на своих проектах, как это работает: кейсы и статьи с цифрами.",
+            "inLanguage": "ru-RU",
+            "author": {
+                "@id": "https://petrsolovarov.ru/#person"
+            },
+            "publisher": {
+                "@id": "https://petrsolovarov.ru/#person"
+            }
+        }
+    ]
+}
+    </script>
 
     <!-- DNS Prefetch for external links -->
     <link rel="dns-prefetch" href="https://t.me">
@@ -985,6 +1022,7 @@
                 <a href="#broadcasts" class="nav-link">Эфиры</a>
                 <a href="#projects" class="nav-link">Проекты</a>
                 <a href="https://case.smart-posting.ru" class="nav-link">Кейсы</a>
+                <a href="/blog/" class="nav-link">Блог</a>
                 <a href="#contact" class="nav-link">Контакты</a>
             </div>
         </div>
@@ -1508,6 +1546,42 @@
                 </article>
 
             </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="posts">
+        <style>
+            .posts { padding: 100px 24px; position: relative; }
+            .posts .container { max-width: 1100px; margin: 0 auto; }
+            .posts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+            .post-card { display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; overflow: hidden; text-decoration: none; color: inherit; transition: transform var(--transition-base), border-color var(--transition-base); }
+            .post-card:hover { transform: translateY(-4px); border-color: var(--border-hover); }
+            .post-cover { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; background: #14120f; }
+            .post-body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+            .post-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.8rem; color: var(--text-muted); }
+            .post-meta span:first-child { color: var(--accent-cyan); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+            .post-title { font-size: 1.15rem; font-weight: 600; line-height: 1.3; }
+            .post-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+            .posts-more { text-align: center; margin-top: 36px; }
+            .posts-more a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 100px; border: 1px solid var(--border-hover); color: var(--text-primary); text-decoration: none; font-weight: 500; transition: background var(--transition-base); }
+            .posts-more a:hover { background: rgba(139, 92, 246, 0.12); }
+            .posts-empty { color: var(--text-secondary); text-align: center; }
+            @media (max-width: 768px) { .posts { padding: 70px 20px; } }
+        </style>
+        <div class="container">
+            <header class="section-header">
+                <span class="section-label">Блог</span>
+                <h2 class="section-title">Последние статьи</h2>
+                <p class="section-subtitle">Инструкции про внедрение ИИ в бизнес с цифрами из моих проектов</p>
+            </header>
+            <div class="posts-grid">
+                <!-- BLOG:START -->
+<a class="post-card" href="/blog/media-konveyer-na-ii/"><img class="post-cover" src="/blog/media-konveyer-na-ii/img/cover.jpg" alt="" loading="lazy" decoding="async" width="1200" height="630"><div class="post-body"><div class="post-meta"><span>Контент и видео</span><span>18 октября 2026</span><span>15 мин</span></div><h3 class="post-title">Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</h3><p class="post-desc">Пошагово разбираю конвейер коротких роликов, который я собрал один за две недели: разбор референсов, сценарии, автомонтаж, выкладка на три площадки, автоответы по кодовому слову. С цифрами, ценами и списком того, что сломалось.</p></div></a>
+                <!-- BLOG:END -->
+            </div>
+            <p class="posts-more"><a href="/blog/">Все статьи блога
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a></p>
         </div>
     </section>
 

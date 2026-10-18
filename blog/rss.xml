@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Блог Петра Соловарова: ИИ в бизнесе</title>
+  <link>https://petrsolovarov.ru/blog/</link>
+  <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
+  <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
+  <language>ru</language>
+  <lastBuildDate>Sun, 18 Oct 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</title>
+    <link>https://petrsolovarov.ru/blog/media-konveyer-na-ii/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/media-konveyer-na-ii/</guid>
+    <pubDate>Sun, 18 Oct 2026 09:00:00 +0300</pubDate>
+    <category>Контент и видео</category>
+    <description>Пошагово разбираю конвейер коротких роликов, который я собрал один за две недели: разбор референсов, сценарии, автомонтаж, выкладка на три площадки, автоответы по кодовому слову. С цифрами, ценами и списком того, что сломалось.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/media-konveyer-na-ii/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
+</channel>
+</rss>

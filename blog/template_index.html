@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Блог Петра Соловарова: как внедрить ИИ в бизнес</title>
+<meta name="description" content="Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы по кодовому слову, базы знаний из документов. Факты и цифры из моих проектов.">
+<meta name="author" content="Пётр Соловаров">
+<link rel="canonical" href="https://petrsolovarov.ru/blog/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Блог Петра Соловарова: как внедрить ИИ в бизнес">
+<meta property="og:description" content="Статьи и инструкции про внедрение ИИ в бизнес. Факты и цифры из моих проектов.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/">
+<meta property="og:image" content="https://petrsolovarov.ru/iisystema/img/instagram-grid.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{{json_ld}}
+</script>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; gap: 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 32px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 16em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; }
+.chip { font-family: var(--font-display); font-weight: 600; font-size: 14px; padding: 7px 14px; border-radius: 100px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); text-decoration: none; }
+.chip b { color: var(--muted); font-weight: 500; margin-left: 4px; }
+.chip.is-on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.chip.is-on b { color: inherit; opacity: .8; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-top: 28px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.card[hidden] { display: none; }
+.card-img { display: block; background: var(--shot-bg); aspect-ratio: 1200 / 630; }
+.card-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.card-b { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+.card-m { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); font-family: var(--font-display); font-weight: 500; }
+.card-m span:first-child { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.card h2 { font-size: 21px; }
+.card h2 a { color: var(--fg); text-decoration: none; }
+.card h2 a:hover { color: var(--accent); }
+.card p { margin: 0; font-size: 15px; color: var(--muted); }
+.empty { color: var(--muted); margin-top: 24px; }
+
+.cases { margin-top: 64px; }
+.cases h2 { font-size: clamp(24px, 3vw, 30px); margin: 0 0 16px; padding-top: 24px; border-top: 1px solid var(--line); }
+.cases ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.subscribe { margin-top: 56px; border: 1px solid var(--accent); border-radius: 10px; padding: 24px 26px; background: var(--surface); display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; }
+.subscribe p { margin: 0; max-width: 36em; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; white-space: nowrap; }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+@media (max-width: 760px) { body { font-size: 16px; } .top nav { gap: 6px 12px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/#projects">Кейсы</a><a href="{{channel}}" rel="noopener">Канал</a><a href="/blog/rss.xml">RSS</a></nav>
+  </div>
+  <ol class="crumbs" aria-label="Вы здесь"><li><a href="/">Главная</a></li><li aria-current="page">Блог</li></ol>
+
+  <header class="hero">
+    <div class="eyebrow">Блог · {{count}} статей</div>
+    <h1>Как внедрить ИИ в бизнес: <span>инструкции с цифрами</span> из моих проектов</h1>
+    <p class="lead">Я собираю системы на нейросетях и описываю их честно: что заработало, что сломалось, сколько стоило. Каждая статья заканчивается одним шагом, который можно повторить у себя.</p>
+  </header>
+
+  <nav class="chips" aria-label="Рубрики">{{chips}}</nav>
+  <section class="cards" id="all">{{cards}}</section>
+
+  <section class="subscribe">
+    <p>Хотите такую систему у себя? Напишите мне слово <span class="word">система</span> в Telegram. Бесплатный разбор 30 минут, потом пилот, под ключ или сопровождение.</p>
+    <a class="btn" href="{{telegram}}" rel="noopener">Написать в Telegram</a>
+  </section>
+
+  <section class="cases">
+    <h2>Кейсы</h2>
+    <ul>{{cases}}</ul>
+  </section>
+
+  <p class="footer"><span>© {{year}} <a href="/">Пётр Соловаров</a></span><span><a href="/blog/rss.xml">RSS</a> · <a href="{{telegram}}" rel="noopener">Telegram</a> · <a href="{{channel}}" rel="noopener">Канал</a></span></p>
+</div>
+<script>
+// Фильтр по рубрикам без перезагрузки. Без JS показываются все карточки.
+(function () {
+  var chips = document.querySelectorAll('.chip'), cards = document.querySelectorAll('.card');
+  function apply(f) {
+    chips.forEach(function (c) { c.classList.toggle('is-on', c.dataset.f === f); });
+    cards.forEach(function (c) { c.hidden = f !== 'all' && c.dataset.cluster !== f; });
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function (e) { e.preventDefault(); apply(c.dataset.f); history.replaceState(null, '', c.getAttribute('href')); }); });
+  var h = location.hash.slice(1);
+  if (h && h !== 'all' && document.querySelector('.chip[data-f="' + h + '"]')) apply(h);
+})();
+</script>
+</body>
+</html>
