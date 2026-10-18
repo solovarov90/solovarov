@@ -1078,3 +1078,12 @@ body {
 .case-site-link:hover {
     text-decoration: underline;
 }
+
+.project-description a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+}
+
+.project-description a:hover {
+    text-decoration: underline;
+}
