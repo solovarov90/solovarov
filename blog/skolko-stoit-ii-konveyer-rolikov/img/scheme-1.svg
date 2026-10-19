@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 530" width="100%" role="img" aria-label="Схема конвейера: у эксперта две руки — ссылка на референс и запись дублей, остальные пять этапов делают программы">
+<title>Конвейер роликов: руками только ссылка и запись, остальное делают программы</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<g fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)">
+<line x1="284" y1="135" x2="334" y2="135"/>
+<line x1="574" y1="135" x2="624" y2="135"/>
+<line x1="864" y1="135" x2="914" y2="135"/>
+<path d="M1035 240 V265 H165 V284"/>
+<line x1="284" y1="395" x2="334" y2="395"/>
+<line x1="574" y1="395" x2="624" y2="395"/>
+</g>
+
+<g>
+<rect x="50" y="30" width="230" rx="10" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="3"/>
+<text x="70" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">1</text>
+<text x="70" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ссылка на</text>
+<text x="70" y="134" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">референс</text>
+<text x="70" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">кидаешь в Telegram</text>
+<text x="70" y="216" font-family="var(--font-body)" font-size="18" fill="var(--accent)">делает эксперт</text>
+</g>
+
+<g>
+<rect x="340" y="30" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="360" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">2</text>
+<text x="360" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">ИИ-разбор и</text>
+<text x="360" y="134" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">сценарий</text>
+<text x="360" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">карточка в Notion</text>
+<text x="360" y="216" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="630" y="30" width="230" height="210" rx="10" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="3"/>
+<text x="650" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">3</text>
+<text x="650" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Запись дубля</text>
+<text x="650" y="134" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">по суфлёру</text>
+<text x="650" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">пачка дублей подряд</text>
+<text x="650" y="216" font-family="var(--font-body)" font-size="18" fill="var(--accent)">делает эксперт</text>
+</g>
+
+<g>
+<rect x="920" y="30" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="940" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">4</text>
+<text x="940" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Дубль уходит</text>
+<text x="940" y="134" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">в Telegram</text>
+<text x="940" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">бот узнаёт ролик</text>
+<text x="940" y="216" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="50" y="290" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="70" y="328" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">5</text>
+<text x="70" y="366" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Автомонтаж и</text>
+<text x="70" y="394" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">раскадровка</text>
+<text x="70" y="428" font-family="var(--font-body)" font-size="18" fill="var(--muted)">кадры на проверку</text>
+<text x="70" y="476" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="340" y="290" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="360" y="328" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">6</text>
+<text x="360" y="366" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Выкладка по</text>
+<text x="360" y="394" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">расписанию</text>
+<text x="360" y="428" font-family="var(--font-body)" font-size="18" fill="var(--muted)">YouTube, Instagram,</text>
+<text x="360" y="450" font-family="var(--font-body)" font-size="18" fill="var(--muted)">TikTok</text>
+<text x="360" y="486" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="630" y="290" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="650" y="328" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">7</text>
+<text x="650" y="366" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Кодовое слово</text>
+<text x="650" y="394" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">«система»</text>
+<text x="650" y="428" font-family="var(--font-body)" font-size="18" fill="var(--muted)">автоответ в директ</text>
+<text x="650" y="476" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="920" y="330" width="28" height="28" rx="6" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="3"/>
+<text x="960" y="352" font-family="var(--font-body)" font-size="18" fill="var(--fg)">участвует эксперт</text>
+<rect x="920" y="380" width="28" height="28" rx="6" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="960" y="402" font-family="var(--font-body)" font-size="18" fill="var(--fg)">работает программа</text>
+</g>
+</svg>

@@ -130,6 +130,101 @@ sources:
 4. Смотришь контрольную раскадровку готового ролика: все кадры по порядку на одной картинке. Если всё хорошо, ролик встаёт в очередь выкладки.
 5. Остальное идёт само: выкладка по расписанию, ответы на кодовое слово, цифры в Notion.
 
+<!-- img: type=scheme what="узлы и стрелки слева направо: ссылка на референс в Telegram → ИИ-разбор и сценарий в Notion → запись дубля по суфлёру → дубль в Telegram, бот узнаёт ролик → автомонтаж на компьютере → раскадровка на проверку → выкладка по расписанию на YouTube, Instagram, TikTok → кодовое слово «система» и автоответ; два узла, где участвует эксперт (ссылка и запись), выделить цветом, остальные подписать «делает программа»" caption="Из всей цепочки руками у эксперта только ссылка на референс и запись дублей, остальное делают программы." alt="схема ИИ-конвейера роликов: что делает эксперт, а что автоматика" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 530" width="100%" role="img" aria-label="Схема конвейера: у эксперта две руки — ссылка на референс и запись дублей, остальные пять этапов делают программы">
+<title>Конвейер роликов: руками только ссылка и запись, остальное делают программы</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<g fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)">
+<line x1="284" y1="135" x2="334" y2="135"/>
+<line x1="574" y1="135" x2="624" y2="135"/>
+<line x1="864" y1="135" x2="914" y2="135"/>
+<path d="M1035 240 V265 H165 V284"/>
+<line x1="284" y1="395" x2="334" y2="395"/>
+<line x1="574" y1="395" x2="624" y2="395"/>
+</g>
+
+<g>
+<rect x="50" y="30" width="230" rx="10" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="3"/>
+<text x="70" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">1</text>
+<text x="70" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ссылка на</text>
+<text x="70" y="134" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">референс</text>
+<text x="70" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">кидаешь в Telegram</text>
+<text x="70" y="216" font-family="var(--font-body)" font-size="18" fill="var(--accent)">делает эксперт</text>
+</g>
+
+<g>
+<rect x="340" y="30" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="360" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">2</text>
+<text x="360" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">ИИ-разбор и</text>
+<text x="360" y="134" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">сценарий</text>
+<text x="360" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">карточка в Notion</text>
+<text x="360" y="216" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="630" y="30" width="230" height="210" rx="10" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="3"/>
+<text x="650" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">3</text>
+<text x="650" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Запись дубля</text>
+<text x="650" y="134" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">по суфлёру</text>
+<text x="650" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">пачка дублей подряд</text>
+<text x="650" y="216" font-family="var(--font-body)" font-size="18" fill="var(--accent)">делает эксперт</text>
+</g>
+
+<g>
+<rect x="920" y="30" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="940" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">4</text>
+<text x="940" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Дубль уходит</text>
+<text x="940" y="134" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">в Telegram</text>
+<text x="940" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">бот узнаёт ролик</text>
+<text x="940" y="216" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="50" y="290" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="70" y="328" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">5</text>
+<text x="70" y="366" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Автомонтаж и</text>
+<text x="70" y="394" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">раскадровка</text>
+<text x="70" y="428" font-family="var(--font-body)" font-size="18" fill="var(--muted)">кадры на проверку</text>
+<text x="70" y="476" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="340" y="290" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="360" y="328" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">6</text>
+<text x="360" y="366" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Выкладка по</text>
+<text x="360" y="394" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">расписанию</text>
+<text x="360" y="428" font-family="var(--font-body)" font-size="18" fill="var(--muted)">YouTube, Instagram,</text>
+<text x="360" y="450" font-family="var(--font-body)" font-size="18" fill="var(--muted)">TikTok</text>
+<text x="360" y="486" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="630" y="290" width="230" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="650" y="328" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">7</text>
+<text x="650" y="366" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Кодовое слово</text>
+<text x="650" y="394" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">«система»</text>
+<text x="650" y="428" font-family="var(--font-body)" font-size="18" fill="var(--muted)">автоответ в директ</text>
+<text x="650" y="476" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает программа</text>
+</g>
+
+<g>
+<rect x="920" y="330" width="28" height="28" rx="6" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="3"/>
+<text x="960" y="352" font-family="var(--font-body)" font-size="18" fill="var(--fg)">участвует эксперт</text>
+<rect x="920" y="380" width="28" height="28" rx="6" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="960" y="402" font-family="var(--font-body)" font-size="18" fill="var(--fg)">работает программа</text>
+</g>
+</svg>
+<figcaption>Из всей цепочки руками у эксперта только ссылка на референс и запись дублей, остальное делают программы.</figcaption>
+</figure>
+
+
 Где именно экономится время. Сценарий приезжает готовым по правилам тона, я только правлю слова, если хочется. Монтаж одного ролика руками съедал у меня вечер, теперь он идёт на компьютере без меня. Выкладку на три площадки с заголовком, описанием и тегами бот делает сам по слоту расписания.
 
 Клиенту в пилоте на 10 роликов нужно около двух часов на запись дублей. Это больше моих 25 минут на 12, потому что первые записи по суфлёру идут медленнее. Для тех, кто уже вошёл в ритм, я в [канале 18 октября](https://t.me/solovarovp/2071) называл около часа в неделю.
@@ -149,6 +244,8 @@ sources:
 
 Просмотры по площадкам: YouTube 60 378, Instagram 96 929, TikTok 13 635. Воронка на 16 октября: 994 кодовых слова, 825 автоответов с инструкцией (счёт с 6 октября), 338 открытий инструкций на странице [«Материалы»](https://video.petrsolovarov.ru/materials), 209 переходов из личных сообщений в Telegram (с 9 октября). Счётчики заводились в разные дни, поэтому это четыре отдельных замера, а не строгая воронка.
 
+<!-- img: type=screenshot url=https://petrsolovarov.ru/iisystema/ selector=".proof" caption="Блок с итогами кейса ii.systema на странице petrsolovarov.ru, откуда взяты цифры за первые две недели конвейера." alt="результаты ИИ-конвейера роликов: кейс ii.systema, просмотры и кодовые слова" -->
+
 Если бы те же 44 ролика я заказывал у фрилансеров по нижней ставке Checkroi, 6 000 ₽ за сценарий и монтаж, вышло бы 264 000 ₽ за две недели. По верхней ставке 18 000 ₽ за ролик получилось бы 792 000 ₽. Считать это чистой экономией было бы нечестно: столько роликов в таком темпе я бы у людей и не заказал. Зато порядок цифр хорошо видно. Конвейер выигрывает на объёме.
 
 Что честно стоит сказать:
@@ -156,6 +253,11 @@ sources:
 - Просмотры распределены неровно. Медиана 1 910 на ролик, 9 роликов не дошли до тысячи.
 - TikTok дал около 8% просмотров. Часть роликов туда уходит черновиками, пока приложение проходит проверку площадки на прямую публикацию.
 - Клиентов и выручки с этого блога я пока не измерил. Проекту две недели, цикл продажи длиннее.
+
+<!-- img: type=chart data=plan show="ролики по датам выхода со 2 по 15 октября 2026 и просмотры каждого по площадкам YouTube, Instagram, TikTok: видно неравномерность, медиану и ролики до тысячи просмотров" caption="Просмотры роликов по дням и площадкам: поток ровный, а результат у отдельных роликов сильно разный." alt="сколько просмотров даёт ИИ-конвейер роликов по площадкам" -->
+
+![сколько просмотров даёт ИИ-конвейер роликов по площадкам](/blog/skolko-stoit-ii-konveyer-rolikov/img/chart-3.jpg "Просмотры роликов по дням и площадкам: поток ровный, а результат у отдельных роликов сильно разный.")
+
 
 ## Что может пойти не так и какие скрытые расходы возникают?
 
