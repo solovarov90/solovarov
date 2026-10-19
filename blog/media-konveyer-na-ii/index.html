@@ -47,9 +47,9 @@
     "https://petrsolovarov.ru/blog/media-konveyer-na-ii/img/cover.jpg"
    ],
    "datePublished": "2026-10-18",
-   "dateModified": "2026-10-18",
+   "dateModified": "2026-10-19",
    "inLanguage": "ru-RU",
-   "wordCount": 2715,
+   "wordCount": 3946,
    "articleSection": "Контент и видео",
    "author": {
     "@id": "https://petrsolovarov.ru/#person"
@@ -239,6 +239,9 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
 .frame img { display: block; width: 100%; height: auto; }
 .shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
 
 .tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
 table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
@@ -336,12 +339,12 @@ table.fix tr:last-child td { border-bottom: 0; }
   </ol>
 
   <header class="hero">
-    <div class="eyebrow">Инструкция · Контент и видео · 15 мин чтения</div>
+    <div class="eyebrow">Инструкция · Контент и видео · 22 мин чтения</div>
     <h1>Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</h1>
     <p class="lead">Пошагово разбираю конвейер коротких роликов, который я собрал один за две недели: разбор референсов, сценарии, автомонтаж, выкладка на три площадки, автоответы по кодовому слову. С цифрами, ценами и списком того, что сломалось.</p>
     <div class="byline">
       <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
-      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-10-18">18 октября 2026</time> · 2 715 слов</div>
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-10-18">18 октября 2026</time> · обновлено <time datetime="2026-10-19">19 октября 2026</time> · 3 946 слов</div>
     </div>
   </header>
 
@@ -420,6 +423,8 @@ table.fix tr:last-child td { border-bottom: 0; }
 <p>Про железо. Вырезка фигуры на процессоре занимала больше 35 минут на один дубль. После переноса на видеокарту она занимает около 2,5 минуты на минуту дубля. Если собираешь похожее, видеокарта в компьютере окупается в первую же неделю одним только сэкономленным временем.</p>
 <h2 id="kak-vykladyvat-na-tri-ploschadki-bez-ruchnoy-raboty">Как выкладывать на три площадки без ручной работы?</h2>
 <p>Выкладка идёт сама: готовый ролик бот кладёт в первый свободный слот расписания, пишет заголовок, описание и теги, публикует на YouTube и в Instagram строго по одному и отправляет черновик в TikTok. Слот каждый день сдвигается на несколько минут, чтобы ролики не выходили ровно в одно время.</p>
+<!-- img: type=manual what="Telegram-группа, тема «🚀 Выкладка»: закреплённое табло «🏭 Конвейер» с очередью по датам, вышедшими роликами, статусом TikTok и кнопкой «Запустить / Остановить»" caption="Табло «Конвейер» в Telegram: очередь выкладки с датами и кнопка, которая включает и останавливает весь конвейер." alt="табло медиа-конвейера в Telegram: очередь выкладки и кнопка запуска" -->
+
 <p>Весь конвейер включается и выключается одной кнопкой на закреплённом табло в Telegram. 4 октября я включил его впервые: в тот же вечер три ролика вышли сами, а сетка Instagram сложилась в правильную шахматку из обложек.</p>
 <figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="Сетка профиля Instagram ii.systema с чередованием обложек" src="/iisystema/img/instagram-grid.jpg"></div><figcaption>Профиль @ii.systema: обложки чередуются лицо и графика, порядок считает бот. 509 подписчиков на момент снимка 16 октября.</figcaption></figure>
 <p>Что здесь важно для повторения:</p>
@@ -432,6 +437,78 @@ table.fix tr:last-child td { border-bottom: 0; }
 <h2 id="kak-kodovoe-slovo-prevraschaet-zritelya-v-podpischika">Как кодовое слово превращает зрителя в подписчика?</h2>
 <p>Кодовое слово работает так: в каждом ролике я обещаю инструкцию и прошу написать «система» в комментариях. Раз в пять минут система ищет это слово под выложенными роликами. В Instagram она отвечает под комментарием и присылает ссылку в личные сообщения, на YouTube отвечает коротко и отправляет в шапку канала. Тексты ответов каждый раз разные, чтобы площадка не считала их спамом.</p>
 <p>Почему слово, а не ссылка в описании? Площадки режут охват роликам с внешними ссылками, а комментарии, наоборот, поднимают ролик. Человек сам просит материал, и это уже первый шаг воронки.</p>
+<!-- img: type=scheme what="путь зрителя: ролик с призывом → комментарий «система» → поиск слова раз в 5 минут → ответ под комментарием → ссылка в личные сообщения → закреплённый пост Telegram-канала → учёт в Notion (воронка)" caption="Путь зрителя от ролика до Telegram-канала: слово в комментарии запускает автоответ, а каждый шаг попадает в учёт." alt="кодовое слово в комментариях и автоответ: схема воронки" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 530" width="100%" role="img" aria-label="Путь зрителя от ролика до Telegram-канала: комментарий «система», поиск слова раз в пять минут, ответ под комментарием, ссылка в личные сообщения, закреплённый пост канала и учёт в Notion">
+<title>Путь зрителя от ролика до Telegram-канала</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<rect x="45" y="60" width="240" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="89" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="89" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
+<text x="69" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ролик с призывом</text>
+<text x="69" y="182" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Обещаю инструкцию</text>
+<text x="69" y="206" font-family="var(--font-body)" font-size="18" fill="var(--muted)">за слово «система»</text>
+
+<rect x="335" y="60" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="379" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="379" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">2</text>
+<text x="359" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Комментарий</text>
+<text x="359" y="182" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Зритель пишет</text>
+<text x="359" y="206" font-family="var(--font-body)" font-size="18" fill="var(--muted)">«система»</text>
+
+<rect x="625" y="60" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="669" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="669" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">3</text>
+<text x="649" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Поиск слова</text>
+<text x="649" y="182" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Раз в 5 минут</text>
+<text x="649" y="206" font-family="var(--font-body)" font-size="18" fill="var(--muted)">под всеми роликами</text>
+
+<rect x="915" y="60" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="959" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="959" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">4</text>
+<text x="939" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ в ветке</text>
+<text x="939" y="182" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Каждый раз новый</text>
+<text x="939" y="206" font-family="var(--font-body)" font-size="18" fill="var(--muted)">текст, без спама</text>
+
+<rect x="190" y="320" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="234" cy="356" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="234" y="363" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">5</text>
+<text x="214" y="410" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ссылка в личку</text>
+<text x="214" y="442" font-family="var(--font-body)" font-size="18" fill="var(--muted)">В Instagram — в директ,</text>
+<text x="214" y="466" font-family="var(--font-body)" font-size="18" fill="var(--muted)">на YouTube — в шапку</text>
+
+<rect x="480" y="320" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="524" cy="356" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="524" y="363" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">6</text>
+<text x="504" y="410" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Пост в Telegram</text>
+<text x="504" y="442" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Закреплённый пост</text>
+<text x="504" y="466" font-family="var(--font-body)" font-size="18" fill="var(--muted)">моего канала</text>
+
+<rect x="770" y="320" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="814" cy="356" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="814" y="363" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">7</text>
+<text x="794" y="410" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Учёт в Notion</text>
+<text x="794" y="442" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Воронка: каждый шаг</text>
+<text x="794" y="466" font-family="var(--font-body)" font-size="18" fill="var(--muted)">виден в цифрах</text>
+
+<g stroke="var(--accent)" stroke-width="3" fill="none" marker-end="url(#arr)">
+<line x1="289" y1="145" x2="331" y2="145"/>
+<line x1="579" y1="145" x2="621" y2="145"/>
+<line x1="869" y1="145" x2="911" y2="145"/>
+<path d="M1035 234 V275 H310 V316"/>
+<line x1="434" y1="405" x2="476" y2="405"/>
+<line x1="724" y1="405" x2="766" y2="405"/>
+</g>
+</svg>
+<figcaption>Путь зрителя от ролика до Telegram-канала: слово в комментарии запускает автоответ, а каждый шаг попадает в учёт.</figcaption>
+</figure>
+
 <p>Саму инструкцию к ролику система тоже делает сама: нейросеть с поиском собирает её страницей, я получаю готовый материал в Notion и при необходимости правлю. Все инструкции лежат на публичной странице «Материалы».</p>
 <figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="Страница «Материалы»: инструкции к роликам ii.systema" src="/iisystema/img/materials-hub.jpg"></div><figcaption>Публичная страница «Материалы»: инструкции к роликам, свежие сверху. Её создаёт и обновляет система.</figcaption></figure>
 <p>С 9 октября в личные сообщения уходит ссылка на закреплённый пост Telegram-канала, а не на отдельную страницу. Так трафик из роликов собирается в одном месте, и человек заодно подписывается на канал.</p>
@@ -445,6 +522,9 @@ table.fix tr:last-child td { border-bottom: 0; }
 </div>
 
 <p>Честная оговорка: счётчики вели с разных дат, поэтому это не строгая воронка «из N в M», а четыре независимых замера. Каждый из них можно проверить в моём Notion.</p>
+<!-- img: type=screenshot url=https://petrsolovarov.ru/iisystema/ selector=".figures" caption="Блок с цифрами на странице кейса ii.systema: те же замеры воронки, которые я разбираю в статье." alt="цифры кейса медиа-конвейера на ИИ: кодовые слова, автоответы, открытия" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="цифры кейса медиа-конвейера на ИИ: кодовые слова, автоответы, открытия" src="/blog/media-konveyer-na-ii/img/screenshot-3.jpg"></div><figcaption>Блок с цифрами на странице кейса ii.systema: те же замеры воронки, которые я разбираю в статье.</figcaption></figure>
 <h2 id="skolko-stoit-takoy-konveyer-v-mesyats">Сколько стоит такой конвейер в месяц?</h2>
 <p>Конвейер стоит дешевле одного монтажёра на полставки: основная статья расходов это подписка на нейросеть, остальное копейки. Вот из чего складывается моя смета.</p>
 <div class="tablewrap"><table class="fix">
@@ -545,6 +625,9 @@ table.fix tr:last-child td { border-bottom: 0; }
 </div>
 
 <p>Как просмотры разложились по площадкам: YouTube 60 378, Instagram 96 929, TikTok 13 635. Три ролика набрали больше 16 тысяч, семь из 44 перешли за 5 000. Самый просматриваемый, про файл AGENTS.md, собрал 28 995 просмотров, почти все в Instagram.</p>
+<!-- img: type=chart data=plan show="просмотры по площадкам (YouTube, Instagram, TikTok) для каждого из 44 роликов, вышедших со 2 по 15 октября, по датам выхода" caption="Просмотры роликов по дням и площадкам: видно, что Instagram даёт больше всего, а выстрелили единицы роликов." alt="просмотры роликов медиа-конвейера на ИИ по площадкам" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="просмотры роликов медиа-конвейера на ИИ по площадкам" src="/blog/media-konveyer-na-ii/img/chart-4.jpg"></div><figcaption>Просмотры роликов по дням и площадкам: видно, что Instagram даёт больше всего, а выстрелили единицы роликов.</figcaption></figure>
 <div class="proof">
 <div class="proof-t">Проверил на себе</div>
 <p>Все цифры выше записывает бот в «Контент-план» по API площадок через 2 часа, сутки, 3 дня, неделю и месяц после выхода ролика. Снимки экранов в статье сняты 16 октября 2026. Открытые источники собраны в разделе «Источники» внизу, закрытые (Notion) показываю на созвоне.</p>

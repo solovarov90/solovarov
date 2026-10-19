@@ -82,6 +82,89 @@ sources:
 
 Ещё одно звено отличает рабочую связку от поделки: материал под каждый ролик. В моём «Контент-плане» в Notion у ролика есть колонки «Материал», «Кодовое слово» и «Лиды». Бот берёт ссылку из строки того ролика, под которым написан комментарий.
 
+<!-- img: type=scheme what="узлы и стрелки: ролик с призывом «система» → бот проверяет комментарии раз в 5 минут → ответ под комментарием → личное сообщение со ссылкой → строка в Notion; отдельный узел «Контент-план: Материал, Кодовое слово, Лиды» со стрелкой в бота (откуда берётся ссылка) и стрелкой из учёта; подписать «раз в 5 минут», «одно сообщение на комментарий»" caption="Путь одного комментария от слова под роликом до учёта в Notion и откуда бот берёт ссылку на материал." -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" role="img" aria-label="Путь комментария с кодовым словом: ролик, проверка раз в 5 минут, ответ под комментарием, личное сообщение со ссылкой, запись в Notion; ссылка берётся из Контент-плана">
+  <title>Путь одного комментария от слова под роликом до учёта в Notion</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Верхний ряд: основной путь -->
+  <rect x="30" y="60" width="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="62" cy="88" r="14" fill="var(--accent)"/>
+  <text x="62" y="94" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="17" fill="var(--surface)">1</text>
+  <text x="135" y="128" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ролик</text>
+  <text x="135" y="156" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">с призывом</text>
+  <text x="135" y="178" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">«система»</text>
+
+  <rect x="320" y="60" width="210" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="352" cy="88" r="14" fill="var(--accent)"/>
+  <text x="352" y="94" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="17" fill="var(--surface)">2</text>
+  <text x="425" y="128" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Бот</text>
+  <text x="425" y="156" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">проверяет</text>
+  <text x="425" y="178" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">комментарии</text>
+
+  <rect x="610" y="60" width="240" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="642" cy="88" r="14" fill="var(--accent)"/>
+  <text x="642" y="94" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="17" fill="var(--surface)">3</text>
+  <text x="730" y="128" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ</text>
+  <text x="730" y="156" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">под комментарием</text>
+  <text x="730" y="178" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">человека</text>
+
+  <rect x="930" y="60" width="240" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="962" cy="88" r="14" fill="var(--accent)"/>
+  <text x="962" y="94" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="17" fill="var(--surface)">4</text>
+  <text x="1050" y="128" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Личное сообщение</text>
+  <text x="1050" y="156" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">со ссылкой</text>
+  <text x="1050" y="178" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">на материал</text>
+
+  <!-- Стрелки основного пути -->
+  <line x1="240" y1="125" x2="316" y2="125" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+  <line x1="530" y1="125" x2="606" y2="125" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+  <line x1="850" y1="125" x2="926" y2="125" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+  <!-- Подписи над стрелками -->
+  <text x="425" y="40" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">раз в 5 минут</text>
+  <text x="1050" y="40" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">одно сообщение на комментарий</text>
+
+  <!-- Нижний ряд: Контент-план -->
+  <rect x="320" y="400" width="330" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="485" y="446" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Контент-план в Notion</text>
+  <text x="485" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">колонки «Материал»,</text>
+  <text x="485" y="506" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">«Кодовое слово», «Лиды»</text>
+
+  <!-- Учёт -->
+  <rect x="860" y="400" width="310" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="892" cy="428" r="14" fill="var(--accent)"/>
+  <text x="892" y="434" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="17" fill="var(--surface)">5</text>
+  <text x="1015" y="472" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Учёт</text>
+  <text x="1015" y="502" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">строка ролика:</text>
+  <text x="1015" y="526" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">счётчик «Лиды» растёт</text>
+
+  <!-- Из Контент-плана в бота: откуда ссылка -->
+  <path d="M440 400 L440 194" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="456" y="300" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ссылка берётся</text>
+  <text x="456" y="324" font-family="var(--font-body)" font-size="18" fill="var(--muted)">из строки этого ролика</text>
+
+  <!-- Из личного сообщения в учёт -->
+  <path d="M1050 194 L1050 280 L1015 280 L1015 396" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+  <text x="1030" y="340" font-family="var(--font-body)" font-size="18" fill="var(--muted)">записали лида</text>
+
+  <!-- Из учёта в Контент-план -->
+  <line x1="856" y1="470" x2="654" y2="470" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="755" y="458" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">пишем в колонку</text>
+</svg>
+<figcaption>Путь одного комментария от слова под роликом до учёта в Notion и откуда бот берёт ссылку на материал.</figcaption>
+</figure>
+
+
 ## Какие инструменты выбрать: готовый конструктор или свой скрипт на API?
 
 Если тебе нужно одно слово, один материал и запуск сегодня, бери готовый конструктор чат-ботов для Instagram. Если роликов много, материалы разные, а люди должны попадать в Telegram, CRM или таблицу, свой скрипт на API окупается быстрее. Я пошёл вторым путём, потому что автоответ у меня часть большого конвейера.
@@ -123,6 +206,11 @@ sources:
 - в директ: ссылка первой строкой, дальше одна фраза о том, что там лежит.
 
 Почему «Запросы», расскажу в разделе про поломки.
+
+<!-- img: type=screenshot url=https://video.petrsolovarov.ru/materials caption="Страница «Материалы» со списком инструкций к роликам, то, что получает человек после кодового слова." alt="Материалы по кодовому слову: инструкции, которые бот отправляет в директ Instagram" -->
+
+![Материалы по кодовому слову: инструкции, которые бот отправляет в директ Instagram](/blog/avtootvet-kodovoe-slovo/img/screenshot-2.jpg "Страница «Материалы» со списком инструкций к роликам, то, что получает человек после кодового слова.")
+
 
 ## Как ИИ помогает отвечать нестандартно и не улетать в спам?
 
@@ -183,6 +271,11 @@ sources:
 - **На 16 октября** инструкции на странице «Материалы» открыли 338 раз.
 
 Где это видно. Каждое кодовое слово падает строкой в учёт, по ролику в «Контент-плане» есть колонки «Кодовых слов», «Открыли материал» и формула «Конверсия в слово %». Каждое утро в 9:00 бот присылает отчёт по воронке в Telegram. Подробности и снимки экранов в [кейсе ii.systema](/iisystema/), а как автоответ встроен в конвейер роликов, я разобрал в статье [«Как одному человеку собрать медиа-конвейер на ИИ»](/blog/media-konveyer-na-ii/).
+
+<!-- img: type=chart data=funnel show="по дням за октябрь: кодовые слова, отправленные автоответы, открытия материала" caption="Воронка автоответа по дням: сколько слов написали, сколько ответов ушло и сколько людей открыли материал." -->
+
+![Воронка автоответа по дням: сколько слов написали, сколько ответов ушло и сколько людей открыли материал.](/blog/avtootvet-kodovoe-slovo/img/chart-3.jpg "Воронка автоответа по дням: сколько слов написали, сколько ответов ушло и сколько людей открыли материал.")
+
 
 <div class="proof">
 <div class="proof-t">Проверил на себе</div>

@@ -4,7 +4,7 @@ cover_title: Как одному человеку собрать медиа-ко
 description: Пошагово разбираю конвейер коротких роликов, который я собрал один за две недели: разбор референсов, сценарии, автомонтаж, выкладка на три площадки, автоответы по кодовому слову. С цифрами, ценами и списком того, что сломалось.
 slug: media-konveyer-na-ii
 date: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 cluster: Контент и видео
 type: Инструкция
 cover: /blog/media-konveyer-na-ii/img/cover.jpg
@@ -135,6 +135,8 @@ sources:
 
 Выкладка идёт сама: готовый ролик бот кладёт в первый свободный слот расписания, пишет заголовок, описание и теги, публикует на YouTube и в Instagram строго по одному и отправляет черновик в TikTok. Слот каждый день сдвигается на несколько минут, чтобы ролики не выходили ровно в одно время.
 
+<!-- img: type=manual what="Telegram-группа, тема «🚀 Выкладка»: закреплённое табло «🏭 Конвейер» с очередью по датам, вышедшими роликами, статусом TikTok и кнопкой «Запустить / Остановить»" caption="Табло «Конвейер» в Telegram: очередь выкладки с датами и кнопка, которая включает и останавливает весь конвейер." alt="табло медиа-конвейера в Telegram: очередь выкладки и кнопка запуска" -->
+
 Весь конвейер включается и выключается одной кнопкой на закреплённом табло в Telegram. 4 октября я включил его впервые: в тот же вечер три ролика вышли сами, а сетка Instagram сложилась в правильную шахматку из обложек.
 
 ![Сетка профиля Instagram ii.systema с чередованием обложек](/iisystema/img/instagram-grid.jpg "Профиль @ii.systema: обложки чередуются лицо и графика, порядок считает бот. 509 подписчиков на момент снимка 16 октября.")
@@ -152,6 +154,79 @@ sources:
 Кодовое слово работает так: в каждом ролике я обещаю инструкцию и прошу написать «система» в комментариях. Раз в пять минут система ищет это слово под выложенными роликами. В Instagram она отвечает под комментарием и присылает ссылку в личные сообщения, на YouTube отвечает коротко и отправляет в шапку канала. Тексты ответов каждый раз разные, чтобы площадка не считала их спамом.
 
 Почему слово, а не ссылка в описании? Площадки режут охват роликам с внешними ссылками, а комментарии, наоборот, поднимают ролик. Человек сам просит материал, и это уже первый шаг воронки.
+
+<!-- img: type=scheme what="путь зрителя: ролик с призывом → комментарий «система» → поиск слова раз в 5 минут → ответ под комментарием → ссылка в личные сообщения → закреплённый пост Telegram-канала → учёт в Notion (воронка)" caption="Путь зрителя от ролика до Telegram-канала: слово в комментарии запускает автоответ, а каждый шаг попадает в учёт." alt="кодовое слово в комментариях и автоответ: схема воронки" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 530" width="100%" role="img" aria-label="Путь зрителя от ролика до Telegram-канала: комментарий «система», поиск слова раз в пять минут, ответ под комментарием, ссылка в личные сообщения, закреплённый пост канала и учёт в Notion">
+<title>Путь зрителя от ролика до Telegram-канала</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<rect x="45" y="60" width="240" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="89" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="89" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
+<text x="69" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ролик с призывом</text>
+<text x="69" y="182" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Обещаю инструкцию</text>
+<text x="69" y="206" font-family="var(--font-body)" font-size="18" fill="var(--muted)">за слово «система»</text>
+
+<rect x="335" y="60" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="379" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="379" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">2</text>
+<text x="359" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Комментарий</text>
+<text x="359" y="182" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Зритель пишет</text>
+<text x="359" y="206" font-family="var(--font-body)" font-size="18" fill="var(--muted)">«система»</text>
+
+<rect x="625" y="60" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="669" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="669" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">3</text>
+<text x="649" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Поиск слова</text>
+<text x="649" y="182" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Раз в 5 минут</text>
+<text x="649" y="206" font-family="var(--font-body)" font-size="18" fill="var(--muted)">под всеми роликами</text>
+
+<rect x="915" y="60" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="959" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="959" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">4</text>
+<text x="939" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ в ветке</text>
+<text x="939" y="182" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Каждый раз новый</text>
+<text x="939" y="206" font-family="var(--font-body)" font-size="18" fill="var(--muted)">текст, без спама</text>
+
+<rect x="190" y="320" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="234" cy="356" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="234" y="363" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">5</text>
+<text x="214" y="410" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ссылка в личку</text>
+<text x="214" y="442" font-family="var(--font-body)" font-size="18" fill="var(--muted)">В Instagram — в директ,</text>
+<text x="214" y="466" font-family="var(--font-body)" font-size="18" fill="var(--muted)">на YouTube — в шапку</text>
+
+<rect x="480" y="320" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="524" cy="356" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="524" y="363" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">6</text>
+<text x="504" y="410" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Пост в Telegram</text>
+<text x="504" y="442" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Закреплённый пост</text>
+<text x="504" y="466" font-family="var(--font-body)" font-size="18" fill="var(--muted)">моего канала</text>
+
+<rect x="770" y="320" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="814" cy="356" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="814" y="363" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">7</text>
+<text x="794" y="410" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Учёт в Notion</text>
+<text x="794" y="442" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Воронка: каждый шаг</text>
+<text x="794" y="466" font-family="var(--font-body)" font-size="18" fill="var(--muted)">виден в цифрах</text>
+
+<g stroke="var(--accent)" stroke-width="3" fill="none" marker-end="url(#arr)">
+<line x1="289" y1="145" x2="331" y2="145"/>
+<line x1="579" y1="145" x2="621" y2="145"/>
+<line x1="869" y1="145" x2="911" y2="145"/>
+<path d="M1035 234 V275 H310 V316"/>
+<line x1="434" y1="405" x2="476" y2="405"/>
+<line x1="724" y1="405" x2="766" y2="405"/>
+</g>
+</svg>
+<figcaption>Путь зрителя от ролика до Telegram-канала: слово в комментарии запускает автоответ, а каждый шаг попадает в учёт.</figcaption>
+</figure>
+
 
 Саму инструкцию к ролику система тоже делает сама: нейросеть с поиском собирает её страницей, я получаю готовый материал в Notion и при необходимости правлю. Все инструкции лежат на публичной странице «Материалы».
 
@@ -171,6 +246,11 @@ sources:
 </div>
 
 Честная оговорка: счётчики вели с разных дат, поэтому это не строгая воронка «из N в M», а четыре независимых замера. Каждый из них можно проверить в моём Notion.
+
+<!-- img: type=screenshot url=https://petrsolovarov.ru/iisystema/ selector=".figures" caption="Блок с цифрами на странице кейса ii.systema: те же замеры воронки, которые я разбираю в статье." alt="цифры кейса медиа-конвейера на ИИ: кодовые слова, автоответы, открытия" -->
+
+![цифры кейса медиа-конвейера на ИИ: кодовые слова, автоответы, открытия](/blog/media-konveyer-na-ii/img/screenshot-3.jpg "Блок с цифрами на странице кейса ii.systema: те же замеры воронки, которые я разбираю в статье.")
+
 
 ## Сколько стоит такой конвейер в месяц?
 
@@ -218,6 +298,11 @@ sources:
 </div>
 
 Как просмотры разложились по площадкам: YouTube 60 378, Instagram 96 929, TikTok 13 635. Три ролика набрали больше 16 тысяч, семь из 44 перешли за 5 000. Самый просматриваемый, про файл AGENTS.md, собрал 28 995 просмотров, почти все в Instagram.
+
+<!-- img: type=chart data=plan show="просмотры по площадкам (YouTube, Instagram, TikTok) для каждого из 44 роликов, вышедших со 2 по 15 октября, по датам выхода" caption="Просмотры роликов по дням и площадкам: видно, что Instagram даёт больше всего, а выстрелили единицы роликов." alt="просмотры роликов медиа-конвейера на ИИ по площадкам" -->
+
+![просмотры роликов медиа-конвейера на ИИ по площадкам](/blog/media-konveyer-na-ii/img/chart-4.jpg "Просмотры роликов по дням и площадкам: видно, что Instagram даёт больше всего, а выстрелили единицы роликов.")
+
 
 <div class="proof">
 <div class="proof-t">Проверил на себе</div>
