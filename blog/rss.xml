@@ -6,7 +6,25 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Sun, 18 Oct 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Mon, 19 Oct 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>ИИ-штаб на сервере: как управлять Claude Code с телефона по подписке</title>
+    <link>https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/</guid>
+    <pubDate>Mon, 19 Oct 2026 09:00:00 +0300</pubDate>
+    <category>Кейсы</category>
+    <description>Как управлять Claude Code с телефона: Telegram-бот на сервере передаёт задачи в claude -p под подпиской Claude Pro, без оплаты API. Схема, команды, поломки.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</title>
+    <link>https://petrsolovarov.ru/blog/skolko-stoit-ii-konveyer-rolikov/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/skolko-stoit-ii-konveyer-rolikov/</guid>
+    <pubDate>Mon, 19 Oct 2026 09:00:00 +0300</pubDate>
+    <category>Контент и видео</category>
+    <description>Сколько стоит внедрить ИИ-конвейер роликов: смета на подписки и сервер, цены пилота, настройки под ключ и сопровождения, сравнение с монтажёром и расчёт окупаемости.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/skolko-stoit-ii-konveyer-rolikov/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</title>
     <link>https://petrsolovarov.ru/blog/media-konveyer-na-ii/</link>
