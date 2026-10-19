@@ -103,6 +103,87 @@ sources:
 
 Штаб это три слоя: Telegram-группа с темами, бот-курьер на сервере и Claude Code в рабочей папке с правилами и навыками. Бот ничего не думает сам. Он принимает сообщение, понимает, из какой оно темы, и передаёт задачу Claude.
 
+<!-- img: type=scheme what="узлы и стрелки: телефон с Telegram → группа с темами → бот @ii_systemaBot (служба ii-shtab, очередь на одного) → claude -p (подписка Claude Pro, папка с CLAUDE.md и навыками) → Notion и сервер разбора; пунктиром от бота к компьютеру: монтаж через синхронизацию папок; ответ возвращается в ту же тему" caption="Как сообщение с телефона доходит до Claude Code на сервере и возвращается ответом в ту же тему." -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 550" width="100%" role="img" aria-label="Схема ИИ-штаба: сообщение из Telegram на телефоне попадает в группу с темами, бот передаёт его Claude Code на сервере, ответ возвращается в ту же тему; Claude работает с Notion и сервером разбора, а монтаж идёт на компьютере через синхронизацию папок">
+  <title>Как сообщение с телефона доходит до Claude Code на сервере и возвращается ответом в ту же тему</title>
+  <defs>
+    <marker id="arrAccent" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="arrLine" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="var(--line)"/>
+    </marker>
+  </defs>
+
+  <!-- возврат ответа в ту же тему -->
+  <path d="M750,108 V68 H450 V106" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrAccent)"/>
+  <text x="600" y="52" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ответ приходит в ту же тему</text>
+
+  <!-- стрелки основного пути -->
+  <path d="M266,180 H334" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrAccent)"/>
+  <path d="M566,180 H634" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrAccent)"/>
+  <path d="M866,180 H934" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrAccent)"/>
+
+  <!-- бот → компьютер (пунктир) и Claude → Notion -->
+  <path d="M750,252 V368" fill="none" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#arrLine)"/>
+  <text x="734" y="300" text-anchor="end" font-family="var(--font-body)" font-size="18" fill="var(--muted)">монтаж через</text>
+  <text x="734" y="324" text-anchor="end" font-family="var(--font-body)" font-size="18" fill="var(--muted)">синхронизацию папок</text>
+  <path d="M1050,252 V368" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+
+  <!-- 1. Телефон -->
+  <rect x="36" y="110" width="228" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="56" y="150" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--accent)">1</text>
+  <text x="86" y="150" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--fg)">Телефон</text>
+  <text x="56" y="186" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Telegram,</text>
+  <text x="56" y="210" font-family="var(--font-body)" font-size="18" fill="var(--muted)">пишешь в нужную</text>
+  <text x="56" y="234" font-family="var(--font-body)" font-size="18" fill="var(--muted)">тему</text>
+
+  <!-- 2. Группа -->
+  <rect x="336" y="110" width="228" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="356" y="150" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--accent)">2</text>
+  <text x="386" y="150" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--fg)">Группа</text>
+  <text x="356" y="186" font-family="var(--font-body)" font-size="18" fill="var(--muted)">с темами: Штаб,</text>
+  <text x="356" y="210" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Сценарии, Монтаж,</text>
+  <text x="356" y="234" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Выкладка</text>
+
+  <!-- 3. Бот -->
+  <rect x="636" y="110" width="228" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="656" y="150" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--accent)">3</text>
+  <text x="686" y="150" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--fg)">Бот-курьер</text>
+  <text x="656" y="186" font-family="var(--font-body)" font-size="18" fill="var(--muted)">@ii_systemaBot</text>
+  <text x="656" y="210" font-family="var(--font-body)" font-size="18" fill="var(--muted)">служба ii-shtab,</text>
+  <text x="656" y="234" font-family="var(--font-body)" font-size="18" fill="var(--muted)">очередь на одного</text>
+
+  <!-- 4. Claude Code -->
+  <rect x="936" y="110" width="228" height="140" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="956" y="150" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--accent)">4</text>
+  <text x="986" y="150" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--fg)">Claude Code</text>
+  <text x="956" y="186" font-family="var(--font-body)" font-size="18" fill="var(--muted)">claude -p, подписка</text>
+  <text x="956" y="210" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Claude Pro, папка с</text>
+  <text x="956" y="234" font-family="var(--font-body)" font-size="18" fill="var(--muted)">CLAUDE.md и навыками</text>
+
+  <!-- 5. Notion -->
+  <rect x="936" y="370" width="228" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="956" y="410" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--accent)">5</text>
+  <text x="986" y="410" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--fg)">Notion</text>
+  <text x="956" y="446" font-family="var(--font-body)" font-size="18" fill="var(--muted)">контент-план и</text>
+  <text x="956" y="470" font-family="var(--font-body)" font-size="18" fill="var(--muted)">сервер разбора</text>
+  <text x="956" y="494" font-family="var(--font-body)" font-size="18" fill="var(--muted)">роликов</text>
+
+  <!-- 6. Компьютер -->
+  <rect x="636" y="370" width="228" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2" stroke-dasharray="8 8"/>
+  <text x="656" y="410" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--accent)">6</text>
+  <text x="686" y="410" font-family="var(--font-display)" font-size="24" font-weight="600" fill="var(--fg)">Компьютер</text>
+  <text x="656" y="446" font-family="var(--font-body)" font-size="18" fill="var(--muted)">монтаж роликов,</text>
+  <text x="656" y="470" font-family="var(--font-body)" font-size="18" fill="var(--muted)">готовое видео едет</text>
+  <text x="656" y="494" font-family="var(--font-body)" font-size="18" fill="var(--muted)">назад в тему</text>
+</svg>
+<figcaption>Как сообщение с телефона доходит до Claude Code на сервере и возвращается ответом в ту же тему.</figcaption>
+</figure>
+
+
 Мой сервер по записи от 30.09.2026: Hetzner, Ubuntu 22.04, 2 ядра, 3,7 ГБ памяти, из них свободно около 2,9 ГБ, диск занят на 25%. Наружу открыт только SSH, то есть вход для администратора по ключу.
 
 Что на нём стоит:
@@ -114,6 +195,8 @@ sources:
 5. **Ключ к соседнему серверу.** Разбор видео идёт на другом сервере. Ключ штаба к нему разрешает ровно одну команду: запустить разбор ссылки. Больше ничего с ним сделать нельзя.
 
 Темы группы на старте 30.09.2026 были такие: «Референсы» (ссылки на ролики уходят на разбор), «Штаб» (разговор, правки Notion, голосовые), «Сценарии», «Журнал», «Система». Потом добавились «Дубли», «Монтаж», «Выкладка» и другие, но принцип не менялся: одна тема, один участок.
+
+<!-- img: type=manual what="Telegram-группа штаба на телефоне или десктопе: список тем (Референсы, Штаб, Сценарии, Дубли, Монтаж, Выкладка) и открытая тема «Штаб» с голосовым сообщением и ответом бота" caption="Группа штаба в Telegram: каждая тема отвечает за свой участок работы." -->
 
 Внутри бота самое важное это функция запуска Claude. Она собирает команду `claude -p`, добавляет правила темы, список разрешённых инструментов и номер прошлой сессии. Если сессия протухла, бот начинает разговор заново. И ещё одна строка, без которой сервер с 4 ГБ памяти не выжил бы: очередь на одного. Одновременно работает только один Claude, остальные задачи ждут.
 
@@ -133,6 +216,8 @@ sources:
 
 Если у тебя в терминале вставка в `ssh -t` не проходит, открой SSH в отдельном окне. У меня встроенная панель терминала в приложении не передавала ввод в SSH, и код входа приходилось вставлять из обычного окна командной строки.
 
+<!-- img: type=manual what="окно терминала по SSH на сервере штаба: команда claude -p \"привет\" под пользователем iishtab и ответ Claude, рядом вывод claude --version; без токенов и ключей" caption="Проверка после входа: claude -p отвечает от пользователя, под которым работает бот." -->
+
 ## Какие задачи решает Telegram-штаб прямо из смартфона?
 
 Из телефона я делаю почти всё, кроме съёмки: разбираю ролики, пишу и переписываю сценарии, правлю базы в Notion, запускаю монтаж и выкладку, готовлю статьи для блога. Каждая задача это сообщение или кнопка в своей теме.
@@ -148,6 +233,11 @@ sources:
 Самое ценное здесь в правилах. В рабочей папке лежит `CLAUDE.md` с описанием проекта, и каждая новая сессия читает его первой. Поэтому сообщение «перепиши REEL-6» Claude понимает без пояснений: где лежит сценарий, по каким правилам писать, куда сохранить.
 
 Как это выглядит со стороны всего конвейера, я показывал в [кейсе ii.systema](/iisystema/). Автоответы по кодовому слову, которые тоже управляются из этой группы, разобраны в [отдельной статье](/blog/avtootvet-kodovoe-slovo/).
+
+<!-- img: type=screenshot url=https://petrsolovarov.ru/iisystema/ selector=".flow" caption="Схема медиа-конвейера ii.systema, частью которого стал штаб с Claude Code." alt="Медиа-конвейер ii.systema: как управлять Claude Code с телефона через ИИ-штаб" -->
+
+![Медиа-конвейер ii.systema: как управлять Claude Code с телефона через ИИ-штаб](/blog/upravlyat-claude-code-s-telefona/img/screenshot-4.jpg "Схема медиа-конвейера ii.systema, частью которого стал штаб с Claude Code.")
+
 
 ## Проверил на себе: штаб на подписке и поломка при переходе на Opus 5.5
 
