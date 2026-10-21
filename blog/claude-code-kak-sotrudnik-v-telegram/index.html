@@ -49,7 +49,7 @@
    "datePublished": "2026-10-21",
    "dateModified": "2026-10-21",
    "inLanguage": "ru-RU",
-   "wordCount": 4031,
+   "wordCount": 4068,
    "articleSection": "Инструменты",
    "author": {
     "@id": "https://petrsolovarov.ru/#person"
@@ -347,12 +347,12 @@ table.fix tr:last-child td { border-bottom: 0; }
   </ol>
 
   <header class="hero">
-    <div class="eyebrow">Инструкция · Инструменты · 22 мин чтения</div>
+    <div class="eyebrow">Инструкция · Инструменты · 23 мин чтения</div>
     <h1>Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке</h1>
     <p class="lead">Как запустить Claude Code на сервере по подписке и сделать из него сотрудника в Telegram без платного API. Сервер, вход, служба, файлы, права и мои поломки.</p>
     <div class="byline">
       <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
-      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-10-21">21 октября 2026</time> · 4 031 слов</div>
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-10-21">21 октября 2026</time> · 4 068 слов</div>
     </div>
   </header>
 
@@ -476,8 +476,9 @@ table.fix tr:last-child td { border-bottom: 0; }
 <li>Проверь: <code>claude -p "привет"</code> от того же пользователя. Ответ пришёл, значит бот тоже сможет.</li>
 </ol>
 <p>Сразу после входа проверь окружение. <a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan">Справка Anthropic</a> (проверено 19.10.2026) предупреждает: если на машине задана переменная <code>ANTHROPIC_API_KEY</code>, Claude Code возьмёт этот ключ вместо подписки, и запросы пойдут в оплату по API. На сервере, где раньше жили другие проекты, ключ легко пропустить. Посмотри <code>env</code> пользователя бота, его <code>.bashrc</code> и файл службы.</p>
-<!-- img: type=manual what="окно терминала по SSH на сервере штаба под пользователем бота: запуск claude, ссылка для входа (код входа и токены закрыть) и ответ на claude -p «привет»" caption="Вход в Claude Code по подписке на сервере без экрана: ссылка в терминале и проверочный ответ." alt="Как авторизовать Claude Code под подпиской Pro на сервере без экрана" -->
+<!-- img: type=terminal cmds="whoami ;; # claude auth login — переход по выданной ссылке в браузере и ввод кода ;; claude auth status ;; claude -p “привет“" caption="Вход в Claude Code по подписке на сервере без экрана: ссылка в терминале и проверочный ответ." alt="Как авторизовать Claude Code под подпиской Pro на сервере без экрана" was="окно терминала по SSH на сервере штаба под пользователем бота: запуск claude, ссылка для входа (код входа и токены закрыть) и ответ на claude -p «привет»" -->
 
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="Как авторизовать Claude Code под подпиской Pro на сервере без экрана" src="/blog/claude-code-kak-sotrudnik-v-telegram/img/terminal-2.jpg"></div><figcaption>Вход в Claude Code по подписке на сервере без экрана: ссылка в терминале и проверочный ответ.</figcaption></figure>
 <p>Мелочь, на которой я споткнулся: встроенная панель терминала в приложении не передавала ввод в SSH, и код входа не вставлялся. Помогло обычное отдельное окно командной строки.</p>
 <h2 id="kak-zavernut-bota-v-sluzhbu-chtoby-on-rabotal-kruglosutochno">Как завернуть бота в службу, чтобы он работал круглосуточно?</h2>
 <p>Бота стоит запустить как службу systemd. Systemd сам поднимает его после перезагрузки сервера и после падения. У меня бот @ii_systemaBot работает службой <code>ii-shtab</code> от пользователя <code>iishtab</code>.</p>
@@ -509,8 +510,9 @@ WantedBy=multi-user.target
 <li><strong>«Дубли», «Монтаж», «Выкладка».</strong> Видео, статусы монтажа и публикации.</li>
 </ul>
 <p>Принцип один: одна тема, один участок работы. Бот по теме понимает, какие правила подложить Claude и какие инструменты ему открыть. В теме разговора агенту можно читать и править Notion, в теме выкладки у него свой узкий набор действий.</p>
-<!-- img: type=manual what="Telegram-группа ii.systema со списком тем слева («Штаб», «Референсы», «Сценарии», «Дубли», «Монтаж», «Выкладка») и открытая тема «Штаб» с задачей Петру и ответом бота" caption="Группа с темами в Telegram: каждая тема отвечает за свой участок работы, и бот подкладывает Claude нужные правила." alt="Как передавать задачи и файлы из Telegram в Claude Code по темам группы" -->
+<!-- img: type=telegram chat=shtab topic="💬 Штаб" find="сообщение с задачей от Петра и ответ бота с отчётом о выполнении" caption="Группа с темами в Telegram: каждая тема отвечает за свой участок работы, и бот подкладывает Claude нужные правила." alt="Как передавать задачи и файлы из Telegram в Claude Code по темам группы" was="Telegram-группа ii.systema со списком тем слева («Штаб», «Референсы», «Сценарии», «Дубли», «Монтаж», «Выкладка») и открытая тема «Штаб» с задачей Петру и ответом бота" -->
 
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="Как передавать задачи и файлы из Telegram в Claude Code по темам группы" src="/blog/claude-code-kak-sotrudnik-v-telegram/img/telegram-3.jpg"></div><figcaption>Группа с темами в Telegram: каждая тема отвечает за свой участок работы, и бот подкладывает Claude нужные правила.</figcaption></figure>
 <p>Голосовые сильно экономят время. Я наговариваю «в сценарии REEL-6 убери второй хук и сделай концовку короче», бот расшифровывает, Claude правит страницу в Notion и отвечает, что сделал.</p>
 <h2 id="kak-podklyuchit-k-agentu-bazy-znaniy-i-pravila-cherez-claude">Как подключить к агенту базы знаний и правила через CLAUDE.md?</h2>
 <p>Правила агента живут в файле <code>CLAUDE.md</code> в рабочей папке. Каждая новая сессия Claude Code читает его первой. В нём описан проект, где что лежит и по каким правилам работать. Поэтому короткое сообщение «перепиши REEL-6» Claude понимает без пояснений.</p>
