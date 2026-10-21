@@ -6,7 +6,25 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Mon, 19 Oct 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Wed, 21 Oct 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Как понять, почему ролик залетел: разбор чужих рилс через ИИ</title>
+    <link>https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/</guid>
+    <pubDate>Wed, 21 Oct 2026 09:00:00 +0300</pubDate>
+    <category>Контент и видео</category>
+    <description>Как понять, почему ролик залетел: раскладываю чужой рилс на текст, структуру и картинку через Whisper и Gemini за 2–5 минут и около цента, а потом пишу свой сценарий.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке</title>
+    <link>https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/</guid>
+    <pubDate>Wed, 21 Oct 2026 09:00:00 +0300</pubDate>
+    <category>Инструменты</category>
+    <description>Как запустить Claude Code на сервере по подписке и сделать из него сотрудника в Telegram без платного API. Сервер, вход, служба, файлы, права и мои поломки.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>ИИ-штаб на сервере: как управлять Claude Code с телефона по подписке</title>
     <link>https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/</link>

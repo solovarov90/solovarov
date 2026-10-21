@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как понять, почему ролик залетел: разбор чужих рилс через ИИ — блог Петра Соловарова</title>
+<meta name="description" content="Как понять, почему ролик залетел: раскладываю чужой рилс на текст, структуру и картинку через Whisper и Gemini за 2–5 минут и около цента, а потом пишу свой сценарий.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Как понять, почему ролик залетел: разбор чужих рилс через ИИ">
+<meta property="og:description" content="Как понять, почему ролик залетел: раскладываю чужой рилс на текст, структуру и картинку через Whisper и Gemini за 2–5 минут и около цента, а потом пишу свой сценарий.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Как понять, почему ролик залетел: разбор чужого рилс нейросетью">
+<meta property="article:published_time" content="2026-10-21">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Контент и видео">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Как понять, почему ролик залетел: разбор чужих рилс через ИИ">
+<meta name="twitter:description" content="Как понять, почему ролик залетел: раскладываю чужой рилс на текст, структуру и картинку через Whisper и Gemini за 2–5 минут и около цента, а потом пишу свой сценарий.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/"
+   },
+   "headline": "Как понять, почему ролик залетел: разбор чужих рилс через ИИ",
+   "description": "Как понять, почему ролик залетел: раскладываю чужой рилс на текст, структуру и картинку через Whisper и Gemini за 2–5 минут и около цента, а потом пишу свой сценарий.",
+   "image": [
+    "https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/img/cover.jpg"
+   ],
+   "datePublished": "2026-10-21",
+   "dateModified": "2026-10-21",
+   "inLanguage": "ru-RU",
+   "wordCount": 3615,
+   "articleSection": "Контент и видео",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Как понять, почему ролик залетел: разбор чужих рилс через ИИ",
+     "item": "https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Зачем разбирать чужие рилс нейросетью, если можно посмотреть глазами?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Глазами ты замечаешь общее впечатление и пропускаешь детали. Нейросеть выдаёт полную расшифровку с таймкодами, структуру по шагам и что показано на экране в каждый момент. Главное, результат сразу ложится карточкой в Notion, и через месяц по 68 таким карточкам видно, какие заходы работают."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Какие нейросети нужны для автоматического анализа видео?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "У меня две. Whisper расшифровывает речь, Gemini смотрит видео целиком и описывает хук, структуру, монтаж и причины успеха. Сценарий по разбору пишет Claude Opus 5.5 по подписке, запасной вариант Gemini. Скачивают ролики бесплатные утилиты yt-dlp и tikwm."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько стоит разобрать один чужой ролик через ИИ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "У меня около одного цента за ролик, по данным «Пайплайна производства» на 01.10.2026. Это платный Gemini flash в низком разрешении видео. Бесплатный ключ Gemini с видео не справлялся, поэтому он остался запасным."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Не заблокируют ли алгоритмы соцсетей за ролик, снятый по чужой структуре?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Страйки и блокировки прилетают за перезалив чужого видеоряда и звука. Идею, тему и схему ролика я беру, а слова, кадр и графику делаю свои. Гарантий от площадок не бывает, поэтому куски оригинала у меня идут только короткими перебивками с отметкой автора."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как нейросеть понимает, почему видео набрало просмотры?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Она не видит статистику ролика, она видит сам ролик. Gemini разбирает, чем цепляет первая фраза, как устроены шаги, где меняется картинка и где стоит призыв. Это гипотеза, и проверяется она только твоим роликом по той же схеме и его цифрами."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько времени уходит на съёмку своего видео по готовому ИИ-сценарию?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Разбор и сценарий готовы через 2–5 минут после ссылки. Сама запись идёт быстро, потому что текст уже разбит на фразы и едет в суфлёр на телефоне. 14 октября 2026 года я записал 12 роликов за 25 минут."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Контент и видео</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Разбор инструмента · Контент и видео · 20 мин чтения</div>
+    <h1>Как понять, почему ролик залетел: разбор чужих рилс через ИИ</h1>
+    <p class="lead">Как понять, почему ролик залетел: раскладываю чужой рилс на текст, структуру и картинку через Whisper и Gemini за 2–5 минут и около цента, а потом пишу свой сценарий.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-10-21">21 октября 2026</time> · 3 615 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/pochemu-rolik-zaletel/img/cover.jpg" alt="Как понять, почему ролик залетел: разбор чужого рилс нейросетью" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#pochemu-roliki-zaletayut-i-chto-imenno-nuzhno-vzyat-u-chuzho">Почему ролики залетают и что именно нужно взять у чужого ролика?</a></li><li><a href="#kak-ustroen-avtomaticheskiy-razbor-chuzhogo-rils-cherez-neyr">Как устроен автоматический разбор чужого рилс через нейросети?</a></li><li><a href="#chto-neyroset-vytaskivaet-iz-video-tekst-strukturu-i-kartink">Что нейросеть вытаскивает из видео: текст, структуру и картинку?</a></li><li><a href="#kak-prevratit-chuzhoy-zaletevshiy-rolik-v-svoy-stsenariy-rem">Как превратить чужой залетевший ролик в свой сценарий-ремейк?</a></li><li><a href="#skolko-stoit-analiz-chuzhih-rils-neyrosetyu-i-skolko-vremeni">Сколько стоит анализ чужих рилс нейросетью и сколько времени он занимает?</a></li><li><a href="#proveril-na-sebe-kak-referensy-pomogli-sobrat-170-942-prosmo">Проверил на себе: как референсы помогли собрать 170 942 просмотра за 14 дней</a></li><li><a href="#chto-lomaetsya-pri-ii-razbore-chuzhih-video-i-kak-oboyti-sbo">Что ломается при ИИ-разборе чужих видео и как обойти сбои?</a></li><li><a href="#kak-vstroit-razbor-referensov-v-regulyarnyy-kontent-konveyer">Как встроить разбор референсов в регулярный контент-конвейер?</a></li></ol></nav>
+    <article class="article">
+<p>Чтобы понять, почему ролик залетел, разложи его на три слоя: что сказано (текст с таймкодами), как построено (хук, шаги, призыв) и что показано на экране в каждый момент. У меня это делает связка Whisper и Gemini: 2–5 минут и около цента на ролик. На выходе карточка в Notion и готовый сценарий-ремейк: три хука, таблица «Оригинал → Мой текст» и три концовки, по которым я снимаю свой ролик.</p>
+<p>Ниже разбираю свой инструмент разбора референсов целиком. Что он достаёт из чужого рилс, как превращает это в сценарий, сколько стоит, что ломалось и какие цифры дали ролики, снятые по этой схеме. Инструмент работает с 30 сентября 2026 года и стал первым узлом моего <a href="/blog/media-konveyer-na-ii/">медиа-конвейера на ИИ</a>.</p>
+<h2 id="pochemu-roliki-zaletayut-i-chto-imenno-nuzhno-vzyat-u-chuzho">Почему ролики залетают и что именно нужно взять у чужого ролика?</h2>
+<p>Ролик залетает, когда первая фраза останавливает палец, середина держит обещание из хука, а конец даёт понятное действие. Брать у чужого ролика стоит именно эту схему: тему, заход хука, порядок шагов, ритм смены картинки. Слова, кадр и звук оставь автору.</p>
+<p>Почему так. В моих правилах работы с чужим контентом записано: идея, тема, структура и формат хука авторским правом не защищаются. Чужой видеоряд и звук защищены, за перезалив прилетают страйки, блокировки и отключение монетизации. Поэтому граница у меня жёсткая:</p>
+<ul>
+<li><strong>Можно:</strong> брать идею и структуру, пересказывать своими словами, рисовать свой видеоряд.</li>
+<li><strong>С оговорками:</strong> короткие куски оригинала перебивками под мой текст, с отметкой автора.</li>
+<li><strong>Нельзя:</strong> перезаливать чужой ролик целиком или с мелкими правками.</li>
+</ul>
+<p>Основа кадра у меня всегда одна: я в кадре и своя графика.</p>
+<p>Второй вопрос: какие ролики вообще брать в разбор. Я беру только те, что уже собрали просмотры у автора, и только по своей теме, ИИ в работе и бизнесе. Залетевший ролик про чужую нишу даст схему, но аудитория придёт не та.</p>
+<h2 id="kak-ustroen-avtomaticheskiy-razbor-chuzhogo-rils-cherez-neyr">Как устроен автоматический разбор чужого рилс через нейросети?</h2>
+<p>Разбор запускается одной ссылкой: я кидаю её в Telegram, сервер скачивает ролик, Whisper расшифровывает речь, Gemini смотрит видео целиком. Результат сам ложится карточкой в базу «🎯 Референсы» в Notion, а сценарий приходит в Telegram. От ссылки до готового сценария проходит 2–5 минут.</p>
+<p>Вот цепочка по шагам, как она работает у меня по данным «Пайплайна производства» на 01.10.2026:</p>
+<ol>
+<li><strong>Ссылка или файл.</strong> Кидаю залетевший ролик в тему «📥 Референсы» своей Telegram-группы: ссылкой или файлом до 20 МБ. Второй путь: строка в базе «Референсы» со статусом «Новый», сервер забирает её сам в течение 5 минут.</li>
+<li><strong>Скачивание.</strong> Instagram скачивает утилита yt-dlp, TikTok идёт через сервис tikwm. YouTube блокирует адрес моего сервера, поэтому ролик с YouTube уходит в Gemini ссылкой.</li>
+<li><strong>Расшифровка.</strong> Whisper, программа распознавания речи, превращает звук в текст с таймкодами по фразам.</li>
+<li><strong>Разбор видео.</strong> Gemini смотрит ролик целиком: хук, структура, монтаж, почему залетело.</li>
+<li><strong>Карточка и сценарий.</strong> Сервер пишет карточку в Notion и собирает сценарий-ремейк в «🎬 Контент-план».</li>
+</ol>
+<!-- img: type=scheme what="цепочка разбора: ссылка в Telegram → скачивание (yt-dlp, tikwm) → расшифровка Whisper → Gemini смотрит видео → карточка в «Референсах» → сценарий-ремейк в «Контент-плане»; подписать: 2–5 минут, около 1 цента" caption="Цепочка разбора чужого ролика: от ссылки в Telegram до готового сценария проходит 2–5 минут." alt="как понять почему ролик залетел: схема разбора рилс нейросетью" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 610" width="100%" role="img" aria-label="Цепочка разбора чужого ролика: ссылка в Telegram, скачивание, расшифровка Whisper, Gemini смотрит видео, карточка в Референсах, сценарий-ремейк в Контент-плане. Занимает 2–5 минут и около 1 цента.">
+  <title>Цепочка разбора чужого ролика: от ссылки до сценария-ремейка</title>
+  <defs>
+    <marker id="ar-line" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="var(--line)" stroke="var(--line)" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ar-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="var(--accent)" stroke="var(--accent)" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Ряд 1 -->
+  <rect x="30" y="30" width="320" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="68" cy="68" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="68" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">1</text>
+  <text x="54" y="128" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Ссылка в Telegram</text>
+  <text x="54" y="160" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Тема «Референсы»:</text>
+  <text x="54" y="184" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ссылка или файл до 20 МБ</text>
+
+  <rect x="440" y="30" width="320" height="200" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="478" cy="68" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="478" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">2</text>
+  <text x="464" y="128" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Скачивание</text>
+  <text x="464" y="160" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Instagram — yt-dlp, TikTok — tikwm,</text>
+  <text x="464" y="184" font-family="var(--font-body)" font-size="18" fill="var(--muted)">YouTube — ссылкой в Gemini</text>
+
+  <rect x="850" y="30" width="320" height="200" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="888" cy="68" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="888" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">3</text>
+  <text x="874" y="128" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Расшифровка</text>
+  <text x="874" y="160" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Whisper превращает речь</text>
+  <text x="874" y="184" font-family="var(--font-body)" font-size="18" fill="var(--muted)">в текст с таймкодами</text>
+
+  <!-- Стрелки ряда 1 и переход вниз -->
+  <path d="M352 130 H436" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#ar-line)"/>
+  <path d="M762 130 H846" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#ar-line)"/>
+  <path d="M1010 232 V296" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#ar-line)"/>
+
+  <!-- Ряд 2 (справа налево) -->
+  <rect x="850" y="300" width="320" height="200" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="888" cy="338" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="888" y="346" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">4</text>
+  <text x="874" y="398" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Gemini смотрит</text>
+  <text x="874" y="430" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Весь ролик целиком: хук,</text>
+  <text x="874" y="454" font-family="var(--font-body)" font-size="18" fill="var(--muted)">структура, монтаж, почему залетело</text>
+
+  <rect x="440" y="300" width="320" height="200" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="478" cy="338" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="478" y="346" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">5</text>
+  <text x="464" y="398" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Карточка</text>
+  <text x="464" y="430" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Сервер записывает разбор</text>
+  <text x="464" y="454" font-family="var(--font-body)" font-size="18" fill="var(--muted)">в базу «Референсы»</text>
+
+  <rect x="30" y="300" width="320" height="200" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="68" cy="338" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="68" y="346" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">6</text>
+  <text x="54" y="398" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Сценарий-ремейк</text>
+  <text x="54" y="430" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Ложится в «Контент-план»,</text>
+  <text x="54" y="454" font-family="var(--font-body)" font-size="18" fill="var(--muted)">приходит в Telegram</text>
+
+  <!-- Стрелки ряда 2 -->
+  <path d="M848 400 H764" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#ar-line)"/>
+  <path d="M438 400 H354" fill="none" stroke="var(--accent)" stroke-width="3.5" marker-end="url(#ar-accent)"/>
+
+  <!-- Итог -->
+  <rect x="300" y="535" width="600" height="52" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="600" y="570" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">2–5 минут · около 1 цента</text>
+</svg>
+<figcaption>Цепочка разбора чужого ролика: от ссылки в Telegram до готового сценария проходит 2–5 минут.</figcaption>
+</figure>
+
+<p>Видео на сервере хранятся 7 дней, аудио 30. Этого хватает, чтобы пересобрать сценарий, если правила поменялись.</p>
+<p>Одна деталь, которая сэкономила лимиты. Сначала разбор делал Claude по подписке, но тогда каждый референс съедал лимит, нужный для разговора с ботом. 30 сентября я перевёл весь разбор на Gemini, а Claude оставил для сценариев и работы в чате.</p>
+<h2 id="chto-neyroset-vytaskivaet-iz-video-tekst-strukturu-i-kartink">Что нейросеть вытаскивает из видео: текст, структуру и картинку?</h2>
+<p>Разбор достаёт из чужого ролика три вещи. Текст: полную расшифровку речи, чтобы видеть, какими словами говорит автор и где у него хук. Структуру: с чего ролик начинается, сколько в нём шагов, чем заканчивается и где призыв к действию. Картинку: что на экране в каждый момент, лицо, интерфейс, надпись или вставка.</p>
+<p>По каждому слою я смотрю на своё:</p>
+<ul>
+<li><strong>Текст.</strong> Длина первой фразы, есть ли в ней число, вызов или тайна. Сколько слов на весь ролик. Звучит ли это как живая речь или как диктор.</li>
+<li><strong>Структура.</strong> Сколько шагов обещано и сколько выдано. Где стоит поворот, после которого не хочется листать. Как устроена концовка: подарок, вывод или призыв написать слово.</li>
+<li><strong>Картинка.</strong> Когда меняется кадр первый раз, как часто дальше, что показано на каждой фразе. Отсюда потом растёт колонка «Вклейка» в моём сценарии.</li>
+</ul>
+<p>Из этого рождается карточка: заголовок, хук, статус и разбор по слоям. Она живёт в базе как единица учёта, туда же потом попадает сценарий, дата записи и цифры по площадкам.</p>
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="Контент-план в Notion с видами: таблица, доска, календарь, расписание, конвейер" src="/iisystema/img/notion-plan.jpg"></div><figcaption>«Контент-план» в Notion: каждая строка это ролик от референса до публикации. В списке видны сценарии REEL-60…72, готовые к записи.</figcaption></figure>
+<p>Ещё разбор сам узнаёт формат ролика. Пример: тир-лист, где автор показывает пальцем на карточки «слабо / норм / топ» над головой. Для такого ролика сценарий получает отдельный раздел «Формат: Указка» и колонку «Жест», а суфлёр ставит стрелку перед фразой. Этот формат я добавил 2 октября 2026 года, когда разбор пропустил главное в таком ролике: жесты.</p>
+<h2 id="kak-prevratit-chuzhoy-zaletevshiy-rolik-v-svoy-stsenariy-rem">Как превратить чужой залетевший ролик в свой сценарий-ремейк?</h2>
+<p>Ремейк собирается по жёсткому формату: три хука на выбор, таблица «Таймкод | Оригинал | Мой текст | Вклейка» фраза в фразу и три концовки с одним действием. Каждая фраза оригинала пересказана другими словами, смысл, факты и порядок те же, число слов отличается не больше чем на 15%. Таймкоды нужны монтажу: на те же фразы ложится тот же ритм.</p>
+<p>Вот как выглядит кусок такой таблицы, сценарий про навык Prompt Master для Claude из «Контент-плана» от 05.10.2026:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Таймкод</th>
+<th>Оригинал</th>
+<th>Мой текст</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:00</td>
+<td>Люди, которые никогда не упирались в лимиты по Клоду, не используют его лучше тебя или как-то умнее.</td>
+<td>Те, кто не упирается в лимиты Claude, не умнее тебя.</td>
+</tr>
+<tr>
+<td>00:04</td>
+<td>Они просто установили один бесплатный скилл, который не даёт Клоду изначально делать не то, что тебе нужно.</td>
+<td>Они поставили бесплатный навык. С ним Claude сразу делает то, что нужно.</td>
+</tr>
+<tr>
+<td>00:09</td>
+<td>Он называется Prompt Master. 11.000 звёзд на GitHub, лицензия MIT и, конечно же, доступен бесплатно.</td>
+<td>Называется Prompt Master. 11 тысяч звёзд на GitHub, открытая лицензия MIT, и он бесплатный.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Видно, что из чужой фразы уходит вода и жаргон («скилл» стал «навыком»), а факты остаются на месте. Если оригинал на английском, текст переводится и подгоняется под время фразы, а число слов уже не считается.</p>
+<p>Как пишутся три части сценария:</p>
+<ol>
+<li><strong>Хуки.</strong> Хук у меня отдельный «выстрел» перед первой строкой, 3–10 слов, и он не пересказывает её. Три хука дают три разных захода. С 4 октября 2026 года разбор сам проверяет хуки: если больше трети слов взято из первых двух строк текста, хуки переписываются отдельным запросом.</li>
+<li><strong>Текст.</strong> Его пишет Claude Opus 5.5 по подписке, запасной вариант Gemini. Правила тона лежат отдельным файлом: живая речь, жаргон простыми словами, никаких выдуманных фактов. Отдельная проверка ловит штампы и риторические противопоставления и возвращает текст на переписывание, пока он не станет чистым.</li>
+<li><strong>Концовки.</strong> Одна связка с темой и одно действие: написать «система» в комментариях и получить инструкцию со страницы <a href="https://video.petrsolovarov.ru/materials">«Материалы»</a>.</li>
+</ol>
+<p>Колонку «Вклейка» разбор заполняет сам: что показать на экране на этой фразе. Например, «страница проекта на GitHub» или «счётчик проверок от 0 до 35». Монтаж рисует эти вставки своей анимацией, кадры чужого ролика я не беру.</p>
+<p>Свой текст я правлю прямо в таблице в Notion, монтаж берёт его оттуда. Если правила тона поменялись, старый сценарий переписывается кнопкой «Переписать живее», прежняя версия уходит в архив.</p>
+<h2 id="skolko-stoit-analiz-chuzhih-rils-neyrosetyu-i-skolko-vremeni">Сколько стоит анализ чужих рилс нейросетью и сколько времени он занимает?</h2>
+<p>Разбор одного референса стоит мне около одного цента и занимает 2–5 минут, по данным «Пайплайна производства» на 01.10.2026. Сценарий по разбору пишется по подписке на Claude, без оплаты за каждый вызов. Остальные инструменты в цепочке бесплатные.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Шаг</th>
+<th>Чем делается</th>
+<th>Сколько стоит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Скачивание</td>
+<td>yt-dlp для Instagram, tikwm для TikTok</td>
+<td>бесплатно</td>
+</tr>
+<tr>
+<td>Расшифровка речи</td>
+<td>Whisper на моём сервере</td>
+<td>бесплатно</td>
+</tr>
+<tr>
+<td>Разбор видео</td>
+<td>Gemini flash, низкое разрешение видео</td>
+<td>около 1 цента за ролик</td>
+</tr>
+<tr>
+<td>Сценарий-ремейк</td>
+<td>Claude Opus 5.5 по подписке, запасной Gemini</td>
+<td>подписка, без оплаты за вызов</td>
+</tr>
+<tr>
+<td>Учёт</td>
+<td>Notion: «Референсы» и «Контент-план»</td>
+<td>бесплатный тариф</td>
+</tr>
+</tbody>
+</table></div>
+<p>Почему разбор платный. Бесплатный ключ Gemini с видео не справлялся, и 30 сентября 2026 года я перевёл разбор на платный flash в низком разрешении. Бесплатный ключ остался запасным. Низкого разрешения для разбора хватает: нейросети важно понять, что в кадре, а резкость деталей не нужна.</p>
+<p>Про время. Пока ты смотришь чужой ролик третий раз и пытаешься записать его текст руками, разбор уже готов. Сравнение по моим цифрам и по всему конвейеру есть в статье <a href="/blog/skolko-stoit-ii-konveyer-rolikov/">«Сколько стоит ИИ-конвейер роликов»</a>.</p>
+<h2 id="proveril-na-sebe-kak-referensy-pomogli-sobrat-170-942-prosmo">Проверил на себе: как референсы помогли собрать 170 942 просмотра за 14 дней</h2>
+<p>Все ролики моего блога ii.systema сделаны ремейками по разобранным референсам. За две недели через разбор прошло 68 референсов. С 2 по 15 октября 2026 года вышло 44 ролика, они набрали 170 942 просмотра: YouTube 60 378, Instagram 96 929, TikTok 13 635, по данным <a href="/iisystema/">кейса ii.systema</a> на 16.10.2026.</p>
+<div class="figures">
+<div><strong>68</strong><span>референсов прошли разбор за две недели</span></div>
+<div><strong>44</strong><span>ролика вышли со 2 по 15 октября</span></div>
+<div><strong>170 942</strong><span>просмотра на трёх площадках</span></div>
+<div><strong>25 минут</strong><span>на запись 12 роликов 14 октября</span></div>
+</div>
+
+<p>Самый просматриваемый ролик, про файл AGENTS.md, собрал 28 995 просмотров. Его «Контент-план» показывает, как сработала схема по площадкам на 15.10.2026: Instagram 26 364 просмотра, 1 575 сохранений и 216 кодовых слов под роликом. Хук я взял из трёх, которые предложил сценарий: «Сожгли шестьдесят миллиардов токенов. Тебе достаётся готовый файл». Следом идут ролики про скилл Watch с 23 571 просмотром и «Свой Джарвис за 9 шагов» с 16 835.</p>
+<!-- img: type=manual what="Notion, база «🎯 Референсы»: одна открытая карточка разбора чужого ролика — хук, структура по шагам, монтаж, раздел «почему залетело»; ссылку на чужой профиль и имя автора скрыть" caption="Карточка разбора в «Референсах»: хук, шаги, монтаж и причины, по которым ролик залетел у автора." alt="разбор рилс конкурентов нейросетью: карточка референса в Notion" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="разбор рилс конкурентов нейросетью: карточка референса в Notion" src="/blog/pochemu-rolik-zaletel/img/manual-2.jpg"></div><figcaption>Карточка разбора в «Референсах»: хук, шаги, монтаж и причины, по которым ролик залетел у автора.</figcaption></figure>
+<p>Теперь честно о том, чего схема не даёт. Просмотры распределены неровно: медиана 1 910 на ролик, 9 роликов из 44 не дошли до тысячи. Один и тот же разбор даёт хорошую схему, а залетает её исполнение у единиц. Поэтому мне важен поток: 68 референсов за две недели дают запас сценариев, и слабый ролик не останавливает выпуск.</p>
+<p>Запись тоже стала быстрой. Сценарий уже разбит на фразы и приезжает в мой суфлёр на телефоне, полоску текста у фронталки. 14 октября 2026 года я записал 12 роликов за 25 минут.</p>
+<h2 id="chto-lomaetsya-pri-ii-razbore-chuzhih-video-i-kak-oboyti-sbo">Что ломается при ИИ-разборе чужих видео и как обойти сбои?</h2>
+<p>Ломается чаще всего на стыках: скачивание, лимиты нейросети и правила, которые убивают изюминку ролика. Каждую поломку я записываю в журнал изменений в Notion и закрываю так, чтобы она не повторилась. Вот что случилось с 30 сентября по 9 октября 2026 года.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Что сломалось</th>
+<th>Что сделал</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YouTube блокирует адрес сервера, ролик не скачать</td>
+<td>Ссылку на YouTube отдаю Gemini напрямую, он смотрит видео сам</td>
+</tr>
+<tr>
+<td>Бесплатный Gemini не справлялся с видео</td>
+<td>Перевёл разбор на платный flash в низком разрешении, около цента за ролик; бесплатный ключ запасной</td>
+</tr>
+<tr>
+<td>Gemini перегружен и не отвечает</td>
+<td>Сервер сам переключается на запасные модели</td>
+</tr>
+<tr>
+<td>Хуки выходили пересказом первой строки</td>
+<td>Правило «хук отдельно от текста» и автопроверка на повтор слов, с 04.10.2026</td>
+</tr>
+<tr>
+<td>Хуки стали однообразными</td>
+<td>Банк из 14 заходов, каждый раз берутся три случайных, и сверка с хуками прошлых роликов</td>
+</tr>
+<tr>
+<td>Правила «живой речи» убили шутку в медленном ролике с эхо-повторами</td>
+<td>Разбор узнаёт формат «Медленно» и не склеивает реплики, с 09.10.2026</td>
+</tr>
+<tr>
+<td>Ссылка на ролик, разобранный по старым правилам, не пересобиралась</td>
+<td>Повторная ссылка запускает разбор заново и перезаписывает ту же страницу сценария</td>
+</tr>
+</tbody>
+</table></div>
+<p>Главный урок здесь про правила. Каждое новое правило текста улучшает девять роликов из десяти и ломает десятый, у которого фишка как раз в нарушении правила. Медленный ролик с эхо-повторами смешной именно повторами. Поэтому разбор сначала определяет формат, а потом решает, какие правила к нему применять.</p>
+<p>И ещё один пункт, который я держу в голове: нейросеть отвечает на вопрос «почему залетело» гипотезой. Она не видит, кто смотрел ролик и сколько досмотрело. Проверяется гипотеза только твоим роликом по той же схеме и его цифрами через неделю.</p>
+<h2 id="kak-vstroit-razbor-referensov-v-regulyarnyy-kontent-konveyer">Как встроить разбор референсов в регулярный контент-конвейер?</h2>
+<p>Разбор работает в полную силу, когда он стоит первым узлом цепочки и каждая карточка дальше превращается в ролик сама. У меня от человека остались две задачи: прислать ссылку и записать дубль. Монтаж, выкладку на три площадки и ответы на комментарии делают программы.</p>
+<p>Если хочешь повторить, вот порядок, в котором я бы собирал разбор с нуля:</p>
+<ol>
+<li><strong>Заведи базу «Референсы».</strong> Ссылка, хук, статус, разбор по трём слоям. Без учёта через неделю не вспомнить, откуда взялась идея.</li>
+<li><strong>Напиши правила тона на одну страницу.</strong> Как ты говоришь, какие слова под запретом, какое одно действие в конце. Прикладывай их к каждому запросу в нейросеть.</li>
+<li><strong>Закрепи формат сценария.</strong> Три хука, таблица фраза в фразу с таймкодами, три концовки. Жёсткий формат проще проверять глазами.</li>
+<li><strong>Автоматизируй разбор.</strong> Скачать, расшифровать, отдать видео Gemini, положить карточку в Notion. Это первый узел, который стоит отдать программе: он даёт темы на недели вперёд.</li>
+<li><strong>Добавь проверки.</strong> Хук не повторяет первую строку, текст без штампов, формат ролика определён. Проверка надёжнее ещё одной строчки в промпте, то есть в задании для нейросети.</li>
+<li><strong>Считай результат.</strong> Просмотры, сохранения и кодовые слова по каждому ролику обратно в карточку. Так видно, какие заходы из разборов работают у тебя, а не у автора оригинала.</li>
+</ol>
+<p>Что дальше делается с роликом, я разобрал в статьях про <a href="/blog/media-konveyer-na-ii/">весь медиа-конвейер</a> и про <a href="/blog/avtootvet-kodovoe-slovo/">автоответ на кодовое слово в комментариях</a>.</p>
+<p>Если хочешь, чтобы разбор и подбор референсов под твою нишу работали так же, напиши слово «система» мне в личку <a href="https://t.me/solovarov">t.me/solovarov</a>. На бесплатном созвоне на 30 минут разберём твой контент и я покажу, как запустить такой конвейер у тебя.</p>
+    </article>
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Зачем разбирать чужие рилс нейросетью, если можно посмотреть глазами?</h3><p>Глазами ты замечаешь общее впечатление и пропускаешь детали. Нейросеть выдаёт полную расшифровку с таймкодами, структуру по шагам и что показано на экране в каждый момент. Главное, результат сразу ложится карточкой в Notion, и через месяц по 68 таким карточкам видно, какие заходы работают.</p></div><div class="qa"><h3 id="faq-2">Какие нейросети нужны для автоматического анализа видео?</h3><p>У меня две. Whisper расшифровывает речь, Gemini смотрит видео целиком и описывает хук, структуру, монтаж и причины успеха. Сценарий по разбору пишет Claude Opus 5.5 по подписке, запасной вариант Gemini. Скачивают ролики бесплатные утилиты yt-dlp и tikwm.</p></div><div class="qa"><h3 id="faq-3">Сколько стоит разобрать один чужой ролик через ИИ?</h3><p>У меня около одного цента за ролик, по данным «Пайплайна производства» на 01.10.2026. Это платный Gemini flash в низком разрешении видео. Бесплатный ключ Gemini с видео не справлялся, поэтому он остался запасным.</p></div><div class="qa"><h3 id="faq-4">Не заблокируют ли алгоритмы соцсетей за ролик, снятый по чужой структуре?</h3><p>Страйки и блокировки прилетают за перезалив чужого видеоряда и звука. Идею, тему и схему ролика я беру, а слова, кадр и графику делаю свои. Гарантий от площадок не бывает, поэтому куски оригинала у меня идут только короткими перебивками с отметкой автора.</p></div><div class="qa"><h3 id="faq-5">Как нейросеть понимает, почему видео набрало просмотры?</h3><p>Она не видит статистику ролика, она видит сам ролик. Gemini разбирает, чем цепляет первая фраза, как устроены шаги, где меняется картинка и где стоит призыв. Это гипотеза, и проверяется она только твоим роликом по той же схеме и его цифрами.</p></div><div class="qa"><h3 id="faq-6">Сколько времени уходит на съёмку своего видео по готовому ИИ-сценарию?</h3><p>Разбор и сценарий готовы через 2–5 минут после ссылки. Сама запись идёт быстро, потому что текст уже разбит на фразы и едет в суфлёр на телефоне. 14 октября 2026 года я записал 12 роликов за 25 минут.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://app.notion.com/p/3ebdfdb148228134bb31c5344981bc4f" rel="noopener">Пайплайн производства (Notion ii.systema)</a> <span>этапы разбора и сценария-ремейка, около 1 цента и 2–5 минут на ролик, правила работы с чужим контентом; данные на 01.10.2026</span></li><li><a href="https://app.notion.com/p/ref-analyzer-razbor-3ebdfdb14822819bae9dff51006ae92b" rel="noopener">Журнал изменений — запуск автоматического разбора референсов</a> <span>как скачиваются ролики с Instagram, TikTok и YouTube, сроки хранения видео и аудио; 30.09.2026</span></li><li><a href="https://app.notion.com/p/Gemini-3ebdfdb14822816293ebf92c09831bd4" rel="noopener">Журнал изменений — разбор на платном Gemini</a> <span>бесплатный Gemini не справлялся с видео, перевод на flash в низком разрешении; 30.09.2026</span></li><li><a href="https://app.notion.com/p/3efdfdb14822819ca81cfc4a6695d5a8" rel="noopener">Журнал изменений — хуки без пересказа первой строки</a> <span>правило хука и автопроверка на повтор; 04.10.2026</span></li><li><a href="https://app.notion.com/p/AGENTS-md-3efdfdb14822812cb01afc9539308a0a" rel="noopener">Контент-план — ролик «Файл AGENTS.md» (Notion)</a> <span>хуки и цифры ролика по площадкам, снимок статистики 15.10.2026</span></li><li><a href="https://petrsolovarov.ru/iisystema/" rel="noopener">Кейс ii.systema на petrsolovarov.ru</a> <span>68 референсов, 44 ролика, 170 942 просмотра, 12 дублей за 25 минут; данные на 16.10.2026</span></li><li><a href="https://petrsolovarov.ru/blog/media-konveyer-na-ii/" rel="noopener">Как одному человеку собрать медиа-конвейер на ИИ</a> <span>весь конвейер от референса до выкладки, что достаёт разбор из чужого ролика</span></li><li><a href="https://video.petrsolovarov.ru/materials" rel="noopener">Страница «Материалы»</a> <span>инструкции к роликам по кодовому слову</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я настраиваю разбор референсов под твою нишу и твой голос. Ты кидаешь ссылку на залетевший ролик, система присылает разбор и готовый сценарий для записи.</p>
+      </div>
+      <div class="pkgs">
+        <div class="pkg">
+          <h3>Пилот</h3>
+          <div class="price">59 000 ₽</div>
+          <div class="term">14 дней, 10 роликов</div>
+          <ul>
+            <li>Настройка стиля монтажа под ваш бренд</li>
+            <li>Подключение YouTube, Instagram и TikTok</li>
+            <li>10 роликов от референса до выкладки, вы записываете дубли по суфлёру</li>
+            <li>Отчёт с цифрами по каждому ролику</li>
+          </ul>
+        </div>
+        <div class="pkg main">
+          <h3>Конвейер под ключ</h3>
+          <div class="price">190 000 ₽</div>
+          <div class="term">10–14 рабочих дней, разово</div>
+          <ul>
+            <li>Всё из пилота, система остаётся у вас: сервер, Telegram-бот, суфлёр, учёт в Notion</li>
+            <li>Кодовое слово, автоответы в комментариях и страница «Материалы»</li>
+            <li>Воронка с отчётом каждое утро</li>
+            <li>Обучение сотрудника и 30 дней сопровождения, пилот засчитывается</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <h3>Сопровождение</h3>
+          <div class="price">29 000 ₽ <small>в месяц</small></div>
+          <div class="term">после запуска, отмена в любой месяц</div>
+          <ul>
+            <li>Слежу, чтобы конвейер работал, и чиню поломки</li>
+            <li>Обновляю правила под новые возможности площадок и нейросетей</li>
+            <li>Еженедельный отчёт и до четырёх часов доработок</li>
+          </ul>
+        </div>
+      </div>
+      <div class="read">
+        <div class="note"><b>Первый шаг бесплатный.</b> Напишите мне в Telegram слово <span class="word">система</span>. За 30 минут посмотрим вашу задачу, и я скажу, подходит ли вам пилот и чего от него ждать. Цены ориентировочные, итог зависит от числа площадок и объёма. Подробные условия, гарантии и ограничения площадок описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/claude-code-kak-sotrudnik-v-telegram/">Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке</a><span>Инструменты · 21 октября 2026</span></li><li><a href="/blog/upravlyat-claude-code-s-telefona/">ИИ-штаб на сервере: как управлять Claude Code с телефона по подписке</a><span>Кейсы · 19 октября 2026</span></li><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a><span>Контент и видео · 19 октября 2026</span></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+</body>
+</html>

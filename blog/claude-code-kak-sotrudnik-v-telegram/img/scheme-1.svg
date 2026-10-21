@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="100%" role="img" aria-label="Схема: задача из темы Telegram-группы попадает к боту-курьеру на сервере, тот запускает claude -p в рабочей папке с правилами и навыками, Claude Code работает с Notion и файлами проекта, ответ возвращается в ту же тему">
+  <title>Как задача из Telegram доходит до Claude Code и возвращается ответом в ту же тему</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Узел 1: Пётр -->
+  <rect x="30" y="60" width="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="62" cy="92" r="17" fill="var(--accent)"/>
+  <text x="62" y="99" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">1</text>
+  <text x="90" y="100" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Пётр со смартфона</text>
+  <text x="52" y="136" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Пишет задачу в тему</text>
+  <text x="52" y="162" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Telegram-группы</text>
+
+  <!-- Узел 2: Бот-курьер -->
+  <rect x="450" y="60" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="482" cy="92" r="17" fill="var(--accent)"/>
+  <text x="482" y="99" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">2</text>
+  <text x="510" y="100" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Бот-курьер</text>
+  <text x="472" y="136" font-family="var(--font-body)" font-size="18" fill="var(--muted)">На сервере, сам не думает.</text>
+  <text x="472" y="162" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Очередь на одного</text>
+
+  <!-- Узел 3: claude -p -->
+  <rect x="870" y="60" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="902" cy="92" r="17" fill="var(--accent)"/>
+  <text x="902" y="99" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">3</text>
+  <text x="930" y="100" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">claude -p</text>
+  <text x="892" y="136" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Рабочая папка, CLAUDE.md</text>
+  <text x="892" y="162" font-family="var(--font-body)" font-size="18" fill="var(--muted)">с правилами и навыками</text>
+
+  <!-- Стрелки 1→2, 2→3 -->
+  <line x1="332" y1="125" x2="446" y2="125" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+  <line x1="752" y1="125" x2="866" y2="125" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+  <text x="389" y="110" text-anchor="middle" font-family="var(--font-body)" font-size="17" fill="var(--muted)">текст</text>
+  <text x="809" y="110" text-anchor="middle" font-family="var(--font-body)" font-size="17" fill="var(--muted)">задача</text>
+
+  <!-- Стрелка 3→4 вниз -->
+  <line x1="1020" y1="192" x2="1020" y2="286" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+
+  <!-- Узел 4: Notion и файлы -->
+  <rect x="870" y="290" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="902" cy="322" r="17" fill="var(--accent)"/>
+  <text x="902" y="329" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">4</text>
+  <text x="930" y="330" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Notion и файлы</text>
+  <text x="892" y="366" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Код, базы, монтаж,</text>
+  <text x="892" y="392" font-family="var(--font-body)" font-size="18" fill="var(--muted)">статьи проекта</text>
+
+  <!-- Стрелка 4→5 влево -->
+  <line x1="868" y1="355" x2="754" y2="355" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+  <text x="811" y="340" text-anchor="middle" font-family="var(--font-body)" font-size="17" fill="var(--muted)">результат</text>
+
+  <!-- Узел 5: Ответ в тему -->
+  <rect x="450" y="290" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="482" cy="322" r="17" fill="var(--accent)"/>
+  <text x="482" y="329" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">5</text>
+  <text x="510" y="330" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Бот отвечает</text>
+  <text x="472" y="366" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Отправляет ответ обратно</text>
+  <text x="472" y="392" font-family="var(--font-body)" font-size="18" fill="var(--muted)">в ту же тему</text>
+
+  <!-- Стрелка 5→1 (возврат) -->
+  <path d="M448 355 H180 V194" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+  <text x="314" y="340" text-anchor="middle" font-family="var(--font-body)" font-size="17" fill="var(--muted)">ответ в тему</text>
+
+  <!-- Подпись про подписку -->
+  <rect x="30" y="470" width="1140" height="64" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="600" y="509" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Вход по подписке Claude Pro, без API-ключа: платишь за подписку и сервер</text>
+</svg>

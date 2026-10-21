@@ -49,7 +49,7 @@
    "datePublished": "2026-10-19",
    "dateModified": "2026-10-19",
    "inLanguage": "ru-RU",
-   "wordCount": 3789,
+   "wordCount": 3747,
    "articleSection": "Кейсы",
    "author": {
     "@id": "https://petrsolovarov.ru/#person"
@@ -344,7 +344,7 @@ table.fix tr:last-child td { border-bottom: 0; }
     <p class="lead">Как управлять Claude Code с телефона: Telegram-бот на сервере передаёт задачи в claude -p под подпиской Claude Pro, без оплаты API. Схема, команды, поломки.</p>
     <div class="byline">
       <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
-      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-10-19">19 октября 2026</time> · 3 789 слов</div>
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-10-19">19 октября 2026</time> · 3 747 слов</div>
     </div>
   </header>
 
@@ -472,6 +472,7 @@ table.fix tr:last-child td { border-bottom: 0; }
 <p>Темы группы на старте 30.09.2026 были такие: «Референсы» (ссылки на ролики уходят на разбор), «Штаб» (разговор, правки Notion, голосовые), «Сценарии», «Журнал», «Система». Потом добавились «Дубли», «Монтаж», «Выкладка» и другие, но принцип не менялся: одна тема, один участок.</p>
 <!-- img: type=manual what="Telegram-группа штаба на телефоне или десктопе: список тем (Референсы, Штаб, Сценарии, Дубли, Монтаж, Выкладка) и открытая тема «Штаб» с голосовым сообщением и ответом бота" caption="Группа штаба в Telegram: каждая тема отвечает за свой участок работы." -->
 
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="Группа штаба в Telegram: каждая тема отвечает за свой участок работы." src="/blog/upravlyat-claude-code-s-telefona/img/manual-2.jpg"></div><figcaption>Группа штаба в Telegram: каждая тема отвечает за свой участок работы.</figcaption></figure>
 <p>Внутри бота самое важное это функция запуска Claude. Она собирает команду <code>claude -p</code>, добавляет правила темы, список разрешённых инструментов и номер прошлой сессии. Если сессия протухла, бот начинает разговор заново. И ещё одна строка, без которой сервер с 4 ГБ памяти не выжил бы: очередь на одного. Одновременно работает только один Claude, остальные задачи ждут.</p>
 <h2 id="kak-avtorizovat-claude-pro-na-servere-bez-graficheskogo-inte">Как авторизовать Claude Pro на сервере без графического интерфейса?</h2>
 <p>Войти можно прямо в терминале по SSH: запускаешь Claude Code, он печатает ссылку, ты открываешь её в браузере на телефоне или ноутбуке, входишь в аккаунт и вставляешь полученный код обратно в терминал. Браузер на самом сервере не нужен.</p>
@@ -485,8 +486,6 @@ table.fix tr:last-child td { border-bottom: 0; }
 </ol>
 <p>Здесь я споткнулся о права. Пакеты npm у меня ставятся от root, а бот работает от <code>iishtab</code>. Поэтому штатное <code>claude update</code> от пользователя падало: ему некуда писать. Обновляю я командой от root, об этом ниже в разделе про Opus 5.5.</p>
 <p>Если у тебя в терминале вставка в <code>ssh -t</code> не проходит, открой SSH в отдельном окне. У меня встроенная панель терминала в приложении не передавала ввод в SSH, и код входа приходилось вставлять из обычного окна командной строки.</p>
-<!-- img: type=manual what="окно терминала по SSH на сервере штаба: команда claude -p \"привет\" под пользователем iishtab и ответ Claude, рядом вывод claude --version; без токенов и ключей" caption="Проверка после входа: claude -p отвечает от пользователя, под которым работает бот." -->
-
 <h2 id="kakie-zadachi-reshaet-telegram-shtab-pryamo-iz-smartfona">Какие задачи решает Telegram-штаб прямо из смартфона?</h2>
 <p>Из телефона я делаю почти всё, кроме съёмки: разбираю ролики, пишу и переписываю сценарии, правлю базы в Notion, запускаю монтаж и выкладку, готовлю статьи для блога. Каждая задача это сообщение или кнопка в своей теме.</p>
 <p>Что идёт через штаб каждый день:</p>
@@ -621,7 +620,7 @@ table.fix tr:last-child td { border-bottom: 0; }
       <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
     </section>
 
-    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a><span>Контент и видео · 19 октября 2026</span></li><li><a href="/blog/media-konveyer-na-ii/">Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</a><span>Контент и видео · 18 октября 2026</span></li><li><a href="/blog/avtootvet-kodovoe-slovo/">Автоответ в Instagram: как собирать заявки по кодовому слову через ИИ</a><span>Продажи и заявки · 18 октября 2026</span></li></ul></section>
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a><span>Контент и видео · 21 октября 2026</span></li><li><a href="/blog/claude-code-kak-sotrudnik-v-telegram/">Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке</a><span>Инструменты · 21 октября 2026</span></li><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a><span>Контент и видео · 19 октября 2026</span></li></ul></section>
 
     <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
   </main>
