@@ -300,3 +300,34 @@ function initCursorGlow() {
 
 // Enable cursor glow effect
 initCursorGlow();
+
+
+// ========================================
+// CARD SPOTLIGHT (один обработчик на весь список, градиент рисует CSS)
+// ========================================
+function initCardSpotlight() {
+    if (!window.matchMedia('(hover: hover)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const list = document.querySelector('.projects-list');
+    if (!list) return;
+
+    let card = null, x = 0, y = 0, rafId = null;
+
+    list.addEventListener('pointermove', (e) => {
+        card = e.target.closest('.project-card');
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+        if (!rafId) {
+            rafId = requestAnimationFrame(() => {
+                card.style.setProperty('--mx', x + 'px');
+                card.style.setProperty('--my', y + 'px');
+                rafId = null;
+            });
+        }
+    }, { passive: true });
+}
+
+initCardSpotlight();

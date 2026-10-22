@@ -1087,3 +1087,74 @@ body {
 .project-description a:hover {
     text-decoration: underline;
 }
+
+/* Плавные переходы между страницами (Chrome, Edge, Safari 18.2+; в остальных обычный переход) */
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.25s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    @view-transition {
+        navigation: none;
+    }
+}
+
+/* Подсветка карточки проекта под курсором (координаты пишет script.js) */
+.project-card {
+    position: relative;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(139, 92, 246, 0.16), transparent 60%);
+}
+
+@media (hover: hover) {
+    .project-card:hover::before {
+        opacity: 1;
+    }
+}
+
+/* Индикатор «проект в работе» */
+.live-dot {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    vertical-align: middle;
+}
+
+.live-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #10b981;
+    animation: livePulse 2s ease-out infinite;
+}
+
+@keyframes livePulse {
+    from {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    to {
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
