@@ -17,6 +17,15 @@
     <enclosure url="https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/img/cover.jpg" type="image/jpeg" length="0"/>
   </item>
   <item>
+    <title>Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке</title>
+    <link>https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/</guid>
+    <pubDate>Wed, 21 Oct 2026 09:00:00 +0300</pubDate>
+    <category>Автоматизация</category>
+    <description>Claude Code на сервере по подписке: как за вечер поднять ИИ-агента в Telegram без API-ключа. Сервер, вход, бот, навыки, память, лимиты и мои поломки.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
     <title>Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке</title>
     <link>https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/</link>
     <guid isPermaLink="true">https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/</guid>

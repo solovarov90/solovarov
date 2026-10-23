@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке — блог Петра Соловарова</title>
+<meta name="description" content="Claude Code на сервере по подписке: как за вечер поднять ИИ-агента в Telegram без API-ключа. Сервер, вход, бот, навыки, память, лимиты и мои поломки.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке">
+<meta property="og:description" content="Claude Code на сервере по подписке: как за вечер поднять ИИ-агента в Telegram без API-ключа. Сервер, вход, бот, навыки, память, лимиты и мои поломки.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Claude Code на сервере по подписке как ИИ-агент в Telegram, обложка инструкции">
+<meta property="article:published_time" content="2026-10-21">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Автоматизация">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке">
+<meta name="twitter:description" content="Claude Code на сервере по подписке: как за вечер поднять ИИ-агента в Telegram без API-ключа. Сервер, вход, бот, навыки, память, лимиты и мои поломки.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/"
+   },
+   "headline": "Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке",
+   "description": "Claude Code на сервере по подписке: как за вечер поднять ИИ-агента в Telegram без API-ключа. Сервер, вход, бот, навыки, память, лимиты и мои поломки.",
+   "image": [
+    "https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/img/cover.jpg"
+   ],
+   "datePublished": "2026-10-21",
+   "dateModified": "2026-10-23",
+   "inLanguage": "ru-RU",
+   "wordCount": 3932,
+   "articleSection": "Автоматизация",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке",
+     "item": "https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Законно ли запускать Claude Code под подпиской Claude Pro на удалённом сервере?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Anthropic в справке пишет, что подписка Pro или Max покрывает Claude Code в терминале, вход тем же аккаунтом, что и в чат (проверено 19.10.2026). Сервер это тот же терминал, только в облаке, и работает в нём один человек, я. Условия меняются, поэтому перед запуском перечитай их на сайте Anthropic сам."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько ресурсов сервера требует связка бота и Claude Code?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Мой штаб живёт на сервере Hetzner с 2 ядрами и 3,7 ГБ памяти, по данным на 30.09.2026 свободно около 2,9 ГБ, диск занят на 25%. Чтобы память не кончилась, одновременно работает только один Claude, остальные задачи ждут очереди. Сервер для ботов у меня стоит от 500 рублей в месяц."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Нужно ли держать домашний компьютер включённым для работы агента?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Для текста, кода, правок в Notion и статей нет, всё это делает сервер. Компьютер у меня нужен только для монтажа роликов на видеокарте. Если он выключен, задача монтажа ждёт в общей папке, пока он включится."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Что произойдёт, если в системе случайно задан ключ ANTHROPIC_API_KEY?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Claude Code возьмёт этот ключ вместо подписки, и запросы пойдут в оплату по API, так предупреждает справка Anthropic (проверено 19.10.2026). Проверь окружение пользователя бота, его .bashrc и файл службы. Отдельно следи за флагом --bare: по документации Anthropic на 21.10.2026 в этом режиме Claude Code вход по подписке не читает вовсе."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как отправлять агенту в Telegram тяжёлые файлы больше 20 мегабайт?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Обычный облачный Bot API отдаёт ботам файлы до 20 МБ. С 01.10.2026 мой бот ходит в Telegram через свой локальный сервер Bot API на той же машине и принимает файлы до 2 ГБ. Бот кладёт файл в рабочую папку и передаёт Claude путь к нему."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как защитить агента от бесконечных циклов и зависаний на сложных задачах?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "У каждого запуска Claude в моём боте стоит таймаут. Не уложился, и бот убивает процесс и пишет в тему, что случилось. Вокруг запуска стоит очередь на одного, поэтому одна зависшая задача не держит остальные вечно, а длинные задачи после лимита продолжаются через --resume с того же места."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько времени агент тратит на задачу?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Зависит от задачи. Переписать сценарий REEL-19 через Opus 5.5 заняло около 33 секунд 04.10.2026. Статья для блога в SEO-штабе пишется 10–25 минут."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Автоматизация</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Инструкция · Автоматизация · 22 мин чтения</div>
+    <h1>Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке</h1>
+    <p class="lead">Claude Code на сервере по подписке: как за вечер поднять ИИ-агента в Telegram без API-ключа. Сервер, вход, бот, навыки, память, лимиты и мои поломки.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-10-21">21 октября 2026</time> · обновлено <time datetime="2026-10-23">23 октября 2026</time> · 3 932 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/claude-code-sotrudnik-telegram/img/cover.jpg" alt="Claude Code на сервере по подписке как ИИ-агент в Telegram, обложка инструкции" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#zachem-zapuskat-claude-code-kak-agenta-v-telegram-a-ne-derzh">Зачем запускать Claude Code как агента в Telegram, а не держать в консоли?</a></li><li><a href="#chto-nuzhno-dlya-starta-vybor-servera-podpiska-i-prava-dostu">Что нужно для старта: выбор сервера, подписка и права доступа?</a></li><li><a href="#kak-svyazat-telegram-bota-s-neinteraktivnym-rezhimom-claude-">Как связать Telegram-бота с неинтерактивным режимом claude -p?</a></li><li><a href="#kak-nastroit-navyki-pamyat-agenta-i-podklyuchenie-k-vneshnim">Как настроить навыки, память агента и подключение к внешним базам?</a></li><li><a href="#proveril-na-sebe-kak-ya-upravlyayu-shtabom-i-na-kakih-oshibk">Проверил на себе: как я управляю штабом и на каких ошибках споткнулся</a></li><li><a href="#skolko-resursov-est-svyazka-i-kak-ne-uperetsya-v-limity-podp">Сколько ресурсов ест связка и как не упереться в лимиты подписки?</a></li><li><a href="#chto-mozhet-slomatsya-i-kak-eto-predupredit">Что может сломаться и как это предупредить?</a></li><li><a href="#poshagovyy-plan-kak-razvernut-svoego-ii-sotrudnika-za-odin-v">Пошаговый план: как развернуть своего ИИ-сотрудника за один вечер?</a></li></ol></nav>
+    <article class="article">
+<p>Claude Code на сервере по подписке превращается в ИИ-агента в Telegram за один вечер: небольшой Telegram-бот принимает сообщение, передаёт его в <code>claude -p</code> и возвращает ответ в чат. Claude Code входит в аккаунт по обычной подписке Claude Pro или Max, поэтому API-ключ не нужен и оплаты за каждый запрос нет. Я работаю так с 30 сентября 2026 года: из телефона ставлю задачи по коду, правлю базы в Notion, запускаю монтаж роликов и пишу статьи.</p>
+<p>Как устроен мой штаб целиком, я разбирал в <a href="/blog/upravlyat-claude-code-s-telefona/">статье про управление Claude Code с телефона</a>, а файл службы и вход без экрана по шагам есть в <a href="/blog/claude-code-kak-sotrudnik-v-telegram/">инструкции про Claude Code как сотрудника</a>. Здесь другая задача: собрать минимальную рабочую версию за вечер, дать ей навыки и память и не упереться в лимиты. Плюс две свежие ловушки из документации Anthropic, о которых я раньше не писал.</p>
+<h2 id="zachem-zapuskat-claude-code-kak-agenta-v-telegram-a-ne-derzh">Зачем запускать Claude Code как агента в Telegram, а не держать в консоли?</h2>
+<p>Агент в Telegram работает, когда ноутбук закрыт, и доступен с телефона в любой момент. В консоли Claude Code живёт ровно столько, сколько открыто окно терминала. На сервере он ждёт задачу круглосуточно, а Telegram даёт ему готовый интерфейс: текст, голосовые, файлы, кнопки.</p>
+<p>Агентом я называю программу, которая сама решает, какие шаги сделать: прочитать файл, поправить код, сходить в Notion. Чат-бот отвечает текстом. Агент делает работу и отчитывается.</p>
+<p>Что это даёт на практике:</p>
+<ul>
+<li><strong>Задача из любого места.</strong> Я наговариваю голосовое «в сценарии REEL-6 убери второй хук», бот переводит его в текст, Claude правит страницу в Notion и пишет, что сделал.</li>
+<li><strong>Длинные задачи без присмотра.</strong> Монтаж или статья идут десятки минут. Я отправил задачу и занимаюсь своим, статус приходит в ту же тему.</li>
+<li><strong>Одна точка входа.</strong> Все участки работы разложены по темам одной Telegram-группы, и по теме бот понимает, какие правила подложить Claude.</li>
+</ul>
+<p>Если тебе нужен помощник для бизнеса своими руками, это самый короткий путь: сервер, подписка и бот на сотню строк. Код агента писать не нужно, агент уже есть.</p>
+<h2 id="chto-nuzhno-dlya-starta-vybor-servera-podpiska-i-prava-dostu">Что нужно для старта: выбор сервера, подписка и права доступа?</h2>
+<p>Нужны три вещи: недорогой Linux-сервер, подписка Claude Pro или Max и отдельный пользователь для бота. Мой штаб живёт на Hetzner с 2 ядрами и 3,7 ГБ памяти, по данным на 30.09.2026 свободно было около 2,9 ГБ, диск занят на 25%. Сервер для ботов у меня стоит от 500 рублей в месяц, эту цифру я разбирал в <a href="/blog/media-konveyer-na-ii/">статье про медиа-конвейер</a>.</p>
+<p>Про подписку. В моём <a href="https://app.notion.com/p/Claude-60-3efdfdb1482281f29f6ede5d1c6f2e0a">руководстве по настройке Claude</a> на 04.10.2026 записано: Pro стоит $20 в месяц или $17 при оплате за год, Claude Code входит в платные тарифы. <a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan">Справка Anthropic</a> (проверено 19.10.2026) подтверждает, что подписка Pro и Max покрывает Claude Code в терминале.</p>
+<p>Список на вечер:</p>
+<ol>
+<li><strong>Сервер на Ubuntu.</strong> Наружу открыт только SSH.</li>
+<li><strong>Node.js и npm.</strong> Claude Code ставится через npm.</li>
+<li><strong>Python.</strong> На нём пишется бот, подойдёт любая библиотека для Telegram-ботов.</li>
+<li><strong>Отдельный пользователь.</strong> У меня это <code>iishtab</code>. От него работают и бот, и Claude Code, вход в подписку хранится в его домашней папке.</li>
+<li><strong>Токен бота</strong> от @BotFather и id твоего аккаунта в Telegram, чтобы бот слушал только тебя.</li>
+</ol>
+<p>Про права сразу одно правило. Claude Code ставь от root, а работай от пользователя бота. Тогда агент не может сломать систему, а ты точно знаешь, кто что обновляет. Обратная сторона этого правила стоила мне вечера, о ней в разделе «Проверил на себе».</p>
+<p>Видеокарта и графический интерфейс на сервере не нужны. Вход в подписку делается по ссылке: Claude Code печатает её в терминале, ты открываешь её на телефоне и вставляешь код обратно.</p>
+<h2 id="kak-svyazat-telegram-bota-s-neinteraktivnym-rezhimom-claude-">Как связать Telegram-бота с неинтерактивным режимом claude -p?</h2>
+<p>Бот запускает <code>claude -p "текст задачи"</code> как обычную программу, ждёт, пока она закончит, и отправляет ответ в чат. <code>claude -p</code> это неинтерактивный режим: задача передаётся одной строкой, Claude выполняет её и печатает результат. Всё остальное это обвязка вокруг одного вызова.</p>
+<p>В <a href="https://code.claude.com/docs/en/headless">документации Anthropic</a> (проверено 21.10.2026) у этого режима есть всё, что нужно боту:</p>
+<ul>
+<li><code>--output-format json</code> отдаёт ответ с полями <code>result</code> и <code>session_id</code>, бот легко их разбирает;</li>
+<li><code>--resume &lt;id сессии&gt;</code> продолжает прошлый разговор, так Claude помнит, о чём шла речь в теме;</li>
+<li><code>--allowedTools</code> перечисляет инструменты, которыми агенту можно пользоваться без вопроса.</li>
+</ul>
+<p>Ядро бота выглядит примерно так. Это схема, имена и пути подставь свои:</p>
+<pre><code class="language-python">import asyncio, json
+
+lock = asyncio.Lock()          # очередь на одного Claude
+sessions = {}                  # тема -&gt; id сессии
+
+async def run_claude(topic, text):
+    cmd = [&quot;claude&quot;, &quot;-p&quot;, text, &quot;--output-format&quot;, &quot;json&quot;,
+           &quot;--allowedTools&quot;, &quot;Read,Edit&quot;]
+    if topic in sessions:
+        cmd += [&quot;--resume&quot;, sessions[topic]]
+    async with lock:
+        proc = await asyncio.create_subprocess_exec(
+            *cmd, cwd=&quot;/opt/my-agent/workspace&quot;,
+            stdout=asyncio.subprocess.PIPE)
+        try:
+            out, _ = await asyncio.wait_for(proc.communicate(), timeout=1800)
+        except asyncio.TimeoutError:
+            proc.kill()
+            return &quot;Не уложился во время, задачу остановил.&quot;
+    data = json.loads(out)
+    sessions[topic] = data[&quot;session_id&quot;]
+    return data[&quot;result&quot;]
+</code></pre>
+<p>Три строки здесь важнее остальных. Замок <code>lock</code> пускает одного Claude за раз: на сервере с 4 ГБ памяти две сессии сразу уже риск. Таймаут убивает зависший запуск, иначе одна задача держала бы очередь вечно. Словарь <code>sessions</code> даёт каждой теме свою память разговора.</p>
+<p>Теперь две ловушки, которые я нашёл в документации, когда готовил эту статью.</p>
+<p><strong>Флаг <code>--bare</code>.</strong> Он ускоряет запуск и пропускает навыки, <code>CLAUDE.md</code>, MCP-серверы и память. Документация на 21.10.2026 прямо пишет: в этом режиме Claude Code не читает вход по подписке, ему нужен <code>ANTHROPIC_API_KEY</code>. И добавляет, что <code>--bare</code> в будущих версиях станет режимом по умолчанию для <code>-p</code>. Для агента на подписке это значит одно: после каждого обновления проверяй, что ответ пришёл по подписке.</p>
+<p><strong>Режим Manual.</strong> С версии 2.1.302 запуск <code>claude -p</code> без явного режима разрешений стартует в Manual. Действие, которому нужно подтверждение, будет отклонено: спросить некого. Поэтому всё, что агенту можно делать, перечисли заранее в <code>--allowedTools</code> или задай режим через <code>--permission-mode</code>.</p>
+<p>И старая ловушка, о которой предупреждает <a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan">справка Anthropic</a>: если на машине задана переменная <code>ANTHROPIC_API_KEY</code>, Claude Code возьмёт ключ вместо подписки, и запросы пойдут в оплату по API. На сервере, где раньше жили другие проекты, ключ легко пропустить.</p>
+<!-- img: type=scheme what="узлы и стрелки: сообщение в теме Telegram → бот на сервере (замок на одного, таймаут) → claude -p --output-format json --resume <сессия темы> → рабочая папка: CLAUDE.md, навыки .claude/skills, коннектор Notion → ответ result обратно в ту же тему; сбоку подпись «вход по подписке Pro/Max, без ANTHROPIC_API_KEY и без --bare»" caption="Один вызов claude -p и обвязка вокруг него: очередь, таймаут, сессия темы и правила в рабочей папке." alt="телеграм бот на claude code: схема связки с claude -p по подписке" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="100%" role="img" aria-label="Схема: сообщение в теме Telegram идёт к боту на сервере, бот запускает claude -p с сессией темы, агент работает в папке с правилами, навыками и Notion, ответ возвращается в ту же тему">
+<title>Как работает Claude Code в Telegram: бот, один вызов claude -p и рабочая папка</title>
+<defs>
+<marker id="ar-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+<marker id="ar-line" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+</defs>
+
+<rect x="15" y="40" width="240" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="45" cy="70" r="16" fill="var(--accent)"/>
+<text x="45" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">1</text>
+<text x="135" y="112" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Сообщение</text>
+<text x="135" y="144" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">в теме Telegram</text>
+<text x="135" y="170" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">тема = свой диалог</text>
+
+<rect x="325" y="40" width="240" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="355" cy="70" r="16" fill="var(--accent)"/>
+<text x="355" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">2</text>
+<text x="445" y="112" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Бот на сервере</text>
+<text x="445" y="144" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">замок на одного:</text>
+<text x="445" y="168" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">один запрос за раз,</text>
+<text x="445" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">есть таймаут</text>
+
+<rect x="635" y="40" width="240" height="160" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+<circle cx="665" cy="70" r="16" fill="var(--accent)"/>
+<text x="665" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">3</text>
+<text x="755" y="112" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">claude -p</text>
+<text x="755" y="144" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">--output-format json</text>
+<text x="755" y="168" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">--resume</text>
+<text x="755" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">&lt;сессия темы&gt;</text>
+
+<rect x="945" y="40" width="240" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="975" cy="70" r="16" fill="var(--accent)"/>
+<text x="975" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">4</text>
+<text x="1065" y="112" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ</text>
+<text x="1065" y="144" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">поле result уходит</text>
+<text x="1065" y="168" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">обратно в ту же тему</text>
+
+<line x1="257" y1="120" x2="323" y2="120" stroke="var(--accent)" stroke-width="3" marker-end="url(#ar-accent)"/>
+<line x1="567" y1="120" x2="633" y2="120" stroke="var(--accent)" stroke-width="3" marker-end="url(#ar-accent)"/>
+<line x1="877" y1="120" x2="943" y2="120" stroke="var(--accent)" stroke-width="3" marker-end="url(#ar-accent)"/>
+
+<line x1="755" y1="292" x2="755" y2="204" stroke="var(--line)" stroke-width="3" marker-end="url(#ar-line)"/>
+
+<rect x="635" y="296" width="550" height="124" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="910" y="334" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Рабочая папка агента</text>
+<text x="910" y="364" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">CLAUDE.md: правила и тон</text>
+<text x="910" y="388" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">навыки в .claude/skills</text>
+<text x="910" y="412" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">коннектор Notion</text>
+
+<rect x="15" y="296" width="570" height="124" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="300" y="344" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">Вход по подписке Pro/Max</text>
+<text x="300" y="378" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">без ANTHROPIC_API_KEY</text>
+<text x="300" y="402" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и без --bare</text>
+</svg>
+<figcaption>Один вызов claude -p и обвязка вокруг него: очередь, таймаут, сессия темы и правила в рабочей папке.</figcaption>
+</figure>
+
+<h2 id="kak-nastroit-navyki-pamyat-agenta-i-podklyuchenie-k-vneshnim">Как настроить навыки, память агента и подключение к внешним базам?</h2>
+<p>Память агента это файлы в рабочей папке, которые Claude Code читает сам при каждом запуске. Главный из них <code>CLAUDE.md</code>: описание проекта, где что лежит, правила и запреты. Навыки лежат в <code>.claude/skills</code>, внешние базы подключаются коннекторами и MCP-серверами.</p>
+<p>MCP это общий способ подключить к Claude внешний инструмент: базу, поиск, свой сервис. Коннектор это готовый мост от Claude к сервису вроде Notion, ключи для него на сервере хранить не нужно.</p>
+<p>Как это разложено у меня:</p>
+<ol>
+<li><strong><code>CLAUDE.md</code>.</strong> Проект, адреса баз в Notion, серверы, правила тона и одно жёсткое правило: каждое решение записывать строкой в журнал изменений. Поэтому короткое «перепиши REEL-6» Claude понимает без пояснений.</li>
+<li><strong>Навыки.</strong> Навык (скилл) это инструкция на одну задачу: разобрать ролик, написать статью по брифу. Claude подключает его, когда задача подходит. Эту статью написал навык блога.</li>
+<li><strong>Notion через коннектор.</strong> Агент штаба читает и правит «Контент-план», журнал, страницы стратегии.</li>
+<li><strong>Свой MCP-сервер.</strong> С 18.10.2026 у штаба есть «второй мозг»: индекс моих знаний из Notion, сайта и заметок, по <a href="https://app.notion.com/p/SEO-MCP-brain-3fddfdb148228124b001cee52f2ad194">журналу изменений</a> на старте 4 344 куска. Агент ищет в нём факты инструментом <code>brain_search</code>, и свои цифры в статьях берёт только оттуда.</li>
+</ol>
+<p>Память разговора и память проекта это разные вещи. Разговор держит <code>--resume</code>, и он со временем протухает: когда сессия перестаёт открываться, бот начинает разговор заново. Всё, что должно пережить новую сессию, кладу в <code>CLAUDE.md</code> или в Notion. Правило простое: если я объяснил агенту что-то второй раз, это пора записать в файл.</p>
+<p>Совет из практики: пиши <code>CLAUDE.md</code> как памятку новому сотруднику. Что за проект, кто автор, где база, чего делать нельзя. И держи его коротким, потому что этот файл попадает в каждый запуск и расходует лимит.</p>
+<h2 id="proveril-na-sebe-kak-ya-upravlyayu-shtabom-i-na-kakih-oshibk">Проверил на себе: как я управляю штабом и на каких ошибках споткнулся</h2>
+<p>Штаб работает у меня с 30.09.2026 на одном сервере и одной подписке Claude Pro. Бот @ii_systemaBot запущен службой systemd <code>ii-shtab</code> от пользователя <code>iishtab</code>, рядом живут SEO-штаб и бот-продюсер канала. Как штаб встроен в конвейер роликов, видно в <a href="/iisystema/">кейсе ii.systema</a>.</p>
+<!-- img: type=terminal cmds="whoami ;; claude --version ;; claude auth status ;; free -h ;; df -h ;; systemctl is-active ii-shtab ;; systemctl is-active ii-seo ;; systemctl is-active ii-producer" caption="Сервер штаба: Claude Code вошёл по подписке, память и диск, три бота работают службами." alt="claude code на сервере по подписке: вход, ресурсы и службы ботов" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="claude code на сервере по подписке: вход, ресурсы и службы ботов" src="/blog/claude-code-sotrudnik-telegram/img/terminal-2.jpg"></div><figcaption>Сервер штаба: Claude Code вошёл по подписке, память и диск, три бота работают службами.</figcaption></figure>
+<p>Что идёт через штаб каждый день:</p>
+<ul>
+<li><strong>Сценарии роликов.</strong> С 04.10.2026 хуки, текст и концовки пишет Claude Opus 5.5 по подписке, сценарий REEL-19 переписался примерно за 33 секунды.</li>
+<li><strong>Статьи блога.</strong> С 18.10.2026 SEO-штаб пишет их через <code>claude -p</code> с навыком блога, это занимает 10–25 минут. Ему разрешена ровно одна команда в терминале: проверка текста на штампы.</li>
+<li><strong>Разговор с продюсером.</strong> С 19.10.2026 его ведёт Claude Opus. По <a href="https://app.notion.com/p/Claude-Opus-3fedfdb148228153b0fef9c196ab295c">журналу изменений</a> Notion он только читает, а процессы других ботов запускает командами из белого списка и только по моей кнопке «Запустить».</li>
+<li><strong>Файлы.</strong> С 01.10.2026 бот ходит в Telegram через свой локальный сервер Bot API и принимает файлы до 2 ГБ вместо 20 МБ. Так в штаб приезжают сырые видеодубли.</li>
+</ul>
+<p>Теперь ошибки.</p>
+<p><strong>Новая модель и старая версия.</strong> 04.10.2026 я переводил сценарии с Gemini Flash на Claude Opus 5.5. Бот стал вызывать <code>claude -p --model claude-opus-5-5</code>, а Claude Code ответил отказом: стояла версия 2.1.251, она такой модели не знала. Штатное <code>claude update</code> от пользователя бота падало: npm-пакеты стояли от root, прав у пользователя не было. Автообновление молча не работало с первого дня. Я обновил Claude Code от root до 2.1.289, проверил вызов Opus от пользователя бота, и с тех пор обновляю только так.</p>
+<p><strong>Лимит посреди монтажа.</strong> 01.10.2026 первый монтаж из чата упёрся в лимит подписки на шаге 4 из 7. В тот же день появилась кнопка «Продолжить»: Claude поднимает ту же сессию через <code>--resume</code> и не повторяет готовые шаги. Следом автоожидание: задача встаёт на паузу до сброса лимита, в статусе пишется время продолжения. По <a href="https://app.notion.com/p/Claude-3ecdfdb14822811da1a8ecc18d22b69a">журналу изменений</a>, три дубля в тот день продолжились сами после сброса в 16:39.</p>
+<p><strong>Ввод в SSH.</strong> Встроенная панель терминала в приложении не передавала ввод в SSH, и код входа в подписку не вставлялся. Помогло обычное отдельное окно командной строки. Мелочь, но на ней легко потерять час.</p>
+<h2 id="skolko-resursov-est-svyazka-i-kak-ne-uperetsya-v-limity-podp">Сколько ресурсов ест связка и как не упереться в лимиты подписки?</h2>
+<p>Сервер с 2 ядрами и 4 ГБ памяти держит одного агента спокойно, если Claude работает строго по одному. Узкое место здесь подписка: лимит считается окнами по 5 часов плюс общая недельная квота, так записано в моём руководстве по Claude на 04.10.2026. Там же отмечено, что чат и Claude Code тратят один общий пул.</p>
+<p>У меня на одной подписке живут три бота, и в каждом стоит очередь на одного Claude. Ночные задачи вроде отбора тем из трендов не пересекаются с дневной работой, иначе они делят одно окно лимита.</p>
+<p>Что съедает лимит быстрее всего и что я с этим делаю:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Что расходует лимит</th>
+<th>Что делаю</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Длинные задачи: монтаж, статья</td>
+<td>Запускаю по одной, после лимита продолжаю через <code>--resume</code></td>
+</tr>
+<tr>
+<td>Длинный разговор в одной сессии</td>
+<td>Отдельная сессия на каждую тему, история не тянется в каждый запрос</td>
+</tr>
+<tr>
+<td>Толстый <code>CLAUDE.md</code></td>
+<td>Держу коротким, подробности выношу в навыки</td>
+</tr>
+<tr>
+<td>Параллельная работа в чате claude.ai</td>
+<td>Помню, что пул общий, тяжёлое ставлю на ночь</td>
+</tr>
+<tr>
+<td>Зависший запуск</td>
+<td>Таймаут убивает процесс, бот пишет в тему</td>
+</tr>
+</tbody>
+</table></div>
+<p>Проверь ещё одно: стоимость в ответе. С <code>--output-format json</code> Claude Code кладёт в ответ поле <code>total_cost_usd</code>. Документация уточняет, что это оценка на стороне клиента, и счёт она не означает. Мне это поле удобно как грубый счётчик: видно, какие задачи тяжёлые, и их стоит дробить.</p>
+<p>Длинные задачи ты почувствуешь в лимите точно. Поэтому тяжёлое у меня идёт по расписанию и с автопродолжением, а лёгкое отвечает сразу.</p>
+<h2 id="chto-mozhet-slomatsya-i-kak-eto-predupredit">Что может сломаться и как это предупредить?</h2>
+<p>Связка ломается на стыках: права пользователей, версии, лимиты, протухшие сессии и окружение. Вот что я проверяю на каждом новом сервере.</p>
+<ul>
+<li><strong><code>ANTHROPIC_API_KEY</code>.</strong> Его не должно быть ни в <code>env</code> пользователя бота, ни в <code>.bashrc</code>, ни в файле службы.</li>
+<li><strong><code>--bare</code> в команде.</strong> Вход по подписке в этом режиме не читается. Если однажды режим станет умолчанием, проверяй это после обновления.</li>
+<li><strong>Версия Claude Code.</strong> Новая модель в подписке не значит, что старая версия её примет. После обновления от root проверяй <code>claude --version</code> и вызов нужной модели от пользователя бота.</li>
+<li><strong>Разрешения.</strong> В режиме Manual всё, что требует подтверждения, отклоняется. Начни с узкого <code>--allowedTools</code> и расширяй по одной задаче.</li>
+<li><strong>Ключи к другим серверам.</strong> У меня ключ штаба к соседнему серверу разрешает ровно одну команду: запустить разбор ссылки. Больше ничего с ним сделать нельзя.</li>
+</ul>
+<p>Опасные действия, вроде деплоя и включения служб, я агенту не отдаю, делаю их сам. Агент готовит, человек нажимает.</p>
+<h2 id="poshagovyy-plan-kak-razvernut-svoego-ii-sotrudnika-za-odin-v">Пошаговый план: как развернуть своего ИИ-сотрудника за один вечер?</h2>
+<p>За вечер реально собрать бота на одну тему и одну задачу. Штаб из двадцати функций за вечер не собирается, а помощник, который делает одну твою рутину, собирается. Порядок такой:</p>
+<ol>
+<li><strong>Сервер.</strong> Ubuntu, 2 ядра и 4 ГБ памяти, наружу только SSH.</li>
+<li><strong>Пользователь и Claude Code.</strong> Создай пользователя для бота. От root поставь Claude Code: <code>npm install -g @anthropic-ai/claude-code</code>.</li>
+<li><strong>Вход по подписке.</strong> От пользователя бота запусти <code>claude</code>, открой ссылку на телефоне, войди аккаунтом с Pro или Max, вставь код.</li>
+<li><strong>Проверка окружения.</strong> <code>claude -p "привет"</code> от того же пользователя отвечает, <code>ANTHROPIC_API_KEY</code> в окружении нет.</li>
+<li><strong>Рабочая папка.</strong> <code>CLAUDE.md</code> на одну страницу: что за проект, где база, что нельзя.</li>
+<li><strong>Бот на одну тему.</strong> Ядро из примера выше: замок на одного, таймаут, сессия темы, узкий <code>--allowedTools</code>. Бот отвечает только твоему id.</li>
+<li><strong>Служба systemd.</strong> Чтобы бот переживал перезагрузку сервера. Пример файла службы есть в <a href="/blog/claude-code-kak-sotrudnik-v-telegram/">инструкции про Claude Code как сотрудника</a>.</li>
+<li><strong>Первая задача.</strong> Например, «добавь строку в базу Notion» через коннектор. Пусть поработает неделю.</li>
+</ol>
+<p>Дальше добавляй по одной вещи: вторую тему, навык под повторяющуюся задачу, локальный Bot API для больших файлов, автопродолжение после лимита. И веди журнал изменений с первого дня: через месяц он скажет, что и когда сломалось.</p>
+<p>Если собирать это самому некогда, напиши слово «система» мне в личку https://t.me/solovarov. На бесплатном разборе за 30 минут разберём твои процессы и подберём, какого ИИ-агента поставить под твои задачи и на каком стеке.</p>
+    </article>
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Законно ли запускать Claude Code под подпиской Claude Pro на удалённом сервере?</h3><p>Anthropic в справке пишет, что подписка Pro или Max покрывает Claude Code в терминале, вход тем же аккаунтом, что и в чат (проверено 19.10.2026). Сервер это тот же терминал, только в облаке, и работает в нём один человек, я. Условия меняются, поэтому перед запуском перечитай их на сайте Anthropic сам.</p></div><div class="qa"><h3 id="faq-2">Сколько ресурсов сервера требует связка бота и Claude Code?</h3><p>Мой штаб живёт на сервере Hetzner с 2 ядрами и 3,7 ГБ памяти, по данным на 30.09.2026 свободно около 2,9 ГБ, диск занят на 25%. Чтобы память не кончилась, одновременно работает только один Claude, остальные задачи ждут очереди. Сервер для ботов у меня стоит от 500 рублей в месяц.</p></div><div class="qa"><h3 id="faq-3">Нужно ли держать домашний компьютер включённым для работы агента?</h3><p>Для текста, кода, правок в Notion и статей нет, всё это делает сервер. Компьютер у меня нужен только для монтажа роликов на видеокарте. Если он выключен, задача монтажа ждёт в общей папке, пока он включится.</p></div><div class="qa"><h3 id="faq-4">Что произойдёт, если в системе случайно задан ключ ANTHROPIC_API_KEY?</h3><p>Claude Code возьмёт этот ключ вместо подписки, и запросы пойдут в оплату по API, так предупреждает справка Anthropic (проверено 19.10.2026). Проверь окружение пользователя бота, его .bashrc и файл службы. Отдельно следи за флагом --bare: по документации Anthropic на 21.10.2026 в этом режиме Claude Code вход по подписке не читает вовсе.</p></div><div class="qa"><h3 id="faq-5">Как отправлять агенту в Telegram тяжёлые файлы больше 20 мегабайт?</h3><p>Обычный облачный Bot API отдаёт ботам файлы до 20 МБ. С 01.10.2026 мой бот ходит в Telegram через свой локальный сервер Bot API на той же машине и принимает файлы до 2 ГБ. Бот кладёт файл в рабочую папку и передаёт Claude путь к нему.</p></div><div class="qa"><h3 id="faq-6">Как защитить агента от бесконечных циклов и зависаний на сложных задачах?</h3><p>У каждого запуска Claude в моём боте стоит таймаут. Не уложился, и бот убивает процесс и пишет в тему, что случилось. Вокруг запуска стоит очередь на одного, поэтому одна зависшая задача не держит остальные вечно, а длинные задачи после лимита продолжаются через --resume с того же места.</p></div><div class="qa"><h3 id="faq-7">Сколько времени агент тратит на задачу?</h3><p>Зависит от задачи. Переписать сценарий REEL-19 через Opus 5.5 заняло около 33 секунд 04.10.2026. Статья для блога в SEO-штабе пишется 10–25 минут.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/" rel="noopener">ИИ-штаб на сервере: как управлять Claude Code с телефона по подписке</a> <span>сервер и его память на 30.09.2026, служба ii-shtab, локальный Bot API с 01.10.2026, поломка 04.10.2026, таймаут и очередь</span></li><li><a href="https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/" rel="noopener">Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке</a> <span>файл службы systemd, вход без экрана, CLAUDE.md, SEO-штаб 10–25 минут на статью</span></li><li><a href="https://petrsolovarov.ru/blog/media-konveyer-na-ii/" rel="noopener">Как одному человеку собрать медиа-конвейер на ИИ</a> <span>сервер для ботов от 500 ₽ в месяц</span></li><li><a href="https://petrsolovarov.ru/iisystema/" rel="noopener">Кейс ii.systema на petrsolovarov.ru</a> <span>конвейер роликов, частью которого работает штаб</span></li><li><a href="https://app.notion.com/p/Claude-3ecdfdb14822811da1a8ecc18d22b69a" rel="noopener">Журнал изменений ii.systema (Notion): лимит Claude, бот сам ждёт и продолжает, 01.10.2026</a> <span>три дубля продолжились сами после сброса лимита в 16:39</span></li><li><a href="https://app.notion.com/p/3ecdfdb148228177b8a3e58a3b2e1e1b" rel="noopener">Журнал изменений ii.systema (Notion): монтаж можно продолжить после обрыва, 01.10.2026</a> <span>лимит на шаге 4 из 7, кнопка «Продолжить» поднимает ту же сессию</span></li><li><a href="https://app.notion.com/p/SEO-MCP-brain-3fddfdb148228124b001cee52f2ad194" rel="noopener">Журнал изменений ii.systema (Notion): второй мозг и MCP brain, 18.10.2026</a> <span>4 344 куска знаний, инструменты brain_search, brain_note, brain_map</span></li><li><a href="https://app.notion.com/p/Claude-Opus-3fedfdb148228153b0fef9c196ab295c" rel="noopener">Журнал изменений ii.systema (Notion): продюсер на Claude Opus и мост ботов, 19.10.2026</a> <span>Notion только на чтение, команды из белого списка по кнопке</span></li><li><a href="https://app.notion.com/p/Claude-60-3efdfdb1482281f29f6ede5d1c6f2e0a" rel="noopener">Пошаговое руководство по настройке Claude за 60 минут (материал ii.systema, 04.10.2026)</a> <span>цена Pro, окна лимита по 5 часов, общий пул лимитов чата и Claude Code</span></li><li><a href="https://code.claude.com/docs/en/headless" rel="noopener">Документация Anthropic: Run Claude Code programmatically</a> <span>флаги -p, --output-format json, --resume, --allowedTools, --bare и режим Manual; проверено 21.10.2026</span></li><li><a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan" rel="noopener">Справка Anthropic: Claude Code с подпиской Pro или Max</a> <span>вход по подписке и предупреждение про ANTHROPIC_API_KEY; проверено 19.10.2026</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я поднимаю такого ИИ-агента на вашем сервере и вашей подписке и учу его вашим задачам. Вы пишете в Telegram, агент делает и отчитывается.</p>
+      </div>
+      <div class="pkgs">
+        <div class="pkg">
+          <h3>Пилот</h3>
+          <div class="price">59 000 ₽</div>
+          <div class="term">14 дней, 10 роликов</div>
+          <ul>
+            <li>Настройка стиля монтажа под ваш бренд</li>
+            <li>Подключение YouTube, Instagram и TikTok</li>
+            <li>10 роликов от референса до выкладки, вы записываете дубли по суфлёру</li>
+            <li>Отчёт с цифрами по каждому ролику</li>
+          </ul>
+        </div>
+        <div class="pkg main">
+          <h3>Конвейер под ключ</h3>
+          <div class="price">190 000 ₽</div>
+          <div class="term">10–14 рабочих дней, разово</div>
+          <ul>
+            <li>Всё из пилота, система остаётся у вас: сервер, Telegram-бот, суфлёр, учёт в Notion</li>
+            <li>Кодовое слово, автоответы в комментариях и страница «Материалы»</li>
+            <li>Воронка с отчётом каждое утро</li>
+            <li>Обучение сотрудника и 30 дней сопровождения, пилот засчитывается</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <h3>Сопровождение</h3>
+          <div class="price">29 000 ₽ <small>в месяц</small></div>
+          <div class="term">после запуска, отмена в любой месяц</div>
+          <ul>
+            <li>Слежу, чтобы конвейер работал, и чиню поломки</li>
+            <li>Обновляю правила под новые возможности площадок и нейросетей</li>
+            <li>Еженедельный отчёт и до четырёх часов доработок</li>
+          </ul>
+        </div>
+      </div>
+      <div class="read">
+        <div class="note"><b>Первый шаг бесплатный.</b> Напишите мне в Telegram слово <span class="word">система</span>. За 30 минут посмотрим вашу задачу, и я скажу, подходит ли вам пилот и чего от него ждать. Цены ориентировочные, итог зависит от числа площадок и объёма. Подробные условия, гарантии и ограничения площадок описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a><span>Контент и видео · 21 октября 2026</span></li><li><a href="/blog/claude-code-kak-sotrudnik-v-telegram/">Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке</a><span>Инструменты · 21 октября 2026</span></li><li><a href="/blog/upravlyat-claude-code-s-telefona/">ИИ-штаб на сервере: как управлять Claude Code с телефона по подписке</a><span>Кейсы · 19 октября 2026</span></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+</body>
+</html>

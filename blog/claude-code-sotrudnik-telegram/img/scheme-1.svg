@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="100%" role="img" aria-label="Схема: сообщение в теме Telegram идёт к боту на сервере, бот запускает claude -p с сессией темы, агент работает в папке с правилами, навыками и Notion, ответ возвращается в ту же тему">
+<title>Как работает Claude Code в Telegram: бот, один вызов claude -p и рабочая папка</title>
+<defs>
+<marker id="ar-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+<marker id="ar-line" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+</defs>
+
+<rect x="15" y="40" width="240" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="45" cy="70" r="16" fill="var(--accent)"/>
+<text x="45" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">1</text>
+<text x="135" y="112" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Сообщение</text>
+<text x="135" y="144" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">в теме Telegram</text>
+<text x="135" y="170" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">тема = свой диалог</text>
+
+<rect x="325" y="40" width="240" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="355" cy="70" r="16" fill="var(--accent)"/>
+<text x="355" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">2</text>
+<text x="445" y="112" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Бот на сервере</text>
+<text x="445" y="144" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">замок на одного:</text>
+<text x="445" y="168" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">один запрос за раз,</text>
+<text x="445" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">есть таймаут</text>
+
+<rect x="635" y="40" width="240" height="160" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+<circle cx="665" cy="70" r="16" fill="var(--accent)"/>
+<text x="665" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">3</text>
+<text x="755" y="112" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">claude -p</text>
+<text x="755" y="144" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">--output-format json</text>
+<text x="755" y="168" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">--resume</text>
+<text x="755" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">&lt;сессия темы&gt;</text>
+
+<rect x="945" y="40" width="240" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="975" cy="70" r="16" fill="var(--accent)"/>
+<text x="975" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">4</text>
+<text x="1065" y="112" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ</text>
+<text x="1065" y="144" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">поле result уходит</text>
+<text x="1065" y="168" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">обратно в ту же тему</text>
+
+<line x1="257" y1="120" x2="323" y2="120" stroke="var(--accent)" stroke-width="3" marker-end="url(#ar-accent)"/>
+<line x1="567" y1="120" x2="633" y2="120" stroke="var(--accent)" stroke-width="3" marker-end="url(#ar-accent)"/>
+<line x1="877" y1="120" x2="943" y2="120" stroke="var(--accent)" stroke-width="3" marker-end="url(#ar-accent)"/>
+
+<line x1="755" y1="292" x2="755" y2="204" stroke="var(--line)" stroke-width="3" marker-end="url(#ar-line)"/>
+
+<rect x="635" y="296" width="550" height="124" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="910" y="334" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Рабочая папка агента</text>
+<text x="910" y="364" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">CLAUDE.md: правила и тон</text>
+<text x="910" y="388" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">навыки в .claude/skills</text>
+<text x="910" y="412" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">коннектор Notion</text>
+
+<rect x="15" y="296" width="570" height="124" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="300" y="344" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">Вход по подписке Pro/Max</text>
+<text x="300" y="378" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">без ANTHROPIC_API_KEY</text>
+<text x="300" y="402" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и без --bare</text>
+</svg>
