@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кейс «Рисунок ожил»</title>
+<meta name="description" content="Кейс: Telegram-бот, который превращает детский рисунок в иллюстрированную сказку с выбором пути. Сборка за 10 дней, оплата Telegram Stars, холст в Telegram, лендинг и реклама в Meta. Этапы, поломки, честные цифры и условия.">
+<meta property="og:title" content="Кейс «Рисунок ожил»: детский рисунок становится сказкой в Telegram">
+<meta property="og:description" content="Бот дорисовывает мир вокруг героя ребёнка и продолжает сюжет по его выбору. Этапы, поломки, цифры первых пользователей и запуск рекламы.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://petrsolovarov.ru/risunok/">
+<meta property="og:image" content="https://petrsolovarov.ru/risunok/img/before-after.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<style>
+/* Одна колонка чтения; снимки шире текста. Даты этапов слева. Палитра «Рисунок ожил»: фиолетовый и мелок-жёлтый. */
+:root {
+  color-scheme: light dark;
+  --bg: #fbf7f1; --surface: #ffffff; --fg: #221a33; --muted: #5e5570; --line: #e4dcea;
+  --accent: #5b3596; --accent-ink: #ffffff; --mark: #f5cd5a; --shot-bg: #1d1628; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14111b; --surface: #1d1827; --fg: #eee8f6; --muted: #a99fbb; --line: #322a40;
+    --accent: #b796f0; --accent-ink: #14111b; --mark: #c9a03a; --shot-bg: #0c0a11; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14111b; --surface: #1d1827; --fg: #eee8f6; --muted: #a99fbb; --line: #322a40;
+  --accent: #b796f0; --accent-ink: #14111b; --mark: #c9a03a; --shot-bg: #0c0a11; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; }
+img { max-width: 100%; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top b { color: var(--fg); font-weight: 600; }
+.top .back { color: var(--accent); text-decoration: none; font-weight: 600; white-space: nowrap; }
+.top .back:hover { text-decoration: underline; }
+@media (max-width: 560px) { .top { flex-wrap: wrap; } .top span { display: none; } }
+
+.hero { padding-block: 48px 40px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(34px, 5.6vw, 60px); font-weight: 700; max-width: 15em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 24px; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px 32px; margin-top: 40px; }
+.meta dt { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 600; }
+.meta dd { margin: 4px 0 0; font-weight: 600; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); margin-block: 40px; border: 1px solid var(--line); background: var(--surface); }
+.figures div { padding: 22px 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 38px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.stage { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 0 40px; padding-block: 64px 8px; border-top: 1px solid var(--line); }
+.stage > .when { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--accent); letter-spacing: .04em; padding-top: 6px; position: sticky; top: 16px; align-self: start; }
+.stage > .when small { display: block; color: var(--muted); font-weight: 500; font-size: 13px; margin-top: 2px; letter-spacing: 0; }
+.stage h2 { font-size: clamp(28px, 3.6vw, 38px); margin-bottom: 20px; }
+.stage h3 { font-size: 20px; margin: 28px 0 8px; }
+.stage ul { padding-left: 1.2em; margin: 0 0 1em; }
+.stage li { margin-bottom: .45em; }
+.stage li::marker { color: var(--accent); }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 28px; align-items: start; }
+.pair .shot { margin: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 170px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.note.warn { border-left-color: var(--warn); }
+
+.chartbox { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px 26px; margin: 28px 0 8px; }
+.chartbox h3 { margin: 0 0 14px !important; font-size: 18px !important; }
+.funnel { display: grid; gap: 10px; }
+.fr { display: grid; grid-template-columns: minmax(0, 210px) minmax(0, 1fr) 44px; gap: 12px; align-items: center; font-size: 15px; }
+.fr .bar { height: 20px; background: var(--accent); border-radius: 3px; min-width: 4px; }
+.fr b { font-family: var(--font-display); font-variant-numeric: tabular-nums; text-align: right; }
+@media (max-width: 560px) { .fr { grid-template-columns: minmax(0, 1fr) 40px; } .fr .bar { grid-column: 1 / -1; grid-row: 2; } }
+
+.lessons { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px 40px; margin-top: 24px; }
+.lessons h3 { margin-top: 0 !important; }
+
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px !important; font-size: 21px !important; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+
+.end { padding-block: 64px 0; border-top: 1px solid var(--line); margin-top: 64px; }
+.end h2 { font-size: clamp(28px, 3.6vw, 38px); margin-bottom: 20px; }
+.footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .stage { grid-template-columns: minmax(0, 1fr); padding-block-start: 44px; }
+  .stage > .when { position: static; margin-bottom: 10px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="https://petrsolovarov.ru/#projects">← На главную</a><a href="https://case.smart-posting.ru" style="color:inherit;text-decoration:none"><b>Пётр Соловаров</b> · все кейсы</a><span>Октябрь 2026</span></div>
+
+  <header class="hero">
+    <div class="eyebrow">Кейс · Telegram-бот на ИИ · собственный продукт</div>
+    <h1>«Рисунок ожил»: <span>детская каракуля становится героем сказки</span> в Telegram</h1>
+    <p class="lead">Ребёнок рисует героя, бот дорисовывает вокруг него красочный мир, пишет главу и предлагает три пути: что случится дальше, решает ребёнок. Я собрал продукт за десять дней: бот, холст для рисования прямо в Telegram, память сюжета, оплату звёздами Telegram, админку и лендинг. Сейчас запускаю первую рекламу в Meta. Ниже этапы, поломки, честные цифры первых пользователей и условия, на которых я делаю такие боты другим.</p>
+    <dl class="meta">
+      <div><dt>Проект</dt><dd>«Рисунок ожил», бот @risunok_ozhilBot</dd></div>
+      <div><dt>Период</dt><dd>27 сентября – 6 октября 2026, реклама с 26 октября</dd></div>
+      <div><dt>Что сделано</dt><dd>Бот-сказка, холст, память героев, оплата Stars, админка и рассылки, лендинг, рекламные креативы</dd></div>
+      <div><dt>Статус</dt><dd>Работает на сервере, открыт всем, идёт первый рекламный тест</dd></div>
+    </dl>
+    <div class="cta-row">
+      <a class="btn" href="https://t.me/risunok_ozhilBot" rel="noopener">Попробовать бота</a>
+      <a class="btn ghost" href="#offer">Сделать такой бот у себя</a>
+    </div>
+  </header>
+
+  <section class="figures" aria-label="Итоги в цифрах">
+    <div><strong>10 дней</strong><span>от первого коммита до работающего продукта с оплатой и админкой (27.09 – 6.10)</span></div>
+    <div><strong>53</strong><span>иллюстрированные сцены создал бот для пользователей</span></div>
+    <div><strong>$3,46</strong><span>все расходы на нейросеть Gemini за 114 текстов и 49 картинок, около 7 центов на сцену</span></div>
+    <div><strong>16</strong><span>человек зашли в бот в первые три дня, без рекламы, по личным приглашениям</span></div>
+    <div><strong>7 из 15</strong><span>нажавших «Старт» прислали рисунок и получили первую сцену</span></div>
+    <div><strong>0 ₽</strong><span>пока выручки: 6 человек открыли покупку звёзд, ни одна не завершена</span></div>
+  </section>
+
+  <section class="stage" id="start">
+    <div class="when">27 сентября<small>Задача</small></div>
+    <div>
+      <h2>Что строим и зачем</h2>
+      <div class="read">
+        <p>Дети рисуют каждый день, а рисунок обычно живёт пять минут и уходит в стопку. Идея простая: дать рисунку продолжение. Пусть герой с листа попадает в мир, говорит, находит предметы, а ребёнок решает, куда идти дальше, и дорисовывает новых персонажей.</p>
+        <p>Я сразу выбрал Telegram, а не отдельное приложение: родителю не нужно ничего ставить, оплата встроена (звёзды Telegram), а рисовать можно на холсте прямо внутри мессенджера.</p>
+      </div>
+      <ol class="flow">
+        <li><b>Рисунок</b>фото с бумаги или холст в Telegram</li>
+        <li><b>Согласие</b>взрослый подтверждает отправку</li>
+        <li><b>Сюжет</b>автор пишет сцену</li>
+        <li><b>Редактор</b>сверяет с памятью и рисунком</li>
+        <li><b>Иллюстрация</b>именно эта сцена, с героем ребёнка</li>
+        <li><b>Выбор</b>три пути, своя идея, разговор с героем</li>
+        <li><b>Книга</b>главы листаются, память на 30 дней</li>
+      </ol>
+      <ul class="read">
+        <li>Ребёнок решает, а не смотрит: каждая сцена заканчивается выбором.</li>
+        <li>Герой должен остаться узнаваемым: цвета, полоски, треугольники на шляпке переходят в иллюстрацию.</li>
+        <li>Платят только за новую иллюстрированную сцену. Выборы, разговоры и чтение бесплатны.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stage" id="core">
+    <div class="when">27–28 сентября<small>Ядро</small></div>
+    <div>
+      <h2>Рисунок на холсте превращается в сцену</h2>
+      <div class="read">
+        <p>Сюжет пишет быстрая текстовая модель Gemini, а картинку рисует отдельная модель именно по этому тексту, с исходным рисунком на входе. Если текст не получился, картинка не запускается и деньги на неё не тратятся.</p>
+        <p>Главная работа была в том, чтобы бот не «улучшал» рисунок до неузнаваемости. Я переписал правила так, чтобы форма, цвета и мелкие детали героя переходили в сцену, а мир вокруг дорисовывался свободно.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame"><img src="/risunok/img/before-after.jpg" alt="Два рисунка на холсте и сцены, которые из них сделал бот: полосатый зверёк среди цветов и гриб с треугольниками в лесу" loading="lazy"></div>
+        <figcaption>Слева рисунки, сделанные пальцем на холсте бота, справа первые сцены. У зверька сохранились зелёные уши, полосатое тело и разноцветные лапы, у гриба треугольники на шляпке, причём синий начинает светиться по сюжету. Сцены из моего тестового аккаунта, 28–29 сентября.</figcaption>
+      </figure>
+      <div class="pair">
+        <figure class="shot">
+          <div class="frame"><img src="/risunok/img/canvas.jpg" alt="Холст «Здесь начинается сказка»: кисть, ластик, палитра, толщина кисти" loading="lazy"></div>
+          <figcaption>Холст открывается внутри Telegram: кисть, палитра, ластик, отмена штрихов. Готовый рисунок уходит в ту же сказку.</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame"><img src="/risunok/img/bot.jpg" alt="Карточка бота @risunok_ozhilBot в Telegram" loading="lazy"></div>
+          <figcaption>Бот @risunok_ozhilBot: два пробных оживления бесплатно, дальше пакеты за звёзды Telegram.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="story">
+    <div class="when">28–29 сентября<small>Сюжет и память</small></div>
+    <div>
+      <h2>Чтобы сказка не повторялась, у неё есть автор и редактор</h2>
+      <div class="read">
+        <p>Первые сцены быстро скатывались в одно и то же: ключ, дверь, тропинка. Поэтому каждая сцена проходит два шага. Автор пишет, редактор сверяет текст с памятью героев, с рисунками и с решениями ребёнка, убирает противоречия и повторы. Если редактор не справился, картинка не рисуется, а оживление возвращается на баланс.</p>
+        <p>Каждая глава получает своё направление (изобретение, праздник, экспедиция, театр), а три пути всегда разные по смыслу: создать, договориться или исследовать.</p>
+      </div>
+      <ul class="read">
+        <li><b>Память.</b> Исходный герой, шесть последних сцен, факты, загадки и до двух ранних эпизодов идут в каждую новую сцену.</li>
+        <li><b>Рюкзак.</b> Герой находит предметы, до 60 штук. Выбранная находка влияет на следующую сцену.</li>
+        <li><b>Разговор с героем.</b> К каждой сцене заранее готовы вопрос персонажа и 2–3 ответа. Они не стоят ничего и не тратят оживления.</li>
+        <li><b>Новые герои.</b> Можно дорисовать ещё персонажа или прислать фото взрослого: он войдёт в сказку, а главный герой останется прежним.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stage" id="money">
+    <div class="when">27–29 сентября<small>Оплата и админка</small></div>
+    <div>
+      <h2>Звёзды Telegram, честный баланс и админка</h2>
+      <div class="read">
+        <p>Два пробных оживления даются один раз на аккаунт. Дальше пакеты: 5 сцен за 60 звёзд, 15 за 150, 40 за 350. Подписок нет, баланс не сгорает. Покупает взрослый после принятия условий.</p>
+        <p>Баланс ведётся так, чтобы ни одна сторона не теряла: оживление резервируется перед генерацией и возвращается, если что-то сломалось. Повторное нажатие не списывает дважды, повтор платежа не начисляет пакет второй раз.</p>
+        <p>Для себя я сделал закрытую админку: пользователи, баланс, покупки, бонусы, свежие рисунки. Оттуда же уходят рассылки, только после предпросмотра и подтверждения числа получателей. О каждой конверсии (зашёл, прислал рисунок, получил сцену, дошёл до второй) приходит уведомление.</p>
+      </div>
+      <div class="note read"><b>Решение про лимит.</b> Сначала после пробных сцен бот просил подождать до завтра. 28 сентября я заменил ожидание предложением купить пакет: ребёнок в моменте хочет продолжения, а не обещания на завтра.</div>
+    </div>
+  </section>
+
+  <section class="stage" id="launch">
+    <div class="when">29 сентября – 26 октября<small>Лендинг и реклама</small></div>
+    <div>
+      <h2>Холодный трафик ведём не в бот, а на лендинг</h2>
+      <div class="read">
+        <p>Человек из рекламы не знает, что такое «бот, который оживляет рисунок». Поэтому реклама ведёт на страницу, которая за десять секунд объясняет механику, показывает пробный и платный формат, условия и политику конфиденциальности. И только потом кнопка в Telegram.</p>
+        <p>Для Meta я подготовил три креатива: превращение рисунка, сказку-книгу и выбор пути. Аудитория только взрослые 25–54, цель — просмотры целевой страницы, две группы с одинаковым бюджетом: широкая и «творчество, детские книги, семейный досуг». Без обещаний «развить интеллект» и без давления на родителей.</p>
+      </div>
+      <figure class="shot">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="/risunok/img/landing.jpg" alt="Лендинг «Рисунок ребёнка становится частью приключения» с тремя шагами" loading="lazy"></div>
+        <figcaption>Лендинг risunok.petrsolovarov.ru/about: что это, три шага, честный блок «для родителей» про ИИ, Google и Stars.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="/risunok/img/creatives.jpg" alt="Три рекламных креатива: рисунок оживает, сказка-книга, выбор пути" loading="lazy"></div>
+        <figcaption>Три креатива для теста: «Превратите рисунок в сказку», «Каждый рисунок меняет сюжет», «Какой путь выберет сказка?».</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="frame"><img src="/risunok/img/meta-ads.jpg" alt="Объявление в Ads Manager: предпросмотр ленты и историй с креативом «Рисунок ожил»" loading="lazy"></div>
+        <figcaption>Объявление в Ads Manager, 26 октября 2026: кампания с целью «Трафик», предпросмотр в ленте и историях. На момент снимка группа объявлений ещё выключена, результатов пока нет.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage" id="fails">
+    <div class="when">Всё время<small>Что ломалось</small></div>
+    <div>
+      <h2>Поломки и что с ними сделали</h2>
+      <div class="read"><p>Каждая строка ниже — отдельный коммит в истории проекта.</p></div>
+      <div class="tablewrap"><table class="fix">
+        <thead><tr><th>Что случилось</th><th>Что сделали</th></tr></thead>
+        <tbody>
+          <tr><td>Бот терял детали рисунка и «рисовал своё»</td><td>Переписал правила иллюстрации: форма и цвета героя обязательны, редактор сверяет сцену с исходником.</td></tr>
+          <tr><td>Задания «нарисуй» были слишком сложными для ребёнка</td><td>Теперь просим нарисовать один простой предмет или героя, а не сцену целиком.</td></tr>
+          <tr><td>Сложные миссии и медленные ответы ломали план сюжета</td><td>Бот восстанавливает план и не списывает оживление, если сцена не собралась.</td></tr>
+          <tr><td>Редактор иногда возвращал невалидный текст</td><td>Проверка структуры, кнопка «Новая сказка», оживление возвращается на баланс.</td></tr>
+          <tr><td>Фото взрослого «перехватывало» главного героя</td><td>Новый человек входит в уже существующую компанию, главный герой и его внешность сохраняются.</td></tr>
+          <tr><td>На сервер могла попасть не та версия кода</td><td>Скрипт выкладки сверяет коммит с GitHub и ставит ровно его, версия записывается на сервере.</td></tr>
+          <tr><td>Пробные сцены кончались, а бот просил ждать до завтра</td><td>Вместо ожидания предлагаются пакеты сцен.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section class="stage" id="results">
+    <div class="when">Итоги<small>На 26 октября</small></div>
+    <div>
+      <h2>Результаты и польза</h2>
+      <div class="read">
+        <p>Цифры взяты из базы бота на сервере 26 октября 2026. Пользователи пришли без рекламы, по моим личным приглашениям, 27–29 сентября.</p>
+      </div>
+      <div class="chartbox">
+        <h3>Путь первых пользователей</h3>
+        <div class="funnel" role="img" aria-label="Воронка: 15 нажали старт, 7 прислали рисунок, 7 получили сцену, 4 дошли до второй сцены, 6 открыли покупку, 0 оплатили">
+          <div class="fr"><span>Нажали «Старт»</span><div class="bar" style="width:100%"></div><b>15</b></div>
+          <div class="fr"><span>Прислали рисунок</span><div class="bar" style="width:46.7%"></div><b>7</b></div>
+          <div class="fr"><span>Получили первую сцену</span><div class="bar" style="width:46.7%"></div><b>7</b></div>
+          <div class="fr"><span>Дошли до второй сцены</span><div class="bar" style="width:26.7%"></div><b>4</b></div>
+          <div class="fr"><span>Открыли покупку звёзд</span><div class="bar" style="width:40%"></div><b>6</b></div>
+          <div class="fr"><span>Оплатили</span><div class="bar" style="width:0"></div><b>0</b></div>
+        </div>
+        <p style="font-size:14px;color:var(--muted);margin:14px 0 0">Источник: события конверсий в базе бота, каждое считается один раз на человека. «Открыли покупку» — заказы, созданные в магазине бота.</p>
+      </div>
+      <div class="lessons">
+        <div><h3>Для ребёнка и родителя</h3>
+          <ul>
+            <li>Любая закорючка становится героем: на снимках выше рисунки в несколько линий, сделанные пальцем.</li>
+            <li>Ребёнок не смотрит мультик, а придумывает: выбирает путь, дорисовывает предметы, отвечает героям.</li>
+            <li>Ничего не нужно ставить: бот и холст живут в Telegram.</li>
+          </ul>
+        </div>
+        <div><h3>Для продукта</h3>
+          <ul>
+            <li>Себестоимость сцены около 7 центов: $3,46 за 114 текстовых и 49 картиночных запросов.</li>
+            <li>При пакете 5 сцен за 60 звёзд запас между ценой и расходом на нейросеть большой даже после комиссий.</li>
+            <li>Все сбои возвращают оживление: за месяц 14 резервов вернулись на баланс автоматически.</li>
+          </ul>
+        </div>
+        <div><h3>Для бизнеса</h3>
+          <ul>
+            <li>Готовая схема «ИИ-генерация + оплата в Telegram + админка» переносится на другие продукты: открытки, персональные книги, обучение.</li>
+            <li>Бот работает в контейнере с ограничениями по памяти и процессору рядом с другими моими сервисами.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note warn read"><b>Что честно стоит сказать.</b> Продукт работает, но рынок его пока не проверил. Пользователей 16, все пришли по личным приглашениям, а не из рекламы. Половина нажавших «Старт» так и не прислала рисунок: первый шаг пока слишком тяжёлый. Шесть человек открыли покупку звёзд, но ни один платёж не прошёл, и причину я ещё не разобрал: возможно, людей останавливает сама покупка звёзд в Telegram. Из 54 запросов на картинку 5 вернулись без изображения. Удержание через неделю и окупаемость рекламы не измерены: реклама стартует только сейчас.</div>
+    </div>
+  </section>
+
+  <section class="stage" id="branch">
+    <div class="when">6 октября<small>Ответвление</small></div>
+    <div>
+      <h2>Вторая версия: книжка по семейному фото</h2>
+      <div class="read">
+        <p>Из того же ядра я собрал отдельный бот: взрослый присылает фото семьи или друзей, описывает участников и сюжет, бот предлагает сценарий на шесть страниц и рисует книжку, которую можно листать в Telegram. Пока это закрытый тест, им пользовался только я, поэтому цифр по нему в кейсе нет.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="proof">
+    <div class="when">Доказательства<small>Где проверить</small></div>
+    <div>
+      <h2>Что можно проверить самому</h2>
+      <div class="read"><p>Снимки сделаны 26 октября 2026. Статистика из базы бота показываю экраном админки на созвоне.</p></div>
+      <div class="tablewrap"><table class="fix">
+        <thead><tr><th>Что проверяем</th><th>Где смотреть</th></tr></thead>
+        <tbody>
+          <tr><td>Сам бот, два пробных оживления</td><td><a href="https://t.me/risunok_ozhilBot" rel="noopener">t.me/risunok_ozhilBot</a></td></tr>
+          <tr><td>Лендинг для рекламы</td><td><a href="https://risunok.petrsolovarov.ru/about" rel="noopener">risunok.petrsolovarov.ru/about</a></td></tr>
+          <tr><td>Пользователи, сцены, заказы, расходы</td><td>Админка бота, показываю на созвоне</td></tr>
+          <tr><td>История разработки по дням</td><td>Закрытый репозиторий, 17 коммитов с 27.09 по 6.10, покажу на созвоне</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section class="stage" id="offer">
+    <div class="when">Предложение<small>Как подключить</small></div>
+    <div>
+      <h2>Такой бот для вашего продукта</h2>
+      <div class="read">
+        <p>Я делаю Telegram-ботов, где нейросеть создаёт что-то персональное (картинку, историю, разбор), а человек платит прямо в Telegram. Бот, холст, память, оплата, админка и лендинг, как в этом кейсе, под вашу идею.</p>
+        <h3>Кому подходит</h3>
+        <ul>
+          <li>Детским студиям, издательствам, школам и авторам, у кого есть идея продукта на ИИ и аудитория в Telegram.</li>
+          <li>Тем, кто хочет проверить идею за две недели, а не за полгода разработки приложения.</li>
+          <li>Не подойдёт, если нужна видеоанимация персонажей или приложение в App Store.</li>
+        </ul>
+      </div>
+      <div class="pkgs">
+        <div class="pkg">
+          <h3>Пилот</h3>
+          <div class="price">59 000 ₽</div>
+          <div class="term">14 дней</div>
+          <ul>
+            <li>Бот с одним сценарием генерации под вашу идею</li>
+            <li>Пробные генерации и лимиты расходов</li>
+            <li>Запуск на вашем сервере и 10 тестовых пользователей с разбором, где они застряли</li>
+            <li>Стоимость засчитывается в «под ключ»</li>
+          </ul>
+        </div>
+        <div class="pkg main">
+          <h3>Бот под ключ</h3>
+          <div class="price">190 000 ₽</div>
+          <div class="term">10–14 рабочих дней, разово</div>
+          <ul>
+            <li>Всё из пилота плюс оплата звёздами Telegram с честным балансом и возвратами</li>
+            <li>Память пользователя, мини-приложение (холст, книга или своё)</li>
+            <li>Админка, рассылки, уведомления о конверсиях</li>
+            <li>Лендинг и тексты для первой рекламы</li>
+            <li>30 дней сопровождения</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <h3>Сопровождение</h3>
+          <div class="price">29 000 ₽ <small>в месяц</small></div>
+          <div class="term">после запуска, отмена в любой месяц</div>
+          <ul>
+            <li>Слежу за работой и расходами, чиню поломки</li>
+            <li>Улучшаю качество генераций по реальным сценам</li>
+            <li>Еженедельный отчёт по воронке</li>
+            <li>До четырёх часов доработок в месяц</li>
+          </ul>
+        </div>
+      </div>
+      <div class="read">
+        <h3>Условия</h3>
+        <ul>
+          <li><b>Оплата.</b> Пилот: 50% до старта, 50% после сдачи. Под ключ: 50% до старта, 30% после запуска, 20% после 30 дней.</li>
+          <li><b>Расходы на сервисы</b> платите вы напрямую: API нейросети (в этом кейсе около 7 центов на сцену) и сервер от 500 ₽ в месяц. Бот, ключи и деньги со звёзд остаются на вашем аккаунте.</li>
+          <li><b>Что я гарантирую.</b> Срок и работающую цепочку от входа до оплаты. Пользователей и продажи не гарантирую: этот кейс сам показывает, что их надо отдельно добывать и проверять. За невыполненное по моей вине возвращаю деньги.</li>
+          <li><b>Данные.</b> Данные пользователей принадлежат вам, подпишу NDA. Для детских продуктов закладываю согласие взрослого и удаление данных по команде.</li>
+          <li><b>Ограничения.</b> ИИ может неточно передать детали рисунка или фото. Оплата цифровых товаров внутри Telegram идёт только звёздами, вывод денег по правилам Telegram.</li>
+        </ul>
+        <div class="note"><b>Первый шаг бесплатный.</b> Напишите мне в Telegram слово «система». За 30 минут разберём вашу идею, и я скажу, подходит ли она под бота и что проверить в пилоте. Цены ориентировочные, итог зависит от объёма.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать в Telegram</a>
+          <a class="btn ghost" href="https://t.me/risunok_ozhilBot" rel="noopener">Попробовать «Рисунок ожил»</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="end" id="next">
+    <div class="read">
+      <h2>Что получилось и что дальше</h2>
+      <p>За десять дней появился законченный продукт: от рисунка пальцем до книги из глав, с оплатой и админкой, за копейки на сцену. Техническая часть закрыта, теперь главный вопрос другой: найдут ли его родители и станут ли платить. Это и проверяет реклама, которая стартует сейчас.</p>
+    </div>
+    <div class="lessons">
+      <div><h3>Что сработало</h3>
+        <ul>
+          <li>Связка «автор + редактор» вместо одного запроса: сказки перестали повторяться.</li>
+          <li>Резерв и возврат оживлений: ни один сбой не стоил пользователю денег.</li>
+          <li>Холст в Telegram: рисовать можно сразу, без фото с бумаги.</li>
+        </ul>
+      </div>
+      <div><h3>Чему научился</h3>
+        <ul>
+          <li>Пробный шаг должен быть лёгким: половина людей застряла на «пришлите рисунок».</li>
+          <li>Холодный трафик сначала объясняют, а потом ведут в бот.</li>
+          <li>Воронку нужно размечать с первого дня, тогда видно, где теряются люди.</li>
+        </ul>
+      </div>
+      <div><h3>Следующие шаги</h3>
+        <ul>
+          <li>Запустить тест в Meta и сравнить три креатива по цене перехода в бот.</li>
+          <li>Облегчить первый шаг: готовый герой-пример для тех, у кого нет рисунка под рукой.</li>
+          <li>Разобраться, почему не завершаются покупки звёзд.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer"><span>Пётр Соловаров</span><span>petrsolovarov.ru</span></p>
+  </section>
+</div>
+</body>
+</html>
