@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Внедрение ИИ в бизнес — Пётр Соловаров</title>
+<meta name="description" content="Внедряю ИИ в бизнес: боты для заявок, контент на ИИ, базы знаний из документов. Бесплатный разбор 30 минут в Telegram.">
+<meta property="og:title" content="Внедрение ИИ в бизнес — Пётр Соловаров">
+<meta property="og:description" content="Боты для заявок 24/7, контент на ИИ, базы знаний. Бесплатный разбор в Telegram.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petrsolovarov.ru/ai/">
+<meta name="robots" content="noindex">
+<!-- Яндекс.Метрика и Google Analytics (те же счётчики, что на главной) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8LDD3GC32"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-L8LDD3GC32');
+</script>
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612','ym');
+ym(113666612,'init',{webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true,referrer:document.referrer,url:location.href});
+</script>
+<!-- Meta Pixel: номер пикселя в PIXEL_ID -->
+<script>
+var PIXEL_ID = "";
+if (PIXEL_ID) {
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', PIXEL_ID);
+fbq('track', 'PageView');
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f4f6f6;--surface:#fff;--fg:#12262b;--muted:#53666b;--line:#d5dedf;--accent:#0d5c63;--mark:#c9ea5a;--tg:#229ED9;
+--font-display:"Jost","Segoe UI",system-ui,sans-serif;--font-body:"Open Sans","Segoe UI",system-ui,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c171a;--surface:#12232a;--fg:#e6eef0;--muted:#9db0b5;--line:#25393f;--accent:#8fd3d8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c171a;--surface:#12232a;--fg:#e6eef0;--muted:#9db0b5;--line:#25393f;--accent:#8fd3d8;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6;padding:0 16px 96px}
+.wrap{max-width:880px;margin:0 auto}
+header{padding:20px 0;display:flex;justify-content:space-between;align-items:center}
+header a{color:var(--muted);text-decoration:none;font-size:15px}
+.hero{padding:32px 0 24px}
+.tag{display:inline-block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+h1{font-family:var(--font-display);font-size:clamp(32px,6vw,52px);line-height:1.1;margin:0 0 16px}
+h1 mark{background:var(--mark);color:#12262b;padding:0 .15em;border-radius:4px}
+.lead{font-size:19px;color:var(--muted);max-width:640px;margin:0 0 28px}
+.tg-btn{display:inline-flex;align-items:center;gap:10px;background:var(--tg);color:#fff;font-weight:700;font-size:18px;padding:16px 26px;border-radius:12px;text-decoration:none;border:0;cursor:pointer;box-shadow:0 6px 20px rgba(34,158,217,.3)}
+.tg-btn:hover{filter:brightness(1.06)}
+.tg-btn svg{width:22px;height:22px;flex:none}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+h2{font-family:var(--font-display);font-size:28px;margin:56px 0 18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card .num{font-family:var(--font-display);font-size:30px;font-weight:700;color:var(--accent);line-height:1.1}
+.card h3{font-size:18px;margin:8px 0 6px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card a{color:var(--accent);font-size:15px;font-weight:600}
+ol.steps{padding-left:22px;margin:0}
+ol.steps li{margin-bottom:10px}
+.cta{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;margin-top:56px;text-align:center}
+.cta h2{margin:0 0 8px}
+.cta p{color:var(--muted);margin:0 0 20px}
+footer{margin-top:48px;font-size:14px;color:var(--muted)}
+footer a{color:var(--muted)}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px;background:linear-gradient(transparent,var(--bg) 35%);display:none;justify-content:center}
+.sticky .tg-btn{width:100%;max-width:480px;justify-content:center}
+@media (max-width:640px){.sticky{display:flex}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a href="/">Пётр Соловаров</a><a href="/#portfolio">Кейсы</a></header>
+
+<section class="hero">
+<span class="tag">Внедрение ИИ в бизнес</span>
+<h1>Отдам рутину вашего бизнеса <mark>ИИ</mark>, а не новым сотрудникам</h1>
+<p class="lead">Собираю ботов, которые принимают заявки круглые сутки, контент-конвейеры и базы знаний из ваших документов. Первый шаг — бесплатный разбор 30 минут в Telegram: покажу, что у вас можно автоматизировать.</p>
+<a class="tg-btn js-lead" href="https://t.me/solovarov" data-src="hero"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Написать в Telegram</a>
+<p class="note">Отвечаю сам, обычно в течение дня. Напишите слово «система».</p>
+</section>
+
+<h2>Что уже работает у других</h2>
+<div class="cards">
+<div class="card"><div class="num">24/7</div><h3>Заявки ночью не теряются</h3><p>Бот бюро переводов отвечает в WhatsApp и Telegram, считает цену по прайсу и заводит сделку в AMO CRM.</p><p style="margin-top:10px"><a href="/orient/">Кейс Orient →</a></p></div>
+<div class="card"><div class="num">44 ролика</div><h3>за 14 дней, один человек</h3><p>ИИ пишет сценарии, монтирует, выкладывает на три площадки и отвечает в комментариях. 170 942 просмотра.</p><p style="margin-top:10px"><a href="/iisystema/">Кейс ii.systema →</a></p></div>
+<div class="card"><div class="num">4 622</div><h3>документа стали базой знаний</h3><p>Архив заключений превратился в поиск, а врач диктует протокол голосом. Разбор архива — около $29.</p><p style="margin-top:10px"><a href="/vetctschool/">Кейс VetCTschool →</a></p></div>
+</div>
+
+<h2>Как проходит работа</h2>
+<ol class="steps">
+<li><b>Разбор в Telegram, 30 минут, бесплатно.</b> Вы рассказываете, где теряются время и деньги. Я предлагаю, что можно отдать ИИ.</li>
+<li><b>Пилот на 14 дней.</b> Запускаю одну цепочку на ваших данных, чтобы вы увидели результат до больших вложений.</li>
+<li><b>Внедрение под ключ.</b> Система остаётся у вас, сервисы вы оплачиваете напрямую, без моих наценок.</li>
+</ol>
+
+<div class="cta">
+<h2>Посмотрим ваш бизнес?</h2>
+<p>Напишите в Telegram, разберём вашу задачу за 30 минут.</p>
+<a class="tg-btn js-lead" href="https://t.me/solovarov" data-src="bottom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Написать в Telegram</a>
+</div>
+
+<footer>© Пётр Соловаров · <a href="/privacy/">Политика конфиденциальности</a></footer>
+</div>
+
+<div class="sticky"><a class="tg-btn js-lead" href="https://t.me/solovarov" data-src="sticky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Написать в Telegram</a></div>
+
+<script>
+// Клик по кнопке Telegram = лид: событие Lead в пиксель Meta и цели в Метрику и GA, затем переход в Telegram.
+(function(){
+  var fired = false;
+  document.querySelectorAll('.js-lead').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var href = a.href;
+      if (!fired) {
+        fired = true;
+        try { if (window.fbq) fbq('track', 'Lead', {content_name: 'telegram', content_category: a.dataset.src}); } catch(_) {}
+        try { if (window.ym) ym(113666612, 'reachGoal', 'ai_lead_telegram', {src: a.dataset.src}); } catch(_) {}
+        try { if (window.gtag) gtag('event', 'generate_lead', {method: 'telegram', src: a.dataset.src}); } catch(_) {}
+      }
+      e.preventDefault();
+      setTimeout(function(){ location.href = href; }, 300);
+    });
+  });
+})();
+</script>
+</body>
+</html>
