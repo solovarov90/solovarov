@@ -82,7 +82,7 @@ footer a{color:var(--muted)}
 <h1>Отдам рутину вашего бизнеса <mark>ИИ</mark>, а не новым сотрудникам</h1>
 <p class="lead">Собираю ботов, которые принимают заявки круглые сутки, контент-конвейеры и базы знаний из ваших документов. Первый шаг — бесплатный разбор 30 минут в Telegram: покажу, что у вас можно автоматизировать.</p>
 <a class="tg-btn js-lead" href="https://t.me/solovarov" data-src="hero"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Написать в Telegram</a>
-<p class="note">Отвечаю сам, обычно в течение дня. Напишите слово «система».</p>
+<p class="note">Отвечаю сам, обычно в течение дня. Напишите слово <b class="js-word">«разбор»</b> — оно скопируется при нажатии кнопки.</p>
 </section>
 
 <h2>Что уже работает у других</h2>
@@ -101,7 +101,7 @@ footer a{color:var(--muted)}
 
 <div class="cta">
 <h2>Посмотрим ваш бизнес?</h2>
-<p>Напишите в Telegram, разберём вашу задачу за 30 минут.</p>
+<p>Напишите в Telegram слово <b class="js-word">«разбор»</b>, разберём вашу задачу за 30 минут.</p>
 <a class="tg-btn js-lead" href="https://t.me/solovarov" data-src="bottom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Написать в Telegram</a>
 </div>
 
@@ -111,17 +111,31 @@ footer a{color:var(--muted)}
 <div class="sticky"><a class="tg-btn js-lead" href="https://t.me/solovarov" data-src="sticky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Написать в Telegram</a></div>
 
 <script>
+// Кодовое слово по источнику: в личке Telegram сразу видно, с какого объявления пришёл человек.
+// В роликах звучит «система», поэтому здесь свои слова. Без метки (прямой заход) — «разбор».
+var CODE_WORDS = { night_bot: 'бот24', content: 'контент', knowledge: 'база' };
+var CODE_WORD = (function(){
+  var src = '';
+  try { src = new URLSearchParams(location.search).get('utm_content') || ''; } catch(_) {}
+  try {
+    if (src) sessionStorage.setItem('ai_src', src); else src = sessionStorage.getItem('ai_src') || '';
+  } catch(_) {}
+  return CODE_WORDS[src] || 'разбор';
+})();
+document.querySelectorAll('.js-word').forEach(function(el){ el.textContent = '«' + CODE_WORD + '»'; });
+
 // Клик по кнопке Telegram = лид: событие Lead в пиксель Meta и цели в Метрику и GA, затем переход в Telegram.
 (function(){
   var fired = false;
   document.querySelectorAll('.js-lead').forEach(function(a){
     a.addEventListener('click', function(e){
       var href = a.href;
+      try { if (navigator.clipboard) navigator.clipboard.writeText(CODE_WORD); } catch(_) {}
       if (!fired) {
         fired = true;
-        try { if (window.fbq) fbq('track', 'Lead', {content_name: 'telegram', content_category: a.dataset.src}); } catch(_) {}
-        try { if (window.ym) ym(113666612, 'reachGoal', 'ai_lead_telegram', {src: a.dataset.src}); } catch(_) {}
-        try { if (window.gtag) gtag('event', 'generate_lead', {method: 'telegram', src: a.dataset.src}); } catch(_) {}
+        try { if (window.fbq) fbq('track', 'Lead', {content_name: 'telegram', content_category: a.dataset.src, code_word: CODE_WORD}); } catch(_) {}
+        try { if (window.ym) ym(113666612, 'reachGoal', 'ai_lead_telegram', {src: a.dataset.src, code_word: CODE_WORD}); } catch(_) {}
+        try { if (window.gtag) gtag('event', 'generate_lead', {method: 'telegram', src: a.dataset.src, code_word: CODE_WORD}); } catch(_) {}
       }
       e.preventDefault();
       setTimeout(function(){ location.href = href; }, 300);
