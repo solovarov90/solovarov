@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Снимай — веди блог, остальное сделает система</title>
+<meta name="description" content="Снимай — приложение в Telegram: находит залетевшие темы, пишет твой сценарий, суфлёр над камерой, монтаж в стиле автора, выкладка на три площадки и статистика. Первый ролик бесплатно.">
+<meta property="og:title" content="Снимай. Остальное сделает система.">
+<meta property="og:description" content="72 ролика за 27 дней и почти 300 000 просмотров — на этой системе я веду свой блог. Теперь это приложение в Telegram. Первый ролик бесплатно.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0B10;--bg2:#101018;--card:rgba(255,255,255,.04);--card2:rgba(255,255,255,.07);
+  --line:rgba(255,255,255,.08);--text:#F4F4F6;--muted:rgba(255,255,255,.62);--dim:rgba(255,255,255,.4);
+  --gold:#E8A33D;--gold2:#F6C77A;--goldbg:rgba(232,163,61,.12);
+  --r:20px;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em}
+h1{font-size:clamp(34px,6vw,64px);font-weight:900}
+h2{font-size:clamp(26px,4vw,40px);font-weight:800;margin-bottom:14px}
+h3{font-size:20px;font-weight:700}
+.lead{font-size:clamp(17px,2.2vw,21px);color:var(--muted);max-width:720px}
+.gold{color:var(--gold)}
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);background:var(--goldbg);padding:6px 12px;border-radius:999px;margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:14px;font-weight:700;font-size:17px;transition:.2s;border:1px solid transparent;cursor:pointer}
+.btn-gold{background:var(--gold);color:#140E02}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:var(--card)}
+.btn-ghost:hover{background:var(--card2)}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.note{font-size:14px;color:var(--dim);margin-top:12px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:rgba(11,11,16,.75);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:22px;letter-spacing:-.03em}
+.logo i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--gold);margin-left:3px;box-shadow:0 0 14px var(--gold)}
+nav a{font-size:14px;color:var(--muted);margin-left:22px}
+nav a:hover{color:var(--text)}
+.hdr-btn{padding:10px 16px;font-size:14px;border-radius:10px}
+
+/* hero */
+.hero{padding:88px 0 64px;position:relative}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 20% 0%,rgba(232,163,61,.14),transparent 60%);pointer-events:none}
+.hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.phone{aspect-ratio:9/17;width:100%;max-width:330px;margin:0 auto;border-radius:38px;border:1px solid var(--line);background:linear-gradient(180deg,#15151f,#0c0c12);box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 8px #0a0a0e;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.phone .top{display:flex;justify-content:space-between;font-size:12px;color:var(--dim)}
+.phone .sub{position:absolute;top:64px;left:16px;right:16px;background:rgba(0,0,0,.55);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.4}
+.phone .sub b{color:var(--gold)}
+.phone .face{flex:1;border-radius:22px;background:radial-gradient(120px 140px at 50% 42%,rgba(232,163,61,.28),transparent 70%),linear-gradient(180deg,#1b1b26,#101016);position:relative}
+.phone .cap{position:absolute;bottom:26%;left:0;right:0;text-align:center;font-weight:800;font-size:20px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.phone .cap span{color:var(--gold)}
+.phone .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.phone .steps div{font-size:10px;text-align:center;padding:8px 2px;border-radius:10px;background:var(--card);color:var(--muted)}
+.phone .steps div.on{background:var(--gold);color:#140E02;font-weight:700}
+.phone .rec{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:#ff4b4b;box-shadow:0 0 12px #ff4b4b;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.num{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px}
+.num b{display:block;font-size:clamp(26px,3.4vw,38px);font-weight:900;letter-spacing:-.03em;color:var(--gold)}
+.num span{font-size:14px;color:var(--muted)}
+.src{font-size:13px;color:var(--dim);margin-top:12px}
+
+/* steps */
+.steps7{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:30px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;position:relative}
+.step .n{width:34px;height:34px;border-radius:10px;background:var(--goldbg);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:14px}
+.step p{color:var(--muted);font-size:15px;margin-top:6px}
+.step.you{border-color:rgba(232,163,61,.5);background:linear-gradient(180deg,rgba(232,163,61,.10),var(--card))}
+.step.you:after{content:"ты";position:absolute;top:18px;right:18px;font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.cmp .col{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.cmp .col.us{border-color:rgba(232,163,61,.5)}
+.cmp h3{margin-bottom:14px}
+.cmp ul{list-style:none}
+.cmp li{padding:9px 0;border-top:1px solid var(--line);font-size:15px;display:flex;gap:10px;align-items:flex-start}
+.cmp li:first-child{border-top:0}
+.cmp .x{color:var(--dim)}
+.cmp .v{color:var(--gold);font-weight:800}
+
+/* styles */
+.stylegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:30px}
+.sty{border:1px solid var(--line);border-radius:var(--r);padding:20px;background:var(--card)}
+.sty .chip{display:inline-block;font-size:12px;padding:4px 10px;border-radius:999px;background:var(--goldbg);color:var(--gold);font-weight:700;margin-bottom:12px}
+.sty p{font-size:14px;color:var(--muted)}
+.toggles{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.toggles span{font-size:13px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted)}
+.toggles span b{color:var(--gold)}
+
+/* offer */
+.offer{background:linear-gradient(180deg,rgba(232,163,61,.10),transparent);border:1px solid rgba(232,163,61,.45);border-radius:28px;padding:40px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.price{font-size:clamp(44px,7vw,76px);font-weight:900;letter-spacing:-.04em;line-height:1}
+.price small{font-size:18px;color:var(--muted);font-weight:500;letter-spacing:0}
+.offer ul{list-style:none;margin:18px 0 24px}
+.offer li{padding:10px 0;border-top:1px solid var(--line);display:flex;gap:12px;font-size:16px}
+.offer li:first-child{border-top:0}
+.offer li i{color:var(--gold);font-style:normal;font-weight:800}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.tier{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);text-align:center}
+.tier b{display:block;font-size:22px;font-weight:800}
+.tier span{font-size:13px;color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.about .pic{aspect-ratio:1;border-radius:28px;background:radial-gradient(200px 200px at 50% 40%,rgba(232,163,61,.3),transparent 70%),linear-gradient(180deg,#191924,#0d0d13);border:1px solid var(--line);display:flex;align-items:flex-end;padding:22px;font-size:14px;color:var(--muted)}
+.proof{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.proof a{font-size:14px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.proof a:hover{border-color:var(--gold)}
+
+/* faq */
+details{border-top:1px solid var(--line);padding:18px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary:after{content:"+";color:var(--gold);font-size:22px;line-height:1}
+details[open] summary:after{content:"–"}
+details p{color:var(--muted);margin-top:10px;max-width:760px}
+
+footer{padding:40px 0;border-top:1px solid var(--line);font-size:14px;color:var(--dim)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media(max-width:860px){
+  .hero .grid,.offer,.about{grid-template-columns:1fr}
+  .nums{grid-template-columns:1fr 1fr}
+  .cmp{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr}
+  nav{display:none}
+  section{padding:56px 0}
+  .phone{max-width:280px}
+  .offer{padding:28px 22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Снимай<i></i></a>
+    <nav>
+      <a href="#how">Как работает</a>
+      <a href="#examples">Примеры</a>
+      <a href="#inside">Что внутри</a>
+      <a href="#game">Игра</a>
+      <a href="#offer">Цена</a>
+      <a href="#about">Кто делает</a>
+    </nav>
+    <a class="btn btn-gold hdr-btn" href="https://t.me/snimai_agent" rel="noopener">Открыть в Telegram</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Приложение в Telegram · первый ролик бесплатно</span>
+      <h1>Снимай. <span class="gold">Остальное</span> сделает система.</h1>
+      <p class="lead" style="margin-top:20px">Ты читаешь текст в камеру две минуты в день. Система находит тему, которая уже зашла у других, пишет твой сценарий, монтирует в стиле автора, который тебе нравится, выкладывает на три площадки и считает цифры.</p>
+      <div class="row" style="margin-top:30px">
+        <a class="btn btn-gold" href="https://t.me/snimai_agent" rel="noopener">Сделать первый ролик бесплатно</a>
+        <a class="btn btn-ghost" href="#how">Посмотреть, как работает</a>
+      </div>
+      <p class="note">Без установки: бот и мини-приложение внутри Telegram. Результат приходит файлом в чат.</p>
+    </div>
+    <div class="phone" aria-label="Кадр из моего ролика REEL-31, смонтированного системой">
+      <div class="rec"></div>
+      <img src="img/hero-reel31.jpg" alt="Кадр готового ролика: субтитры и вставка на словах" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:38px">
+      <div class="steps" style="position:absolute;left:14px;right:14px;bottom:14px"><div>Тема</div><div>Сценарий</div><div class="on">Снять</div><div>Монтаж</div><div>Выложить</div></div>
+      <div style="position:absolute;left:14px;right:14px;top:14px;display:flex;justify-content:space-between;font-size:12px;color:#fff;text-shadow:0 1px 4px #000"><span>REEL-31 · 28 995 просмотров</span><span>готовый ролик</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="numbers" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">На этой системе я веду свой блог</span>
+    <h2>Мои цифры за 27 дней. <span class="gold">Не обещание</span>, а то, что уже вышло</h2>
+    <p class="lead">С 2 по 28 октября 2026 года, один человек, без монтажёра и команды. Все ролики, ссылки и статистика лежат в моём Notion, итог опубликован в кейсе.</p>
+    <div class="nums">
+      <div class="num"><b>72</b><span>ролика вышли на YouTube, Instagram и TikTok</span></div>
+      <div class="num"><b>295 937</b><span>просмотров на трёх площадках</span></div>
+      <div class="num"><b>1 805</b><span>человек написали кодовое слово под роликами</span></div>
+      <div class="num"><b>2 мин</b><span>в день — моя работа: прочитать текст в камеру</span></div>
+    </div>
+    <p class="src">Источник: «Контент-план» в Notion на 29.10.2026. Заявки и оплаты моих услуг пришли из этих комментариев. Это мой результат, не гарантия вашего. Подробно, с этапами и поломками — в <a href="https://petrsolovarov.ru/iisystema/" style="color:var(--gold)">кейсе</a>.</p>
+    <figure style="margin-top:26px">
+      <img src="img/before-after.jpg" alt="Слева сырой дубль, справа кадры готового ролика REEL-6" style="width:100%;border-radius:16px;border:1px solid var(--line)" loading="lazy">
+      <figcaption class="src">Слева сырой дубль с телефона, справа кадры готового ролика «Свой Джарвис за 9 шагов» (16 835 просмотров): из 108 секунд дубля система сделала 82 секунды ролика, вставки нарисованы под каждую фразу.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="how" style="background:var(--bg2)">
+  <div class="wrap">
+    <span class="eyebrow">Как это работает</span>
+    <h2>Тот же путь, что у меня. Только <span class="gold">проще</span></h2>
+    <p class="lead">Семь шагов. Два из них делаешь ты, остальные — система.</p>
+    <div class="steps7">
+      <div class="step you"><div class="n">1</div><h3>Тема</h3><p>Пишешь нишу или ник автора. Система показывает три ролика по теме, которые уже набрали просмотры. Выбираешь один.</p></div>
+      <div class="step"><div class="n">2</div><h3>Сценарий</h3><p>Разбор ролика и твой уникальный текст: три хука на выбор, фразы своими словами, три концовки. Не копия, а своя версия.</p></div>
+      <div class="step you"><div class="n">3</div><h3>Снять по суфлёру</h3><p>Текст бежит над камерой у фронталки. Смотришь в объектив и читаешь. Паузы и оговорки можно — их вырежет монтаж.</p></div>
+      <div class="step"><div class="n">4</div><h3>Монтаж</h3><p>Паузы вырезаны, субтитры по два слова, вставки с интерфейсами на нужных словах, звуки, музыка, финальная плашка.</p></div>
+      <div class="step"><div class="n">5</div><h3>Стиль автора</h3><p>Выбери готовый стиль или пришли 2–5 роликов любого автора: система измерит его монтаж и будет делать так же для тебя.</p></div>
+      <div class="step"><div class="n">6</div><h3>Выкладка</h3><p>Две обложки, заголовок, описание, теги. YouTube Shorts, Instagram Reels и TikTok по расписанию, сетка профиля шахматкой.</p></div>
+      <div class="step"><div class="n">7</div><h3>Комментарии и цифры</h3><p>Кодовое слово в комментариях → материал в директ. Просмотры, слова и переходы по каждому ролику в одном отчёте.</p></div>
+    <div class="cmp" style="margin-top:18px">
+      <figure><img src="img/notion-plan.jpg" alt="Мой контент-план в Notion" style="width:100%;border-radius:16px;border:1px solid var(--line)" loading="lazy"><figcaption class="src">Контент-план: каждая строка — ролик от идеи до публикации, цифры по площадкам подтягиваются сами.</figcaption></figure>
+      <figure><img src="img/montage-sheet.jpg" alt="Раскадровка готового ролика" style="width:100%;border-radius:16px;border:1px solid var(--line)" loading="lazy"><figcaption class="src">Раскадровка, которую система делает после каждого монтажа: ролик можно пролистать глазами до выкладки.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="examples">
+  <div class="wrap">
+    <span class="eyebrow">Примеры</span>
+    <h2>Ролики, которые сделала система. <span class="gold">Проверь сам</span></h2>
+    <p class="lead">Четыре из 72. Кадры из готовых роликов, цифры из Notion на 29.10.2026, ссылки на все три площадки.</p>
+    <div class="stylegrid" style="margin-top:26px">
+      <div class="sty" style="padding:0;overflow:hidden">
+        <img src="img/reel31.jpg" alt="Кадр ролика «Файл AGENTS.md»" style="width:100%;aspect-ratio:9/12;object-fit:cover;object-position:top" loading="lazy">
+        <div style="padding:16px"><b style="display:block;font-size:22px;color:var(--gold)">28 995</b><p>«Файл AGENTS.md: делай код без ошибок» · 289 кодовых слов</p>
+        <p style="margin-top:8px"><a href="https://youtube.com/shorts/8O4G_BabmwY" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/reel/DeO5WWolK-J/" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@ii.systema/video/7694285768650394888" rel="noopener">TikTok</a></p></div>
+      </div>
+      <div class="sty" style="padding:0;overflow:hidden">
+        <img src="img/reel61.jpg" alt="Кадр ролика «Бесплатный Claude Code»" style="width:100%;aspect-ratio:9/12;object-fit:cover;object-position:top" loading="lazy">
+        <div style="padding:16px"><b style="display:block;font-size:22px;color:var(--gold)">28 908</b><p>«Бесплатный Claude Code через открытый код» · 361 кодовое слово</p>
+        <p style="margin-top:8px"><a href="https://youtube.com/shorts/vBad4pu6XqI" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/reel/Dey8FPMCX0I/" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@ii.systema/video/7699462024346144021" rel="noopener">TikTok</a></p></div>
+      </div>
+      <div class="sty" style="padding:0;overflow:hidden">
+        <img src="img/reel33.jpg" alt="Кадр ролика «Скилл Watch для Claude»" style="width:100%;aspect-ratio:9/12;object-fit:cover;object-position:top" loading="lazy">
+        <div style="padding:16px"><b style="display:block;font-size:22px;color:var(--gold)">23 571</b><p>«Скилл Watch для Claude: разбор любых видео» · 290 кодовых слов</p>
+        <p style="margin-top:8px"><a href="https://youtube.com/shorts/1g2km9gt7iA" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/reel/DePVFNMCvb2/" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@ii.systema/video/7694335119124876562" rel="noopener">TikTok</a></p></div>
+      </div>
+      <div class="sty" style="padding:0;overflow:hidden">
+        <img src="img/reel6.jpg" alt="Кадр ролика «Свой Джарвис за 9 шагов»" style="width:100%;aspect-ratio:9/12;object-fit:cover;object-position:top" loading="lazy">
+        <div style="padding:16px"><b style="display:block;font-size:22px;color:var(--gold)">16 835</b><p>«Свой Джарвис за 9 шагов» · 155 кодовых слов</p>
+        <p style="margin-top:8px"><a href="https://youtube.com/shorts/EfDf9lFcr7g" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/reel/DeFBIodjQpM/" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@ii.systema/video/7692851927893200146" rel="noopener">TikTok</a></p></div>
+      </div>
+    </div>
+    <p class="src" style="margin-top:14px">Все 72 ролика: <a href="https://www.youtube.com/@PetrSolovarov/shorts" rel="noopener" style="color:var(--gold)">YouTube</a> · <a href="https://www.instagram.com/ii.systema" rel="noopener" style="color:var(--gold)">Instagram</a> · <a href="https://www.tiktok.com/@ii.systema" rel="noopener" style="color:var(--gold)">TikTok</a>. Инструкции, которые уходят в директ по кодовому слову: <a href="https://video.petrsolovarov.ru/materials" rel="noopener" style="color:var(--gold)">материалы</a>.</p>
+  </div>
+</section>
+
+<section id="inside">
+  <div class="wrap">
+    <span class="eyebrow">Что внутри</span>
+    <h2>Автомонтаж есть у многих. <span class="gold">Блог целиком</span> — только здесь</h2>
+    <div class="cmp">
+      <div class="col">
+        <h3>Обычный сервис автомонтажа</h3>
+        <ul>
+          <li><span class="x">—</span>Ты сам придумываешь, что сказать</li>
+          <li><span class="x">—</span>Ты сам ищешь, что сейчас заходит</li>
+          <li><span class="x">—</span>Текст учишь или читаешь с листа</li>
+          <li><span class="x">—</span>Пресеты субтитров и цвета</li>
+          <li><span class="x">—</span>Файл в чат, выкладываешь руками</li>
+          <li><span class="x">—</span>Статистику смотришь по трём приложениям</li>
+          <li><span class="x">—</span>Никого рядом, если не получается</li>
+        </ul>
+      </div>
+      <div class="col us">
+        <h3>Снимай</h3>
+        <ul>
+          <li><span class="v">✓</span>Три залетевших ролика по твоей теме и свой сценарий из любого</li>
+          <li><span class="v">✓</span>Суфлёр над камерой: смотришь в объектив и читаешь</li>
+          <li><span class="v">✓</span>Умная нарезка: паузы, повторы, оговорки вырезаются сами</li>
+          <li><span class="v">✓</span>Стили, измеренные с реальных авторов, и свой стиль из их роликов</li>
+          <li><span class="v">✓</span>Выкладка на три площадки по расписанию с обложками</li>
+          <li><span class="v">✓</span>Кодовое слово → материал в директ, воронка и статистика в одном месте</li>
+          <li><span class="v">✓</span>Я лично помогаю выбрать тему и настроить воронку</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stylegrid">
+      <div class="sty"><span class="chip">Стиль · Динамика</span><h3>Темп 3 слова/с</h3><p>Первая смена картинки на первой секунде, бит две секунды, вставки-интерфейсы, золотой акцент. Это мой стиль.</p></div>
+      <div class="sty"><span class="chip">Стиль · Спокойный</span><h3>Крупный план и слова</h3><p>Меньше графики, больше лица. Субтитры по два слова, мягкая музыка. Для экспертов и консультантов.</p></div>
+      <div class="sty"><span class="chip">Стиль · Указка</span><h3>Карточки над головой</h3><p>Тир-листы «слабо / норм / топ»: показываешь пальцем, карточки проявляются на слове.</p></div>
+      <div class="sty"><span class="chip">Свой стиль</span><h3>Из роликов любого автора</h3><p>Пришли 2–5 роликов. Система измерит темп, раскладки, подписи, цвета и звук и будет монтировать так для тебя.</p></div>
+    </div>
+    <div class="toggles">
+      <span><b>●</b> субтитры сверху или по центру</span><span><b>●</b> звуковые эффекты</span><span><b>●</b> вставки-интерфейсы на словах</span><span><b>●</b> наезд камеры</span><span><b>●</b> эмодзи и плашки</span><span><b>●</b> счётчики и цифры</span><span><b>●</b> умная / лёгкая / без нарезки</span><span><b>●</b> финальная плашка с кодовым словом</span><span><b>●</b> две обложки: лицо и графика</span>
+    </div>
+  </div>
+</section>
+
+<section id="offer" style="background:var(--bg2)">
+  <div class="wrap">
+    <span class="eyebrow">Стартовое предложение · первые 50 мест</span>
+    <h2>Не просто доступ. <span class="gold">Настроим вместе</span></h2>
+    <div class="offer" style="margin-top:28px">
+      <div>
+        <div class="price">$19 <small>· разово</small></div>
+        <ul>
+          <li><i>10</i>генераций: монтаж, обложки, тексты для площадок</li>
+          <li><i>✓</i>курс по настройке: тема, сценарий, съёмка по суфлёру, стиль, выкладка, воронка</li>
+          <li><i>✓</i>консультация со мной 30 минут: поиск темы и выстраивание воронки под твоё дело</li>
+          <li><i>✓</i>первый ролик и первый сценарий — бесплатно, до оплаты</li>
+        </ul>
+        <div class="row">
+          <a class="btn btn-gold" href="https://t.me/snimai_agent" rel="noopener">Забрать место за $19</a>
+          <a class="btn btn-ghost" href="https://t.me/solovarov" rel="noopener">Спросить лично</a>
+        </div>
+        <p class="note">Оплата в боте. Оферта и политика конфиденциальности — внизу страницы.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px">После стартового предложения</h3>
+        <div class="tiers">
+          <div class="tier"><b>$29</b><span>Старт · 10 роликов</span></div>
+          <div class="tier"><b>$69</b><span>Блогер · 30 роликов</span></div>
+          <div class="tier"><b>$119</b><span>Завод · 60 роликов</span></div>
+        </div>
+        <p class="note">Выкладка на три площадки и статистика включены во все пакеты. Свой стиль автора — $6 разово. Пригласи друга — 10 % его оплат вернутся тебе роликами.</p>
+      </div>
+    </div>
+
+    <div class="offer" style="margin-top:18px">
+      <div>
+        <span class="eyebrow">Запуск под ключ · кодовое слово «запуск»</span>
+        <div class="price">$490 <small>· разово</small></div>
+        <p class="lead" style="margin-top:12px;font-size:17px">Не хочешь настраивать сам? Я запускаю твой блог как бизнес: всё подключаю, оформляю, вывожу первые ролики и ставлю на них трафик.</p>
+        <ul>
+          <li><i>1</i>Тема и воронка: разбираем твоё дело, выбираем нишу, кодовое слово и материал для директа</li>
+          <li><i>2</i>Оформление трёх площадок: YouTube, Instagram, TikTok — шапки, описания, ссылки, обложки</li>
+          <li><i>3</i>Подключение «Снимай» к твоим аккаунтам, стиль монтажа под тебя, расписание выкладки</li>
+          <li><i>4</i>Первые 10 роликов вместе: сценарии, съёмка по суфлёру, монтаж, выкладка, автоответы в директ</li>
+          <li><i>5</i>Трафик: рекламная кампания на воронку, креативы из твоих роликов, отчёт по цифрам</li>
+        </ul>
+        <div class="row">
+          <a class="btn btn-gold" href="https://t.me/solovarov?text=запуск" rel="noopener">Написать «запуск»</a>
+          <a class="btn btn-ghost" href="https://petrsolovarov.ru/iisystema/" rel="noopener">Посмотреть, как это устроено у меня</a>
+        </div>
+        <p class="note">14 рабочих дней. Рекламный бюджет оплачиваешь напрямую площадке. Просмотры и заявки не гарантирую, гарантирую работающую цепочку и срок.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px">Ведение параллельно</h3>
+        <div class="tiers" style="grid-template-columns:1fr">
+          <div class="tier" style="text-align:left"><b>$350 / мес</b><span>Веду блог вместе с тобой: темы на неделю, проверка сценариев, контроль выкладки, реклама, отчёт раз в неделю. Ты снимаешь, я слежу, чтобы система работала. Отмена в любой месяц.</span></div>
+        </div>
+        <h3 style="margin:22px 0 10px">Лестница</h3>
+        <div class="tiers" style="grid-template-columns:1fr">
+          <div class="tier" style="text-align:left"><span>Бесплатно: первый ролик и сценарий → <b style="display:inline;font-size:15px">Старт $19</b>: 10 роликов, курс, созвон → <b style="display:inline;font-size:15px">Запуск $490</b>: блог под ключ с трафиком → <b style="display:inline;font-size:15px">Ведение $350/мес</b></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="pic" style="padding:0;overflow:hidden;position:relative"><img src="img/petr.jpg" alt="Пётр Соловаров в кадре своего ролика" style="width:100%;height:100%;object-fit:cover;object-position:top"><span style="position:absolute;left:18px;bottom:16px;color:#fff;text-shadow:0 1px 6px #000;font-size:14px">Пётр Соловаров · ii.systema · кадр из REEL-42</span></div>
+    <div>
+      <span class="eyebrow">Кто делает</span>
+      <h2>Это мой софт. Я на нём <span class="gold">сам</span> веду блог</h2>
+      <p class="lead">Я собрал этот конвейер для себя: не хотел нанимать монтажёра и каждый день думать, что снимать. За месяц он дал мне больше просмотров, чем все мои ролики до этого, и привёл заявки на внедрение ИИ. Теперь я отдаю его тем, кто тоже хочет вести блог, а не монтировать. И помогаю настроить лично.</p>
+      <div class="proof">
+        <a href="https://petrsolovarov.ru/iisystema/" rel="noopener">Кейс: 44 ролика за 14 дней →</a>
+        <a href="https://www.instagram.com/ii.systema" rel="noopener">Instagram @ii.systema →</a>
+        <a href="https://t.me/solovarovp" rel="noopener">Telegram-канал →</a>
+        <a href="https://www.youtube.com/@PetrSolovarov/shorts" rel="noopener">YouTube, 72 ролика →</a>
+      </div>
+      <img src="img/tg-channel.jpg" alt="Telegram-канал, куда идёт трафик из роликов" style="width:100%;border-radius:16px;border:1px solid var(--line);margin-top:22px" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="game">
+  <div class="wrap">
+    <span class="eyebrow">Снимай Game · @snimai_game</span>
+    <h2>Блог как игра: очки, уровни, <span class="gold">достижения</span></h2>
+    <p class="lead">Каждый дубль, ролик, выкладка и кодовое слово под роликом — очки. Очки открывают стили, расписание и созвон со мной. Статистика и рейтинг видны всем участникам.</p>
+    <div class="cmp" style="margin-top:26px">
+      <div class="col">
+        <h3>За что очки</h3>
+        <ul>
+          <li><span class="v">+10</span>нашёл тему: три ролика, которые уже зашли</li>
+          <li><span class="v">+20</span>получил сценарий</li>
+          <li><span class="v">+30</span>загрузил дубль</li>
+          <li><span class="v">+50</span>ролик смонтирован</li>
+          <li><span class="v">+20</span>вышел на площадке, до трёх на ролик</li>
+          <li><span class="v">+15</span>кодовое слово под роликом, до десяти</li>
+          <li><span class="v">+25</span>каждая тысяча просмотров</li>
+          <li><span class="v">+100</span>друг сделал первый ролик</li>
+          <li><span class="v">×1,5</span>серия три дня подряд и больше</li>
+        </ul>
+      </div>
+      <div class="col us">
+        <h3>Уровни и что они открывают</h3>
+        <ul>
+          <li><span class="v">1</span><b>Новичок</b> · первый ролик бесплатно</li>
+          <li><span class="v">2</span><b>Голос</b> 200 XP · второй стиль монтажа</li>
+          <li><span class="v">3</span><b>Ведущий</b> 600 XP · свой стиль автора со скидкой 50 %</li>
+          <li><span class="v">4</span><b>Автор</b> 1 500 XP · выкладка по расписанию на три площадки</li>
+          <li><span class="v">5</span><b>Система</b> 4 000 XP · приоритет в очереди и созвон со мной</li>
+          <li><span class="v">6</span><b>Легенда</b> 10 000 XP · место в зале славы на этой странице</li>
+        </ul>
+      </div>
+    </div>
+    <div class="toggles">
+      <span>🎬 Первый дубль</span><span>🎞 Первый ролик</span><span>📡 Три площадки</span><span>💬 Слово сказано</span><span>🔥 Семь дней подряд</span><span>🔟 Десятка</span><span>👁 Тысяча</span><span>🚀 Залёт · 10 000</span><span>🧭 Проводник · 3 друга</span><span>🎨 Сам себе студия</span><span>🏁 Запуск</span>
+    </div>
+    <p class="note">Квест дня каждый день, рейтинг недели по очкам и просмотрам: топ-3 в воскресенье получают по 3 генерации. Снимать и загружать — агент <a href="https://t.me/snimai_agent" style="color:var(--gold)">@snimai_agent</a>, статистика и уровни — игра <a href="https://t.me/snimai_game" style="color:var(--gold)">@snimai_game</a>.</p>
+    <div class="row" style="margin-top:22px">
+      <a class="btn btn-gold" href="https://t.me/snimai_game" rel="noopener">Войти в игру</a>
+      <a class="btn btn-ghost" href="https://t.me/snimai_agent" rel="noopener">Сделать первый ролик</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--bg2)">
+  <div class="wrap">
+    <span class="eyebrow">Вопросы</span>
+    <h2>Честно про то, что есть и чего нет</h2>
+    <div style="margin-top:20px">
+      <details open><summary>Это гарантирует просмотры?</summary><p>Нет. Просмотры не гарантирует никто. Система даёт то, что работает у меня: тема, которая уже зашла у других, свой сценарий, монтаж и регулярность. Остальное зависит от тебя и площадок.</p></details>
+      <details><summary>Это копирование чужих роликов?</summary><p>Нет. Берётся структура и тема залетевшего ролика, а слова пишутся заново, своими. Чужие кадры, музыка и текст не используются. Ты записываешь себя.</p></details>
+      <details><summary>Что нужно от меня?</summary><p>Телефон с фронтальной камерой и две минуты в день. Текст бежит над камерой, ты читаешь. Паузы и оговорки вырежет монтаж.</p></details>
+      <details><summary>На каком телефоне работает суфлёр?</summary><p>Android — отдельное приложение-суфлёр, текст поверх камеры. iPhone — суфлёр открывается прямо в мини-приложении Telegram.</p></details>
+      <details><summary>Как выкладка на три площадки?</summary><p>Подключаешь YouTube, Instagram и TikTok один раз через официальный вход. Дальше ролики уходят по расписанию с обложками и текстами, сетка профиля чередуется шахматкой.</p></details>
+      <details><summary>Что за консультация?</summary><p>30 минут в Telegram со мной: разбираем твою тему, с кого брать референсы, какое кодовое слово и какой материал отправлять в директ, куда вести людей дальше.</p></details>
+    </div>
+    <div class="row" style="margin-top:34px">
+      <a class="btn btn-gold" href="https://t.me/snimai_agent" rel="noopener">Открыть «Снимай» в Telegram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Пётр Соловаров · Снимай</span>
+    <span><a href="https://petrsolovarov.ru/privacy/">Политика конфиденциальности</a> · <a href="https://video.petrsolovarov.ru/terms">Оферта</a> · <a href="https://t.me/solovarov">@solovarov</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
