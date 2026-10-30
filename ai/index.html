@@ -67,6 +67,14 @@ h2{font-family:var(--font-display);font-size:28px;margin:56px 0 18px}
 .card h3{font-size:18px;margin:8px 0 6px}
 .card p{margin:0;color:var(--muted);font-size:15px}
 .card a{color:var(--accent);font-size:15px;font-weight:600}
+.sub{color:var(--muted);margin:-8px 0 16px}
+ol.feed{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ol.feed a{display:grid;grid-template-columns:96px 1fr auto;gap:12px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--fg);text-decoration:none}
+ol.feed a:hover{border-color:var(--accent)}
+ol.feed .d{color:var(--muted);font-size:14px}
+ol.feed .t{font-weight:600}
+ol.feed .go{color:var(--accent);font-size:14px;font-weight:600;white-space:nowrap}
+@media (max-width:640px){ol.feed a{grid-template-columns:1fr}ol.feed .go{display:none}}
 ol.steps{padding-left:22px;margin:0}
 ol.steps li{margin-bottom:10px}
 .cta{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;margin-top:56px;text-align:center}
@@ -84,13 +92,13 @@ footer a{color:var(--muted)}
 <header><a href="/">Пётр Соловаров</a><a href="/#portfolio">Кейсы</a></header>
 
 <section class="hero">
-<span class="tag">Внедрение ИИ в бизнес</span>
-<h1>Отдам рутину вашего бизнеса <mark>ИИ</mark>, а не новым сотрудникам</h1>
-<p class="lead">В Telegram-канале показываю, как внедряю ИИ в реальный бизнес: боты для заявок, контент-конвейеры, базы знаний из документов. Без воды — с цифрами и инструкциями.</p>
+<span class="tag">Telegram-канал · <span class="js-subs">720</span> подписчиков</span>
+<h1>Каждый день — новая инструкция, как настроить <mark>ИИ</mark> под свою работу</h1>
+<p class="lead">Я Пётр, внедряю нейросети в бизнес. К каждому ролику пишу пошаговую инструкцию: что поставить, какой промпт вставить, куда нажать. В закрепе канала — каталог всех инструкций, их уже <b class="js-total">60+</b>.</p>
 <ul class="perks">
-<li>Пошаговые инструкции и готовые промпты, которые можно повторить у себя</li>
-<li>Разборы внедрений: что сделали, сколько стоило, что сломалось</li>
-<li>Ответы на вопросы подписчиков в комментариях</li>
+<li><b>Каталог инструкций в закрепе:</b> Claude Code, ChatGPT, боты для заявок, бесплатные инструменты с GitHub</li>
+<li><b>Промпт недели</b> и разборы реальных внедрений: что сделали, сколько стоило, что сломалось</li>
+<li><b>Разбор вашей задачи:</b> напишите в комментариях, чем занимаетесь, — самые интересные разбираю в канале</li>
 </ul>
 <div class="btns">
 <a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="hero"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Подписаться на канал</a>
@@ -98,6 +106,17 @@ footer a{color:var(--muted)}
 </div>
 <p class="note">Нужен разбор вашего бизнеса сразу — напишите лично слово <b class="js-word">«разбор»</b>, оно скопируется при нажатии.</p>
 </section>
+
+<h2>Свежие инструкции из каталога</h2>
+<p class="sub">Так выглядит закреп канала: новая инструкция появляется почти каждый день. Подпишитесь — и откройте любую.</p>
+<ol class="feed js-feed">
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">28 октября</span><span class="t">Как защитить ИИ-бота от сбоев и не терять заявки: 3 шага плана Б</span><span class="go">в канале →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">28 октября</span><span class="t">Как превратить ИИ-промпт в веб-сервис с кнопкой для всей команды</span><span class="go">в канале →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">28 октября</span><span class="t">Как не перепроверять за ИИ каждую заявку и сохранить качество</span><span class="go">в канале →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">27 октября</span><span class="t">Пять задач в создании видео, которые стоит отдать нейросетям</span><span class="go">в канале →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">27 октября</span><span class="t">5 команд ChatGPT для быстрой обработки фото и смены визуала</span><span class="go">в канале →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">26 октября</span><span class="t">Пять инструментов для анимированных дашбордов и быстрой верстки</span><span class="go">в канале →</span></a></li>
+</ol>
 
 <h2>Что уже работает у других</h2>
 <div class="cards">
@@ -115,7 +134,7 @@ footer a{color:var(--muted)}
 
 <div class="cta">
 <h2>Смотрите, как это работает, в канале</h2>
-<p>Подпишитесь — первые инструкции уже в закреплённом посте.</p>
+<p>Подпишитесь — каталог всех инструкций уже в закреплённом посте.</p>
 <div class="btns" style="justify-content:center">
 <a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="bottom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Подписаться на канал</a>
 <a class="dm-btn js-dm" href="https://t.me/solovarov" data-src="bottom">Написать лично</a>
@@ -166,6 +185,17 @@ function joinHref(place) {
                                fbclid: AD.fbclid || '', place: place || ''});
   return JOIN_URL + '?' + p.toString();
 }
+// Свежие инструкции и счётчики — живьём из каталога «Материалы» (ii-join /join/feed, кэш час). Не загрузилось —
+// остаётся список, вшитый в страницу. Меняем только текст, чтобы клики .js-join остались привязаны.
+fetch('https://video.petrsolovarov.ru/join/feed').then(function(r){ return r.json(); }).then(function(d){
+  if (d.subscribers) document.querySelectorAll('.js-subs').forEach(function(el){ el.textContent = d.subscribers; });
+  if (d.total) document.querySelectorAll('.js-total').forEach(function(el){ el.textContent = d.total; });
+  var rows = document.querySelectorAll('.js-feed li');
+  (d.posts || []).slice(0, rows.length).forEach(function(p, i){
+    rows[i].querySelector('.d').textContent = p.date;
+    rows[i].querySelector('.t').textContent = p.title;
+  });
+}).catch(function(){});
 // Нижняя кнопка на телефоне — только когда главная ушла за экран, чтобы не дублировать её поверх.
 (function(){
   var hero = document.querySelector('.hero .btns'), sticky = document.querySelector('.sticky');
