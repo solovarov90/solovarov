@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Внедрение ИИ в бизнес — Пётр Соловаров</title>
-<meta name="description" content="Внедряю ИИ в бизнес: боты для заявок, контент на ИИ, базы знаний из документов. Бесплатный разбор 30 минут в Telegram.">
-<meta property="og:title" content="Внедрение ИИ в бизнес — Пётр Соловаров">
-<meta property="og:description" content="Боты для заявок 24/7, контент на ИИ, базы знаний. Бесплатный разбор в Telegram.">
+<title>Каталог ИИ-инструкций — Пётр Соловаров</title>
+<meta name="description" content="Каждый день — готовая инструкция, как настроить ИИ под свою работу. Каталог из 60+ инструкций бесплатно в Telegram-канале.">
+<meta property="og:title" content="Каждый день — готовая инструкция по ИИ для бизнеса">
+<meta property="og:description" content="Скопировал, вставил, работает. Каталог из 60+ инструкций бесплатно в Telegram-канале.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://petrsolovarov.ru/ai/">
-<meta property="og:image" content="https://petrsolovarov.ru/ai/img/ad1_night_bot.jpg">
+<meta property="og:image" content="https://petrsolovarov.ru/ai/img/shot-materials.jpg">
 <meta name="robots" content="noindex">
 <!-- Яндекс.Метрика и Google Analytics (те же счётчики, что на главной) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8LDD3GC32"></script>
@@ -37,114 +37,270 @@ fbq('track', 'PageView');
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
 <style>
-:root{--bg:#f4f6f6;--surface:#fff;--fg:#12262b;--muted:#53666b;--line:#d5dedf;--accent:#0d5c63;--mark:#c9ea5a;--tg:#229ED9;
+:root{--bg:#f4f6f6;--surface:#fff;--fg:#12262b;--muted:#53666b;--line:#d5dedf;--accent:#0d5c63;--mark:#c9ea5a;--tg:#229ED9;--warn:#b4421f;
 --font-display:"Jost","Segoe UI",system-ui,sans-serif;--font-body:"Open Sans","Segoe UI",system-ui,sans-serif;color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c171a;--surface:#12232a;--fg:#e6eef0;--muted:#9db0b5;--line:#25393f;--accent:#8fd3d8;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0c171a;--surface:#12232a;--fg:#e6eef0;--muted:#9db0b5;--line:#25393f;--accent:#8fd3d8;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c171a;--surface:#12232a;--fg:#e6eef0;--muted:#9db0b5;--line:#25393f;--accent:#8fd3d8;--warn:#f08a62;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c171a;--surface:#12232a;--fg:#e6eef0;--muted:#9db0b5;--line:#25393f;--accent:#8fd3d8;--warn:#f08a62;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6;padding:0 16px 96px}
-.wrap{max-width:880px;margin:0 auto}
-header{padding:20px 0;display:flex;justify-content:space-between;align-items:center}
+img{max-width:100%;height:auto;display:block}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6;padding:0 16px 96px;overflow-x:hidden}
+.wrap{max-width:1040px;margin:0 auto}
+.topbar{margin:0 -16px;padding:8px 16px;background:#12262b;color:#e6eef0;font-size:14px;text-align:center}
+.topbar b{color:var(--mark)}
+header{padding:16px 0;display:flex;justify-content:space-between;align-items:center}
 header a{color:var(--muted);text-decoration:none;font-size:15px}
-.hero{padding:32px 0 24px}
-.tag{display:inline-block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-h1{font-family:var(--font-display);font-size:clamp(32px,6vw,52px);line-height:1.1;margin:0 0 16px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:16px 0}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+h1{font-family:var(--font-display);font-size:clamp(30px,5.2vw,52px);line-height:1.08;margin:0 0 16px;letter-spacing:-.01em}
 h1 mark{background:var(--mark);color:#12262b;padding:0 .15em;border-radius:4px}
-.lead{font-size:19px;color:var(--muted);max-width:640px;margin:0 0 28px}
-.tg-btn{display:inline-flex;align-items:center;gap:10px;background:var(--tg);color:#fff;font-weight:700;font-size:18px;padding:16px 26px;border-radius:12px;text-decoration:none;border:0;cursor:pointer;box-shadow:0 6px 20px rgba(34,158,217,.3)}
+.lead{font-size:19px;color:var(--muted);max-width:600px;margin:0 0 24px}
+.lead b{color:var(--fg)}
+.tg-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--tg);color:#fff;font-weight:700;font-size:18px;line-height:1.25;padding:17px 26px;border-radius:12px;text-decoration:none;border:0;cursor:pointer;box-shadow:0 8px 24px rgba(34,158,217,.35);text-align:center}
 .tg-btn:hover{filter:brightness(1.06)}
 .tg-btn svg{width:22px;height:22px;flex:none}
-.note{font-size:14px;color:var(--muted);margin-top:10px}
+.micro{font-size:14px;color:var(--muted);margin:10px 0 0}
 .btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .dm-btn{display:inline-flex;align-items:center;gap:10px;color:var(--fg);font-weight:600;font-size:17px;padding:15px 22px;border-radius:12px;text-decoration:none;border:1px solid var(--line);background:var(--surface)}
 .dm-btn:hover{border-color:var(--accent)}
-ul.perks{margin:0 0 24px;padding-left:22px;color:var(--fg)}
-ul.perks li{margin-bottom:6px}
-h2{font-family:var(--font-display);font-size:28px;margin:56px 0 18px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
-.card .num{font-family:var(--font-display);font-size:30px;font-weight:700;color:var(--accent);line-height:1.1}
-.card h3{font-size:18px;margin:8px 0 6px}
-.card p{margin:0;color:var(--muted);font-size:15px}
-.card a{color:var(--accent);font-size:15px;font-weight:600}
-.sub{color:var(--muted);margin:-8px 0 16px}
+.proof{display:flex;flex-wrap:wrap;gap:8px 28px;margin:24px 0 0;padding:16px 0 0;border-top:1px solid var(--line)}
+.proof div{font-size:14px;color:var(--muted);line-height:1.3}
+.proof b{display:block;font-family:var(--font-display);font-size:26px;color:var(--fg)}
+.phones{position:relative;height:420px}
+.phone{position:absolute;width:62%;border-radius:26px;border:8px solid #12262b;background:#12262b;overflow:hidden;box-shadow:0 24px 50px rgba(18,38,43,.28);aspect-ratio:10/14}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+.phone.p1{left:0;top:40px;transform:rotate(-4deg)}
+.phone.p2{right:0;top:0;transform:rotate(3deg);z-index:1}
+.sticker{position:absolute;z-index:2;left:6%;bottom:0;background:var(--mark);color:#12262b;font-family:var(--font-display);font-weight:700;font-size:17px;line-height:1.2;padding:10px 14px;border-radius:12px;transform:rotate(-3deg);box-shadow:0 10px 24px rgba(0,0,0,.18)}
+section{margin-top:72px}
+h2{font-family:var(--font-display);font-size:clamp(26px,4vw,38px);line-height:1.15;margin:0 0 14px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 24px;max-width:680px;font-size:18px}
+.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pain{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.pain b{display:block;font-size:18px;line-height:1.35;margin:8px 0 6px}
+.pain p{margin:0;color:var(--muted);font-size:15px}
+.pain .x{color:var(--warn);font-weight:700;font-size:22px;line-height:1}
+.turn{margin:24px 0 0;font-size:20px;font-weight:700}
+.turn mark{background:var(--mark);color:#12262b;padding:0 .15em;border-radius:4px}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:44px}
+.feature.rev .shot{order:2}
+.shot{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px rgba(18,38,43,.18);max-height:520px}
+.feature h3{font-family:var(--font-display);font-size:26px;line-height:1.2;margin:6px 0 10px}
+.feature .k{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.feature p{color:var(--muted);margin:0 0 12px}
+ul.check{list-style:none;margin:0;padding:0}
+ul.check li{position:relative;padding-left:32px;margin-bottom:8px}
+ul.check li::before{content:"✓";position:absolute;left:0;top:3px;width:22px;height:22px;border-radius:50%;background:var(--mark);color:#12262b;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
 ol.feed{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 ol.feed a{display:grid;grid-template-columns:96px 1fr auto;gap:12px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--fg);text-decoration:none}
 ol.feed a:hover{border-color:var(--accent)}
 ol.feed .d{color:var(--muted);font-size:14px}
 ol.feed .t{font-weight:600}
 ol.feed .go{color:var(--accent);font-size:14px;font-weight:600;white-space:nowrap}
-@media (max-width:640px){ol.feed a{grid-template-columns:1fr}ol.feed .go{display:none}}
-ol.steps{padding-left:22px;margin:0}
-ol.steps li{margin-bottom:10px}
-.cta{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;margin-top:56px;text-align:center}
-.cta h2{margin:0 0 8px}
-.cta p{color:var(--muted);margin:0 0 20px}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.case .pic{aspect-ratio:16/10;overflow:hidden;background:#12262b}
+.case .pic img{width:100%;height:100%;object-fit:cover;object-position:left top}
+.case .pic.text{display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:64px;color:var(--mark)}
+.case .body{padding:18px 20px 20px}
+.case .num{font-family:var(--font-display);font-size:30px;font-weight:700;color:var(--accent);line-height:1.1}
+.case h3{font-size:18px;margin:6px 0}
+.case p{margin:0 0 10px;color:var(--muted);font-size:15px}
+.case a{color:var(--accent);font-size:15px;font-weight:600}
+.stack{background:var(--surface);border:2px solid var(--accent);border-radius:18px;padding:28px;max-width:720px;margin:0 auto}
+.stack h2{text-align:center}
+.stack ul.check li{border-bottom:1px dashed var(--line);padding-bottom:10px;margin-bottom:10px}
+.stack ul.check li span{float:right;margin-left:16px;color:var(--muted);white-space:nowrap;font-size:15px}
+.stack .total{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:8px 0 20px;font-family:var(--font-display);font-size:26px;font-weight:700}
+.stack .tg-btn{width:100%}
+.stack .micro{text-align:center}
+.about{display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:center}
+.about img{border-radius:18px;width:220px;height:auto}
+.about p{margin:0 0 12px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer}
+.faq details p{margin:10px 0 0;color:var(--muted)}
+.cta{background:#12262b;color:#e6eef0;border-radius:20px;padding:36px 24px;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:#9db0b5;margin:0 auto 22px;max-width:560px}
+.cta .btns{justify-content:center}
+.cta .dm-btn{background:transparent;color:#e6eef0;border-color:#3a5258}
+.cta .micro{color:#9db0b5;margin-top:14px}
 footer{margin-top:48px;font-size:14px;color:var(--muted)}
 footer a{color:var(--muted)}
-.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px;background:linear-gradient(transparent,var(--bg) 35%);display:none;justify-content:center}
-.sticky .tg-btn{width:100%;max-width:480px;justify-content:center}
-@media (max-width:640px){.sticky.show{display:flex}}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px;background:linear-gradient(transparent,var(--bg) 35%);display:none;justify-content:center;z-index:5}
+.sticky .tg-btn{width:100%;max-width:480px}
+@media (max-width:820px){
+.hero{grid-template-columns:1fr;gap:28px}
+.phones{height:360px;max-width:420px;margin:0 auto;width:100%}
+.pains,.cases{grid-template-columns:1fr}
+.feature{grid-template-columns:1fr;gap:20px}
+.feature.rev .shot{order:0}
+.shot{max-height:420px}
+.about{grid-template-columns:1fr;gap:16px}
+.about img{width:160px}
+}
+@media (max-width:640px){
+ol.feed a{grid-template-columns:1fr;gap:2px}ol.feed .go{display:none}
+.sticky.show{display:flex}
+.hero .tg-btn{width:100%}
+.stack{padding:20px}.stack ul.check li span{float:none;display:block;margin:0}
+}
 </style>
 </head>
 <body>
+<div class="topbar">Бесплатно · <b class="js-subs">720</b> подписчиков уже в канале</div>
 <div class="wrap">
 <header><a href="/">Пётр Соловаров</a><a href="/#portfolio">Кейсы</a></header>
 
-<section class="hero">
-<span class="tag">Telegram-канал · <span class="js-subs">720</span> подписчиков</span>
-<h1>Каждый день — новая инструкция, как настроить <mark>ИИ</mark> под свою работу</h1>
-<p class="lead">Я Пётр, внедряю нейросети в бизнес. К каждому ролику пишу пошаговую инструкцию: что поставить, какой промпт вставить, куда нажать. В закрепе канала — каталог всех инструкций, их уже <b class="js-total">60+</b>.</p>
-<ul class="perks">
-<li><b>Каталог инструкций в закрепе:</b> Claude Code, ChatGPT, боты для заявок, бесплатные инструменты с GitHub</li>
-<li><b>Промпт недели</b> и разборы реальных внедрений: что сделали, сколько стоило, что сломалось</li>
-<li><b>Разбор вашей задачи:</b> напишите в комментариях, чем занимаетесь, — самые интересные разбираю в канале</li>
-</ul>
+<div class="hero">
+<div>
+<span class="tag">Telegram-канал про ИИ для бизнеса</span>
+<h1>Хватит гуглить, как внедрить ИИ. Каждый день — <mark>готовая инструкция</mark>: скопировал, вставил, работает</h1>
+<p class="lead">Пошагово: какой сервис открыть, какой промпт вставить, куда нажать. Без курсов, марафонов и «воды». В закрепе — каталог из <b class="js-total">63</b> инструкций, и он растёт каждый день.</p>
 <div class="btns">
-<a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="hero"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Подписаться на канал</a>
-<a class="dm-btn js-dm" href="https://t.me/solovarov" data-src="hero">Написать лично</a>
+<a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="hero"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Забрать каталог бесплатно</a>
 </div>
-<p class="note">Нужен разбор вашего бизнеса сразу — напишите лично слово <b class="js-word">«разбор»</b>, оно скопируется при нажатии.</p>
+<p class="micro">🔒 Бесплатно · без спама · отписка в один клик</p>
+<div class="proof">
+<div><b class="js-subs">720</b>подписчиков</div>
+<div><b class="js-total">63</b>инструкции в каталоге</div>
+<div><b>170 942</b>просмотра роликов</div>
+</div>
+</div>
+<div class="phones" aria-hidden="true">
+<div class="phone p1"><img src="img/shot-materials.jpg" alt="" width="640" height="800"></div>
+<div class="phone p2"><img src="img/shot-instr1.jpg" alt="" width="640" height="923"></div>
+<div class="sticker">Новая инструкция<br>каждый день</div>
+</div>
+</div>
+
+<section>
+<h2>Знакомо?</h2>
+<div class="pains">
+<div class="pain"><span class="x">✕</span><b>Посмотрели ролик про ИИ — и ничего не сделали</b><p>В видео всё выглядит просто, но как повторить у себя — непонятно.</p></div>
+<div class="pain"><span class="x">✕</span><b>Купили курс — а он устарел через месяц</b><p>Нейросети обновляются каждую неделю, записи уроков — нет.</p></div>
+<div class="pain"><span class="x">✕</span><b>ChatGPT выдаёт «воду»</b><p>Потому что нужен не просто вопрос, а готовый промпт под задачу.</p></div>
+</div>
+<p class="turn">В канале всё наоборот: <mark>одна задача — одна инструкция — результат за 15–30 минут.</mark></p>
 </section>
 
-<h2>Свежие инструкции из каталога</h2>
-<p class="sub">Так выглядит закреп канала: новая инструкция появляется почти каждый день. Подпишитесь — и откройте любую.</p>
+<section>
+<h2>Что вы получите сразу после подписки</h2>
+<p class="sub">Это настоящие скрины: так выглядит то, что откроется у вас в телефоне.</p>
+
+<div class="feature">
+<div class="shot"><img src="img/shot-materials.jpg" alt="Каталог инструкций в закрепе канала" width="640" height="800" loading="lazy"></div>
+<div>
+<span class="k">В закрепе · сразу</span>
+<h3>Каталог из <span class="js-total">63</span> инструкций</h3>
+<p>Все материалы в одном месте, свежие — сверху. Нашли свою задачу — открыли — сделали.</p>
+<ul class="check">
+<li>Claude Code и ChatGPT для работы</li>
+<li>ИИ-боты, которые принимают заявки</li>
+<li>Бесплатные инструменты с GitHub</li>
+<li>Видео и фото на нейросетях</li>
+</ul>
+</div>
+</div>
+
+<div class="feature rev">
+<div class="shot"><img src="img/shot-instr1.jpg" alt="Пример инструкции: план Б для ИИ-бота" width="640" height="923" loading="lazy"></div>
+<div>
+<span class="k">Каждый день</span>
+<h3>Пошаговые инструкции с готовыми промптами</h3>
+<p>Не «теория ИИ», а конкретика: шаг 1, шаг 2, шаг 3. Промпты и код копируются одной кнопкой.</p>
+<ul class="check">
+<li>Где нажать и что вы увидите</li>
+<li>Готовые промпты — просто вставить</li>
+<li>Ссылки на все сервисы</li>
+</ul>
+</div>
+</div>
+
+<div class="feature">
+<div class="shot"><img src="img/shot-instr3.jpg" alt="Пример инструкции: сервисы для ИИ-видео" width="640" height="923" loading="lazy"></div>
+<div>
+<span class="k">Каждую неделю</span>
+<h3>Разборы реальных внедрений и ваших задач</h3>
+<p>Что сделали, сколько стоило, что сломалось и как починили. Напишите в комментариях, чем занимаетесь, — самые интересные задачи разбираю в канале.</p>
+<ul class="check">
+<li>«Промпт недели»</li>
+<li>Цифры и расходы без прикрас</li>
+<li>Разбор вашей задачи</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Только за последние дни в каталоге:</h2>
+<p class="sub">Подпишитесь — и откройте любую уже сегодня.</p>
 <ol class="feed js-feed">
-<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">28 октября</span><span class="t">Как защитить ИИ-бота от сбоев и не терять заявки: 3 шага плана Б</span><span class="go">в канале →</span></a></li>
-<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">28 октября</span><span class="t">Как превратить ИИ-промпт в веб-сервис с кнопкой для всей команды</span><span class="go">в канале →</span></a></li>
-<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">28 октября</span><span class="t">Как не перепроверять за ИИ каждую заявку и сохранить качество</span><span class="go">в канале →</span></a></li>
-<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">27 октября</span><span class="t">Пять задач в создании видео, которые стоит отдать нейросетям</span><span class="go">в канале →</span></a></li>
-<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">27 октября</span><span class="t">5 команд ChatGPT для быстрой обработки фото и смены визуала</span><span class="go">в канале →</span></a></li>
-<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">26 октября</span><span class="t">Пять инструментов для анимированных дашбордов и быстрой верстки</span><span class="go">в канале →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">28 октября</span><span class="t">Как защитить ИИ-бота от сбоев и не терять заявки: 3 шага плана Б</span><span class="go">открыть →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">28 октября</span><span class="t">Как превратить ИИ-промпт в веб-сервис с кнопкой для всей команды</span><span class="go">открыть →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">28 октября</span><span class="t">Как не перепроверять за ИИ каждую заявку и сохранить качество</span><span class="go">открыть →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">27 октября</span><span class="t">Пять задач в создании видео, которые стоит отдать нейросетям</span><span class="go">открыть →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">27 октября</span><span class="t">5 команд ChatGPT для быстрой обработки фото и смены визуала</span><span class="go">открыть →</span></a></li>
+<li><a class="js-join" href="https://t.me/solovarovp" data-src="feed"><span class="d">26 октября</span><span class="t">Пять инструментов для анимированных дашбордов и быстрой верстки</span><span class="go">открыть →</span></a></li>
 </ol>
+</section>
 
-<h2>Что уже работает у других</h2>
-<div class="cards">
-<div class="card"><div class="num">24/7</div><h3>Заявки ночью не теряются</h3><p>Бот бюро переводов отвечает в WhatsApp и Telegram, считает цену по прайсу и заводит сделку в AMO CRM.</p><p style="margin-top:10px"><a href="/orient/">Кейс Orient →</a></p></div>
-<div class="card"><div class="num">44 ролика</div><h3>за 14 дней, один человек</h3><p>ИИ пишет сценарии, монтирует, выкладывает на три площадки и отвечает в комментариях. 170 942 просмотра.</p><p style="margin-top:10px"><a href="/iisystema/">Кейс ii.systema →</a></p></div>
-<div class="card"><div class="num">4 622</div><h3>документа стали базой знаний</h3><p>Архив заключений превратился в поиск, а врач диктует протокол голосом. Разбор архива — около $29.</p><p style="margin-top:10px"><a href="/vetctschool/">Кейс VetCTschool →</a></p></div>
+<section>
+<h2>Это работает не на словах</h2>
+<p class="sub">Те же подходы, что в инструкциях, я внедряю клиентам. Вот результаты:</p>
+<div class="cases">
+<div class="case"><div class="pic text">24/7</div><div class="body"><div class="num">Заявки ночью</div><h3>больше не теряются</h3><p>Бот бюро переводов отвечает в WhatsApp и Telegram, считает цену по прайсу и заводит сделку в AMO CRM.</p><a href="/orient/">Кейс Orient →</a></div></div>
+<div class="case"><div class="pic"><img src="../iisystema/img/before-after.jpg" alt="Сырой дубль и готовый ролик" loading="lazy"></div><div class="body"><div class="num">44 ролика</div><h3>за 14 дней, один человек</h3><p>ИИ пишет сценарии, монтирует, выкладывает на три площадки и отвечает в комментариях. 170 942 просмотра.</p><a href="/iisystema/">Кейс ii.systema →</a></div></div>
+<div class="case"><div class="pic"><img src="../vetctschool/img/05-dictation-light.jpg" alt="Голосовой чеклист VetCTschool" loading="lazy"></div><div class="body"><div class="num">4 622</div><h3>документа стали базой знаний</h3><p>Архив заключений превратился в поиск, а врач диктует протокол голосом. Разбор архива — около $29.</p><a href="/vetctschool/">Кейс VetCTschool →</a></div></div>
 </div>
+</section>
 
-<h2>Как проходит работа</h2>
-<ol class="steps">
-<li><b>Разбор в Telegram, 30 минут, бесплатно.</b> Напишите мне лично: вы рассказываете, где теряются время и деньги, я предлагаю, что можно отдать ИИ.</li>
-<li><b>Пилот на 14 дней.</b> Запускаю одну цепочку на ваших данных, чтобы вы увидели результат до больших вложений.</li>
-<li><b>Внедрение под ключ.</b> Система остаётся у вас, сервисы вы оплачиваете напрямую, без моих наценок.</li>
-</ol>
+<section>
+<div class="stack">
+<h2>Всё это — бесплатно</h2>
+<ul class="check">
+<li>Каталог из <b class="js-total">63</b> инструкций в закрепе <span>сразу</span></li>
+<li>Новая пошаговая инструкция <span>каждый день</span></li>
+<li>«Промпт недели» и разборы внедрений <span>каждую неделю</span></li>
+<li>Разбор вашей задачи в канале <span>по комментариям</span></li>
+</ul>
+<div class="total"><span>Ваша цена:</span><span>0 ₽</span></div>
+<a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="stack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Подписаться и открыть каталог</a>
+<p class="micro">Займёт 5 секунд — Telegram откроется сам.</p>
+</div>
+</section>
 
-<div class="cta">
-<h2>Смотрите, как это работает, в канале</h2>
-<p>Подпишитесь — каталог всех инструкций уже в закреплённом посте.</p>
-<div class="btns" style="justify-content:center">
-<a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="bottom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Подписаться на канал</a>
-<a class="dm-btn js-dm" href="https://t.me/solovarov" data-src="bottom">Написать лично</a>
+<section class="about">
+<img src="/photo-440.webp" alt="Пётр Соловаров" width="440" height="552" loading="lazy">
+<div>
+<h2>Кто пишет инструкции</h2>
+<p>Я Пётр Соловаров: 10 000+ часов в маркетинге и 5 лет работы с нейросетями. Внедряю ИИ в бизнес — боты для заявок, контент-конвейеры, базы знаний из документов.</p>
+<p>Каждую инструкцию сначала проверяю на своих проектах: в канал попадает только то, что реально работает. А когда что-то ломается, честно пишу, что и почему.</p>
 </div>
+</section>
+
+<section class="faq">
+<h2>Частые вопросы</h2>
+<details><summary>Это правда бесплатно?</summary><p>Да. Канал и каталог инструкций бесплатные, покупать ничего не нужно. Внедрение под ключ — отдельная услуга для тех, кто хочет, чтобы сделали за них.</p></details>
+<details><summary>Я не программист. Разберусь?</summary><p>Да. Инструкции пишу для предпринимателей: где нажать, что вставить, что вы увидите. Если код и нужен — он копируется одной кнопкой.</p></details>
+<details><summary>Не будет спама?</summary><p>Только по делу: инструкции, разборы и промпты. Не понравится — отписка в один клик.</p></details>
+<details><summary>Хочу, чтобы сделали за меня. Можно?</summary><p>Да: бесплатный разбор в Telegram 30 минут → пилот на 14 дней на ваших данных → внедрение под ключ. Система остаётся у вас, сервисы оплачиваете напрямую, без моих наценок. Напишите мне лично слово <b class="js-word">«разбор»</b>.</p></details>
+</section>
+
+<section class="cta">
+<h2>Завтра выйдет новая инструкция. Будьте внутри</h2>
+<p>Подпишитесь сейчас — каталог из <span class="js-total">63</span> инструкций откроется сразу, в закреплённом посте.</p>
+<div class="btns">
+<a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="bottom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Забрать каталог бесплатно</a>
+<a class="dm-btn js-dm" href="https://t.me/solovarov" data-src="bottom">Нужно внедрение — написать лично</a>
 </div>
+<p class="micro">Для разбора вашего бизнеса напишите лично слово <b class="js-word">«разбор»</b> — оно скопируется при нажатии.</p>
+</section>
 
 <footer>© Пётр Соловаров · <a href="/privacy/">Политика конфиденциальности</a></footer>
 </div>
 
-<div class="sticky"><a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="sticky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Подписаться на канал</a></div>
+<div class="sticky"><a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="sticky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Забрать каталог бесплатно</a></div>
 
 <script>
 // Кодовое слово по источнику: в личке Telegram сразу видно, с какого объявления пришёл человек.
