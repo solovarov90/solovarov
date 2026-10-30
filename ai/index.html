@@ -55,6 +55,11 @@ h1 mark{background:var(--mark);color:#12262b;padding:0 .15em;border-radius:4px}
 .tg-btn:hover{filter:brightness(1.06)}
 .tg-btn svg{width:22px;height:22px;flex:none}
 .note{font-size:14px;color:var(--muted);margin-top:10px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.dm-btn{display:inline-flex;align-items:center;gap:10px;color:var(--fg);font-weight:600;font-size:17px;padding:15px 22px;border-radius:12px;text-decoration:none;border:1px solid var(--line);background:var(--surface)}
+.dm-btn:hover{border-color:var(--accent)}
+ul.perks{margin:0 0 24px;padding-left:22px;color:var(--fg)}
+ul.perks li{margin-bottom:6px}
 h2{font-family:var(--font-display);font-size:28px;margin:56px 0 18px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
@@ -71,7 +76,7 @@ footer{margin-top:48px;font-size:14px;color:var(--muted)}
 footer a{color:var(--muted)}
 .sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px;background:linear-gradient(transparent,var(--bg) 35%);display:none;justify-content:center}
 .sticky .tg-btn{width:100%;max-width:480px;justify-content:center}
-@media (max-width:640px){.sticky{display:flex}}
+@media (max-width:640px){.sticky.show{display:flex}}
 </style>
 </head>
 <body>
@@ -81,9 +86,17 @@ footer a{color:var(--muted)}
 <section class="hero">
 <span class="tag">Внедрение ИИ в бизнес</span>
 <h1>Отдам рутину вашего бизнеса <mark>ИИ</mark>, а не новым сотрудникам</h1>
-<p class="lead">Собираю ботов, которые принимают заявки круглые сутки, контент-конвейеры и базы знаний из ваших документов. Первый шаг — бесплатный разбор 30 минут в Telegram: покажу, что у вас можно автоматизировать.</p>
-<a class="tg-btn js-lead" href="https://t.me/solovarov" data-src="hero"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Написать в Telegram</a>
-<p class="note">Отвечаю сам, обычно в течение дня. Напишите слово <b class="js-word">«разбор»</b> — оно скопируется при нажатии кнопки.</p>
+<p class="lead">В Telegram-канале показываю, как внедряю ИИ в реальный бизнес: боты для заявок, контент-конвейеры, базы знаний из документов. Без воды — с цифрами и инструкциями.</p>
+<ul class="perks">
+<li>Пошаговые инструкции и готовые промпты, которые можно повторить у себя</li>
+<li>Разборы внедрений: что сделали, сколько стоило, что сломалось</li>
+<li>Ответы на вопросы подписчиков в комментариях</li>
+</ul>
+<div class="btns">
+<a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="hero"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Подписаться на канал</a>
+<a class="dm-btn js-dm" href="https://t.me/solovarov" data-src="hero">Написать лично</a>
+</div>
+<p class="note">Нужен разбор вашего бизнеса сразу — напишите лично слово <b class="js-word">«разбор»</b>, оно скопируется при нажатии.</p>
 </section>
 
 <h2>Что уже работает у других</h2>
@@ -95,21 +108,24 @@ footer a{color:var(--muted)}
 
 <h2>Как проходит работа</h2>
 <ol class="steps">
-<li><b>Разбор в Telegram, 30 минут, бесплатно.</b> Вы рассказываете, где теряются время и деньги. Я предлагаю, что можно отдать ИИ.</li>
+<li><b>Разбор в Telegram, 30 минут, бесплатно.</b> Напишите мне лично: вы рассказываете, где теряются время и деньги, я предлагаю, что можно отдать ИИ.</li>
 <li><b>Пилот на 14 дней.</b> Запускаю одну цепочку на ваших данных, чтобы вы увидели результат до больших вложений.</li>
 <li><b>Внедрение под ключ.</b> Система остаётся у вас, сервисы вы оплачиваете напрямую, без моих наценок.</li>
 </ol>
 
 <div class="cta">
-<h2>Посмотрим ваш бизнес?</h2>
-<p>Напишите в Telegram слово <b class="js-word">«разбор»</b>, разберём вашу задачу за 30 минут.</p>
-<a class="tg-btn js-lead" href="https://t.me/solovarov" data-src="bottom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Написать в Telegram</a>
+<h2>Смотрите, как это работает, в канале</h2>
+<p>Подпишитесь — первые инструкции уже в закреплённом посте.</p>
+<div class="btns" style="justify-content:center">
+<a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="bottom"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Подписаться на канал</a>
+<a class="dm-btn js-dm" href="https://t.me/solovarov" data-src="bottom">Написать лично</a>
+</div>
 </div>
 
 <footer>© Пётр Соловаров · <a href="/privacy/">Политика конфиденциальности</a></footer>
 </div>
 
-<div class="sticky"><a class="tg-btn js-lead" href="https://t.me/solovarov" data-src="sticky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Написать в Telegram</a></div>
+<div class="sticky"><a class="tg-btn js-join" href="https://t.me/solovarovp" data-src="sticky"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.04 15.6 8.9 19.4c.4 0 .58-.17.8-.38l1.9-1.82 3.95 2.89c.72.4 1.24.19 1.43-.67l2.6-12.2c.25-1.08-.4-1.5-1.1-1.24L3.2 9.98c-1.05.41-1.04 1-.18 1.27l3.9 1.22 9.05-5.7c.43-.28.82-.12.5.16"/></svg> Подписаться на канал</a></div>
 
 <script>
 // Кодовое слово по источнику: в личке Telegram сразу видно, с какого объявления пришёл человек.
@@ -125,20 +141,65 @@ var CODE_WORD = (function(){
 })();
 document.querySelectorAll('.js-word').forEach(function(el){ el.textContent = '«' + CODE_WORD + '»'; });
 
-// Клик по кнопке Telegram = лид: событие Lead в пиксель Meta и цели в Метрику и GA, затем переход в Telegram.
+// Лид для Meta = реальная подписка на канал. Кнопка ведёт через video.petrsolovarov.ru/join/go: сервис ii-join выдаёт
+// личную одноразовую ссылку в канал, а когда человек вступает, сам отправляет Lead в Meta (Conversions API).
+// Поэтому в браузере Lead не шлём: клик по каналу — ChannelClick, клик «Написать лично» — Contact.
+var JOIN_URL = 'https://video.petrsolovarov.ru/join/go';
+function cookie(name) {
+  var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+  return m ? decodeURIComponent(m[1]) : '';
+}
+var AD = (function(){
+  var q = {}, keys = ['utm_content', 'fbclid'];
+  try {
+    var sp = new URLSearchParams(location.search);
+    keys.forEach(function(k){
+      var v = sp.get(k) || '';
+      if (v) sessionStorage.setItem('ai_' + k, v); else v = sessionStorage.getItem('ai_' + k) || '';
+      q[k] = v;
+    });
+  } catch(_) {}
+  return q;
+})();
+function joinHref(place) {
+  var p = new URLSearchParams({src: AD.utm_content || 'direct', fbc: cookie('_fbc'), fbp: cookie('_fbp'),
+                               fbclid: AD.fbclid || '', place: place || ''});
+  return JOIN_URL + '?' + p.toString();
+}
+// Нижняя кнопка на телефоне — только когда главная ушла за экран, чтобы не дублировать её поверх.
 (function(){
-  var fired = false;
-  document.querySelectorAll('.js-lead').forEach(function(a){
+  var hero = document.querySelector('.hero .btns'), sticky = document.querySelector('.sticky');
+  if (!hero || !sticky) return;
+  if (!('IntersectionObserver' in window)) { sticky.classList.add('show'); return; }
+  new IntersectionObserver(function(es){ sticky.classList.toggle('show', !es[0].isIntersecting && es[0].boundingClientRect.top < 0); })
+    .observe(hero);
+})();
+(function(){
+  var sent = {};
+  function once(key, fn) { if (!sent[key]) { sent[key] = true; try { fn(); } catch(_) {} } }
+  document.querySelectorAll('.js-join').forEach(function(a){
     a.addEventListener('click', function(e){
-      var href = a.href;
-      try { if (navigator.clipboard) navigator.clipboard.writeText(CODE_WORD); } catch(_) {}
-      if (!fired) {
-        fired = true;
-        try { if (window.fbq) fbq('track', 'Lead', {content_name: 'telegram', content_category: a.dataset.src, code_word: CODE_WORD}); } catch(_) {}
-        try { if (window.ym) ym(113666612, 'reachGoal', 'ai_lead_telegram', {src: a.dataset.src, code_word: CODE_WORD}); } catch(_) {}
-        try { if (window.gtag) gtag('event', 'generate_lead', {method: 'telegram', src: a.dataset.src, code_word: CODE_WORD}); } catch(_) {}
-      }
       e.preventDefault();
+      var src = a.dataset.src;
+      once('join', function(){
+        if (window.fbq) fbq('trackCustom', 'ChannelClick', {content_category: src, ad: AD.utm_content || 'direct'});
+        if (window.ym) ym(113666612, 'reachGoal', 'ai_channel_click', {src: src, ad: AD.utm_content || 'direct'});
+        if (window.gtag) gtag('event', 'channel_click', {src: src, ad: AD.utm_content || 'direct'});
+      });
+      var href = joinHref(src);
+      setTimeout(function(){ location.href = href; }, 300);
+    });
+  });
+  document.querySelectorAll('.js-dm').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var src = a.dataset.src, href = a.href;
+      try { if (navigator.clipboard) navigator.clipboard.writeText(CODE_WORD); } catch(_) {}
+      once('dm', function(){
+        if (window.fbq) fbq('track', 'Contact', {content_category: src, code_word: CODE_WORD});
+        if (window.ym) ym(113666612, 'reachGoal', 'ai_lead_telegram', {src: src, code_word: CODE_WORD});
+        if (window.gtag) gtag('event', 'generate_lead', {method: 'telegram_dm', src: src, code_word: CODE_WORD});
+      });
       setTimeout(function(){ location.href = href; }, 300);
     });
   });
