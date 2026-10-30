@@ -196,12 +196,12 @@ fetch('https://video.petrsolovarov.ru/join/feed').then(function(r){ return r.jso
     rows[i].querySelector('.t').textContent = p.title;
   });
 }).catch(function(){});
-// Нижняя кнопка на телефоне — только когда главная ушла за экран, чтобы не дублировать её поверх.
+// Нижняя кнопка на телефоне — когда главной не видно (ещё ниже первого экрана или уже прокручена), без дубля поверх.
 (function(){
   var hero = document.querySelector('.hero .btns'), sticky = document.querySelector('.sticky');
   if (!hero || !sticky) return;
   if (!('IntersectionObserver' in window)) { sticky.classList.add('show'); return; }
-  new IntersectionObserver(function(es){ sticky.classList.toggle('show', !es[0].isIntersecting && es[0].boundingClientRect.top < 0); })
+  new IntersectionObserver(function(es){ sticky.classList.toggle('show', !es[0].isIntersecting); })
     .observe(hero);
 })();
 (function(){
