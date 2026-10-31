@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" role="img" aria-label="Путь человека от рекламы до лички: объявление Meta, лендинг, кнопка в Telegram, пиксель и Метрика, личка с кодовым словом, разговор">
+<title>Путь человека от рекламы до лички</title>
+<defs>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+<marker id="arrL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/></marker>
+</defs>
+
+<g fill="none" stroke-width="3">
+<path d="M350 110 H438" stroke="var(--accent)" marker-end="url(#arrA)"/>
+<path d="M760 110 H848" stroke="var(--accent)" marker-end="url(#arrA)"/>
+<path d="M1010 170 V248" stroke="var(--accent)" marker-end="url(#arrA)"/>
+<path d="M1010 370 V438" stroke="var(--accent)" marker-end="url(#arrA)"/>
+<path d="M920 170 V210 H600 V248" stroke="var(--line)" marker-end="url(#arrL)"/>
+<path d="M440 310 H190 V172" stroke="var(--line)" stroke-dasharray="8 6" marker-end="url(#arrL)"/>
+</g>
+
+<text x="760" y="200" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">событие Lead</text>
+<text x="315" y="298" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Meta учится на нажатиях</text>
+
+<g>
+<rect x="30" y="50" width="320" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="64" cy="86" r="18" fill="var(--accent)"/>
+<text x="64" y="93" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">1</text>
+<text x="96" y="94" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Объявление Meta</text>
+<text x="96" y="125" font-family="var(--font-body)" font-size="18" fill="var(--muted)">метка utm_content</text>
+<text x="96" y="150" font-family="var(--font-body)" font-size="18" fill="var(--muted)">у каждого своя</text>
+</g>
+
+<g>
+<rect x="440" y="50" width="320" height="120" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="474" cy="86" r="18" fill="var(--accent)"/>
+<text x="474" y="93" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">2</text>
+<text x="506" y="94" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Лендинг /ai/</text>
+<text x="506" y="125" font-family="var(--font-body)" font-size="18" fill="var(--muted)">petrsolovarov.ru/ai/</text>
+<text x="506" y="150" font-family="var(--font-body)" font-size="18" fill="var(--muted)">принимает метку</text>
+</g>
+
+<g>
+<rect x="850" y="50" width="320" height="120" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="884" cy="86" r="18" fill="var(--accent)"/>
+<text x="884" y="93" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">3</text>
+<text x="916" y="94" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Кнопка в Telegram</text>
+<text x="916" y="125" font-family="var(--font-body)" font-size="18" fill="var(--muted)">«Написать в Telegram»</text>
+<text x="916" y="150" font-family="var(--font-body)" font-size="18" fill="var(--muted)">нажимает человек</text>
+</g>
+
+<g>
+<rect x="440" y="250" width="320" height="120" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="470" y="294" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Пиксель и Метрика</text>
+<text x="470" y="325" font-family="var(--font-body)" font-size="18" fill="var(--muted)">событие Lead в пикселе</text>
+<text x="470" y="350" font-family="var(--font-body)" font-size="18" fill="var(--muted)">цель в Метрике</text>
+</g>
+
+<g>
+<rect x="850" y="250" width="320" height="120" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="884" cy="286" r="18" fill="var(--accent)"/>
+<text x="884" y="293" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">4</text>
+<text x="916" y="294" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Личка в Telegram</text>
+<text x="916" y="325" font-family="var(--font-body)" font-size="18" fill="var(--muted)">t.me/solovarov</text>
+<text x="916" y="350" font-family="var(--font-body)" font-size="18" fill="var(--muted)">с кодовым словом</text>
+</g>
+
+<g>
+<rect x="850" y="440" width="320" height="120" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="884" cy="476" r="18" fill="var(--accent)"/>
+<text x="884" y="483" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">5</text>
+<text x="916" y="484" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Разговор</text>
+<text x="916" y="515" font-family="var(--font-body)" font-size="18" fill="var(--muted)">слово показывает,</text>
+<text x="916" y="540" font-family="var(--font-body)" font-size="18" fill="var(--muted)">с какой рекламы пришёл</text>
+</g>
+</svg>

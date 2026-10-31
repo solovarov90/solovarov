@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="100%" role="img" aria-label="Схема резерва мозг-бота: вопрос идёт по подписке, на лимите включается API на Sonnet 5.5, при расходе меньше 3 долларов в сутки приходит ответ с пометкой, иначе отвечает второй мозг">
+  <title>Резерв мозг-бота: API включается только на лимите подписки и выключается потолком $3 в сутки</title>
+  <defs>
+    <marker id="arrLine" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Ряд 1: обычный путь -->
+  <rect x="40" y="40" width="280" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="180" y="88" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Вопрос Петра</text>
+  <text x="180" y="122" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">пишу боту</text>
+
+  <rect x="390" y="40" width="360" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="570" y="88" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">claude -p по подписке</text>
+  <text x="570" y="122" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">без ключа в окружении</text>
+
+  <rect x="880" y="40" width="280" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="1020" y="88" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Ответ</text>
+  <text x="1020" y="122" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">лимит ещё не кончился</text>
+
+  <line x1="320" y1="95" x2="388" y2="95" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+  <line x1="750" y1="95" x2="878" y2="95" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+
+  <!-- Ветка лимита -->
+  <line x1="570" y1="150" x2="570" y2="233" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+  <text x="595" y="198" font-family="var(--font-body)" font-size="19" fill="var(--accent)">лимит подписки</text>
+
+  <rect x="390" y="235" width="360" height="130" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="570" y="283" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">claude -p с ключом API</text>
+  <text x="570" y="317" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">API_FALLBACK_KEY</text>
+  <text x="570" y="342" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">модель Sonnet 5.5</text>
+
+  <line x1="570" y1="365" x2="570" y2="448" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+
+  <!-- Проверка потолка -->
+  <rect x="390" y="450" width="360" height="140" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="570" y="508" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Потрачено за сутки</text>
+  <text x="570" y="544" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">меньше $3?</text>
+
+  <!-- Да -->
+  <line x1="750" y1="520" x2="878" y2="520" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+  <text x="814" y="506" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">да</text>
+
+  <rect x="880" y="450" width="280" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="1020" y="498" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ с пометкой</text>
+  <text x="1020" y="534" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">сколько потрачено</text>
+  <text x="1020" y="558" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">за этот ответ</text>
+
+  <!-- Нет -->
+  <line x1="390" y1="520" x2="322" y2="520" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+  <text x="356" y="506" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">нет</text>
+
+  <rect x="40" y="450" width="280" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="180" y="498" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Второй мозг</text>
+  <text x="180" y="534" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">отвечает база знаний,</text>
+  <text x="180" y="558" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">модель не вызывается</text>
+</svg>

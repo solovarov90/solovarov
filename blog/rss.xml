@@ -6,7 +6,34 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Wed, 21 Oct 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Sat, 31 Oct 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</title>
+    <link>https://petrsolovarov.ru/blog/reklama-meta-cherez-claude-pipeboard/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/reklama-meta-cherez-claude-pipeboard/</guid>
+    <pubDate>Sat, 31 Oct 2026 09:00:00 +0300</pubDate>
+    <category>Продажи и заявки</category>
+    <description>Как настроить рекламу Meta через нейросеть: Claude с коннектором Pipeboard собрал мне кампании, креативы и лендинг с пикселем. Цифры за 2 дня и что сломалось.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/reklama-meta-cherez-claude-pipeboard/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</title>
+    <link>https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/</guid>
+    <pubDate>Sat, 31 Oct 2026 09:00:00 +0300</pubDate>
+    <category>Инструменты</category>
+    <description>Почему Claude быстро тратит лимит по подписке Pro: длинный разговор каждый раз отправляется модели целиком. Короткие сессии, CLAUDE.md, --resume и резерв на API.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Как запустить Claude Code в Telegram на своём сервере без API</title>
+    <link>https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/</guid>
+    <pubDate>Sat, 31 Oct 2026 09:00:00 +0300</pubDate>
+    <category>Автоматизация</category>
+    <description>Claude Code на сервере по подписке: как запустить ИИ-агента в Telegram без API-ключа, ограничить его права и пережить перезапуски и лимиты. Мой опыт на четырёх ботах.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Как понять, почему ролик залетел: разбор чужих рилс через ИИ</title>
     <link>https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/</link>

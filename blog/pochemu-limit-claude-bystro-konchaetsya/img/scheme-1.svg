@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" role="img" aria-label="Схема: короткая сессия отправляет модели небольшую стопку, длинная отправляет высокую стопку с историей и файлами">
+<title>Короткий и длинный чат: что модель получает с каждым сообщением</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<text x="270" y="50" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Короткая сессия</text>
+<text x="870" y="50" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Длинная сессия</text>
+
+<line x1="600" y1="80" x2="600" y2="470" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 8"/>
+
+<rect x="60" y="340" width="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="210" y="378" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Правила</text>
+<rect x="60" y="406" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="210" y="444" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Новый вопрос</text>
+
+<rect x="640" y="100" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="790" y="138" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Правила</text>
+<rect x="640" y="166" width="300" height="100" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="790" y="208" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">20 прошлых</text>
+<text x="790" y="238" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">сообщений</text>
+<rect x="640" y="272" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="790" y="310" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Файлы</text>
+<rect x="640" y="338" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="790" y="376" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Новый вопрос</text>
+<rect x="640" y="338" width="300" height="60" rx="10" fill="none" stroke="var(--accent)" stroke-width="2"/>
+
+<text x="210" y="498" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">маленькая стопка</text>
+<text x="790" y="428" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">высокая стопка</text>
+
+<line x1="370" y1="370" x2="410" y2="370" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+<line x1="950" y1="250" x2="1000" y2="250" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="420" y="340" width="150" height="60" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="495" y="378" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Ответ</text>
+
+<rect x="1010" y="220" width="150" height="60" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="1085" y="258" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Ответ</text>
+
+<text x="600" y="560" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Каждое сообщение отправляет модели всю стопку заново</text>
+</svg>

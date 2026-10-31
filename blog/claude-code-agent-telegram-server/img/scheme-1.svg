@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="100%" role="img" aria-label="Путь задачи от сообщения в Telegram до ответа: бот на сервере, claude -p по подписке, состояние на диске и резерв по API на случай лимита">
+<title>Как Telegram-бот запускает Claude Code по подписке и что делает при лимите</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="var(--accent)"/></marker>
+<marker id="al" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="var(--line)"/></marker>
+</defs>
+
+<rect x="40" y="70" width="235" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="70" cy="70" r="18" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="70" y="77" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
+<text x="60" y="120" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Сообщение</text>
+<text x="60" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">в Telegram</text>
+<text x="60" y="188" font-family="var(--font-body)" font-size="18" fill="var(--muted)">текст или голосовое</text>
+
+<rect x="335" y="70" width="235" height="190" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="365" cy="70" r="18" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="365" y="77" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">2</text>
+<text x="355" y="120" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Бот</text>
+<text x="355" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">на сервере</text>
+<text x="355" y="188" font-family="var(--font-body)" font-size="18" fill="var(--muted)">проверка владельца,</text>
+<text x="355" y="212" font-family="var(--font-body)" font-size="18" fill="var(--muted)">очередь, таймаут</text>
+
+<rect x="630" y="70" width="235" height="190" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="660" cy="70" r="18" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="660" y="77" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">3</text>
+<text x="650" y="120" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">claude -p</text>
+<text x="650" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">по подписке</text>
+<text x="650" y="188" font-family="var(--font-body)" font-size="18" fill="var(--muted)">в рабочей папке:</text>
+<text x="650" y="212" font-family="var(--font-body)" font-size="18" fill="var(--muted)">CLAUDE.md, навыки,</text>
+<text x="650" y="236" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Notion</text>
+
+<rect x="925" y="70" width="235" height="190" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="955" cy="70" r="18" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="955" y="77" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">4</text>
+<text x="945" y="120" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ</text>
+<text x="945" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">в тот же чат</text>
+<text x="945" y="188" font-family="var(--font-body)" font-size="18" fill="var(--muted)">итог работы агента</text>
+
+<path d="M277 165 H333" stroke="var(--accent)" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+<path d="M572 165 H628" stroke="var(--accent)" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+<path d="M867 165 H923" stroke="var(--accent)" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+
+<rect x="335" y="350" width="235" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="355" y="398" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">state.json</text>
+<text x="355" y="432" font-family="var(--font-body)" font-size="18" fill="var(--muted)">--resume сессии</text>
+<text x="355" y="456" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и состояние на диске</text>
+<path d="M452 262 V348" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 6" fill="none" marker-end="url(#al)"/>
+
+<path d="M747 262 V348" stroke="var(--line)" stroke-width="3" fill="none" marker-end="url(#al)"/>
+<text x="764" y="312" font-family="var(--font-body)" font-size="19" fill="var(--muted)">лимит</text>
+
+<rect x="630" y="350" width="235" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="650" y="398" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Резерв по API</text>
+<text x="650" y="432" font-family="var(--font-body)" font-size="18" fill="var(--muted)">потолок $3 в сутки</text>
+<text x="650" y="456" font-family="var(--font-body)" font-size="18" fill="var(--muted)">на случай лимита</text>
+
+<path d="M867 415 H923" stroke="var(--line)" stroke-width="3" fill="none" marker-end="url(#al)"/>
+
+<rect x="925" y="350" width="235" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="945" y="398" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ</text>
+<text x="945" y="428" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">второго мозга</text>
+<text x="945" y="462" font-family="var(--font-body)" font-size="18" fill="var(--muted)">когда потолок выбран</text>
+
+<path d="M1042 348 V262" stroke="var(--line)" stroke-width="3" fill="none" marker-end="url(#al)"/>
+
+<path d="M40 524 H90" stroke="var(--line)" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="104" y="530" font-family="var(--font-body)" font-size="18" fill="var(--muted)">пунктир — то, что бот хранит на диске между сообщениями</text>
+</svg>

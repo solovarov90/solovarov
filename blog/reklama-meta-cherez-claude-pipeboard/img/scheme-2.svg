@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="100%" role="img" aria-label="Схема: задача в чате, Claude подбирает аудиторию и бюджет, верстает креативы и метки, показывает превью, после подтверждения через Pipeboard API создаётся черновик кампании на паузе в Meta Ads">
+  <title>Как Claude превращает короткий бриф в черновую кампанию в Meta Ads</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="var(--line)" stroke="var(--line)" stroke-width="1" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="var(--accent)" stroke="var(--accent)" stroke-width="1" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Стрелки -->
+  <g fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)">
+    <line x1="268" y1="125" x2="319" y2="125"/>
+    <line x1="573" y1="125" x2="624" y2="125"/>
+    <line x1="878" y1="125" x2="929" y2="125"/>
+    <line x1="1058" y1="210" x2="1058" y2="284"/>
+    <line x1="933" y1="375" x2="882" y2="375"/>
+  </g>
+  <line x1="628" y1="375" x2="577" y2="375" fill="none" stroke="var(--accent)" stroke-width="3.5" marker-end="url(#arrA)"/>
+
+  <!-- 1 -->
+  <rect x="18" y="40" width="250" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="52" cy="76" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="52" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
+  <text x="80" y="82" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Я</text>
+  <text x="42" y="130" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Задача в чате</text>
+  <text x="42" y="164" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Продаю внедрение ИИ,</text>
+  <text x="42" y="188" font-family="var(--font-body)" font-size="18" fill="var(--muted)">хочу заявки в Telegram</text>
+
+  <!-- 2 -->
+  <rect x="323" y="40" width="250" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="357" cy="76" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="357" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">2</text>
+  <text x="385" y="82" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Claude</text>
+  <text x="347" y="130" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Аудитория</text>
+  <text x="347" y="164" font-family="var(--font-body)" font-size="18" fill="var(--muted)">14 стран, 25–55 лет,</text>
+  <text x="347" y="188" font-family="var(--font-body)" font-size="18" fill="var(--muted)">300 000 ₫ в день</text>
+
+  <!-- 3 -->
+  <rect x="628" y="40" width="250" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="662" cy="76" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="662" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">3</text>
+  <text x="690" y="82" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Claude</text>
+  <text x="652" y="130" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Креативы</text>
+  <text x="652" y="164" font-family="var(--font-body)" font-size="18" fill="var(--muted)">3 картинки 1080×1350,</text>
+  <text x="652" y="188" font-family="var(--font-body)" font-size="18" fill="var(--muted)">своя метка в ссылке</text>
+
+  <!-- 4 -->
+  <rect x="933" y="40" width="250" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="967" cy="76" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="967" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">4</text>
+  <text x="995" y="82" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Claude</text>
+  <text x="957" y="130" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Превью</text>
+  <text x="957" y="164" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Вижу, как будут</text>
+  <text x="957" y="188" font-family="var(--font-body)" font-size="18" fill="var(--muted)">выглядеть объявления</text>
+
+  <!-- 5 -->
+  <rect x="933" y="290" width="250" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="967" cy="326" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="967" y="333" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">5</text>
+  <text x="995" y="332" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Я</text>
+  <text x="957" y="380" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Моё «да»</text>
+  <text x="957" y="414" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Смотрю превью и</text>
+  <text x="957" y="438" font-family="var(--font-body)" font-size="18" fill="var(--muted)">пишу «да»</text>
+
+  <!-- 6 -->
+  <rect x="628" y="290" width="250" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="662" cy="326" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="662" y="333" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">6</text>
+  <text x="690" y="332" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Коннектор</text>
+  <text x="652" y="380" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Pipeboard API</text>
+  <text x="652" y="414" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Передаёт кампанию</text>
+  <text x="652" y="438" font-family="var(--font-body)" font-size="18" fill="var(--muted)">в Meta</text>
+
+  <!-- 7 -->
+  <rect x="323" y="290" width="250" height="170" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="357" cy="326" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="357" y="333" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">7</text>
+  <text x="385" y="332" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Meta Ads</text>
+  <text x="347" y="380" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Черновик</text>
+  <text x="347" y="414" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Кампания на паузе,</text>
+  <text x="347" y="438" font-family="var(--font-body)" font-size="18" fill="var(--muted)">включаю сам</text>
+</svg>

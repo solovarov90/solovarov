@@ -6,6 +6,9 @@
 
 ## Статьи блога
 
+- [Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager](https://petrsolovarov.ru/blog/reklama-meta-cherez-claude-pipeboard/): Как настроить рекламу Meta через нейросеть: Claude с коннектором Pipeboard собрал мне кампании, креативы и лендинг с пикселем. Цифры за 2 дня и что сломалось.
+- [Почему лимит Claude по подписке кончается к обеду и как растянуть его на день](https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/): Почему Claude быстро тратит лимит по подписке Pro: длинный разговор каждый раз отправляется модели целиком. Короткие сессии, CLAUDE.md, --resume и резерв на API.
+- [Как запустить Claude Code в Telegram на своём сервере без API](https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/): Claude Code на сервере по подписке: как запустить ИИ-агента в Telegram без API-ключа, ограничить его права и пережить перезапуски и лимиты. Мой опыт на четырёх ботах.
 - [Как понять, почему ролик залетел: разбор чужих рилс через ИИ](https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/): Как понять, почему ролик залетел: раскладываю чужой рилс на текст, структуру и картинку через Whisper и Gemini за 2–5 минут и около цента, а потом пишу свой сценарий.
 - [Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке](https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/): Claude Code на сервере по подписке: как за вечер поднять ИИ-агента в Telegram без API-ключа. Сервер, вход, бот, навыки, память, лимиты и мои поломки.
 - [Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке](https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/): Как запустить Claude Code на сервере по подписке и сделать из него сотрудника в Telegram без платного API. Сервер, вход, служба, файлы, права и мои поломки.

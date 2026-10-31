@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Почему лимит Claude по подписке кончается к обеду и как растянуть его на день — блог Петра Соловарова</title>
+<meta name="description" content="Почему Claude быстро тратит лимит по подписке Pro: длинный разговор каждый раз отправляется модели целиком. Короткие сессии, CLAUDE.md, --resume и резерв на API.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Почему лимит Claude по подписке кончается к обеду и как растянуть его на день">
+<meta property="og:description" content="Почему Claude быстро тратит лимит по подписке Pro: длинный разговор каждый раз отправляется модели целиком. Короткие сессии, CLAUDE.md, --resume и резерв на API.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Почему лимит Claude по подписке быстро кончается и как его экономить, обложка статьи">
+<meta property="article:published_time" content="2026-10-31">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Инструменты">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Почему лимит Claude по подписке кончается к обеду и как растянуть его на день">
+<meta name="twitter:description" content="Почему Claude быстро тратит лимит по подписке Pro: длинный разговор каждый раз отправляется модели целиком. Короткие сессии, CLAUDE.md, --resume и резерв на API.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/"
+   },
+   "headline": "Почему лимит Claude по подписке кончается к обеду и как растянуть его на день",
+   "description": "Почему Claude быстро тратит лимит по подписке Pro: длинный разговор каждый раз отправляется модели целиком. Короткие сессии, CLAUDE.md, --resume и резерв на API.",
+   "image": [
+    "https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/img/cover.jpg"
+   ],
+   "datePublished": "2026-10-31",
+   "dateModified": "2026-10-31",
+   "inLanguage": "ru-RU",
+   "wordCount": 5571,
+   "articleSection": "Инструменты",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Почему лимит Claude по подписке кончается к обеду и как растянуть его на день",
+     "item": "https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Через сколько часов сбрасывается лимит сообщений в Claude Pro?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "По справке Anthropic, лимит сессии в Pro сбрасывается каждые 5 часов, сверху действует ещё недельный лимит (проверено 31.10.2026). Окно считается от первого сообщения, а не по календарю. У меня 01.10.2026 монтаж встал на лимите и продолжился сам после сброса в 16:39."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему при коротких вопросах лимит заканчивается за несколько сообщений?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Потому что короткий вопрос уходит модели вместе со всей историей разговора, файлами и инструкциями проекта. Справка Anthropic прямо пишет, что число сообщений зависит от длины текущего разговора и вложений. В длинном чате даже вопрос из трёх слов стоит дорого."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Теряется ли написанный код или контекст сессии при наступлении лимита?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Файлы, которые агент уже записал на диск, остаются на месте. Сессия Claude Code тоже сохраняется, и после сброса её можно поднять командой claude --resume с id сессии. У меня так монтаж 01.10.2026 продолжился с шага 4 из 7 без повтора готовых шагов."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как возобновить работу Claude Code без повторного выполнения команд?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Запомни id сессии, его отдаёт claude -p --output-format json в поле session_id. После сброса лимита запусти claude -p с флагом --resume и этим id и напиши «продолжи». Claude помнит, что уже сделано, и идёт дальше с того места, где встал."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Стоит ли переходить с подписки за 20 долларов на API-ключ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Для ежедневной работы с агентом я остаюсь на подписке. По моему руководству по Claude на 04.10.2026, Pro стоит $20 в месяц, а агент за одну задачу читает десятки файлов, и по API это был бы счёт за каждый кусок текста. API у меня работает только резервом с жёстким дневным потолком."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как безопасно настроить переключение на платный API при исчерпании лимита?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Держи ключ в отдельной переменной, которую бот подставляет только при ошибке лимита, и поставь дневной потолок расходов. У моего мозг-бота с 28.10.2026 это $3 в сутки на Sonnet 5.5, дальше отвечает база знаний. Сам ключ ANTHROPIC_API_KEY в окружении постоянно держать нельзя, иначе Claude Code будет всегда платить по API."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Инструменты</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Инструкция · Инструменты · 31 мин чтения</div>
+    <h1>Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</h1>
+    <p class="lead">Почему Claude быстро тратит лимит по подписке Pro: длинный разговор каждый раз отправляется модели целиком. Короткие сессии, CLAUDE.md, --resume и резерв на API.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-10-31">31 октября 2026</time> · 5 571 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/pochemu-limit-claude-bystro-konchaetsya/img/cover.jpg" alt="Почему лимит Claude по подписке быстро кончается и как его экономить, обложка статьи" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#pochemu-limit-soobscheniy-claude-pro-taet-bystree-s-kazhdym-">Почему лимит сообщений Claude Pro тает быстрее с каждым новым вопросом?</a></li><li><a href="#kak-ustroena-mehanika-kontekstnogo-okna-i-pochemu-dlinnye-di">Как устроена механика контекстного окна и почему длинные диалоги сжигают квоту?</a></li><li><a href="#skolko-strok-dolzhno-byt-v-fayle-pravil-claude-md-chtoby-ne-">Сколько строк должно быть в файле правил CLAUDE.md, чтобы не перегружать память?</a></li><li><a href="#podpiska-za-20-dollarov-ili-platnyy-api-chto-vygodnee-dlya-e">Подписка за 20 долларов или платный API: что выгоднее для ежедневных задач?</a></li><li><a href="#kak-nastroit-avtoozhidanie-sbrosa-limita-i-prodolzhit-rabotu">Как настроить автоожидание сброса лимита и продолжить работу через флаг --resume?</a></li><li><a href="#kak-nastroit-rezervnyy-shlyuz-na-api-s-zhestkim-dnevnym-limi">Как настроить резервный шлюз на API с жёстким дневным лимитом расходов?</a></li><li><a href="#proveril-na-sebe-kak-konveyer-ii-systema-derzhit-dvuh-avtono">Проверил на себе: как конвейер ii.systema держит двух автономных агентов на одной подписке</a></li><li><a href="#s-chego-nachat-esli-limit-konchaetsya-uzhe-segodnya">С чего начать, если лимит кончается уже сегодня?</a></li></ol></nav>
+    <article class="article">
+<p>Лимит Claude по подписке быстро кончается из-за длины разговора: каждое новое сообщение уходит модели вместе со всей историей чата, файлами и инструкциями. Чем длиннее переписка, тем дороже каждый следующий вопрос, даже короткий. Чтобы подписки хватало на весь день, дроби работу на короткие сессии, держи правила в компактном файле и отдавай простую обработку другим моделям.</p>
+<p>Я работаю на одной подписке Claude, и на ней живут сразу несколько ботов моего проекта ii.systema: монтаж роликов, SEO-штаб, мозг-бот. Ниже разбираю, куда уходит лимит, как продолжить работу после него без потерь и как я поставил резерв на API с потолком $3 в сутки.</p>
+<h2 id="pochemu-limit-soobscheniy-claude-pro-taet-bystree-s-kazhdym-">Почему лимит сообщений Claude Pro тает быстрее с каждым новым вопросом?</h2>
+<p>Потому что лимит считает объём текста, который модель прочитала, а количество сообщений тут вторично. В <a href="https://support.claude.com/en/articles/8324991-about-claude-s-pro-plan-usage">справке Anthropic</a> (проверено 31.10.2026) так и написано: число сообщений зависит от их длины, от размера приложенных файлов, от длины текущего разговора и от модели. Двадцатый вопрос в одном чате стоит в разы дороже первого.</p>
+<p>Как это выглядит в жизни. Утром ты открываешь чат, кидаешь туда договор на 30 страниц и задаёшь вопрос. Потом уточняешь. Потом просишь переписать пункт. Каждое уточнение заставляет модель заново прочитать договор и всю переписку. К обеду ты отправил полтора десятка сообщений, а лимит уже на нуле.</p>
+<p>Три вещи съедают лимит сильнее всего:</p>
+<ul>
+<li><strong>Длинная история.</strong> Один чат на весь день вместо отдельного чата на каждую задачу.</li>
+<li><strong>Тяжёлые вложения.</strong> Файлы, скриншоты и инструкции проекта прочитываются при каждом сообщении. В <a href="https://app.notion.com/p/5-Claude-3f4dfdb1482281729876fb278cf25948">моём материале про ассистентов в Claude</a> на 09.10.2026 записано, что инструкции проекта подмешиваются в каждое сообщение, поэтому гигантские промпты быстро расходуют лимит. Промпт здесь это текст задания для нейросети.</li>
+<li><strong>Агентная работа.</strong> Claude Code за одну задачу читает десятки файлов. По моему <a href="https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/">руководству по Claude</a> на 04.10.2026, чат на claude.ai и Claude Code тратят один общий пул. Утро в Claude Code, и вечером в чате лимита уже нет.</li>
+</ul>
+<p>Отдельно про окна. Лимит в Pro считается окнами по 5 часов плюс общая недельная квота, это подтверждает справка Anthropic. Окно начинается с первого сообщения. Поэтому «к обеду кончился» обычно значит, что утреннее окно ты сжёг длинными разговорами, и новое откроется через пару часов.</p>
+<h2 id="kak-ustroena-mehanika-kontekstnogo-okna-i-pochemu-dlinnye-di">Как устроена механика контекстного окна и почему длинные диалоги сжигают квоту?</h2>
+<p>Контекстное окно это всё, что модель видит за один раз: твои правила, историю чата, файлы и новый вопрос. Модель не помнит прошлых сообщений сама. Программа каждый раз собирает эту стопку целиком и отправляет её заново. Поэтому расход растёт быстрее длины разговора.</p>
+<p>На DEV Community есть хороший разбор от Антона Абызова, <a href="https://dev.to/aabyzov/why-your-ai-coding-agent-gets-exponentially-more-expensive-and-what-to-do-about-it-17jd">почему агент для кода дорожает с каждым шагом</a>. Логика простая: с каждым шагом растёт и длина контекста, и число вызовов. Перемножь одно на другое, и стоимость сессии растёт квадратично. По его подсчёту, на 100 000 токенов контекста чтение уже накопленной истории занимает около 87% всех расходов сессии. Токен это кусочек слова, в таких единицах модели считают текст.</p>
+<!-- img: type=scheme what="слева короткая сессия: правила + вопрос → ответ, маленькая стопка; справа длинная сессия: правила + 20 прошлых сообщений + файлы + новый вопрос → ответ, высокая стопка; подпись внизу: каждое сообщение отправляет модели всю стопку заново" caption="Короткий вопрос в длинном чате отправляет модели всю накопленную историю, поэтому стоит дороже первого." alt="почему claude быстро тратит лимит: схема роста контекста в длинном диалоге" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" role="img" aria-label="Схема: короткая сессия отправляет модели небольшую стопку, длинная отправляет высокую стопку с историей и файлами">
+<title>Короткий и длинный чат: что модель получает с каждым сообщением</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<text x="270" y="50" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Короткая сессия</text>
+<text x="870" y="50" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Длинная сессия</text>
+
+<line x1="600" y1="80" x2="600" y2="470" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 8"/>
+
+<rect x="60" y="340" width="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="210" y="378" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Правила</text>
+<rect x="60" y="406" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="210" y="444" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Новый вопрос</text>
+
+<rect x="640" y="100" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="790" y="138" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Правила</text>
+<rect x="640" y="166" width="300" height="100" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="790" y="208" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">20 прошлых</text>
+<text x="790" y="238" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">сообщений</text>
+<rect x="640" y="272" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="790" y="310" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Файлы</text>
+<rect x="640" y="338" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="790" y="376" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Новый вопрос</text>
+<rect x="640" y="338" width="300" height="60" rx="10" fill="none" stroke="var(--accent)" stroke-width="2"/>
+
+<text x="210" y="498" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">маленькая стопка</text>
+<text x="790" y="428" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">высокая стопка</text>
+
+<line x1="370" y1="370" x2="410" y2="370" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+<line x1="950" y1="250" x2="1000" y2="250" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="420" y="340" width="150" height="60" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="495" y="378" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Ответ</text>
+
+<rect x="1010" y="220" width="150" height="60" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="1085" y="258" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Ответ</text>
+
+<text x="600" y="560" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Каждое сообщение отправляет модели всю стопку заново</text>
+</svg>
+<figcaption>Короткий вопрос в длинном чате отправляет модели всю накопленную историю, поэтому стоит дороже первого.</figcaption>
+</figure>
+
+<p>Что из этого следует на практике:</p>
+<ol>
+<li><strong>Одна задача, одна сессия.</strong> Закончил задачу, открыл новый чат. Нужные выводы перенеси туда одним абзацем.</li>
+<li><strong>Сжимай историю.</strong> В Claude Code есть команда <code>/compact</code>: она сворачивает историю в краткую выжимку. Команда <code>/clear</code> открывает чистый разговор. Обе описаны в <a href="https://app.notion.com/p/Claude-Code-401dfdb1482281609ac5f8223ff7401c">моей инструкции к Claude Code</a> на 22.10.2026.</li>
+<li><strong>Следи за заполнением.</strong> В той же инструкции есть полоска в строке состояния Claude Code: она показывает, какая часть контекста занята. Краснеет, значит пора сворачивать или начинать заново.</li>
+<li><strong>Не тащи файл в каждое сообщение.</strong> Положи его в папку проекта и дай агенту путь. Он прочитает нужное место, а не весь файл.</li>
+</ol>
+<p>У меня в штабе на каждую тему Telegram-группы своя сессия Claude, и история одной темы не тянется в другую. Как это устроено, я разбирал в статье <a href="/blog/upravlyat-claude-code-s-telefona/">«ИИ-штаб на сервере»</a>.</p>
+<h2 id="skolko-strok-dolzhno-byt-v-fayle-pravil-claude-md-chtoby-ne-">Сколько строк должно быть в файле правил CLAUDE.md, чтобы не перегружать память?</h2>
+<p>Держи файл правил в пределах 30–150 строк. Эту норму я записал в <a href="https://app.notion.com/p/CLAUDE-md-4-Claude-3eedfdb14822819797f9e49adb1744cc">материале про CLAUDE.md</a> на 03.10.2026: если раздуть инструкции до сотен строк, модель начинает выборочно их игнорировать. CLAUDE.md это файл в папке проекта, который Claude Code читает в начале каждой сессии.</p>
+<p>Короткий файл экономит дважды. Он читается в каждой сессии, значит каждая лишняя строка умножается на число запусков. И модель лучше держит пять ясных правил, чем пятьдесят размытых.</p>
+<p>Как я сокращаю правила:</p>
+<ul>
+<li><strong>Наверху только общее.</strong> Что за проект, где лежат базы, кто автор, чего делать нельзя.</li>
+<li><strong>Подробности в навыки.</strong> Навык (скилл) это отдельная инструкция на одну задачу: разобрать ролик, написать статью. Claude подгружает её, только когда задача подходит. Правила статей блога лежат в навыке, и в разговоре про монтаж они лимит не тратят.</li>
+<li><strong>Правило глаголом.</strong> «Пиши коротко» работает лучше, чем «Краткость изложения».</li>
+<li><strong>Одно правило на одну вещь.</strong> Два противоречивых указания про концовку модель исполнит как попало.</li>
+</ul>
+<p>В <a href="https://app.notion.com/p/CLAUDE-md-4-Claude-3eedfdb14822819797f9e49adb1744cc">материале</a> есть готовый файл на четыре правила: без усложнений, без домыслов, без лишних правок, самопроверка. Для старта этого хватает. Дописывай строку, когда агент второй раз ошибся в одном и том же месте.</p>
+<h2 id="podpiska-za-20-dollarov-ili-platnyy-api-chto-vygodnee-dlya-e">Подписка за 20 долларов или платный API: что выгоднее для ежедневных задач?</h2>
+<p>Для ежедневной работы с агентом выгоднее подписка. По моему <a href="https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/">руководству по Claude</a> на 04.10.2026, Pro стоит $20 в месяц или $17 при оплате за год, и Claude Code в неё входит. API это платный программный доступ к модели, где оплачивается каждый кусок прочитанного и написанного текста.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th></th>
+<th>Подписка Pro</th>
+<th>API по ключу</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Как платишь</td>
+<td>фиксированно в месяц</td>
+<td>за каждый токен</td>
+</tr>
+<tr>
+<td>Где упираешься</td>
+<td>окно 5 часов и недельная квота</td>
+<td>только в деньги</td>
+</tr>
+<tr>
+<td>Длинная сессия агента</td>
+<td>съедает окно, потом пауза</td>
+<td>растёт счёт</td>
+</tr>
+<tr>
+<td>Для чего у меня</td>
+<td>вся основная работа ботов</td>
+<td>резерв, когда подписка в лимите</td>
+</tr>
+</tbody>
+</table></div>
+<p>Агент за одну задачу читает много файлов, и по API длинная сессия превращается в заметный счёт. На подписке худшее, что случится, это пауза до сброса окна. Пауза у меня обрабатывается автоматически, об этом следующий раздел.</p>
+<p>Есть и третий путь: часть работы вообще убрать с Claude. 30.09.2026 я <a href="https://app.notion.com/p/Gemini-Claude-3ebdfdb1482281c2a72be4a710e93239">перевёл разбор чужих роликов на Gemini</a>, и с тех пор Claude тратит лимит только на разговор и сценарии. Разбор одного ролика на платном Gemini flash стоит около цента, подробно в статье <a href="/blog/pochemu-rolik-zaletel/">«Почему ролик залетел»</a>. Правило простое: Claude берёт задачи, где нужно думать и писать, а смотреть видео, расшифровывать и раскладывать по полям могут модели дешевле.</p>
+<p>Внутри Claude тоже есть выбор. В <a href="https://app.notion.com/p/Claude-3f6dfdb1482281a886d8daa5f156cca0">схеме выбора моделей</a> на 11.10.2026 я раскладывал так: Haiku на проверку орфографии и сортировку, Sonnet на повседневную аналитику, Opus на сложные задачи. Там же регулятор Effort: на уровне Medium модель рассуждает короче и тратит меньше лимита, чем на High.</p>
+<h2 id="kak-nastroit-avtoozhidanie-sbrosa-limita-i-prodolzhit-rabotu">Как настроить автоожидание сброса лимита и продолжить работу через флаг --resume?</h2>
+<p>Сохрани id сессии и после сброса подними её флагом <code>--resume</code>. Claude Code помнит, что уже сделал, и продолжает с того же места. Если задачи запускает бот, научи его ловить ошибку лимита, ставить задачу на паузу и самому перезапускать её после сброса.</p>
+<p>Шаги для бота на <code>claude -p</code> (неинтерактивный режим: задача передаётся одной строкой, Claude выполняет её и печатает результат):</p>
+<ol>
+<li><strong>Запускай с JSON-ответом.</strong> <code>claude -p "задача" --output-format json</code>. В ответе есть поле <code>session_id</code>, сохрани его рядом с задачей на диск.</li>
+<li><strong>Лови лимит.</strong> Если ответ говорит о лимите, не считай задачу проваленной. Поставь ей статус «пауза» и запиши время продолжения.</li>
+<li><strong>Жди сброса.</strong> Окно Pro длится 5 часов. Бот раз в несколько минут проверяет время и будит задачу.</li>
+<li><strong>Продолжай ту же сессию.</strong> <code>claude -p "продолжи" --resume &lt;session_id&gt;</code>. Готовые шаги Claude не повторяет.</li>
+<li><strong>Дай кнопку человеку.</strong> «Продолжить» на случай, если автоповтор не сработал, и «Запустить сейчас», если лимит уже освободился раньше.</li>
+<li><strong>Ограничь попытки.</strong> Если лимит на самом деле не сброшен, задача упрётся в него снова. После нескольких неудач остановись и напиши в чат.</li>
+</ol>
+<!-- img: type=scheme caption="Схема работы бота: как автоматически ставить задачу на паузу при исчерпании лимита и продолжать сессию через --resume." alt="лимит claude закончился что делать: статус задачи на паузе до сброса лимита" was="Telegram, Штаб ii.systema, тема 🎞 Монтаж: статус монтажа на паузе из-за лимита Claude: «продолжу сам в ЧЧ:ММ» и кнопки «Запустить сейчас» и «Отменить монтаж»" what="Старт: claude -p с сохранением session_id → Проверка ответа: успех или лимит Claude? → Ветка лимита: статус «Пауза», сохранение таймера сброса (5 часов) → Ожидание: таймер бота ИЛИ нажатие кнопки «Запустить сейчас» в Telegram → Возобновление: claude -p --resume session_id → Завершение задачи" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" role="img" aria-label="Схема работы бота: задача ставится на паузу при исчерпании лимита Claude и продолжается через --resume">
+<title>Как бот ставит задачу на паузу при лимите и продолжает сессию через --resume</title>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--line)"/></marker>
+<marker id="ahA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker>
+</defs>
+
+<g stroke="var(--line)" stroke-width="2" fill="none">
+<line x1="340" y1="115" x2="448" y2="115" marker-end="url(#ah)"/>
+<line x1="750" y1="115" x2="858" y2="115" marker-end="url(#ah)"/>
+<line x1="600" y1="170" x2="600" y2="288" marker-end="url(#ah)"/>
+<line x1="600" y1="400" x2="600" y2="518" marker-end="url(#ah)"/>
+</g>
+<g stroke="var(--accent)" stroke-width="3" fill="none">
+<line x1="750" y1="575" x2="858" y2="575" marker-end="url(#ahA)"/>
+<line x1="1010" y1="520" x2="1010" y2="172" marker-end="url(#ahA)"/>
+</g>
+
+<text x="805" y="98" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">успех</text>
+<text x="614" y="236" font-family="var(--font-body)" font-size="18" fill="var(--muted)">лимит</text>
+<text x="1024" y="350" font-family="var(--font-body)" font-size="18" fill="var(--muted)">продолжаем</text>
+<text x="1024" y="374" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ту же сессию</text>
+
+<g>
+<rect x="40" y="60" width="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="70" cy="95" r="17" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="70" y="102" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
+<text x="100" y="102" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Старт</text>
+<text x="60" y="134" font-family="var(--font-body)" font-size="18" fill="var(--muted)">claude -p, ответ в JSON</text>
+<text x="60" y="158" font-family="var(--font-body)" font-size="18" fill="var(--muted)">session_id — на диск</text>
+</g>
+
+<g>
+<rect x="450" y="60" width="300" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="480" cy="95" r="17" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="480" y="102" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">2</text>
+<text x="510" y="102" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Проверка ответа</text>
+<text x="470" y="134" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Успех или лимит Claude?</text>
+<text x="470" y="158" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Читаем текст ответа</text>
+</g>
+
+<g>
+<rect x="860" y="60" width="300" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="890" cy="95" r="17" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="890" y="102" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">6</text>
+<text x="920" y="102" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Готово</text>
+<text x="880" y="134" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Задача завершена</text>
+<text x="880" y="158" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Итог приходит в чат</text>
+</g>
+
+<g>
+<rect x="450" y="290" width="300" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="480" cy="325" r="17" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="480" y="332" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">3</text>
+<text x="510" y="332" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Пауза</text>
+<text x="470" y="364" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Статус «Пауза»</text>
+<text x="470" y="388" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Таймер сброса: 5 часов</text>
+</g>
+
+<g>
+<rect x="450" y="520" width="300" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="480" cy="555" r="17" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="480" y="562" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">4</text>
+<text x="510" y="562" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ожидание</text>
+<text x="470" y="594" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Таймер бота или кнопка</text>
+<text x="470" y="618" font-family="var(--font-body)" font-size="18" fill="var(--muted)">«Запустить сейчас»</text>
+</g>
+
+<g>
+<rect x="860" y="520" width="300" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="890" cy="555" r="17" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<text x="890" y="562" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">5</text>
+<text x="920" y="562" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Возобновление</text>
+<text x="880" y="594" font-family="var(--font-body)" font-size="18" fill="var(--muted)">claude -p --resume</text>
+<text x="880" y="618" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Готовые шаги не повторяет</text>
+</g>
+
+<text x="40" y="560" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Лимит ещё не сброшен?</text>
+<text x="40" y="584" font-family="var(--font-body)" font-size="18" fill="var(--muted)">После нескольких попыток</text>
+<text x="40" y="608" font-family="var(--font-body)" font-size="18" fill="var(--muted)">стоп и сообщение в чат</text>
+</svg>
+<figcaption>Схема работы бота: как автоматически ставить задачу на паузу при исчерпании лимита и продолжать сессию через --resume.</figcaption>
+</figure>
+
+<p>У меня последний шаг появился не сразу. 18.10.2026 я добавил в статус монтажа кнопку «Запустить сейчас»: раннер не ждёт сброса и продолжает ту же сессию. По <a href="https://app.notion.com/p/KeyError-resume-3fddfdb148228133977ac4117a796892">журналу изменений</a>, если лимит на самом деле не сброшен, после 3 попыток задача встаёт в ошибку и ждёт кнопки «Продолжить».</p>
+<h2 id="kak-nastroit-rezervnyy-shlyuz-na-api-s-zhestkim-dnevnym-limi">Как настроить резервный шлюз на API с жёстким дневным лимитом расходов?</h2>
+<p>Резерв включается только на ошибке лимита и выключается потолком расходов за сутки. Бот повторяет тот же вызов <code>claude</code> с API-ключом, считает, сколько потратил за день, и при достижении потолка перестаёт ходить в API. Так ты платишь за паузы подписки, а не за всю работу.</p>
+<p>Как это сделано у моего мозг-бота с 28.10.2026, по <a href="https://app.notion.com/p/API-Sonnet-5-5-3-407dfdb1482281308e0bf82edf98efa7">журналу изменений</a>:</p>
+<ol>
+<li><strong>Основной вызов по подписке.</strong> <code>claude -p</code> от пользователя бота, без ключа в окружении.</li>
+<li><strong>Ключ лежит отдельно.</strong> В переменной <code>API_FALLBACK_KEY</code>, на счёте в Console $100 кредитов. Бот подставляет его только в повторный вызов.</li>
+<li><strong>Модель дешевле.</strong> Резерв идёт на <code>claude-sonnet-5-5</code>.</li>
+<li><strong>Потолок в сутки.</strong> <code>API_DAY_LIMIT</code>, по умолчанию $3, сутки по Москве.</li>
+<li><strong>После потолка.</strong> Отвечает второй мозг, моя база знаний, без вызова модели.</li>
+<li><strong>Видно расход.</strong> Под ответом из резерва бот ставит пометку, сколько потратил.</li>
+<li><strong>Тяжёлое не трогает.</strong> Облачные задачи остаются на подписке и в резерв не уходят.</li>
+</ol>
+<!-- img: type=scheme what="узлы и стрелки: вопрос Петра → claude -p по подписке → ответ; ветка «лимит» → claude -p с API_FALLBACK_KEY на Sonnet 5.5 → проверка «потрачено за сутки меньше $3?» → да: ответ с пометкой о расходе; нет: ответ из второго мозга" caption="Резерв мозг-бота: API включается только на лимите подписки и выключается потолком $3 в сутки." alt="подписка claude или api что выгоднее: схема резерва на API с дневным потолком" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="100%" role="img" aria-label="Схема резерва мозг-бота: вопрос идёт по подписке, на лимите включается API на Sonnet 5.5, при расходе меньше 3 долларов в сутки приходит ответ с пометкой, иначе отвечает второй мозг">
+  <title>Резерв мозг-бота: API включается только на лимите подписки и выключается потолком $3 в сутки</title>
+  <defs>
+    <marker id="arrLine" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Ряд 1: обычный путь -->
+  <rect x="40" y="40" width="280" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="180" y="88" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Вопрос Петра</text>
+  <text x="180" y="122" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">пишу боту</text>
+
+  <rect x="390" y="40" width="360" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="570" y="88" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">claude -p по подписке</text>
+  <text x="570" y="122" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">без ключа в окружении</text>
+
+  <rect x="880" y="40" width="280" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="1020" y="88" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Ответ</text>
+  <text x="1020" y="122" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">лимит ещё не кончился</text>
+
+  <line x1="320" y1="95" x2="388" y2="95" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+  <line x1="750" y1="95" x2="878" y2="95" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+
+  <!-- Ветка лимита -->
+  <line x1="570" y1="150" x2="570" y2="233" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+  <text x="595" y="198" font-family="var(--font-body)" font-size="19" fill="var(--accent)">лимит подписки</text>
+
+  <rect x="390" y="235" width="360" height="130" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="570" y="283" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">claude -p с ключом API</text>
+  <text x="570" y="317" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">API_FALLBACK_KEY</text>
+  <text x="570" y="342" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">модель Sonnet 5.5</text>
+
+  <line x1="570" y1="365" x2="570" y2="448" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+
+  <!-- Проверка потолка -->
+  <rect x="390" y="450" width="360" height="140" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="570" y="508" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Потрачено за сутки</text>
+  <text x="570" y="544" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">меньше $3?</text>
+
+  <!-- Да -->
+  <line x1="750" y1="520" x2="878" y2="520" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+  <text x="814" y="506" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">да</text>
+
+  <rect x="880" y="450" width="280" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="1020" y="498" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ с пометкой</text>
+  <text x="1020" y="534" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">сколько потрачено</text>
+  <text x="1020" y="558" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">за этот ответ</text>
+
+  <!-- Нет -->
+  <line x1="390" y1="520" x2="322" y2="520" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+  <text x="356" y="506" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">нет</text>
+
+  <rect x="40" y="450" width="280" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="180" y="498" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Второй мозг</text>
+  <text x="180" y="534" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">отвечает база знаний,</text>
+  <text x="180" y="558" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">модель не вызывается</text>
+</svg>
+<figcaption>Резерв мозг-бота: API включается только на лимите подписки и выключается потолком $3 в сутки.</figcaption>
+</figure>
+
+<p>Главная ловушка тут одна. Переменная <code>ANTHROPIC_API_KEY</code> в окружении бота держится только на время резервного вызова. Справка Anthropic предупреждает: если ключ задан, Claude Code берёт его вместо подписки. Оставил его в <code>.bashrc</code>, и вся работа поехала в оплату по API. Об этом я подробно писал в <a href="/blog/claude-code-sotrudnik-telegram/">статье про Claude Code в Telegram</a>.</p>
+<p>Удобный счётчик для потолка: с <code>--output-format json</code> Claude Code кладёт в ответ поле <code>total_cost_usd</code>. Документация уточняет, что это оценка на стороне программы, и счёт она не заменяет. Для дневного потолка этой оценки хватает.</p>
+<h2 id="proveril-na-sebe-kak-konveyer-ii-systema-derzhit-dvuh-avtono">Проверил на себе: как конвейер ii.systema держит двух автономных агентов на одной подписке</h2>
+<p>На моём сервере штаба с 2 ядрами и 4 ГБ памяти по одной подписке работают бот роликов и, с 18.10.2026, SEO-штаб: служба <code>ii-seo</code> пишет статьи через <code>claude -p</code> на Opus 5.5 за 10–25 минут. В каждом боте стоит очередь на одного Claude, у каждого запуска таймаут. Эту статью тоже написал он.</p>
+<p>Первый раз в лимит я упёрся 01.10.2026. Первый монтаж из чата, ролик REEL-4, встал на шаге 4 из 7. По <a href="https://app.notion.com/p/3ecdfdb148228177b8a3e58a3b2e1e1b">журналу изменений</a>, одна подготовка дубля заняла около 16 минут. Монтаж просто оборвался, и всё, что Claude успел решить, пропало бы при новом запуске.</p>
+<p>В тот же день я добавил две вещи. Кнопку «Продолжить»: раннер поднимает ту же сессию через <code>--resume</code>, Claude помнит скилл, сценарий и решения и не повторяет готовые шаги. И автоожидание: при лимите очередь встаёт на паузу, в статусе пишется «продолжу сам в ЧЧ:ММ». По <a href="https://app.notion.com/p/Claude-3ecdfdb14822811da1a8ecc18d22b69a">журналу</a>, три дубля, REEL-9, 8 и 7, в тот день продолжились сами после сброса лимита в 16:39. Я в это время был занят другим.</p>
+<!-- img: type=terminal cmds="whoami ;; claude --version ;; claude auth status ;; systemctl is-active ii-shtab ;; systemctl is-active ii-seo" caption="Сервер штаба: два бота работают от одного пользователя и одной подписки Claude Pro, без API-ключа." alt="лимиты claude code на сервере: два бота на одной подписке Pro" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="лимиты claude code на сервере: два бота на одной подписке Pro" src="/blog/pochemu-limit-claude-bystro-konchaetsya/img/terminal-4.jpg"></div><figcaption>Сервер штаба: два бота работают от одного пользователя и одной подписки Claude Pro, без API-ключа.</figcaption></figure>
+<p>Как у меня распределён лимит сейчас:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Задача</th>
+<th>Где выполняется</th>
+<th>Как бережёт лимит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Разбор чужих роликов</td>
+<td>Gemini</td>
+<td>лимит Claude не тратит совсем</td>
+</tr>
+<tr>
+<td>Разговор в темах штаба</td>
+<td>Claude по подписке</td>
+<td>своя сессия на тему, правила в CLAUDE.md</td>
+</tr>
+<tr>
+<td>Сценарии и статьи</td>
+<td>Claude Opus 5.5 по подписке</td>
+<td>по одной в очереди, таймаут</td>
+</tr>
+<tr>
+<td>Монтаж</td>
+<td>Claude на домашнем компьютере</td>
+<td>пауза на лимите и <code>--resume</code></td>
+</tr>
+<tr>
+<td>Отбор тем из трендов</td>
+<td>Claude ночью по расписанию</td>
+<td>не делит дневное окно</td>
+</tr>
+<tr>
+<td>Мозг-бот в лимите</td>
+<td>API на Sonnet 5.5</td>
+<td>потолок $3 в сутки</td>
+</tr>
+</tbody>
+</table></div>
+<p>Что сломалось по дороге, честно:</p>
+<ul>
+<li><strong>Монтаж обрывался на лимите.</strong> Лечится сохранённой сессией, автоожиданием и кнопкой «Продолжить».</li>
+<li><strong>Раннер падал при перезапуске во время паузы.</strong> Ошибка в коде продолжения съела три автоповтора у REEL-61, ролик встал в ошибку. Исправил 18.10.2026, кнопка «Продолжить» осталась страховкой.</li>
+<li><strong>Два Claude сразу съели бы память сервера.</strong> Очередь на одного, остальные задачи ждут.</li>
+<li><strong>Зависший запуск держал бы очередь вечно.</strong> Таймаут убивает процесс, бот пишет в тему, что случилось.</li>
+<li><strong>Ночные задачи мешали бы дневным.</strong> Отбор тем стоит на раннее утро, чтобы не делить одно окно лимита с работой.</li>
+</ul>
+<p>Главный вывод из месяца работы: лимит подписки ты почувствуешь точно, если работаешь с агентом всерьёз. Тяжёлое у меня идёт по очереди и с автопродолжением, лёгкое отвечает сразу, а простая обработка вообще ушла с Claude. Вся система целиком описана в <a href="/iisystema/">кейсе ii.systema</a>.</p>
+<h2 id="s-chego-nachat-esli-limit-konchaetsya-uzhe-segodnya">С чего начать, если лимит кончается уже сегодня?</h2>
+<p>Начни с трёх вещей, они не требуют кода. Открой отдельный чат на каждую задачу. Сократи инструкции проекта до одной страницы. Посмотри в настройках аккаунта, сколько осталось в текущем окне и в недельной квоте, справка Anthropic показывает там обе шкалы.</p>
+<p>Дальше, если работаешь с Claude Code:</p>
+<ol>
+<li>Перед длинной задачей сделай <code>/clear</code>, а посреди неё <code>/compact</code>.</li>
+<li>Вынеси подробные правила из CLAUDE.md в навыки.</li>
+<li>Простую обработку отдай модели дешевле: Haiku или Gemini.</li>
+<li>Если задачи запускает бот, добавь сохранение сессии, паузу на лимите и <code>--resume</code>.</li>
+<li>Резерв на API ставь последним и только с дневным потолком.</li>
+</ol>
+<p>Если хочешь, чтобы ИИ работал на твой бизнес весь день, а не до обеда, напиши слово «система» мне в личку <a href="https://t.me/solovarov">t.me/solovarov</a>. Посмотрим, какие рутины в твоей работе можно автоматизировать и как выстроить схему без лишних трат на лимиты и токены.</p>
+    </article>
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Через сколько часов сбрасывается лимит сообщений в Claude Pro?</h3><p>По справке Anthropic, лимит сессии в Pro сбрасывается каждые 5 часов, сверху действует ещё недельный лимит (проверено 31.10.2026). Окно считается от первого сообщения, а не по календарю. У меня 01.10.2026 монтаж встал на лимите и продолжился сам после сброса в 16:39.</p></div><div class="qa"><h3 id="faq-2">Почему при коротких вопросах лимит заканчивается за несколько сообщений?</h3><p>Потому что короткий вопрос уходит модели вместе со всей историей разговора, файлами и инструкциями проекта. Справка Anthropic прямо пишет, что число сообщений зависит от длины текущего разговора и вложений. В длинном чате даже вопрос из трёх слов стоит дорого.</p></div><div class="qa"><h3 id="faq-3">Теряется ли написанный код или контекст сессии при наступлении лимита?</h3><p>Файлы, которые агент уже записал на диск, остаются на месте. Сессия Claude Code тоже сохраняется, и после сброса её можно поднять командой claude --resume с id сессии. У меня так монтаж 01.10.2026 продолжился с шага 4 из 7 без повтора готовых шагов.</p></div><div class="qa"><h3 id="faq-4">Как возобновить работу Claude Code без повторного выполнения команд?</h3><p>Запомни id сессии, его отдаёт claude -p --output-format json в поле session_id. После сброса лимита запусти claude -p с флагом --resume и этим id и напиши «продолжи». Claude помнит, что уже сделано, и идёт дальше с того места, где встал.</p></div><div class="qa"><h3 id="faq-5">Стоит ли переходить с подписки за 20 долларов на API-ключ?</h3><p>Для ежедневной работы с агентом я остаюсь на подписке. По моему руководству по Claude на 04.10.2026, Pro стоит $20 в месяц, а агент за одну задачу читает десятки файлов, и по API это был бы счёт за каждый кусок текста. API у меня работает только резервом с жёстким дневным потолком.</p></div><div class="qa"><h3 id="faq-6">Как безопасно настроить переключение на платный API при исчерпании лимита?</h3><p>Держи ключ в отдельной переменной, которую бот подставляет только при ошибке лимита, и поставь дневной потолок расходов. У моего мозг-бота с 28.10.2026 это $3 в сутки на Sonnet 5.5, дальше отвечает база знаний. Сам ключ ANTHROPIC_API_KEY в окружении постоянно держать нельзя, иначе Claude Code будет всегда платить по API.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://support.claude.com/en/articles/8324991-about-claude-s-pro-plan-usage" rel="noopener">Справка Anthropic о лимитах тарифа Pro</a> <span>окно сессии 5 часов, недельный лимит, зависимость от длины разговора и вложений; проверено 31.10.2026</span></li><li><a href="https://dev.to/aabyzov/why-your-ai-coding-agent-gets-exponentially-more-expensive-and-what-to-do-about-it-17jd" rel="noopener">Anton Abyzov, Why Your AI Coding Agent Gets Exponentially More Expensive (DEV Community)</a> <span>формула квадратичного роста стоимости длинной сессии агента и доля чтения кэша 87% при 100 000 токенов</span></li><li><a href="https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/" rel="noopener">Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке</a> <span>лимит на шаге 4 из 7, окна по 5 часов и недельная квота, общий пул чата и Claude Code, таблица расхода лимита</span></li><li><a href="https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/" rel="noopener">Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке</a> <span>второй бот ii-seo с 18.10.2026, статья за 10–25 минут, очередь на одного Claude</span></li><li><a href="https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/" rel="noopener">ИИ-штаб на сервере: как управлять Claude Code с телефона по подписке</a> <span>отдельная сессия на тему, правила в CLAUDE.md, таймаут на каждый запуск</span></li><li><a href="https://app.notion.com/p/Claude-3ecdfdb14822811da1a8ecc18d22b69a" rel="noopener">Журнал изменений: лимит Claude, бот сам ждёт и продолжает (01.10.2026)</a> <span>три дубля продолжились сами после сброса лимита в 16:39</span></li><li><a href="https://app.notion.com/p/3ecdfdb148228177b8a3e58a3b2e1e1b" rel="noopener">Журнал изменений: монтаж можно продолжить после обрыва (01.10.2026)</a> <span>REEL-4 упёрся в лимит на шаге 4 из 7, подготовка дубля около 16 минут</span></li><li><a href="https://app.notion.com/p/KeyError-resume-3fddfdb148228133977ac4117a796892" rel="noopener">Журнал изменений: кнопка «Запустить сейчас» в статусе монтажа (18.10.2026)</a> <span>запуск до сброса лимита, после 3 попыток ошибка и кнопка «Продолжить»</span></li><li><a href="https://app.notion.com/p/API-Sonnet-5-5-3-407dfdb1482281308e0bf82edf98efa7" rel="noopener">Журнал изменений: мозг-бот при лимите подписки отвечает через API (28.10.2026)</a> <span>резерв на claude-sonnet-5-5, потолок $3 в сутки, кредиты $100</span></li><li><a href="https://app.notion.com/p/Gemini-Claude-3ebdfdb1482281c2a72be4a710e93239" rel="noopener">Журнал изменений: разбор референсов переведён на Gemini (30.09.2026)</a> <span>Claude тратит лимит только на разговор и сценарии</span></li><li><a href="https://app.notion.com/p/CLAUDE-md-4-Claude-3eedfdb14822819797f9e49adb1744cc" rel="noopener">Файл CLAUDE.md: 4 правила, которые убирают ошибки Claude</a> <span>файл правил от 30 до 150 строк, материал к ролику на 03.10.2026</span></li><li><a href="https://app.notion.com/p/Claude-3f6dfdb1482281a886d8daa5f156cca0" rel="noopener">Схема выбора моделей Claude и внедрения ИИ в бизнес</a> <span>модель под задачу и регулятор Effort, материал на 11.10.2026</span></li><li><a href="https://app.notion.com/p/Claude-Code-401dfdb1482281609ac5f8223ff7401c" rel="noopener">Инструкция по настройке полоски памяти в Claude Code</a> <span>индикатор занятого контекста, команды /compact и /clear, материал на 22.10.2026</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я разберу, какие задачи в твоей работе стоит отдать ИИ, и соберу схему, где Claude, Gemini и резерв на API делят работу без лишних трат на лимиты и токены.</p>
+      </div>
+      <div class="pkgs">
+        <div class="pkg">
+          <h3>Пилот</h3>
+          <div class="price">59 000 ₽</div>
+          <div class="term">14 дней, 10 роликов</div>
+          <ul>
+            <li>Настройка стиля монтажа под ваш бренд</li>
+            <li>Подключение YouTube, Instagram и TikTok</li>
+            <li>10 роликов от референса до выкладки, вы записываете дубли по суфлёру</li>
+            <li>Отчёт с цифрами по каждому ролику</li>
+          </ul>
+        </div>
+        <div class="pkg main">
+          <h3>Конвейер под ключ</h3>
+          <div class="price">190 000 ₽</div>
+          <div class="term">10–14 рабочих дней, разово</div>
+          <ul>
+            <li>Всё из пилота, система остаётся у вас: сервер, Telegram-бот, суфлёр, учёт в Notion</li>
+            <li>Кодовое слово, автоответы в комментариях и страница «Материалы»</li>
+            <li>Воронка с отчётом каждое утро</li>
+            <li>Обучение сотрудника и 30 дней сопровождения, пилот засчитывается</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <h3>Сопровождение</h3>
+          <div class="price">29 000 ₽ <small>в месяц</small></div>
+          <div class="term">после запуска, отмена в любой месяц</div>
+          <ul>
+            <li>Слежу, чтобы конвейер работал, и чиню поломки</li>
+            <li>Обновляю правила под новые возможности площадок и нейросетей</li>
+            <li>Еженедельный отчёт и до четырёх часов доработок</li>
+          </ul>
+        </div>
+      </div>
+      <div class="read">
+        <div class="note"><b>Первый шаг бесплатный.</b> Напишите мне в Telegram слово <span class="word">система</span>. За 30 минут посмотрим вашу задачу, и я скажу, подходит ли вам пилот и чего от него ждать. Цены ориентировочные, итог зависит от числа площадок и объёма. Подробные условия, гарантии и ограничения площадок описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/reklama-meta-cherez-claude-pipeboard/">Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</a><span>Продажи и заявки · 31 октября 2026</span></li><li><a href="/blog/claude-code-agent-telegram-server/">Как запустить Claude Code в Telegram на своём сервере без API</a><span>Автоматизация · 31 октября 2026</span></li><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a><span>Контент и видео · 21 октября 2026</span></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+</body>
+</html>
