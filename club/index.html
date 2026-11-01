@@ -136,7 +136,7 @@ footer a{color:var(--muted)}
 </style>
 </head>
 <body>
-<div class="topbar">Набор основателей открыт до <b>31 декабря</b> · <b>$50 (3 990 ₽)</b> в месяц</div>
+<div class="topbar js-topbar">Набор основателей открыт до <b>31 декабря</b> · <b>$50 (3 990 ₽)</b> в месяц</div>
 <div class="wrap">
 <header><a href="/">Пётр Соловаров</a><a href="/iisystema/">Кейс ii.systema</a></header>
 
@@ -224,7 +224,7 @@ footer a{color:var(--muted)}
 <span class="badge">Основатель · до 31.12.2026</span>
 <h3>Клуб ii.systema</h3>
 <div class="amount">$50 <small>в месяц</small></div>
-<p class="rub">3 990 ₽ в месяц, списывается автоматически</p>
+<p class="rub">3 990 ₽ в месяц, картой, СБП или SberPay</p>
 <ul class="check">
 <li>Все сборки и вся библиотека</li>
 <li>Разбор одной задачи в неделю</li>
@@ -271,7 +271,7 @@ footer a{color:var(--muted)}
 </section>
 
 <section class="cta">
-<h2>До 31 декабря — $50 (3 990 ₽) в месяц, и цена остаётся за тобой</h2>
+<h2 class="js-final">До 31 декабря —$50 (3 990 ₽) в месяц, и цена остаётся за тобой</h2>
 <p>Вступай, повторяй сборки у себя и приноси свою задачу на разбор.</p>
 <div class="btns">
 <a class="btn js-join" href="https://t.me/solovarov" data-src="bottom">🏛 Вступить в клуб</a>
@@ -286,18 +286,36 @@ footer a{color:var(--muted)}
 <div class="sticky"><a class="btn js-join" href="https://t.me/solovarov" data-src="sticky">🏛 Вступить за $50 (3 990 ₽)</a></div>
 
 <script>
-// Ссылка на оплату в Продамусе. Пока пусто — кнопки ведут в личку Telegram и копируют слово «клуб».
-// Появилась ссылка — вписать её сюда, и все кнопки поведут на оплату.
-var PAY_URL = 'https://payform.ru/ovcVERN/';
+// Кнопки ведут в бота клуба: он выдаёт личную ссылку на оплату в Продамусе, а после оплаты сам присылает
+// приглашение в закрытую группу (producer-bot, «💳 Оплата клуба»). С 1 января цена для новых — $79 (6 390 ₽).
+var PAY_URL = 'https://t.me/iisystema_producer_bot?start=club';
+var NEW_PRICE_FROM = Date.parse('2027-01-01T00:00:00+03:00');
 var DM_URL = 'https://t.me/solovarov';
 var CODE_WORD = 'клуб';
 function setText(sel, text) { var el = document.querySelector(sel); if (el) el.textContent = text; }
 if (PAY_URL) {
   document.querySelectorAll('.js-join').forEach(function(a){ a.href = PAY_URL; });
-  setText('.js-how', 'Оплата через Продамус, 3 990 ₽ за месяц. После оплаты напиши мне в Telegram @solovarov — пришлю доступ. Цена основателя остаётся за тобой, пока ты в клубе.');
-  setText('.js-how2', 'Оплата через Продамус, за месяц. Не продлил — просто выходишь из клуба.');
-  setText('.js-how3', 'Кнопка откроет оплату в Продамусе.');
-  setText('.js-faq-pay', 'Оплата через Продамус, рублями, за месяц: картой, СБП или SberPay. После оплаты напиши мне в Telegram @solovarov — пришлю ссылку-приглашение в закрытую группу клуба. Через месяц пришлю ссылку на продление.');
+  setText('.js-how', 'Кнопка откроет бота клуба в Telegram: он пришлёт ссылку на оплату (картой, СБП или SberPay), а сразу после оплаты — приглашение в закрытую группу. Цена основателя остаётся за тобой, пока ты в клубе.');
+  setText('.js-how2', 'Оплата за месяц. За 3 дня до конца бот сам пришлёт ссылку на продление. Не продлил — просто выходишь из клуба.');
+  setText('.js-how3', 'Кнопка откроет бота клуба: оплата и приглашение — там же, за пару минут.');
+  setText('.js-faq-pay', 'Нажми «Вступить» — откроется бот клуба в Telegram. Он пришлёт ссылку на оплату через Продамус (рублями: картой, СБП или SberPay), а как только оплата пройдёт — приглашение в закрытую группу. За 3 дня до конца месяца бот сам пришлёт ссылку на продление.');
+}
+// С 1 января: набор основателей закрыт, для новых — $79 (6 390 ₽). Основатели продолжают платить $50.
+if (Date.now() >= NEW_PRICE_FROM) {
+  var topbar = document.querySelector('.js-topbar');
+  if (topbar) topbar.innerHTML = 'Клуб ii.systema · <b>$79 (6 390 ₽)</b> в месяц';
+  setText('[data-src=hero]', '🏛 Вступить за $79 (6 390 ₽) в месяц');
+  setText('[data-src=sticky]', '🏛 Вступить за $79 (6 390 ₽)');
+  setText('.js-final', 'Клуб ii.systema — $79 (6 390 ₽) в месяц');
+  var founder = document.querySelector('.plan:not(.later)'), later = document.querySelector('.plan.later'),
+      join = document.querySelector('[data-src=price]');
+  if (founder && later && join) {
+    founder.style.display = 'none';
+    later.querySelector('.note').textContent = 'Основатели, которые вступили до 31 декабря, продолжают платить $50 (3 990 ₽).';
+    later.appendChild(join);
+    join.textContent = '🏛 Вступить в клуб';
+  }
+  document.querySelectorAll('.timeline div').forEach(function(d){ d.classList.add('on'); });
 }
 // Нижняя кнопка на телефоне — когда главной кнопки не видно.
 (function(){
