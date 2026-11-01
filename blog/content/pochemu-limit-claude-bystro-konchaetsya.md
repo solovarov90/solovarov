@@ -4,7 +4,7 @@ cover_title: Почему лимит Claude кончается к обеду
 description: "Почему Claude быстро тратит лимит по подписке Pro: длинный разговор каждый раз отправляется модели целиком. Короткие сессии, CLAUDE.md, --resume и резерв на API."
 slug: pochemu-limit-claude-bystro-konchaetsya
 date: 2026-10-31
-updated: 2026-10-31
+updated: 2026-11-01
 cluster: Инструменты
 type: Инструкция
 cover: /blog/pochemu-limit-claude-bystro-konchaetsya/img/cover.jpg
