@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Клуб ii.systema — Пётр Соловаров</title>
+<meta name="description" content="Закрытый клуб: каждую неделю одна сборка из моей ИИ-системы, которую ты повторишь у себя, разбор твоей задачи и созвон раз в две недели. До 31 декабря — $50 (3 990 ₽) в месяц.">
+<meta property="og:title" content="Клуб ii.systema — вся ИИ-система по частям">
+<meta property="og:description" content="Сборка недели, разбор твоей задачи, созвоны. Для основателей до 31.12 — $50 (3 990 ₽) в месяц, цена остаётся за тобой.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petrsolovarov.ru/club/">
+<meta property="og:image" content="https://petrsolovarov.ru/iisystema/img/montage-sheet.jpg">
+<link rel="canonical" href="https://petrsolovarov.ru/club/">
+<!-- Яндекс.Метрика и Google Analytics (те же счётчики, что на главной) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8LDD3GC32"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-L8LDD3GC32');
+</script>
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612','ym');
+ym(113666612,'init',{webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true,referrer:document.referrer,url:location.href});
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f6f4ef;--surface:#fff;--fg:#1c1f24;--muted:#5d636b;--line:#e2ddd2;--accent:#9a6b12;--gold:#d9a93a;--ink:#1c1f24;--soft:#fbf3df;
+--font-display:"Jost","Segoe UI",system-ui,sans-serif;--font-body:"Open Sans","Segoe UI",system-ui,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121417;--surface:#1b1e23;--fg:#ece8df;--muted:#a7a59f;--line:#2c3037;--accent:#e2b552;--soft:#262118;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121417;--surface:#1b1e23;--fg:#ece8df;--muted:#a7a59f;--line:#2c3037;--accent:#e2b552;--soft:#262118;color-scheme:dark}
+*{box-sizing:border-box}
+img{max-width:100%;height:auto;display:block}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6;padding:0 16px 96px;overflow-x:hidden}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto}
+.topbar{margin:0 -16px;padding:8px 16px;background:var(--ink);color:#ece8df;font-size:14px;text-align:center}
+.topbar b{color:var(--gold)}
+header{padding:16px 0;display:flex;justify-content:space-between;align-items:center}
+header a{color:var(--muted);text-decoration:none;font-size:15px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:16px 0}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+h1{font-family:var(--font-display);font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin:0 0 16px;letter-spacing:-.01em}
+h1 mark{background:var(--gold);color:var(--ink);padding:0 .15em;border-radius:4px}
+.lead{font-size:19px;color:var(--muted);max-width:600px;margin:0 0 24px}
+.lead b{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:var(--ink);font-weight:700;font-size:18px;line-height:1.25;padding:17px 26px;border-radius:12px;text-decoration:none;border:0;cursor:pointer;box-shadow:0 8px 24px rgba(217,169,58,.35);text-align:center}
+.btn:hover{filter:brightness(1.05)}
+.ghost{display:inline-flex;align-items:center;gap:10px;color:var(--fg);font-weight:600;font-size:17px;padding:15px 22px;border-radius:12px;text-decoration:none;border:1px solid var(--line);background:var(--surface)}
+.ghost:hover{border-color:var(--accent)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.micro{font-size:14px;color:var(--muted);margin:10px 0 0}
+.proof{display:flex;flex-wrap:wrap;gap:8px 28px;margin:24px 0 0;padding:16px 0 0;border-top:1px solid var(--line)}
+.proof div{font-size:14px;color:var(--muted);line-height:1.3}
+.proof b{display:block;font-family:var(--font-display);font-size:26px;color:var(--fg)}
+.shots{position:relative;height:420px}
+.card-img{position:absolute;width:74%;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 50px rgba(28,31,36,.25);background:var(--surface)}
+.card-img img{width:100%;height:100%;object-fit:cover;object-position:left top}
+.card-img.c1{left:0;top:30px;height:300px;transform:rotate(-3deg)}
+.card-img.c2{right:0;top:110px;height:260px;transform:rotate(3deg);z-index:1}
+.sticker{position:absolute;z-index:2;left:8%;bottom:0;background:var(--ink);color:var(--gold);font-family:var(--font-display);font-weight:700;font-size:17px;line-height:1.2;padding:10px 14px;border-radius:12px;transform:rotate(-2deg);box-shadow:0 10px 24px rgba(0,0,0,.2)}
+section{margin-top:72px}
+h2{font-family:var(--font-display);font-size:clamp(26px,4vw,38px);line-height:1.15;margin:0 0 14px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 24px;max-width:680px;font-size:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.box h3{font-family:var(--font-display);font-size:22px;margin:0 0 10px}
+.box.no{background:transparent}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.item .n{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.04em}
+.item b{display:block;font-size:18px;line-height:1.35;margin:6px 0 6px}
+.item p{margin:0;color:var(--muted);font-size:15px}
+.item.wide{grid-column:span 3;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;background:var(--soft)}
+.item.wide .shot{border-radius:12px;overflow:hidden;border:1px solid var(--line);max-height:300px}
+.item.wide .shot img{width:100%;object-fit:cover;object-position:left top}
+ul.check{list-style:none;margin:0;padding:0}
+ul.check li{position:relative;padding-left:32px;margin-bottom:8px}
+ul.check li::before{content:"✓";position:absolute;left:0;top:3px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+ul.cross{list-style:none;margin:0;padding:0}
+ul.cross li{position:relative;padding-left:32px;margin-bottom:8px;color:var(--muted)}
+ul.cross li::before{content:"✕";position:absolute;left:4px;top:0;color:var(--muted);font-weight:700}
+.week{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.week div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;font-size:15px;color:var(--muted)}
+.week b{display:block;color:var(--fg);font-size:16px;margin-bottom:4px}
+.price{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}
+.plan{background:var(--surface);border:2px solid var(--gold);border-radius:18px;padding:28px;position:relative}
+.plan .badge{position:absolute;top:-14px;left:24px;background:var(--gold);color:var(--ink);font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:4px 12px;border-radius:999px}
+.plan h3{font-family:var(--font-display);font-size:24px;margin:6px 0 4px}
+.amount{font-family:var(--font-display);font-weight:700;font-size:48px;line-height:1;margin:14px 0 4px}
+.amount small{font-size:20px;color:var(--muted);font-weight:600}
+.rub{color:var(--muted);font-size:17px;margin:0 0 18px}
+.plan .btn{width:100%;margin-top:18px}
+.plan.later{border:1px solid var(--line);background:transparent}
+.plan.later .badge{background:var(--line);color:var(--fg)}
+.plan.later .amount{color:var(--muted)}
+.plan.later p.note{color:var(--muted);margin:0}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.timeline div{border-top:3px solid var(--line);padding-top:10px;font-size:15px;color:var(--muted)}
+.timeline div.on{border-color:var(--gold)}
+.timeline b{display:block;color:var(--fg);font-family:var(--font-display);font-size:18px}
+.about{display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:center}
+.about img{border-radius:18px;width:220px;height:auto}
+.about p{margin:0 0 12px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer}
+.faq details p{margin:10px 0 0;color:var(--muted)}
+.cta{background:var(--ink);color:#ece8df;border-radius:20px;padding:36px 24px;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:#a7a59f;margin:0 auto 22px;max-width:560px}
+.cta .btns{justify-content:center}
+.cta .ghost{background:transparent;color:#ece8df;border-color:#3d424a}
+.cta .micro{color:#a7a59f;margin-top:14px}
+footer{margin-top:48px;font-size:14px;color:var(--muted)}
+footer a{color:var(--muted)}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px;background:linear-gradient(transparent,var(--bg) 35%);display:none;justify-content:center;z-index:5}
+.sticky .btn{width:100%;max-width:480px}
+@media (max-width:820px){
+.hero{grid-template-columns:1fr;gap:28px}
+.shots{height:340px;max-width:440px;margin:0 auto;width:100%}
+.card-img.c1{height:240px}.card-img.c2{height:210px;top:100px}
+.two,.grid,.price{grid-template-columns:1fr}
+.item.wide{grid-column:auto;grid-template-columns:1fr}
+.week,.timeline{grid-template-columns:1fr 1fr}
+.about{grid-template-columns:1fr;gap:16px}
+.about img{width:160px}
+}
+@media (max-width:640px){
+.sticky.show{display:flex}
+.hero .btn{width:100%}
+.plan{padding:22px}
+.amount{font-size:40px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">Набор основателей открыт до <b>31 декабря</b> · <b>$50 (3 990 ₽)</b> в месяц</div>
+<div class="wrap">
+<header><a href="/">Пётр Соловаров</a><a href="/iisystema/">Кейс ii.systema</a></header>
+
+<div class="hero">
+<div>
+<span class="tag">Клуб ii.systema · открыт с 1 ноября</span>
+<h1>Моя ИИ-система по частям: <mark>каждую неделю одна сборка</mark>, которую ты повторишь у себя</h1>
+<p class="lead">Закрытый канал и чат для тех, кто хочет отдать рутину агентам и собрать это <b>сам</b>. Готовые промпты, файлы и настройки, разбор твоей задачи и созвон раз в две недели.</p>
+<div class="btns">
+<a class="btn js-join" href="https://t.me/solovarov" data-src="hero">🏛 Вступить за $50 (3 990 ₽) в месяц</a>
+</div>
+<p class="micro js-how">Напиши мне в Telegram слово «клуб» — оно скопируется при нажатии. Цена основателя остаётся за тобой, пока ты в клубе.</p>
+<div class="proof">
+<div><b>44 ролика</b>за 14 дней, один человек</div>
+<div><b>170 942</b>просмотра</div>
+<div><b>994</b>человека написали «система»</div>
+</div>
+</div>
+<div class="shots" aria-hidden="true">
+<div class="card-img c1"><img src="/iisystema/img/notion-conveyor.jpg" alt="" width="1200" height="800"></div>
+<div class="card-img c2"><img src="/iisystema/img/montage-sheet.jpg" alt="" width="1200" height="800"></div>
+<div class="sticker">Новая сборка<br>каждую неделю</div>
+</div>
+</div>
+
+<section>
+<h2>Зачем клуб</h2>
+<p class="sub">Ролики показывают, что система работает. Но из ролика непонятно, как собрать такое у себя: какой сервис, какой промпт, где настройка. В клубе я показываю это по шагам.</p>
+<div class="two">
+<div class="box">
+<h3>Подойдёт, если ты</h3>
+<ul class="check">
+<li>предприниматель или эксперт и хочешь отдать рутину агентам;</li>
+<li>смотришь ролики и думаешь «хочу так же у себя», но не знаешь, с чего начать;</li>
+<li>готов разбираться сам, если есть понятная инструкция и у кого спросить.</li>
+</ul>
+</div>
+<div class="box no">
+<h3>Не подойдёт, если</h3>
+<ul class="cross">
+<li>нужно «сделайте за меня». Для этого есть пилот и внедрение под ключ;</li>
+<li>ждёшь гарантий просмотров, заявок или денег. Их не обещаю;</li>
+<li>нужна личная доработка под твой проект. Это сопровождение.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Что внутри</h2>
+<p class="sub">Всё, что я сам использую в работе, разложено так, чтобы ты повторил это у себя.</p>
+<div class="grid">
+<div class="item wide">
+<div>
+<span class="n">01 · КАЖДУЮ НЕДЕЛЮ</span>
+<b>Сборка недели</b>
+<p>Один узел ii.systema или другой моей рабочей системы целиком: что делает, как собрано, готовые промпты, файлы и настройки. Повторил — и у тебя работает.</p>
+</div>
+<div class="shot"><img src="/iisystema/img/notion-plan.jpg" alt="Контент-план ii.systema в Notion" width="1200" height="800" loading="lazy"></div>
+</div>
+<div class="item"><span class="n">02</span><b>Библиотека сборок</b><p>Всё, что выходило, лежит по полкам. На старте: пак «ИИ-монтажёр ii.systema», промпты для разбора чужих роликов и сценариев, шаблон CLAUDE.md под свой проект.</p></div>
+<div class="item"><span class="n">03</span><b>Разбор твоей задачи</b><p>Одна задача в неделю. Пишешь в тему «🎯 Разборы», через 2 рабочих дня получаешь ответ: что отдать ИИ, каким инструментом, с чего начать.</p></div>
+<div class="item"><span class="n">04</span><b>Созвон раз в 2 недели</b><p>60 минут: что нового в системе, ответы на вопросы, 2–3 живых разбора задач участников на экране. Запись остаётся в клубе.</p></div>
+<div class="item"><span class="n">05</span><b>Чат участников</b><p>Вопросы по сборкам, обмен опытом, свои результаты. Я захожу каждый день.</p></div>
+<div class="item"><span class="n">06</span><b>Ранний доступ</b><p>Новые инструменты и сборки сначала появляются в клубе. В открытый канал — позже или никогда.</p></div>
+<div class="item"><span class="n">07</span><b>Зачёт в пилот</b><p>Решишь, что хочешь быстрее и со мной, — оплаченные месяцы клуба засчитываются в пилот или внедрение под ключ.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Как проходит неделя</h2>
+<div class="week">
+<div><b>Раз в неделю</b>Выходит сборка недели в закрытом канале.</div>
+<div><b>Всю неделю</b>Повторяешь у себя, вопросы задаёшь в чате.</div>
+<div><b>Когда удобно</b>Присылаешь задачу на разбор, ответ — за 2 рабочих дня.</div>
+<div><b>Раз в 2 недели</b>Созвон с разборами на экране, запись в клубе.</div>
+</div>
+</section>
+
+<section id="price">
+<h2>Сколько стоит</h2>
+<p class="sub">Первые участники — основатели. Их цена не меняется, пока подписка активна.</p>
+<div class="price">
+<div class="plan">
+<span class="badge">Основатель · до 31.12.2026</span>
+<h3>Клуб ii.systema</h3>
+<div class="amount">$50 <small>в месяц</small></div>
+<p class="rub">3 990 ₽ в месяц, списывается автоматически</p>
+<ul class="check">
+<li>Все сборки и вся библиотека</li>
+<li>Разбор одной задачи в неделю</li>
+<li>Созвоны раз в 2 недели с записями</li>
+<li>Чат участников и ранний доступ</li>
+<li>Цена $50 (3 990 ₽) остаётся за тобой, пока ты в клубе</li>
+</ul>
+<a class="btn js-join" href="https://t.me/solovarov" data-src="price">🏛 Вступить основателем</a>
+<p class="micro js-how2">Пиши «клуб» мне в Telegram. Отменить можно в любой момент.</p>
+</div>
+<div class="plan later">
+<span class="badge">С 1 января 2027</span>
+<h3>Для новых участников</h3>
+<div class="amount">$79 <small>в месяц</small></div>
+<p class="rub">6 390 ₽ в месяц</p>
+<p class="note">Библиотека растёт каждую неделю, и вход для новых дорожает вместе с ней. Основатели продолжают платить $50 (3 990 ₽).</p>
+</div>
+</div>
+<div class="timeline">
+<div class="on"><b>1 ноября</b>Клуб открыт, цена основателя</div>
+<div class="on"><b>Ноябрь</b>Первые сборки и созвоны</div>
+<div><b>31 декабря</b>Последний день цены $50</div>
+<div><b>1 января</b>Для новых — $79 (6 390 ₽)</div>
+</div>
+</section>
+
+<section class="about">
+<img src="/photo-440.webp" alt="Пётр Соловаров" width="440" height="552" loading="lazy">
+<div>
+<h2>Кто ведёт клуб</h2>
+<p>Я Пётр Соловаров, внедряю ИИ в бизнес: боты для заявок, контент-конвейеры, базы знаний из документов.</p>
+<p>Моя система ii.systema за 14 дней сделала 44 ролика: разбор чужих роликов, сценарии, монтаж, выкладку и ответы в комментариях. Руками у меня остаются два шага: прислать ссылку и записать дубль. Как это устроено — <a href="/iisystema/">в кейсе</a>. В клубе я разбираю её по частям.</p>
+</div>
+</section>
+
+<section class="faq">
+<h2>Частые вопросы</h2>
+<details><summary>Как оплатить и как попасть внутрь?</summary><p class="js-faq-pay">Оплата — подпиской через Продамус, рублями, раз в месяц. Напиши мне в Telegram слово «клуб»: пришлю ссылку на оплату и доступ в закрытый канал и чат.</p></details>
+<details><summary>Я не программист. Разберусь?</summary><p>Сборки пишу для предпринимателей: где нажать, что вставить, что ты увидишь. Если застрял — спрашиваешь в чате или приносишь на разбор.</p></details>
+<details><summary>Что значит «цена остаётся за тобой»?</summary><p>Вступил до 31 декабря — платишь $50 (3 990 ₽), пока подписка активна, даже когда для новых станет $79 (6 390 ₽). Если выйдешь и вернёшься, это будет уже по новой цене.</p></details>
+<details><summary>Можно отменить?</summary><p>Да, в любой момент. Доступ сохраняется до конца оплаченного месяца. За прошедшие дни деньги не возвращаются.</p></details>
+<details><summary>Чем клуб отличается от пилота?</summary><p>В клубе ты собираешь систему сам, а я показываю, как. В пилоте за 14 дней я делаю систему под твой бизнес. Оплаченные месяцы клуба засчитываются в пилот.</p></details>
+<details><summary>Чем отличается от бесплатного канала?</summary><p>В канале — инструкции по отдельным задачам. В клубе — целые узлы системы с файлами и настройками, разбор именно твоей задачи, созвоны и люди, которые делают то же самое.</p></details>
+</section>
+
+<section class="cta">
+<h2>До 31 декабря — $50 (3 990 ₽) в месяц, и цена остаётся за тобой</h2>
+<p>Вступай, повторяй сборки у себя и приноси свою задачу на разбор.</p>
+<div class="btns">
+<a class="btn js-join" href="https://t.me/solovarov" data-src="bottom">🏛 Вступить в клуб</a>
+<a class="ghost" href="https://t.me/solovarovp">Сначала посмотреть канал</a>
+</div>
+<p class="micro js-how3">Кнопка откроет Telegram, слово «клуб» скопируется само.</p>
+</section>
+
+<footer>© Пётр Соловаров · <a href="/privacy/">Политика конфиденциальности</a></footer>
+</div>
+
+<div class="sticky"><a class="btn js-join" href="https://t.me/solovarov" data-src="sticky">🏛 Вступить за $50 (3 990 ₽)</a></div>
+
+<script>
+// Ссылка на оплату в Продамусе. Пока пусто — кнопки ведут в личку Telegram и копируют слово «клуб».
+// Появилась ссылка — вписать её сюда, и все кнопки поведут на оплату.
+var PAY_URL = '';
+var DM_URL = 'https://t.me/solovarov';
+var CODE_WORD = 'клуб';
+function setText(sel, text) { var el = document.querySelector(sel); if (el) el.textContent = text; }
+if (PAY_URL) {
+  document.querySelectorAll('.js-join').forEach(function(a){ a.href = PAY_URL; });
+  setText('.js-how', 'Оплата через Продамус, 3 990 ₽ в месяц. Цена основателя остаётся за тобой, пока ты в клубе.');
+  setText('.js-how2', 'Оплата через Продамус. Отменить можно в любой момент.');
+  setText('.js-how3', 'Кнопка откроет оплату в Продамусе.');
+  setText('.js-faq-pay', 'Оплата — подпиской через Продамус, рублями, раз в месяц. После оплаты придёт доступ в закрытый канал и чат. Что-то не так — напиши мне в Telegram @solovarov.');
+}
+// Нижняя кнопка на телефоне — когда главной кнопки не видно.
+(function(){
+  var hero = document.querySelector('.hero .btns'), sticky = document.querySelector('.sticky');
+  if (!hero || !sticky) return;
+  if (!('IntersectionObserver' in window)) { sticky.classList.add('show'); return; }
+  new IntersectionObserver(function(es){ sticky.classList.toggle('show', !es[0].isIntersecting); }).observe(hero);
+})();
+document.querySelectorAll('.js-join').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    var src = a.dataset.src, href = PAY_URL || DM_URL;
+    if (!PAY_URL) { try { if (navigator.clipboard) navigator.clipboard.writeText(CODE_WORD); } catch(_) {} }
+    try { if (window.ym) ym(113666612, 'reachGoal', 'club_click', {src: src, pay: PAY_URL ? 1 : 0}); } catch(_) {}
+    try { if (window.gtag) gtag('event', 'club_click', {src: src, pay: PAY_URL ? 1 : 0}); } catch(_) {}
+    setTimeout(function(){ location.href = href; }, 300);
+  });
+});
+</script>
+</body>
+</html>
