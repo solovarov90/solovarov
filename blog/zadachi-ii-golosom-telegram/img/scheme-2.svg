@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" role="img" aria-label="Схема пути голосовой задачи: голосовое в Telegram, расшифровка, Claude с файлом правил, карточка в Notion, ссылка обратно в Telegram">
+<title>Путь голосовой задачи из Telegram в Notion</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<rect x="60" y="30" width="1080" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="120" cy="78" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="87" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">1</text>
+<text x="180" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Голосовое сообщение в Telegram</text>
+<text x="180" y="102" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Говоришь задачу в чат или группу, печатать не нужно</text>
+
+<line x1="600" y1="128" x2="600" y2="162" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="60" y="166" width="1080" height="96" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="120" cy="214" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="223" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">2</text>
+<text x="180" y="204" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Сервер с Whisper или Gemini</text>
+<text x="180" y="238" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Аудиофайл превращается в текст</text>
+
+<line x1="600" y1="264" x2="600" y2="298" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="60" y="302" width="1080" height="96" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="120" cy="350" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="359" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">3</text>
+<text x="180" y="340" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Claude с файлом правил CLAUDE.md</text>
+<text x="180" y="374" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Правила подсказывают, какая база Notion к какому проекту</text>
+
+<line x1="600" y1="400" x2="600" y2="434" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="60" y="438" width="1080" height="96" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="120" cy="486" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="495" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">4</text>
+<text x="180" y="476" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Карточка в нужной базе Notion</text>
+<text x="180" y="510" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Задача, статус, срок, исполнитель, ссылка на сообщение</text>
+
+<line x1="600" y1="536" x2="600" y2="570" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="60" y="574" width="1080" height="96" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="120" cy="622" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="631" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">5</text>
+<text x="180" y="612" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Ссылка на задачу в Telegram</text>
+<text x="180" y="646" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Бот присылает адрес карточки, за секунду видно, что легло куда надо</text>
+</svg>

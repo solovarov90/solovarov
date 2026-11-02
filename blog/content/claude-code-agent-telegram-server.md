@@ -4,7 +4,7 @@ cover_title: Claude Code в Telegram без API
 description: "Claude Code на сервере по подписке: как запустить ИИ-агента в Telegram без API-ключа, ограничить его права и пережить перезапуски и лимиты. Мой опыт на четырёх ботах."
 slug: claude-code-agent-telegram-server
 date: 2026-10-31
-updated: 2026-10-31
+updated: 2026-11-02
 cluster: Автоматизация
 type: Инструкция
 cover: /blog/claude-code-agent-telegram-server/img/cover.jpg
