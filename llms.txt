@@ -24,6 +24,7 @@
 - [Консультация по внедрению ИИ](https://petrsolovarov.ru/konsultaciya/): 60 минут, 5 000 ₽ · $65, засчитывается во внедрение
 - [Клуб ii.systema](https://petrsolovarov.ru/club/): сборка из системы каждую неделю, 3 990 ₽ · $50 в месяц до 31 декабря
 - [Набор «Автоответ на кодовое слово»](https://petrsolovarov.ru/avtootvet/): слово под роликом → ссылка в директ, 1 990 ₽ · $25
+- [Набор «Свой Джарвис»](https://petrsolovarov.ru/jarvis/): Telegram-бот и голос на Claude Code по подписке, 2 990 ₽ · $39
 
 ## Кейсы
 
