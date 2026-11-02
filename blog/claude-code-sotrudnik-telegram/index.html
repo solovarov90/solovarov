@@ -295,6 +295,9 @@ table.fix tr:last-child td { border-bottom: 0; }
 .pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
 .pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
 .pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
 .note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
@@ -588,42 +591,9 @@ async def run_claude(topic, text):
       <div class="read">
         <p>Я поднимаю такого ИИ-агента на вашем сервере и вашей подписке и учу его вашим задачам. Вы пишете в Telegram, агент делает и отчитывается.</p>
       </div>
-      <div class="pkgs">
-        <div class="pkg">
-          <h3>Пилот</h3>
-          <div class="price">59 000 ₽</div>
-          <div class="term">14 дней, 10 роликов</div>
-          <ul>
-            <li>Настройка стиля монтажа под ваш бренд</li>
-            <li>Подключение YouTube, Instagram и TikTok</li>
-            <li>10 роликов от референса до выкладки, вы записываете дубли по суфлёру</li>
-            <li>Отчёт с цифрами по каждому ролику</li>
-          </ul>
-        </div>
-        <div class="pkg main">
-          <h3>Конвейер под ключ</h3>
-          <div class="price">190 000 ₽</div>
-          <div class="term">10–14 рабочих дней, разово</div>
-          <ul>
-            <li>Всё из пилота, система остаётся у вас: сервер, Telegram-бот, суфлёр, учёт в Notion</li>
-            <li>Кодовое слово, автоответы в комментариях и страница «Материалы»</li>
-            <li>Воронка с отчётом каждое утро</li>
-            <li>Обучение сотрудника и 30 дней сопровождения, пилот засчитывается</li>
-          </ul>
-        </div>
-        <div class="pkg">
-          <h3>Сопровождение</h3>
-          <div class="price">29 000 ₽ <small>в месяц</small></div>
-          <div class="term">после запуска, отмена в любой месяц</div>
-          <ul>
-            <li>Слежу, чтобы конвейер работал, и чиню поломки</li>
-            <li>Обновляю правила под новые возможности площадок и нейросетей</li>
-            <li>Еженедельный отчёт и до четырёх часов доработок</li>
-          </ul>
-        </div>
-      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, оплата помесячно</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
       <div class="read">
-        <div class="note"><b>Первый шаг бесплатный.</b> Напишите мне в Telegram слово <span class="word">система</span>. За 30 минут посмотрим вашу задачу, и я скажу, подходит ли вам пилот и чего от него ждать. Цены ориентировочные, итог зависит от числа площадок и объёма. Подробные условия, гарантии и ограничения площадок описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
         <div class="cta-row">
           <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
           <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
@@ -641,5 +611,12 @@ async def run_claude(topic, text):
     <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
   </main>
 </div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'оплата помесячно, выйти можно в любой момент'; });
+}
+</script>
 </body>
 </html>
