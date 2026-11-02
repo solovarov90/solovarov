@@ -271,7 +271,7 @@ table.fix tr:last-child td { border-bottom: 0; }
 // Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
 if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
   document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
-  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'оплата помесячно, выйти можно в любой момент'; });
 }
 </script>
 </body>
