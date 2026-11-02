@@ -6,6 +6,7 @@
 
 ## Статьи блога
 
+- [Как ставить задачи ИИ голосом в Telegram и получать готовый результат](https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/): Как ставить задачи голосом через ИИ: голосовое в Telegram, расшифровка Whisper, разбор Claude и карточка задачи в Notion. Схема, цены, поломки и мой опыт.
 - [Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager](https://petrsolovarov.ru/blog/reklama-meta-cherez-claude-pipeboard/): Как настроить рекламу Meta через нейросеть: Claude с коннектором Pipeboard собрал мне кампании, креативы и лендинг с пикселем. Цифры за 2 дня и что сломалось.
 - [Почему лимит Claude по подписке кончается к обеду и как растянуть его на день](https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/): Почему Claude быстро тратит лимит по подписке Pro: длинный разговор каждый раз отправляется модели целиком. Короткие сессии, CLAUDE.md, --resume и резерв на API.
 - [Как запустить Claude Code в Telegram на своём сервере без API](https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/): Claude Code на сервере по подписке: как запустить ИИ-агента в Telegram без API-ключа, ограничить его права и пережить перезапуски и лимиты. Мой опыт на четырёх ботах.

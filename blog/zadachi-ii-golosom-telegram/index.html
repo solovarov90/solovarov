@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как ставить задачи ИИ голосом в Telegram и получать готовый результат — блог Петра Соловарова</title>
+<meta name="description" content="Как ставить задачи голосом через ИИ: голосовое в Telegram, расшифровка Whisper, разбор Claude и карточка задачи в Notion. Схема, цены, поломки и мой опыт.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Как ставить задачи ИИ голосом в Telegram и получать готовый результат">
+<meta property="og:description" content="Как ставить задачи голосом через ИИ: голосовое в Telegram, расшифровка Whisper, разбор Claude и карточка задачи в Notion. Схема, цены, поломки и мой опыт.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Как ставить задачи голосом через ИИ в Telegram и получать карточку задачи в Notion">
+<meta property="article:published_time" content="2026-11-01">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Автоматизация">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Как ставить задачи ИИ голосом в Telegram и получать готовый результат">
+<meta name="twitter:description" content="Как ставить задачи голосом через ИИ: голосовое в Telegram, расшифровка Whisper, разбор Claude и карточка задачи в Notion. Схема, цены, поломки и мой опыт.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/"
+   },
+   "headline": "Как ставить задачи ИИ голосом в Telegram и получать готовый результат",
+   "description": "Как ставить задачи голосом через ИИ: голосовое в Telegram, расшифровка Whisper, разбор Claude и карточка задачи в Notion. Схема, цены, поломки и мой опыт.",
+   "image": [
+    "https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-01",
+   "dateModified": "2026-11-01",
+   "inLanguage": "ru-RU",
+   "wordCount": 4769,
+   "articleSection": "Автоматизация",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Как ставить задачи ИИ голосом в Telegram и получать готовый результат",
+     "item": "https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Что делать, если в голосовом много слов-паразитов и оговорок?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ничего, это нормально. Whisper честно пишет всё, что услышал, а чистит текст языковая модель на следующем шаге. В промпте я прошу её выписать суть, срок и исполнителя и не придумывать то, чего в речи нет. Если важного не хватает, бот-продюсер у меня задаёт один уточняющий вопрос."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Какой сервер нужен для работы распознавания речи Whisper?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Хватит обычного облачного сервера без видеокарты. Мой транскрибатор живёт на Hetzner CX23 с 2 ядрами и 4 ГБ памяти, модель medium на процессоре. По моим заметкам от 13.06.2026 запись на 76 минут он расшифровывает за 25–40 минут."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему нельзя просто подключить готового бота-транскрибатора из поиска Telegram?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Можно, если нужен только текст. Готовый бот выдаст расшифровку, но дальше её придётся руками переносить в трекер. Плюс твой звук уходит на чужой сервер, и ты не знаешь, где он хранится. Свой бот расшифровывает, разбирает и сам пишет задачу в твою базу."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как обойти ограничение Telegram Bot API на файлы больше 20 мегабайт?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Поднять свой локальный сервер Bot API. По документации Telegram он скачивает файлы без ограничения размера и загружает до 2000 МБ. У меня так с 01.10.2026 работает штаб, а бот «Мозг» тем же путём принимает записи встреч до 2 ГБ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Безопасно ли отправлять голосовые с коммерческой информацией в облачный ИИ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Зависит от того, куда уходит звук. Whisper на своём сервере не отправляет запись наружу вообще. Облачная расшифровка через Gemini отправляет, поэтому в клиентском проекте мы включили её только в двух темах, звук не храним, а каждый запрос пишем в журнал."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Может ли бот понять, в какой проект или базу Notion направить задачу?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да, по контексту. Мой бот смотрит, из какой группы пришло сообщение, есть ли в нём метка проекта и о чём шёл разговор. На карточке задачи стоит проект, и если бот ошибся, я меняю его одной кнопкой."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Автоматизация</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Инструкция · Автоматизация · 26 мин чтения</div>
+    <h1>Как ставить задачи ИИ голосом в Telegram и получать готовый результат</h1>
+    <p class="lead">Как ставить задачи голосом через ИИ: голосовое в Telegram, расшифровка Whisper, разбор Claude и карточка задачи в Notion. Схема, цены, поломки и мой опыт.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-01">1 ноября 2026</time> · 4 769 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/zadachi-ii-golosom-telegram/img/cover.jpg" alt="Как ставить задачи голосом через ИИ в Telegram и получать карточку задачи в Notion" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#zachem-predprinimatelyu-stavit-zadachi-golosom-vmesto-teksta">Зачем предпринимателю ставить задачи голосом вместо текста?</a></li><li><a href="#kak-ustroena-arhitektura-ot-audiosoobscheniya-do-kartochki-v">Как устроена архитектура: от аудиосообщения до карточки в таск-трекере?</a></li><li><a href="#chem-rasshifrovyvat-zvuk-whisper-na-svoem-servere-ili-oblach">Чем расшифровывать звук: Whisper на своём сервере или облачный API Gemini?</a></li><li><a href="#kak-prevratit-sumburnuyu-rech-v-chetkuyu-zadachu-so-srokom-i">Как превратить сумбурную речь в чёткую задачу со сроком и исполнителем?</a></li><li><a href="#kak-nastroit-peredachu-zadach-iz-telegram-pryamo-v-notion">Как настроить передачу задач из Telegram прямо в Notion?</a></li><li><a href="#s-kakimi-tehnicheskimi-ogranicheniyami-i-polomkami-ty-stolkn">С какими техническими ограничениями и поломками ты столкнёшься?</a></li><li><a href="#kak-eto-rabotaet-na-praktike-chto-ya-proveril-na-sebe-v-bote">Как это работает на практике: что я проверил на себе в боте «Мозг»?</a></li><li><a href="#skolko-stoit-zapusk-golosovogo-assistenta-na-svoem-servere">Сколько стоит запуск голосового ассистента на своём сервере?</a></li><li><a href="#s-chego-nachat-esli-hochesh-stavit-zadachi-golosom-uzhe-na-e">С чего начать, если хочешь ставить задачи голосом уже на этой неделе?</a></li></ol></nav>
+    <article class="article">
+<p>Чтобы ставить задачи ИИ голосом прямо из Telegram, нужен бот на сервере, который связывает распознавание речи Whisper и языковую модель Claude или Gemini. Бот принимает голосовое, переводит звук в текст, вытаскивает из него суть поручения со сроком и исполнителем и сам записывает карточку в рабочую базу Notion. Ты наговариваешь мысль за двадцать секунд, а в трекере появляется задача со ссылкой, которую бот присылает в ответ.</p>
+<p>Я так работаю с конца октября 2026 года: мой бот «Мозг» живёт в личке и во всех моих рабочих группах, расшифровывает голосовые и кружки и с 28.10.2026 сам заводит задачи в базах проектов. Ниже вся схема по шагам: из чего она собрана, сколько стоит, что ломалось и как это повторить у себя.</p>
+<h2 id="zachem-predprinimatelyu-stavit-zadachi-golosom-vmesto-teksta">Зачем предпринимателю ставить задачи голосом вместо текста?</h2>
+<p>Голосом задача ставится там, где текстом её бы не поставили вовсе: за рулём, на прогулке, сразу после созвона. Пока мысль свежая, ты её проговорил, и она уже в трекере. Если откладывать до компьютера, половина договорённостей теряется.</p>
+<p>У меня голос стал основным входом во всю систему. Вот где я им пользуюсь каждый день:</p>
+<ul>
+<li><strong>Задачи по проектам.</strong> Наговариваю «Мозг, заведи задачу в проекте такой-то: проверить отчёт до пятницы», бот пишет строку в Notion и присылает ссылку.</li>
+<li><strong>Правки в контенте.</strong> «В сценарии REEL-6 убери второй хук и сделай концовку короче»: бот расшифровывает, Claude правит страницу в Notion и отвечает, что сделал. Эту схему я разбирал в <a href="/blog/claude-code-kak-sotrudnik-v-telegram/">статье про Claude Code как сотрудника</a>.</li>
+<li><strong>Посты для канала.</strong> С 18.10.2026 бот-продюсер утром задаёт мне 2–3 вопроса, я отвечаю голосом, и пост дня собирается из моих слов. Gemini только раскладывает их по структуре, а Opus сохраняет мои формулировки и добавляет связки.</li>
+</ul>
+<p>Главная выгода для предпринимателя простая. Ты перестаёшь быть узким местом, через которое каждая мысль должна пройти в виде набранного текста. Наговорить мысль проще, чем набрать её пальцем на телефоне, а разобрать сумбур в чёткую задачу ИИ умеет хорошо.</p>
+<h2 id="kak-ustroena-arhitektura-ot-audiosoobscheniya-do-kartochki-v">Как устроена архитектура: от аудиосообщения до карточки в таск-трекере?</h2>
+<p>Цепочка из пяти шагов: голосовое в Telegram, бот на сервере, расшифровка, разбор языковой моделью, запись в Notion и ответ со ссылкой. Каждый шаг делает своя программа, и каждую можно заменить, не ломая остальные.</p>
+<!-- img: type=scheme what="узлы и стрелки: голосовое или кружок в Telegram → бот на сервере (скачивает файл) → Whisper (звук в текст) → Claude Opus (суть, срок, исполнитель, проект) → строка задачи в Notion → ответ в чат со ссылкой на карточку; подписи у стрелок: файл, текст, задача, ссылка" caption="Путь голосового от Telegram до карточки задачи в Notion: пять шагов, каждый делает своя программа." alt="Как ставить задачи голосом через ИИ: схема от голосового в Telegram до карточки в Notion" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="100%" role="img" aria-label="Путь голосового сообщения от Telegram до карточки задачи в Notion: пять шагов, каждый делает своя программа">
+<title>Путь голосового от Telegram до карточки задачи в Notion</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<!-- Ряд 1: три узла -->
+<rect x="40" y="40" width="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="82" cy="82" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="82" y="90" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">1</text>
+<text x="120" y="90" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Telegram</text>
+<text x="64" y="138" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Ты наговариваешь</text>
+<text x="64" y="166" font-family="var(--font-body)" font-size="19" fill="var(--muted)">голосовое или кружок</text>
+
+<rect x="450" y="40" width="300" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="492" cy="82" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="492" y="90" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">2</text>
+<text x="530" y="90" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Бот на сервере</text>
+<text x="474" y="138" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Ловит сообщение</text>
+<text x="474" y="166" font-family="var(--font-body)" font-size="19" fill="var(--muted)">и скачивает файл</text>
+
+<rect x="860" y="40" width="300" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="902" cy="82" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="902" y="90" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">3</text>
+<text x="940" y="90" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Whisper</text>
+<text x="884" y="138" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Превращает звук</text>
+<text x="884" y="166" font-family="var(--font-body)" font-size="19" fill="var(--muted)">в текст</text>
+
+<!-- Стрелки ряда 1 -->
+<line x1="340" y1="125" x2="446" y2="125" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+<text x="395" y="108" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">файл</text>
+<line x1="750" y1="125" x2="856" y2="125" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+<text x="803" y="108" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">звук</text>
+
+<!-- Переход вниз: текст -->
+<path d="M1010 210 L1010 275 L890 275 L890 330" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<text x="1030" y="262" font-family="var(--font-body)" font-size="18" fill="var(--muted)">текст</text>
+
+<!-- Ряд 2: узлы справа налево -->
+<rect x="740" y="335" width="300" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="782" cy="377" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="782" y="385" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">4</text>
+<text x="820" y="385" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Claude Opus</text>
+<text x="764" y="428" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Находит суть, срок,</text>
+<text x="764" y="456" font-family="var(--font-body)" font-size="19" fill="var(--muted)">исполнителя, проект</text>
+
+<rect x="330" y="335" width="300" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="372" cy="377" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="372" y="385" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">5</text>
+<text x="410" y="385" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Notion</text>
+<text x="354" y="428" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Новая строка задачи</text>
+<text x="354" y="456" font-family="var(--font-body)" font-size="19" fill="var(--muted)">в таск-трекере</text>
+
+<line x1="740" y1="420" x2="634" y2="420" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+<text x="687" y="403" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">задача</text>
+
+<!-- Итог: ответ в чат -->
+<rect x="40" y="365" width="200" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="140" y="410" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ответ в чат</text>
+<text x="140" y="445" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--muted)">со ссылкой</text>
+
+<line x1="330" y1="420" x2="244" y2="420" stroke="var(--accent)" stroke-width="3.5" marker-end="url(#arrA)"/>
+<text x="287" y="403" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ссылка</text>
+</svg>
+<figcaption>Путь голосового от Telegram до карточки задачи в Notion: пять шагов, каждый делает своя программа.</figcaption>
+</figure>
+
+<p>Как это работает по шагам:</p>
+<ol>
+<li><strong>Telegram.</strong> Ты отправляешь голосовое или кружок боту в личку или в группу. В группе мой бот реагирует только на обращение: «Мозг, …» в начале голосового, ответ на его сообщение или упоминание. Остальную переписку он молча читает в журнал.</li>
+<li><strong>Бот на сервере.</strong> Небольшая программа на Python скачивает файл через Telegram Bot API. Bot API это программный вход в Telegram для ботов: через него бот получает сообщения и файлы.</li>
+<li><strong>Расшифровка.</strong> Бот отправляет звук на сервер с Whisper. Обратно приходит обычный текст. Дальше бот работает с ним так же, как с напечатанным сообщением.</li>
+<li><strong>Разбор.</strong> Текст уходит в Claude Opus вместе с контекстом: из какой группы сообщение, о чём шёл разговор, какие есть проекты и базы. Модель понимает, что это задача, выписывает суть, срок и исполнителя.</li>
+<li><strong>Запись и ответ.</strong> Opus сам создаёт строку в базе задач нужного проекта в Notion и возвращает ссылку. Бот присылает её ответом на твоё голосовое.</li>
+</ol>
+<p>Отдельная ветка для больших задач, где нужен код или правка нескольких страниц. Там бот заводит строку в базе «Задачи в облаке» и запускает отдельную сессию Claude Code. В конце сессия пишет в ту же строку статус (готово, нужен ты, не вышло), результат и ссылки, а бот раз в минуту проверяет строки и присылает итог ответом на карточку.</p>
+<h2 id="chem-rasshifrovyvat-zvuk-whisper-na-svoem-servere-ili-oblach">Чем расшифровывать звук: Whisper на своём сервере или облачный API Gemini?</h2>
+<p>Для своих голосовых я беру Whisper на своём сервере: бесплатно, звук никуда не уходит, качество на русском хорошее. Gemini удобен, когда Whisper поднимать негде или расшифровка нужна внутри уже готовой связки с Gemini. Я пользуюсь обоими, в разных проектах.</p>
+<p>Whisper это открытая модель распознавания речи. Я запускаю её через <a href="https://github.com/SYSTRAN/faster-whisper">faster-whisper</a>, версию, которая быстро работает на обычном процессоре без видеокарты.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th></th>
+<th>Whisper на своём сервере</th>
+<th>Gemini в облаке</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Где звук</td>
+<td>Остаётся на твоём сервере</td>
+<td>Уходит в Google</td>
+</tr>
+<tr>
+<td>Цена</td>
+<td>Только сервер</td>
+<td>По тарифу Gemini, у меня бесплатный ключ</td>
+</tr>
+<tr>
+<td>Что нужно</td>
+<td>Сервер, ffmpeg, Python</td>
+<td>Ключ Gemini и пара строк кода</td>
+</tr>
+<tr>
+<td>Длинные записи</td>
+<td>Режу на куски, иначе кончается память</td>
+<td>Зависит от лимитов API</td>
+</tr>
+<tr>
+<td>Где у меня</td>
+<td>Бот «Мозг», разбор роликов, транскрибатор встреч</td>
+<td>Клиентский проект с ботом для админов</td>
+</tr>
+</tbody>
+</table></div>
+<p>Мой транскрибатор с июня 2026 года живёт на сервере Hetzner CX23: 2 ядра, 4 ГБ памяти, без видеокарты. Модель medium, язык русский. По моим заметкам от 13.06.2026 он расшифровал запись на 76 минут без пропусков, на это уходит 25–40 минут.</p>
+<p>В одном клиентском проекте с 17.10.2026 голосовые админов расшифровывает Gemini через модуль <code>speech.py</code>. Звук там нельзя обезличить, поэтому расшифровку включили только в двух местах: в ответах на вопросы бота и в теме «Второй мозг». Каждый запрос пишется в журнал с пометкой stt: длительность и текст, сам звук не хранится.</p>
+<p>Правило выбора у меня такое. Свои голосовые и записи встреч идут в свой Whisper. Если проект клиента уже работает на Gemini и звук можно отдавать наружу, ставлю Gemini и не держу ради этого отдельный сервер.</p>
+<h2 id="kak-prevratit-sumburnuyu-rech-v-chetkuyu-zadachu-so-srokom-i">Как превратить сумбурную речь в чёткую задачу со сроком и исполнителем?</h2>
+<p>Это делает языковая модель на шаге после расшифровки. Ей нужны три вещи: сам текст, контекст (проект, группа, о чём говорили) и чёткая инструкция, что вытащить и чего не придумывать. Без контекста даже хорошая модель путает проекты и людей.</p>
+<p>Живая речь выглядит так: «Слушай, короче, надо бы, ну, до пятницы глянуть отчёт, который вчера прислали, и если там опять старые цифры, то сказать, чтобы переделали». Whisper запишет это слово в слово. Задача модели выписать из этого:</p>
+<ul>
+<li><strong>Что сделать:</strong> проверить отчёт, присланный вчера.</li>
+<li><strong>Срок:</strong> пятница.</li>
+<li><strong>Условие:</strong> если цифры старые, вернуть на переделку.</li>
+<li><strong>Проект:</strong> по группе, откуда пришло голосовое.</li>
+</ul>
+<p>Что я пишу в инструкции для модели:</p>
+<ol>
+<li>Выпиши задачу одной строкой с глаголом в начале.</li>
+<li>Срок и исполнителя бери только из речи. Не сказано, значит поле пустое.</li>
+<li>Проект определи по группе и разговору. Не уверен, спроси.</li>
+<li>Слова-паразиты, повторы и оговорки выкидывай, смысл не меняй.</li>
+<li>Если в голосовом несколько задач, разбей на отдельные пункты.</li>
+</ol>
+<p>Пункт про «не придумывать» самый важный. Модели любят заполнять пустые поля правдоподобным. У меня был случай с другим агентом, Логосом: файла с видео до него не доходило, а он дважды выдал чужой старый транскрипт за присланный ролик. Помогли только прямые запреты в инструкции: брать файл только из текущего сообщения, нет файла, так и сказать.</p>
+<p>Ещё один приём из продюсера канала: если в ответе не хватает ровно одного факта, бот задаёт одно уточнение и дальше не допрашивает. Одного вопроса хватает, чтобы закрыть пробел, а цепочка из пяти уточнений убивает всю пользу голоса.</p>
+<h2 id="kak-nastroit-peredachu-zadach-iz-telegram-pryamo-v-notion">Как настроить передачу задач из Telegram прямо в Notion?</h2>
+<p>Проще всего дать модели доступ к Notion и разрешить ей создавать страницы в нужных базах. У меня Claude Code ходит в Notion через коннектор: это готовый мост от Claude к сервису, ключ на сервере для него хранить не нужно. Модель сама находит базу проекта, создаёт строку и возвращает ссылку.</p>
+<p>Порядок настройки, который я бы повторил:</p>
+<ol>
+<li><strong>Бот в Telegram.</strong> Создай его в @BotFather. Если бот будет жить в группах и слышать голосовые без прямого обращения, там же выключи privacy mode, иначе он увидит только команды и упоминания.</li>
+<li><strong>Сервер и расшифровка.</strong> Подними Whisper или подключи ключ Gemini. Бот отправляет файл и получает текст.</li>
+<li><strong>Базы в Notion.</strong> У каждого проекта своя база задач с колонками: задача, статус, срок, исполнитель, ссылка на исходное сообщение.</li>
+<li><strong>Доступ модели.</strong> Подключи Notion к Claude и опиши в файле правил, какие базы к какому проекту относятся. У меня это файл <code>CLAUDE.md</code> в рабочей папке, его каждая сессия читает первым.</li>
+<li><strong>Права.</strong> Разреши создавать и править, удалять запрети. Мой бот по решению от 28.10.2026 пишет в Notion задачи, заметки и страницы встреч, но ничего не удаляет и не переносит.</li>
+<li><strong>Ответ со ссылкой.</strong> Пусть бот всегда присылает ссылку на созданную карточку. Так ты за секунду видишь, что задача легла куда надо.</li>
+</ol>
+<!-- img: type=scheme caption="Схема пути голосовой задачи: от аудиофайла в Telegram через расшифровку и Claude до карточки в Notion и ответной ссылки." alt="Бот который расшифровывает голосовые и создаёт задачи в Notion" was="Telegram на телефоне, личка с ботом «Мозг»: голосовое Петра с просьбой завести задачу и ответ бота с расшифровкой и ссылкой на созданную строку в Notion; имена клиентов и названия чужих компаний замазать" what="Голосовое сообщение в Telegram → Сервер с Whisper или Gemini (расшифровка в текст) → Claude с файлом правил CLAUDE.md → Создание карточки в нужной базе Notion → Бот отправляет ссылку на задачу обратно в Telegram" -->
+
+<figure class="scheme">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" role="img" aria-label="Схема пути голосовой задачи: голосовое в Telegram, расшифровка, Claude с файлом правил, карточка в Notion, ссылка обратно в Telegram">
+<title>Путь голосовой задачи из Telegram в Notion</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<rect x="60" y="30" width="1080" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="120" cy="78" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="87" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">1</text>
+<text x="180" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Голосовое сообщение в Telegram</text>
+<text x="180" y="102" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Говоришь задачу в чат или группу, печатать не нужно</text>
+
+<line x1="600" y1="128" x2="600" y2="162" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="60" y="166" width="1080" height="96" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="120" cy="214" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="223" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">2</text>
+<text x="180" y="204" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Сервер с Whisper или Gemini</text>
+<text x="180" y="238" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Аудиофайл превращается в текст</text>
+
+<line x1="600" y1="264" x2="600" y2="298" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="60" y="302" width="1080" height="96" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="120" cy="350" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="359" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">3</text>
+<text x="180" y="340" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Claude с файлом правил CLAUDE.md</text>
+<text x="180" y="374" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Правила подсказывают, какая база Notion к какому проекту</text>
+
+<line x1="600" y1="400" x2="600" y2="434" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="60" y="438" width="1080" height="96" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="120" cy="486" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="495" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">4</text>
+<text x="180" y="476" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Карточка в нужной базе Notion</text>
+<text x="180" y="510" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Задача, статус, срок, исполнитель, ссылка на сообщение</text>
+
+<line x1="600" y1="536" x2="600" y2="570" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+
+<rect x="60" y="574" width="1080" height="96" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+<circle cx="120" cy="622" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="120" y="631" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">5</text>
+<text x="180" y="612" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Ссылка на задачу в Telegram</text>
+<text x="180" y="646" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Бот присылает адрес карточки, за секунду видно, что легло куда надо</text>
+</svg>
+<figcaption>Схема пути голосовой задачи: от аудиофайла в Telegram через расшифровку и Claude до карточки в Notion и ответной ссылки.</figcaption>
+</figure>
+
+<p>Записи встреч у меня идут отдельной дорогой. Если в группу проекта падает видео или аудио длиннее 5 минут, бот вытаскивает звук, отдаёт его транскрибатору и присылает транскрипт файлом и конспект: договорённости, чек-лист клиенту до следующего созвона, открытые вопросы. Задачи для нас приходят карточками, и каждую я запускаю кнопкой.</p>
+<h2 id="s-kakimi-tehnicheskimi-ogranicheniyami-i-polomkami-ty-stolkn">С какими техническими ограничениями и поломками ты столкнёшься?</h2>
+<p>Три главные: лимит Telegram на размер файлов, память сервера при длинных записях и лимиты подписки на языковую модель. Все три я прошёл сам, ниже как каждую обойти.</p>
+<ul>
+<li><strong>Файлы больше 20 МБ.</strong> Облачный Bot API не отдаёт ботам тяжёлые файлы. Проверяется в лоб: запрос <code>getFile</code> возвращает <code>400 Bad Request: file is too big</code>. Голосовые обычно мелкие, а записи встреч и видео в лимит не влезают. Я два дня искал причину, почему агент «не видит видео», пока не проверил файл этим запросом. Лечится своим <a href="https://core.telegram.org/bots/api#using-a-local-bot-api-server">локальным сервером Bot API</a>: по документации Telegram он скачивает файлы без ограничения размера и загружает до 2000 МБ. Штаб у меня работает так с 01.10.2026. Второй путь, через протокол самого Telegram (MTProto), стоит у моего транскрибатора: он принимает файлы до 2 ГБ.</li>
+<li><strong>Память при длинных записях.</strong> faster-whisper держит всё аудио в памяти и не отпускает её между вызовами. На сервере с 4 ГБ процесс раздувался до 3 ГБ и падал. Помогло резать запись ffmpeg на куски по 300 секунд и расшифровывать каждый кусок в отдельном процессе. Память после каждого куска освобождается, нагрузка ровная, около 2 ГБ.</li>
+<li><strong>Зацикливание модели.</strong> На одном куске Whisper начинал повторять одну фразу по кругу, процессор на 100%, память растёт. Лечится настройками: выключить опору на предыдущий текст, запретить повторы, включить фильтр тишины. Плюс таймаут на кусок: не уложился, кусок помечается «[фрагмент пропущен]», а остальная запись расшифровывается.</li>
+<li><strong>Лимит подписки.</strong> Разбор и запись в Notion делает Claude Opus по подписке, и в часы пик лимит кончается. С 28.10.2026 бот в этом случае повторяет запрос через платный API на Sonnet 5.5 с потолком $3 в сутки. Дошёл до потолка, отвечает второй мозг по выдержкам из базы. Как растянуть сам лимит, я разбирал в <a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">статье про лимиты Claude</a>.</li>
+<li><strong>Ключ API в окружении.</strong> Резервный ключ нельзя класть в переменную <code>ANTHROPIC_API_KEY</code> в общем файле настроек. Иначе весь Claude Code на сервере уйдёт с подписки на оплату по API.</li>
+</ul>
+<h2 id="kak-eto-rabotaet-na-praktike-chto-ya-proveril-na-sebe-v-bote">Как это работает на практике: что я проверил на себе в боте «Мозг»?</h2>
+<p>Бот «Мозг» я запустил 25.10.2026, теперь это мой пульт по всем проектам. Голосовые и кружки во всех его чатах расшифровывает Whisper на моём сервере разбора роликов, на вопросы отвечает Claude Opus по подписке, а с 28.10.2026 он сам пишет задачи в базы Notion.</p>
+<!-- img: type=terminal cmds="whoami ;; hostname ;; free -h ;; claude --version ;; systemctl is-active ii-shtab ;; systemctl is-active ii-producer" caption="Сервер штаба, на котором живут боты: память, версия Claude Code и работающие службы." alt="Голосовой ассистент для предпринимателя в Telegram на своём сервере" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="Голосовой ассистент для предпринимателя в Telegram на своём сервере" src="/blog/zadachi-ii-golosom-telegram/img/terminal-3.jpg"></div><figcaption>Сервер штаба, на котором живут боты: память, версия Claude Code и работающие службы.</figcaption></figure>
+<p>Что бот умеет с голосом, по README на 30.10.2026:</p>
+<ul>
+<li>голосовое или кружок в личке, ответом на его сообщение или в группе с «Мозг, …» в начале расшифровывается и дальше идёт как текст;</li>
+<li>в группах он видит всё, голосовые расшифровывает в общий журнал словами, поэтому на вопрос «что вчера обсуждали в штабе?» отвечает с учётом голосовых;</li>
+<li>отвечает только мне и только на обращение, остальных участников молча читает;</li>
+<li>в группу, куда его добавил не я, не идёт: выходит сам и пишет мне.</li>
+</ul>
+<p>Пример из работы. 26.10.2026 я попросил собрать замечания по карточкам из тестовой группы клиентского проекта к вечернему созвону. Задача ушла в облачную сессию, и к 11:18 пришёл итог: страница в Notion с таблицей по карточкам, 6 вопросами на созвон и планом до 28.10. В итоге бот честно написал, что новых замечаний в чате к этому времени нет и сводка собрана из пересказа встречи и комментариев от 22.10.</p>
+<p>Что сломалось и что я поменял:</p>
+<ol>
+<li><strong>Бот отвечал всем подряд.</strong> В первой версии он реагировал на любое голосовое в группе и мешал другим ботам. Теперь только на мои сообщения и только по обращению.</li>
+<li><strong>Сессия молча стояла на разрешении.</strong> Облачная сессия иногда ждёт подтверждения, а бот этого не видит. Теперь через 2 часа без отчёта он напоминает заглянуть в сессию, через 3 суток перестаёт следить.</li>
+<li><strong>Задачи из пачки сообщений сыпались россыпью.</strong> Клиент присылает десятки сообщений подряд, и бот предлагал задачу на каждое. С 30.10.2026 они приходят одной карточкой со статусом каждого пункта и кнопками «запустить», «не делаем», «запустить все».</li>
+</ol>
+<p>Как это выглядит со стороны, хорошо описал мой же ответ продюсеру канала 17.10.2026: раньше я брал три проекта и нигде не успевал, теперь беру те же три, а встречи транскрибирует один помощник, планы составляет другой, тексты пишет третий. Вся система целиком разобрана в <a href="/iisystema/">кейсе ii.systema</a>.</p>
+<!-- img: type=gen prompt="a vintage studio microphone on a dark graphite desk, thin golden sound waves flowing from it and turning into neat glowing task cards stacked in the air, soft studio light, minimal composition" caption="Голос на входе, аккуратные карточки задач на выходе: так выглядит связка Whisper, Claude и Notion." alt="Постановка задач голосом в Notion через нейросеть" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="Постановка задач голосом в Notion через нейросеть" src="/blog/zadachi-ii-golosom-telegram/img/gen-4.jpg"></div><figcaption>Голос на входе, аккуратные карточки задач на выходе: так выглядит связка Whisper, Claude и Notion.</figcaption></figure>
+<h2 id="skolko-stoit-zapusk-golosovogo-assistenta-na-svoem-servere">Сколько стоит запуск голосового ассистента на своём сервере?</h2>
+<p>На моём стеке постоянные расходы такие: сервер для ботов от 500 рублей в месяц, подписка Claude Pro, расшифровка Whisper бесплатно на том же или соседнем сервере. Gemini у меня работает по бесплатному ключу. Платный API Anthropic стоит только резервом с потолком $3 в сутки.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Что</th>
+<th>Сколько</th>
+<th>Источник</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Сервер для ботов</td>
+<td>от 500 ₽ в месяц</td>
+<td><a href="/blog/media-konveyer-na-ii/">статья про медиа-конвейер</a></td>
+</tr>
+<tr>
+<td>Claude Pro</td>
+<td>$20 в месяц или $17 при оплате за год</td>
+<td>мой гайд по Claude на 04.10.2026, <a href="/blog/upravlyat-claude-code-s-telefona/">статья про штаб</a></td>
+</tr>
+<tr>
+<td>Whisper</td>
+<td>0 ₽, работает на своём сервере</td>
+<td>AI-стек в Notion, 30.09.2026</td>
+</tr>
+<tr>
+<td>Резерв через API</td>
+<td>до $3 в сутки, по умолчанию</td>
+<td>README бота «Мозг», 28.10.2026</td>
+</tr>
+</tbody>
+</table></div>
+<p>Главные затраты здесь время на сборку и отладку: бот, инструкции для модели, базы в Notion, права. У меня после запуска «Мозга» 25.10.2026 правки шли каждый день: поведение в группах, карточки, проверка итогов. Если повторять по готовой схеме, путь короче.</p>
+<p>Что посчитать до старта:</p>
+<ul>
+<li>сколько голосовых и записей встреч в день у тебя бывает, от этого зависит, хватит ли одного сервера;</li>
+<li>можно ли отдавать звук в облако, или нужен свой Whisper;</li>
+<li>в каких базах живут задачи и кто ещё в них работает;</li>
+<li>кто будет нажимать «запустить» на задачах, которые трогают код или клиентов.</li>
+</ul>
+<h2 id="s-chego-nachat-esli-hochesh-stavit-zadachi-golosom-uzhe-na-e">С чего начать, если хочешь ставить задачи голосом уже на этой неделе?</h2>
+<p>Начни с одного сценария: голосовое в личку боту, задача в одну базу Notion, ссылка в ответ. Когда это неделю работает без сбоев, добавляй группы, записи встреч и проекты.</p>
+<ol>
+<li>Бот в @BotFather и небольшой сервер на Ubuntu.</li>
+<li>Расшифровка: свой Whisper через faster-whisper или ключ Gemini.</li>
+<li>Claude по подписке с доступом к Notion и файлом правил.</li>
+<li>Инструкция для модели: глагол в начале, срок только из речи, ничего не придумывать.</li>
+<li>Запрет удаления в Notion и ответ со ссылкой на каждую карточку.</li>
+<li>Локальный Bot API, если нужны записи длиннее пары минут.</li>
+</ol>
+<p>Если хочешь перестать терять договорённости из голосовых и созвонов, напиши мне в личку https://t.me/solovarov слово «система». Обсудим твой проект и посмотрим, что у тебя можно отдать ИИ.</p>
+    </article>
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Что делать, если в голосовом много слов-паразитов и оговорок?</h3><p>Ничего, это нормально. Whisper честно пишет всё, что услышал, а чистит текст языковая модель на следующем шаге. В промпте я прошу её выписать суть, срок и исполнителя и не придумывать то, чего в речи нет. Если важного не хватает, бот-продюсер у меня задаёт один уточняющий вопрос.</p></div><div class="qa"><h3 id="faq-2">Какой сервер нужен для работы распознавания речи Whisper?</h3><p>Хватит обычного облачного сервера без видеокарты. Мой транскрибатор живёт на Hetzner CX23 с 2 ядрами и 4 ГБ памяти, модель medium на процессоре. По моим заметкам от 13.06.2026 запись на 76 минут он расшифровывает за 25–40 минут.</p></div><div class="qa"><h3 id="faq-3">Почему нельзя просто подключить готового бота-транскрибатора из поиска Telegram?</h3><p>Можно, если нужен только текст. Готовый бот выдаст расшифровку, но дальше её придётся руками переносить в трекер. Плюс твой звук уходит на чужой сервер, и ты не знаешь, где он хранится. Свой бот расшифровывает, разбирает и сам пишет задачу в твою базу.</p></div><div class="qa"><h3 id="faq-4">Как обойти ограничение Telegram Bot API на файлы больше 20 мегабайт?</h3><p>Поднять свой локальный сервер Bot API. По документации Telegram он скачивает файлы без ограничения размера и загружает до 2000 МБ. У меня так с 01.10.2026 работает штаб, а бот «Мозг» тем же путём принимает записи встреч до 2 ГБ.</p></div><div class="qa"><h3 id="faq-5">Безопасно ли отправлять голосовые с коммерческой информацией в облачный ИИ?</h3><p>Зависит от того, куда уходит звук. Whisper на своём сервере не отправляет запись наружу вообще. Облачная расшифровка через Gemini отправляет, поэтому в клиентском проекте мы включили её только в двух темах, звук не храним, а каждый запрос пишем в журнал.</p></div><div class="qa"><h3 id="faq-6">Может ли бот понять, в какой проект или базу Notion направить задачу?</h3><p>Да, по контексту. Мой бот смотрит, из какой группы пришло сообщение, есть ли в нём метка проекта и о чём шёл разговор. На карточке задачи стоит проект, и если бот ошибся, я меняю его одной кнопкой.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://petrsolovarov.ru/iisystema/" rel="noopener">Кейс ii.systema на petrsolovarov.ru</a> <span>вся система ботов, частью которой стал «Мозг»</span></li><li><a href="https://github.com/solovarov90/ii-systema/blob/main/CLAUDE.md" rel="noopener">CLAUDE.md проекта ii.systema, раздел «Бот «Мозг» и задачи в облаке»</a> <span>устройство бота, запись в Notion с 28.10.2026, резерв через API с потолком $3 в сутки, данные на 30.10.2026</span></li><li><a href="https://github.com/solovarov90/ii-systema/blob/main/brain-bot/README.md" rel="noopener">README бота «Мозг» (brain-bot)</a> <span>голосовые и кружки через whisper, статусы задач, записи встреч, ловушки, данные на 30.10.2026</span></li><li><a href="https://app.notion.com/p/404dfdb1482281bc902ac7b1132471ed" rel="noopener">Журнал изменений ii.systema, 25.10.2026</a> <span>бот видит голосовые и скрины в группах, отвечает только автору</span></li><li><a href="https://github.com/solovarov90/ii-systema/blob/main/producer-bot/README.md" rel="noopener">README продюсера канала (producer-bot)</a> <span>пост дня из голосового интервью с 18.10.2026</span></li><li><a href="https://github.com/solovarov90/je30-server/blob/main/scripts/speech.py" rel="noopener">Модуль speech.py проекта JE 3.0</a> <span>расшифровка голосовых через Gemini, журнал запросов с пометкой stt, звук не хранится, 17.10.2026</span></li><li><a href="https://core.telegram.org/bots/api#getfile" rel="noopener">Документация Telegram Bot API, getFile и Local Bot API Server</a> <span>лимит скачивания файлов ботом в облачном API и снятие лимита на локальном сервере, проверено 01.11.2026</span></li><li><a href="https://github.com/openai/whisper" rel="noopener">Whisper на GitHub</a> <span>открытая модель распознавания речи</span></li><li><a href="https://github.com/SYSTRAN/faster-whisper" rel="noopener">faster-whisper на GitHub</a> <span>быстрая версия Whisper для процессора, на ней работает мой транскрибатор</span></li><li><a href="https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/" rel="noopener">Статья «ИИ-штаб на сервере: как управлять Claude Code с телефона по подписке»</a> <span>сервер штаба, локальный Bot API с 01.10.2026, цена подписки по гайду на 04.10.2026</span></li><li><a href="https://petrsolovarov.ru/blog/media-konveyer-na-ii/" rel="noopener">Статья «Как одному человеку собрать медиа-конвейер на ИИ»</a> <span>цена сервера для ботов от 500 рублей в месяц</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я собираю голосового помощника под твой Telegram, твои базы в Notion и твои проекты. Ты наговариваешь голосовое, а задача со сроком и ссылкой появляется в трекере.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, оплата помесячно</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/reklama-meta-cherez-claude-pipeboard/">Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</a><span>Продажи и заявки · 31 октября 2026</span></li><li><a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</a><span>Инструменты · 31 октября 2026</span></li><li><a href="/blog/claude-code-agent-telegram-server/">Как запустить Claude Code в Telegram на своём сервере без API</a><span>Автоматизация · 31 октября 2026</span></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'оплата помесячно, выйти можно в любой момент'; });
+}
+</script>
+</body>
+</html>
