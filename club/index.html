@@ -55,11 +55,20 @@ h1 mark{background:var(--gold);color:var(--ink);padding:0 .15em;border-radius:4p
 .proof{display:flex;flex-wrap:wrap;gap:8px 28px;margin:24px 0 0;padding:16px 0 0;border-top:1px solid var(--line)}
 .proof div{font-size:14px;color:var(--muted);line-height:1.3}
 .proof b{display:block;font-family:var(--font-display);font-size:26px;color:var(--fg)}
-.shots{position:relative;height:420px}
-.card-img{position:absolute;width:74%;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 50px rgba(28,31,36,.25);background:var(--surface)}
-.card-img img{width:100%;height:100%;object-fit:cover;object-position:left top}
-.card-img.c1{left:0;top:30px;height:300px;transform:rotate(-3deg)}
-.card-img.c2{right:0;top:110px;height:260px;transform:rotate(3deg);z-index:1}
+.tg{position:relative;background:#17212b;color:#e8edf2;border-radius:18px;padding:8px 0 14px;box-shadow:0 24px 50px rgba(28,31,36,.28);border:1px solid #243140;max-width:440px;width:100%;justify-self:end;transform:rotate(1.5deg)}
+.tg-head{display:flex;gap:12px;align-items:center;padding:10px 16px 12px;border-bottom:1px solid #243140}
+.tg-head b{display:block;font-size:16px;line-height:1.2}
+.tg-head small{color:#7f91a4;font-size:13px}
+.tg-ava{width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--ink);font-family:var(--font-display);font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.tg-row{display:flex;gap:12px;align-items:center;padding:8px 16px}
+.tg-row>div{min-width:0;flex:1}
+.tg-row b{display:block;font-size:15px;line-height:1.25}
+.tg-row p{margin:0;color:#7f91a4;font-size:13px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tg-row.hot{background:#202b36}
+.tg-row.hot p{color:#c9d3dd}
+.tg-ic{width:34px;height:34px;border-radius:50%;background:#243140;display:flex;align-items:center;justify-content:center;font-size:17px;flex:none}
+.tg-badge{background:var(--gold);color:var(--ink);font-size:12px;font-weight:700;border-radius:999px;padding:1px 8px;flex:none}
+.tg .sticker{left:auto;right:-14px;top:-22px;bottom:auto;transform:rotate(4deg)}
 .sticker{position:absolute;z-index:2;left:8%;bottom:0;background:var(--ink);color:var(--gold);font-family:var(--font-display);font-weight:700;font-size:17px;line-height:1.2;padding:10px 14px;border-radius:12px;transform:rotate(-2deg);box-shadow:0 10px 24px rgba(0,0,0,.2)}
 section{margin-top:72px}
 h2{font-family:var(--font-display);font-size:clamp(26px,4vw,38px);line-height:1.15;margin:0 0 14px;letter-spacing:-.01em}
@@ -86,6 +95,72 @@ ul.cross li::before{content:"✕";position:absolute;left:4px;top:0;color:var(--m
 .week{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .week div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;font-size:15px;color:var(--muted)}
 .week b{display:block;color:var(--fg);font-size:16px;margin-bottom:4px}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;counter-reset:n}
+.node{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 12px 14px;min-height:112px}
+.node span{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--muted)}
+.node b{display:block;font-size:15px;line-height:1.25;margin:4px 0 4px}
+.node i{display:block;font-style:normal;font-size:13px;line-height:1.35;color:var(--muted)}
+.node:not(:nth-child(6n))::after{content:"";position:absolute;right:-9px;top:50%;width:8px;height:2px;background:var(--line)}
+.node.done{background:var(--soft);border-color:var(--gold)}
+.node.done span{color:var(--accent)}
+.node.done span::after{content:" · в клубе";font-weight:600}
+.node.next{border:2px dashed var(--gold)}
+.node.next span::after{content:" · 10.11";color:var(--accent)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:12px 0 0;font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.dot{display:inline-block;width:12px;height:12px;border-radius:4px;border:1px solid var(--line);background:var(--surface)}
+.dot.done{background:var(--gold);border-color:var(--gold)}
+.dot.next{border:2px dashed var(--gold)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.gallery figure:first-child{grid-column:1/-1}
+.gallery .ph{background:#0f1114;height:220px;overflow:hidden}
+.gallery figure:first-child .ph{height:auto}
+.gallery .ph img{width:100%;height:100%;object-fit:cover;object-position:left top}
+.gallery figcaption{padding:12px 16px 14px;font-size:15px;color:var(--muted);line-height:1.45}
+.gallery figcaption b{color:var(--fg)}
+.peek-title{font-family:var(--font-display);font-size:22px;margin:36px 0 14px}
+.peeks{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.doc{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(28,31,36,.08)}
+.doc-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg)}
+.doc-bar span{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.doc-bar em{font-style:normal;font-size:13px;color:var(--muted);margin-left:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.doc-body{padding:16px 18px 64px;font-size:14px;line-height:1.5;max-height:430px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.doc-body p{margin:0 0 10px;color:var(--muted)}
+.doc-h{font-family:var(--font-display);font-weight:700;font-size:18px;line-height:1.25;color:var(--fg)!important;margin-bottom:4px!important}
+.doc-m{font-size:13px}
+.doc table{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:13px}
+.doc th{text-align:left;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:6px 6px 6px 0}
+.doc td{border-bottom:1px solid var(--line);padding:6px 6px 6px 0}
+.doc td.r{color:#c0503a}.doc td.g{color:#3f8f4e}.doc td.y{color:var(--accent)}
+.ba{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:start;margin:0 0 10px}
+.ba span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;text-align:center;border-radius:6px;padding:3px 0}
+.ba .was{background:var(--line);color:var(--muted)}
+.ba .now{background:var(--gold);color:var(--ink)}
+.ba p{margin:0!important;color:var(--fg)!important}
+.lock{position:absolute;left:0;right:0;bottom:0;padding:14px;text-align:center;font-weight:700;font-size:15px;background:var(--surface);border-top:1px solid var(--line)}
+.road{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rm{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;border-top:4px solid var(--line)}
+.rm time{display:block;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.rm b{display:block;font-size:17px;line-height:1.3;margin:4px 0}
+.rm p{margin:0;color:var(--muted);font-size:15px}
+.rm.done{border-top-color:var(--gold);background:var(--soft)}
+.rm.done time::after{content:" · ✓"}
+.rm.next{border-top-color:var(--gold)}
+.rm.next time{color:var(--accent)}
+.rm.next time::after{content:" · следующая"}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:12px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px;min-height:110px;font-size:14px}
+.day span{display:block;font-family:var(--font-display);font-weight:700;color:var(--muted)}
+.day em{display:block;font-style:normal;font-weight:700;margin-top:10px}
+.day p{margin:2px 0 0;color:var(--muted);line-height:1.3}
+.day.on{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.day.on span,.day.on p{color:var(--ink)}
+.day.on2{background:var(--soft);border-color:var(--gold)}
+.days .span{grid-column:1/-1;background:var(--soft);border:1px dashed var(--gold);border-radius:12px;padding:10px 14px;font-size:15px;font-weight:600;text-align:center}
+.month{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.month div{text-align:center;padding:16px 8px;border-radius:14px;background:var(--ink);color:#a7a59f;font-size:14px;line-height:1.3}
+.month b{display:block;font-family:var(--font-display);font-size:40px;line-height:1.05;color:var(--gold)}
 .price{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}
 .plan{background:var(--surface);border:2px solid var(--gold);border-radius:18px;padding:28px;position:relative}
 .plan .badge{position:absolute;top:-14px;left:24px;background:var(--gold);color:var(--ink);font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:4px 12px;border-radius:999px}
@@ -120,8 +195,18 @@ footer a{color:var(--muted)}
 .sticky .btn{width:100%;max-width:480px}
 @media (max-width:820px){
 .hero{grid-template-columns:1fr;gap:28px}
-.shots{height:340px;max-width:440px;margin:0 auto;width:100%}
-.card-img.c1{height:240px}.card-img.c2{height:210px;top:100px}
+.tg{justify-self:center;transform:none}
+.hero>*{min-width:0}
+.tg .sticker{right:8px;top:-22px;font-size:15px}
+.flow{grid-template-columns:repeat(3,1fr)}
+.node::after{display:none}
+.road{grid-template-columns:1fr 1fr}
+.peeks,.gallery{grid-template-columns:1fr}
+.gallery figure:first-child{grid-column:auto}
+.gallery figure:first-child .ph{height:auto}
+.gallery figure:first-child .ph{overflow-x:auto}
+.gallery figure:first-child .ph img{width:200%;max-width:none;height:auto}
+.month{grid-template-columns:1fr 1fr}
 .two,.grid,.grid.g2,.price{grid-template-columns:1fr}
 .item.wide{grid-column:auto;grid-template-columns:1fr}
 .week,.timeline{grid-template-columns:1fr 1fr}
@@ -133,6 +218,12 @@ footer a{color:var(--muted)}
 .hero .btn{width:100%}
 .plan{padding:22px}
 .amount{font-size:40px}
+.flow{grid-template-columns:1fr 1fr}
+.road{grid-template-columns:1fr}
+.day{min-height:0}
+.day:not(.on):not(.on2):not(:nth-child(5)){display:none}
+.days{grid-template-columns:repeat(3,1fr)}
+.doc td:nth-child(2),.doc th:nth-child(2){display:none}
 }
 </style>
 </head>
@@ -156,10 +247,16 @@ footer a{color:var(--muted)}
 <div><b>994</b>человека написали «система»</div>
 </div>
 </div>
-<div class="shots" aria-hidden="true">
-<div class="card-img c1"><img src="/iisystema/img/notion-conveyor.jpg" alt="" width="1200" height="800"></div>
-<div class="card-img c2"><img src="/iisystema/img/montage-sheet.jpg" alt="" width="1200" height="800"></div>
-<div class="sticker">Новая сборка<br>каждую неделю</div>
+<div class="tg" aria-label="Так выглядит группа клуба в Telegram">
+<div class="tg-head"><span class="tg-ava">ii</span><div><b>Клуб ii.systema</b><small>закрытая группа · 7 тем</small></div></div>
+<div class="tg-row"><span class="tg-ic">📌</span><div><b>Старт</b><p>Правила и как всё устроено — начни отсюда</p></div></div>
+<div class="tg-row hot"><span class="tg-ic">🛠</span><div><b>Сборки недели</b><p>Новая сборка: суфлёр на телефоне — шаги, файлы, промпт</p></div><span class="tg-badge">new</span></div>
+<div class="tg-row"><span class="tg-ic">📚</span><div><b>Библиотека</b><p>10 материалов · 3 полки · список обновляется сам</p></div></div>
+<div class="tg-row"><span class="tg-ic">🎯</span><div><b>Разборы</b><p>Твоя задача → ответ за 2 рабочих дня</p></div></div>
+<div class="tg-row"><span class="tg-ic">🏆</span><div><b>Мои результаты</b><p>Собрал у себя — покажи остальным</p></div></div>
+<div class="tg-row"><span class="tg-ic">📅</span><div><b>Созвоны</b><p>Чт 19:00, раз в 2 недели · записи здесь</p></div></div>
+<div class="tg-row"><span class="tg-ic">💬</span><div><b>Общий</b><p>Вопросы по сборкам и обмен опытом</p></div></div>
+<div class="sticker">Новая сборка<br>каждый вторник</div>
 </div>
 </div>
 
@@ -183,6 +280,33 @@ footer a{color:var(--muted)}
 <li>нужна личная доработка под твой проект. Это сопровождение.</li>
 </ul>
 </div>
+</div>
+</section>
+
+<section>
+<h2>Что разбираем: вся система, узел за узлом</h2>
+<p class="sub">ii.systema — это цепочка из 12 узлов. Каждый узел — одна сборка в клубе: собрал его у себя — эта часть работы у тебя больше не на руках.</p>
+<div class="flow">
+<div class="node done"><span>01</span><b>CLAUDE.md</b><i>правила проекта для ИИ</i></div>
+<div class="node done"><span>02</span><b>Разбор ролика</b><i>чужой залетевший → структура</i></div>
+<div class="node done"><span>03</span><b>Сценарий</b><i>3 хука, текст, концовки</i></div>
+<div class="node next"><span>04</span><b>Суфлёр</b><i>текст поверх камеры</i></div>
+<div class="node"><span>05</span><b>Автомонтаж</b><i>графика и титры сами</i></div>
+<div class="node"><span>06</span><b>Выкладка</b><i>3 площадки по слотам</i></div>
+<div class="node"><span>07</span><b>Кодовое слово</b><i>комментарий → инструкция</i></div>
+<div class="node"><span>08</span><b>Воронка</b><i>от слова до канала</i></div>
+<div class="node"><span>09</span><b>Бот-продюсер</b><i>канал каждый день</i></div>
+<div class="node"><span>10</span><b>Второй мозг</b><i>поиск по своим заметкам</i></div>
+<div class="node"><span>11</span><b>Тренды → идеи</b><i>сценарии каждое утро</i></div>
+<div class="node"><span>12</span><b>Бот поверх Claude</b><i>задачи голосом из чата</i></div>
+</div>
+<div class="legend"><span><i class="dot done"></i>уже в библиотеке</span><span><i class="dot next"></i>следующая сборка</span><span><i class="dot"></i>в плане</span></div>
+
+<div class="gallery">
+<figure><div class="ph"><img src="/iisystema/img/before-after.jpg" alt="Сырой дубль и смонтированный ролик по таймкодам" width="1800" height="556" loading="lazy"></div><figcaption><b>05 · Автомонтаж.</b> Слева сырой дубль, дальше — что из него собрала система: вставки, шаги, титры.</figcaption></figure>
+<figure><div class="ph"><img src="/iisystema/img/notion-conveyor.jpg" alt="Конвейер роликов в Notion: Сценарий, Запись, Готов, Опубликован" width="1536" height="720" loading="lazy"></div><figcaption><b>03–06 · Конвейер.</b> Каждый ролик сам переезжает по колонкам: сценарий → запись → готов → опубликован.</figcaption></figure>
+<figure><div class="ph"><img src="/iisystema/img/instagram-grid.jpg" alt="Сетка Instagram ii.systema с обложками" width="600" height="522" loading="lazy"></div><figcaption><b>06 · Выкладка.</b> Обложки чередуются сами: лицо, графика, лицо — «шахматка».</figcaption></figure>
+<figure><div class="ph"><img src="/iisystema/img/materials-hub.jpg" alt="Страница «Материалы» с инструкциями к роликам" width="1000" height="1100" loading="lazy"></div><figcaption><b>07 · Кодовое слово.</b> Написал слово под роликом — получил инструкцию. Страница собирается сама.</figcaption></figure>
 </div>
 </section>
 
@@ -227,15 +351,80 @@ footer a{color:var(--muted)}
 <div class="item"><span class="n">🎬 КОНТЕНТ · ГОТОВО</span><b>Ролики как у меня</b><p>🔒 Пак «ИИ-монтажёр ii.systema»<br>🔒 Промпт разбора чужого залетевшего ролика<br>🔒 Хуки и живая речь<br>🔒 Шаблон CLAUDE.md под свой проект</p></div>
 <div class="item"><span class="n">⏳ СЛЕДУЮЩИЕ ПОЛКИ</span><b>Ноябрь — декабрь</b><p>Продажи: КП, ответы клиентам, разбор переписок · Операционка: второй мозг, регламенты · Маркетплейсы · ИИ как услуга для SMM · Агенты и автоматизации · Промпты по ролям</p></div>
 </div>
+
+<h3 class="peek-title">Загляни в два материала</h3>
+<div class="peeks">
+<div class="doc">
+<div class="doc-bar"><span></span><span></span><span></span><em>04 · Карта ИИ-сервисов.md</em></div>
+<div class="doc-body">
+<p class="doc-h">Карта ИИ-сервисов: что для чего и как с доступом из России</p>
+<p class="doc-m">Проверено 2 ноября 2026 · обновляю раз в месяц</p>
+<table>
+<tr><th>Сервис</th><th>Для чего</th><th>Аккаунт из РФ</th><th>Карта РФ</th></tr>
+<tr><td><b>ChatGPT</b></td><td>универсал</td><td class="r">закрыт</td><td class="r">нет</td></tr>
+<tr><td><b>Claude</b></td><td>тексты, код, агенты</td><td class="r">закрыт</td><td class="r">нет</td></tr>
+<tr><td><b>Gemini</b></td><td>видео, длинные файлы</td><td class="y">нестабильно</td><td class="r">нет</td></tr>
+<tr><td><b>GigaChat</b></td><td>тексты, картинки</td><td class="g">работает</td><td class="g">да</td></tr>
+<tr><td><b>Midjourney</b></td><td>картинки</td><td class="y">не обещает</td><td class="r">нет</td></tr>
+<tr><td><b>ElevenLabs</b></td><td>озвучка, клон голоса</td><td class="y">не обещает</td><td class="r">нет</td></tr>
+</table>
+<p>…ещё 6 сервисов, «что выбрать, если не хочешь разбираться» и как не потерять аккаунт.</p>
+</div>
+<div class="lock">🔒 Целиком — в «📚 Библиотеке» клуба</div>
+</div>
+<div class="doc">
+<div class="doc-bar"><span></span><span></span><span></span><em>09 · Как ставить задачу ИИ.md</em></div>
+<div class="doc-body">
+<p class="doc-h">Формула из четырёх частей и 10 примеров «до / после»</p>
+<div class="ba"><span class="was">До</span><p>«Напиши пост про ИИ для бизнеса».</p></div>
+<div class="ba"><span class="now">После</span><p>«Ты пишешь посты для моего Telegram-канала. Я — владелец студии маникюра в Казани, читают мастера и владельцы салонов. Тема: как я перестал сам отвечать на вопросы о ценах. Пиши на «ты», коротко, до 1000 знаков. Вот мой прошлый пост для примера тона…»</p></div>
+<p>Роль · контекст · пример · формат — и одна строка в конце, которая сильно помогает. Ещё 9 примеров: КП, ответ клиенту, отзыв, договор…</p>
+</div>
+<div class="lock">🔒 Целиком — в «📚 Библиотеке» клуба</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Что появится дальше</h2>
+<p class="sub">Сборка выходит каждый вторник в 12:00. Порядок ниже — мой план; 15 ноября участники голосуют, какой узел разобрать раньше.</p>
+<div class="road">
+<div class="rm done"><time>4 ноября</time><b>Клуб открыт</b><p>Стартовая библиотека: 10 материалов на 3 полках</p></div>
+<div class="rm next"><time>10 ноября · вт</time><b>Суфлёр на телефоне</b><p>Текст поверх камеры: записываешь дубль без бумажки</p></div>
+<div class="rm"><time>17 ноября · вт</time><b>Автомонтаж в своём стиле</b><p>Говорящая голова → ролик с графикой и титрами</p></div>
+<div class="rm"><time>24 ноября · вт</time><b>Выкладка по слотам</b><p>YouTube, Instagram, TikTok сами и «шахматка» обложек</p></div>
+<div class="rm"><time>1 декабря · вт</time><b>Кодовое слово → инструкция</b><p>Лид-магниты в комментариях на автомате</p></div>
+<div class="rm"><time>8 декабря · вт</time><b>Воронка и стата</b><p>Сколько написали слово, открыли, дошли до канала</p></div>
+<div class="rm"><time>15 декабря · вт</time><b>Бот-продюсер канала</b><p>План дня, черновики постов, кружки, опросы</p></div>
+<div class="rm"><time>22 декабря · вт</time><b>Второй мозг</b><p>Поиск по своим статьям, роликам и заметкам</p></div>
+<div class="rm"><time>29 декабря · вт</time><b>Тренды → идеи → сценарии</b><p>Каждое утро темы под твою нишу</p></div>
+</div>
+<p class="micro">Между сборками — новые полки библиотеки: продажи, операционка, маркетплейсы, ИИ как услуга для SMM, агенты, промпты по ролям. Что нового — пост в клубе по пятницам.</p>
 </section>
 
 <section>
 <h2>Как проходит неделя</h2>
+<div class="days">
+<div class="day"><span>Пн</span></div>
+<div class="day on"><span>Вт</span><em>🛠 12:00</em><p>Сборка недели</p></div>
+<div class="day"><span>Ср</span></div>
+<div class="day on2"><span>Чт</span><em>📅 19:00</em><p>Созвон · раз в 2 нед.</p></div>
+<div class="day"><span>Пт</span><em>📚</em><p>Новое в библиотеке</p></div>
+<div class="day"><span>Сб</span></div>
+<div class="day"><span>Вс</span></div>
+<div class="span">🎯 Задача на разбор — в любой день · ответ за 2 рабочих дня</div>
+</div>
 <div class="week">
-<div><b>Раз в неделю</b>Выходит сборка недели в теме «🛠 Сборки недели».</div>
+<div><b>Каждый вторник</b>Выходит сборка недели в теме «🛠 Сборки недели».</div>
 <div><b>Всю неделю</b>Повторяешь у себя, вопросы задаёшь в «💬 Общем».</div>
 <div><b>Когда удобно</b>Присылаешь задачу на разбор, ответ — за 2 рабочих дня.</div>
 <div><b>Раз в 2 недели</b>Созвон с разборами на экране, запись в клубе.</div>
+</div>
+<div class="month">
+<div><b>4</b>сборки за месяц</div>
+<div><b>4</b>разбора твоих задач</div>
+<div><b>2</b>созвона с записями</div>
+<div><b>10+</b>материалов уже внутри</div>
 </div>
 </section>
 
