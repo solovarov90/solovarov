@@ -51,6 +51,50 @@ CASES = [
     {"url": "/vetctschool/", "title": "Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов", "note": "4 622 заключения КТ стали проверяемой базой знаний"},
 ]
 
+# Предложения в блоке «Как подключить у вас»: цена сразу в рублях и долларах, у каждого своя кнопка.
+# Консультация и клуб оплачиваются через бота продюсера (личная ссылка Продамуса, после оплаты бот пишет сам),
+# остальное — разговор в личке по слову «система».
+PRODUCER_BOT = "https://t.me/iisystema_producer_bot"
+OFFERS = {
+    "consult": {"title": "Консультация", "rub": "5 000 ₽", "usd": "$65", "term": "60 минут в Telegram или Zoom",
+                "items": ["Разбираем вашу задачу и рутину, которую можно отдать ИИ",
+                          "Какие инструменты взять и сколько они стоят в месяц",
+                          "План внедрения по шагам: что сделать самому, что заказать"],
+                "btn": "Оплатить консультацию", "href": PRODUCER_BOT + "?start=consult"},
+    "build": {"title": "Внедрение под ключ", "rub": "от 90 000 ₽", "usd": "от $1 150", "term": "1–3 недели, разово",
+              "items": ["Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке",
+                        "Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion",
+                        "Обучение сотрудника и 30 дней сопровождения, консультация засчитывается"],
+              "btn": "Обсудить внедрение", "href": TELEGRAM, "main": True},
+    "pilot": {"title": "Пилот", "rub": "59 000 ₽", "usd": "$740", "term": "14 дней, 10 роликов",
+              "items": ["Настройка стиля монтажа под ваш бренд", "Подключение YouTube, Instagram и TikTok",
+                        "10 роликов от референса до выкладки, вы записываете дубли по суфлёру",
+                        "Отчёт с цифрами по каждому ролику"],
+              "btn": "Обсудить пилот", "href": TELEGRAM},
+    "conveyor": {"title": "Конвейер под ключ", "rub": "190 000 ₽", "usd": "$2 400", "term": "10–14 рабочих дней, разово",
+                 "items": ["Всё из пилота, система остаётся у вас: сервер, Telegram-бот, суфлёр, учёт в Notion",
+                           "Кодовое слово, автоответы в комментариях и страница «Материалы»",
+                           "Воронка с отчётом каждое утро",
+                           "Обучение сотрудника и 30 дней сопровождения, пилот засчитывается"],
+                 "btn": "Обсудить конвейер", "href": TELEGRAM, "main": True},
+    "support": {"title": "Сопровождение", "rub": "29 000 ₽", "usd": "$365", "per": "в месяц",
+                "term": "после запуска, отмена в любой месяц",
+                "items": ["Слежу, чтобы система работала, и чиню поломки",
+                          "Обновляю правила под новые возможности нейросетей",
+                          "Еженедельный отчёт и до четырёх часов доработок"],
+                "btn": "Обсудить сопровождение", "href": TELEGRAM},
+    "club": {"title": "Клуб ii.systema", "rub": "3 990 ₽", "usd": "$50", "per": "в месяц", "js": "club",
+             "term": "цена основателя до 31 декабря, списывается раз в месяц",
+             "items": ["Каждую неделю — одна сборка из моей системы, которую повторите у себя",
+                       "Разбор вашей задачи и созвон раз в две недели",
+                       "Чат участников и библиотека со стартовым набором"],
+             "btn": "Вступить в клуб", "href": "/club/"},
+}
+# По рубрике: про ролики — пилот и конвейер, про остальное — внедрение и сопровождение.
+# Во frontmatter можно задать свой набор: offers: [consult, build, club]
+OFFERS_BY_CLUSTER = {"Контент и видео": ["consult", "pilot", "conveyor", "club"]}
+OFFERS_DEFAULT = ["consult", "build", "support", "club"]
+
 RU_MONTHS = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
 
 # ---------------------------------------------------------------- frontmatter
@@ -282,6 +326,27 @@ def json_ld(article: dict, faq_html_present: bool) -> str:
     return json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/")
 
 
+def offers_block(article: dict) -> str:
+    keys = article.get("offers") or OFFERS_BY_CLUSTER.get(article["cluster"], OFFERS_DEFAULT)
+    if isinstance(keys, str):
+        keys = [k.strip() for k in keys.split(",")]
+    cards = []
+    for key in keys:
+        o = OFFERS.get(key)
+        if not o:
+            raise SystemExit(f"{article['slug']}: нет предложения «{key}», есть: {', '.join(OFFERS)}")
+        js = o.get("js")
+        per = f' <small>{esc(o["per"])}</small>' if o.get("per") else ""
+        items = "".join(f"<li>{esc(i)}</li>" for i in o["items"])
+        ext = "" if o["href"].startswith("/") else ' rel="noopener"'
+        cards.append(
+            f'<div class="pkg{" main" if o.get("main") else ""}"><h3>{esc(o["title"])}</h3>'
+            f'<div class="price{" js-club-price" if js else ""}">{esc(o["rub"])} <span class="usd">· {esc(o["usd"])}</span>{per}</div>'
+            f'<div class="term{" js-club-term" if js else ""}">{esc(o["term"])}</div><ul>{items}</ul>'
+            f'<a class="btn{"" if o.get("main") else " ghost"}" href="{esc(o["href"])}"{ext}>{esc(o["btn"])}</a></div>')
+    return "".join(cards)
+
+
 def build_article(article: dict, template: str, all_articles: list[dict]) -> None:
     body_html, toc = md_to_html(article["body_md"])
 
@@ -318,6 +383,7 @@ def build_article(article: dict, template: str, all_articles: list[dict]) -> Non
     if str(article["updated"]) != str(article["date"]):
         updated_html = f' · обновлено <time datetime="{esc(article["updated"])}">{ru_date(article["updated"])}</time>'
 
+    offers_html = offers_block(article)
     cta_lead = article["cta"] or "Я настраиваю систему, о которой рассказал выше, под вашу нишу, голос и площадки. Снимаете вы или ваш эксперт, остальное делает конвейер."
 
     ctx = {
@@ -341,6 +407,7 @@ def build_article(article: dict, template: str, all_articles: list[dict]) -> Non
         "related": related_html,
         "cases": cases_html,
         "cta_lead": esc(cta_lead),
+        "offers": offers_html,
         "telegram": TELEGRAM,
         "channel": CHANNEL,
         "author_name": esc(AUTHOR["name"]),
