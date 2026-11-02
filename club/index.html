@@ -634,11 +634,15 @@ if (Date.now() >= NEW_PRICE_FROM) {
   if (!('IntersectionObserver' in window)) { sticky.classList.add('show'); return; }
   new IntersectionObserver(function(es){ sticky.classList.toggle('show', !es[0].isIntersecting); }).observe(hero);
 })();
+// Откуда нажали: кнопка (hero, price, sticky, bottom) и, если пришёл с плашки в статье блога, — её тема.
+// Бот получает это в ?start=club-<кнопка>[_guide-<тема>] и считает в «стата клуба».
+var FROM = (location.search.match(/[?&]from=(guide-[\w-]+)/) || [])[1] || '';
 document.querySelectorAll('.js-join').forEach(function(a){
   a.addEventListener('click', function(e){
     e.preventDefault();
-    var src = a.dataset.src, href = PAY_URL || DM_URL;
+    var src = a.dataset.src, href = PAY_URL ? (PAY_URL + '-' + src + (FROM ? '_' + FROM : '')).slice(0, 80) : DM_URL;
     if (!PAY_URL) { try { if (navigator.clipboard) navigator.clipboard.writeText(CODE_WORD); } catch(_) {} }
+    try { if (window.ym) ym(113666612, 'extLink', href); } catch(_) {}
     try { if (window.ym) ym(113666612, 'reachGoal', 'club_click', {src: src, pay: PAY_URL ? 1 : 0}); } catch(_) {}
     try { if (window.gtag) gtag('event', 'club_click', {src: src, pay: PAY_URL ? 1 : 0}); } catch(_) {}
     setTimeout(function(){ location.href = href; }, 300);
