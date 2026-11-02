@@ -90,6 +90,26 @@ OFFERS = {
                        "Чат участников и библиотека со стартовым набором"],
              "btn": "Вступить в клуб", "href": "/club/"},
 }
+# Подробные инструкции слайдами, которые лежат в клубе (колоды по залетевшим роликам: живые скрины, ошибки, видео).
+# Статья на эту тему ставит во frontmatter club_guide: <ключ> — под текстом появляется плашка с кнопкой в клуб.
+CLUB_GUIDES = {
+    "jarvis": {"title": "Свой Джарвис за 9 шагов",
+               "what": "Telegram-бот и живой голосовой разговор на Claude Code по подписке: память, голосовые, Notion. "
+                       "17 слайдов с настоящими скринами, три ошибки, на которых спотыкаются, и готовый набор файлов."},
+    "omniroute": {"title": "Бесплатный Claude Code через OmniRoute",
+                  "what": "Установка шлюза по шагам, какие бесплатные провайдеры правда работают с Claude Code, а какие нет. "
+                          "19 слайдов и пять настоящих ошибок с решением."},
+    "watch": {"title": "Watch: Claude разбирает любое видео",
+              "what": "Плагин, который даёт Claude смотреть ролики: установка из России без ключа Gemini, разбор "
+                      "настоящего ролика за минуту, промпты под три задачи."},
+    "plugins": {"title": "Плагины для Claude Code: проверено руками",
+                "what": "Ponytail, Agent Skills, Claude Code Setup и claude-mem на одной задаче: что сокращает код втрое, "
+                        "а что молча не работает. Как проверить плагин до установки."},
+    "agents-md": {"title": "AGENTS.md: правила для ИИ в проекте",
+                  "what": "Шаблон из семи правил и опыт «одна задача с файлом и без»: код в 2,4 раза короче. "
+                          "Две ошибки с разрешениями, на которых застревают все."},
+}
+
 # По рубрике: про ролики — пилот и конвейер, про остальное — внедрение и сопровождение.
 # Во frontmatter можно задать свой набор: offers: [consult, build, club]
 OFFERS_BY_CLUSTER = {"Контент и видео": ["consult", "pilot", "conveyor", "club"]}
@@ -347,6 +367,18 @@ def offers_block(article: dict) -> str:
     return "".join(cards)
 
 
+def club_guide_block(article: dict) -> str:
+    key = article.get("club_guide")
+    if not key:
+        return ""
+    g = CLUB_GUIDES.get(key)
+    if not g:
+        raise SystemExit(f"{article['slug']}: нет инструкции клуба «{key}», есть: {', '.join(CLUB_GUIDES)}")
+    return (f'<aside class="club-guide" aria-label="Инструкция в клубе"><div class="cg-eyebrow">Пошаговая инструкция в Клубе ii.systema</div>'
+            f'<h2>{esc(g["title"])}</h2><p>{esc(g["what"])}</p>'
+            f'<a class="btn js-club-guide" data-guide="{esc(key)}" href="/club/?from=guide-{esc(key)}">Смотреть в клубе →</a></aside>')
+
+
 def build_article(article: dict, template: str, all_articles: list[dict]) -> None:
     body_html, toc = md_to_html(article["body_md"])
 
@@ -408,6 +440,7 @@ def build_article(article: dict, template: str, all_articles: list[dict]) -> Non
         "cases": cases_html,
         "cta_lead": esc(cta_lead),
         "offers": offers_html,
+        "club_guide": club_guide_block(article),
         "telegram": TELEGRAM,
         "channel": CHANNEL,
         "author_name": esc(AUTHOR["name"]),
