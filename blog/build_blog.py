@@ -51,6 +51,14 @@ CASES = [
     {"url": "/vetctschool/", "title": "Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов", "note": "4 622 заключения КТ стали проверяемой базой знаний"},
 ]
 
+# Страницы продуктов: попадают в sitemap и в llms.txt.
+PRODUCTS = [
+    {"url": "/uslugi/", "title": "Продукты и цены ii.systema", "note": "вся линейка: набор, консультация, клуб, пилот, внедрение, конвейер, сопровождение"},
+    {"url": "/konsultaciya/", "title": "Консультация по внедрению ИИ", "note": "60 минут, 5 000 ₽ · $65, засчитывается во внедрение"},
+    {"url": "/club/", "title": "Клуб ii.systema", "note": "сборка из системы каждую неделю, 3 990 ₽ · $50 в месяц до 31 декабря"},
+    {"url": "/avtootvet/", "title": "Набор «Автоответ на кодовое слово»", "note": "слово под роликом → ссылка в директ, 1 990 ₽ · $25"},
+]
+
 # Предложения в блоке «Как подключить у вас»: цена сразу в рублях и долларах, у каждого своя кнопка.
 # Консультация и клуб оплачиваются через бота продюсера (личная ссылка Продамуса, после оплаты бот пишет сам),
 # остальное — разговор в личке по слову «система».
@@ -505,6 +513,7 @@ def build_sitemap(articles: list[dict]) -> None:
     today = dt.date.today().isoformat()
     rows = [("/", today, "weekly", "1.0"), ("/blog/", today, "daily", "0.9")]
     rows += [(c["url"], today, "monthly", "0.8") for c in CASES]
+    rows += [(p["url"], today, "weekly", "0.9") for p in PRODUCTS]
     rows += [(a["url"], str(a["updated"]), "monthly", "0.8") for a in articles if not a["draft"]]
     body = "".join(
         f"  <url><loc>{SITE}{loc}</loc><lastmod>{mod}</lastmod><changefreq>{freq}</changefreq><priority>{pr}</priority></url>\n"
@@ -554,6 +563,8 @@ def build_llms(articles: list[dict]) -> None:
         "",
     ]
     lines += [f"- [{a['title']}]({a['abs_url']}): {a['description']}" for a in public]
+    lines += ["", "## Продукты", ""]
+    lines += [f"- [{p['title']}]({SITE}{p['url']}): {p['note']}" for p in PRODUCTS]
     lines += ["", "## Кейсы", ""]
     lines += [f"- [{c['title']}]({SITE}{c['url']}): {c['note']}" for c in CASES]
     lines += ["", "## Служебные", "", f"- [RSS]({SITE}/blog/rss.xml)", f"- [Sitemap]({SITE}/sitemap.xml)", ""]
