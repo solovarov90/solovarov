@@ -7,6 +7,7 @@ date: 2026-11-01
 updated: 2026-11-01
 cluster: Автоматизация
 type: Инструкция
+club_guide: jarvis
 cover: /blog/zadachi-ii-golosom-telegram/img/cover.jpg
 cover_alt: Как ставить задачи голосом через ИИ в Telegram и получать карточку задачи в Notion
 cta: Я собираю голосового помощника под твой Telegram, твои базы в Notion и твои проекты. Ты наговариваешь голосовое, а задача со сроком и ссылкой появляется в трекере.

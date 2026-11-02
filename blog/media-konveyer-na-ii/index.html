@@ -291,6 +291,10 @@ table.fix tr:last-child td { border-bottom: 0; }
 .pkg ul { flex: 1; }
 .pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
 .note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
 .btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
@@ -651,6 +655,8 @@ table.fix tr:last-child td { border-bottom: 0; }
 <p>Если собирать это самому некогда, я делаю то же самое под твою нишу: пилот на 10 роликов за 14 дней, конвейер под ключ или сопровождение. Условия ниже.</p>
     </article>
 
+    <aside class="club-guide" aria-label="Инструкция в клубе"><div class="cg-eyebrow">Пошаговая инструкция в Клубе ii.systema</div><h2>Watch: Claude разбирает любое видео</h2><p>Плагин, который даёт Claude смотреть ролики: установка из России без ключа Gemini, разбор настоящего ролика за минуту, промпты под три задачи.</p><a class="btn js-club-guide" data-guide="watch" href="/club/?from=guide-watch">Смотреть в клубе →</a></aside>
+
     <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Сколько времени нужно, чтобы собрать такой конвейер?</h3><p>У меня первая версия заработала за две недели, с 30 сентября по 16 октября 2026 года, при этом я собирал её параллельно с выпуском роликов. Если повторять по готовой схеме, а не изобретать, пилот на 10 роликов укладывается в 14 дней.</p></div><div class="qa"><h3 id="faq-2">Нужна ли команда или хотя бы монтажёр?</h3><p>Нет. От человека остаются две задачи, прислать ссылку на референс и записать дубль по суфлёру. Разбор, сценарий, монтаж, выкладку, ответы на комментарии и учёт делают программы. У меня 12 дублей записаны за 25 минут.</p></div><div class="qa"><h3 id="faq-3">Какие нейросети стоят внутри и сколько они стоят?</h3><p>Разбор референсов делает Gemini, выходит около одного цента на ролик. Сценарии и правила монтажа пишет Claude по подписке, без оплаты за каждый вызов. Распознавание речи и вырезка фигуры работают на моей видеокарте бесплатно. Сервер стоит от 500 рублей в месяц.</p></div><div class="qa"><h3 id="faq-4">Можно ли собрать это без программиста?</h3><p>Отдельные куски да. Разбор ролика нейросетью и сценарий по правилам можно делать в чате вручную. Склеить всё в цепочку, где Telegram-бот передаёт задачи, а Notion хранит статусы, без кода пока не получится. Поэтому я и предлагаю пилот и настройку под ключ.</p></div><div class="qa"><h3 id="faq-5">Почему TikTok даёт так мало просмотров?</h3><p>В моём случае TikTok дал 13 635 просмотров из 170 942, то есть около 8 процентов, по данным на 16 октября 2026. До 20 октября ролики уходили туда черновиками, и я публиковал их вручную: прямую выкладку TikTok открывает только приложениям, которые прошли его проверку. Моё приложение прошло её 20 октября, теперь ролики выходят в TikTok сами, вместе с YouTube и Instagram.</p></div><div class="qa"><h3 id="faq-6">Гарантирует ли конвейер просмотры и заявки?</h3><p>Нет. Я гарантирую срок и работающую цепочку, как описано в статье и кейсе. Просмотры, подписчики и заявки зависят от темы, ваших записей и рынка. У меня 9 роликов из 44 не набрали и тысячи просмотров, и это нормальный разброс.</p></div></section>
 
     <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://petrsolovarov.ru/iisystema/" rel="noopener">Кейс ii.systema на petrsolovarov.ru</a> <span>все цифры статьи, снимки экранов и таблица поломок, данные на 16 октября 2026</span></li><li><a href="https://www.instagram.com/ii.systema/" rel="noopener">Профиль @ii.systema в Instagram</a> <span>сетка обложек, ролики и комментарии</span></li><li><a href="https://youtube.com/shorts/EfDf9lFcr7g" rel="noopener">Ролик «Свой Джарвис за 9 шагов» на YouTube Shorts</a> <span>пример ролика REEL-6, который разобран в статье</span></li><li><a href="https://video.petrsolovarov.ru/materials" rel="noopener">Страница «Материалы» с инструкциями к роликам</a> <span>то, что получает человек после кодового слова</span></li><li><a href="https://t.me/s/solovarovp" rel="noopener">Telegram-канал ii.systema</a> <span>подписчики и закреплённый пост со ссылкой на инструкции</span></li></ul></section>
@@ -686,6 +692,10 @@ if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
   document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
   document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'оплата помесячно, выйти можно в любой момент'; });
 }
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
 </script>
 </body>
 </html>

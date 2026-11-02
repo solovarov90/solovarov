@@ -7,6 +7,7 @@ date: 2026-10-31
 updated: 2026-11-02
 cluster: Автоматизация
 type: Инструкция
+club_guide: jarvis
 cover: /blog/claude-code-agent-telegram-server/img/cover.jpg
 cover_alt: Claude Code на сервере по подписке как ИИ-агент в Telegram без API, обложка инструкции
 cta: Я поднимаю такого агента на вашем сервере и вашей подписке, настраиваю права, очередь и резерв на случай лимита. Вы пишете задачу в Telegram, агент делает и отчитывается.

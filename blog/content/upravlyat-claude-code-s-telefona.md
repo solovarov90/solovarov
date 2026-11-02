@@ -7,6 +7,7 @@ date: 2026-10-19
 updated: 2026-10-19
 cluster: Кейсы
 type: Кейс
+club_guide: jarvis
 cover: /blog/upravlyat-claude-code-s-telefona/img/cover.jpg
 cover_alt: Схема ИИ-штаба, через который можно управлять Claude Code с телефона через Telegram-бота на сервере
 cta: Я поднимаю такой штаб под ваши задачи. Сервер, Telegram-бот с темами, Claude Code по вашей подписке, связка с Notion и правила, чтобы агент делал только разрешённое.
