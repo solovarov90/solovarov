@@ -35,12 +35,12 @@
     <enclosure url="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/img/cover.jpg" type="image/jpeg" length="0"/>
   </item>
   <item>
-    <title>Как запустить Claude Code в Telegram на своём сервере без API</title>
+    <title>Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</title>
     <link>https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/</link>
     <guid isPermaLink="true">https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/</guid>
     <pubDate>Sat, 31 Oct 2026 09:00:00 +0300</pubDate>
     <category>Автоматизация</category>
-    <description>Claude Code на сервере по подписке: как запустить ИИ-агента в Telegram без API-ключа, ограничить его права и пережить перезапуски и лимиты. Мой опыт на четырёх ботах.</description>
+    <description>Claude Code на своём сервере по подписке: ИИ-агент в Telegram без API-ключа и управление с телефона. Сервер, вход, код бота, служба, права, лимиты и мои поломки на четырёх ботах.</description>
     <enclosure url="https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/img/cover.jpg" type="image/jpeg" length="0"/>
   </item>
   <item>
@@ -51,33 +51,6 @@
     <category>Контент и видео</category>
     <description>Как понять, почему ролик залетел: раскладываю чужой рилс на текст, структуру и картинку через Whisper и Gemini за 2–5 минут и около цента, а потом пишу свой сценарий.</description>
     <enclosure url="https://petrsolovarov.ru/blog/pochemu-rolik-zaletel/img/cover.jpg" type="image/jpeg" length="0"/>
-  </item>
-  <item>
-    <title>Claude Code в Telegram: как запустить ИИ-агента на сервере по подписке</title>
-    <link>https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/</link>
-    <guid isPermaLink="true">https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/</guid>
-    <pubDate>Wed, 21 Oct 2026 09:00:00 +0300</pubDate>
-    <category>Автоматизация</category>
-    <description>Claude Code на сервере по подписке: как за вечер поднять ИИ-агента в Telegram без API-ключа. Сервер, вход, бот, навыки, память, лимиты и мои поломки.</description>
-    <enclosure url="https://petrsolovarov.ru/blog/claude-code-sotrudnik-telegram/img/cover.jpg" type="image/jpeg" length="0"/>
-  </item>
-  <item>
-    <title>Claude Code как сотрудник в Telegram: запуск ИИ-агента на сервере по подписке</title>
-    <link>https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/</link>
-    <guid isPermaLink="true">https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/</guid>
-    <pubDate>Wed, 21 Oct 2026 09:00:00 +0300</pubDate>
-    <category>Инструменты</category>
-    <description>Как запустить Claude Code на сервере по подписке и сделать из него сотрудника в Telegram без платного API. Сервер, вход, служба, файлы, права и мои поломки.</description>
-    <enclosure url="https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/img/cover.jpg" type="image/jpeg" length="0"/>
-  </item>
-  <item>
-    <title>ИИ-штаб на сервере: как управлять Claude Code с телефона по подписке</title>
-    <link>https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/</link>
-    <guid isPermaLink="true">https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/</guid>
-    <pubDate>Mon, 19 Oct 2026 09:00:00 +0300</pubDate>
-    <category>Кейсы</category>
-    <description>Как управлять Claude Code с телефона: Telegram-бот на сервере передаёт задачи в claude -p под подпиской Claude Pro, без оплаты API. Схема, команды, поломки.</description>
-    <enclosure url="https://petrsolovarov.ru/blog/upravlyat-claude-code-s-telefona/img/cover.jpg" type="image/jpeg" length="0"/>
   </item>
   <item>
     <title>Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</title>

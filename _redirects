@@ -1,0 +1,10 @@
+# Netlify: постоянные редиректы (301). Порядок важен, первое совпадение выигрывает.
+# Старый адрес → новый. Файлы по старым адресам удалены, иначе Netlify отдал бы их вместо редиректа.
+
+# 06.11.2026: четыре статьи про Claude Code в Telegram слиты в одну
+/blog/claude-code-sotrudnik-telegram         /blog/claude-code-agent-telegram-server/  301
+/blog/claude-code-sotrudnik-telegram/*       /blog/claude-code-agent-telegram-server/  301
+/blog/claude-code-kak-sotrudnik-v-telegram   /blog/claude-code-agent-telegram-server/  301
+/blog/claude-code-kak-sotrudnik-v-telegram/* /blog/claude-code-agent-telegram-server/  301
+/blog/upravlyat-claude-code-s-telefona       /blog/claude-code-agent-telegram-server/  301
+/blog/upravlyat-claude-code-s-telefona/*     /blog/claude-code-agent-telegram-server/  301
