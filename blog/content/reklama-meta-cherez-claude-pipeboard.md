@@ -130,7 +130,7 @@ Pipeboard это коннектор, через который Claude получ
   <line x1="628" y1="375" x2="577" y2="375" fill="none" stroke="var(--accent)" stroke-width="3.5" marker-end="url(#arrA)"/>
 
   <!-- 1 -->
-  <rect x="18" y="40" width="250" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="18" y="40" width="250" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
   <circle cx="52" cy="76" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
   <text x="52" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
   <text x="80" y="82" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Я</text>
@@ -237,7 +237,7 @@ Pipeboard это коннектор, через который Claude получ
 <text x="315" y="298" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Meta учится на нажатиях</text>
 
 <g>
-<rect x="30" y="50" width="320" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<rect x="30" y="50" width="320" height="120" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
 <circle cx="64" cy="86" r="18" fill="var(--accent)"/>
 <text x="64" y="93" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">1</text>
 <text x="96" y="94" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Объявление Meta</text>

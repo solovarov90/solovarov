@@ -168,7 +168,7 @@ sources:
 </marker>
 </defs>
 
-<rect x="45" y="60" width="240" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<rect x="45" y="60" width="240" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
 <circle cx="89" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2"/>
 <text x="89" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
 <text x="69" y="150" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ролик с призывом</text>
