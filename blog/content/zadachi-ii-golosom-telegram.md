@@ -4,7 +4,7 @@ cover_title: Задачи ИИ голосом в Telegram
 description: "Как ставить задачи голосом через ИИ: голосовое в Telegram, расшифровка Whisper, разбор Claude и карточка задачи в Notion. Схема, цены, поломки и мой опыт."
 slug: zadachi-ii-golosom-telegram
 date: 2026-11-01
-updated: 2026-11-01
+updated: 2026-11-06
 cluster: Автоматизация
 type: Инструкция
 club_guide: jarvis
