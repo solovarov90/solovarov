@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Fri, 06 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Sat, 07 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</title>
+    <link>https://petrsolovarov.ru/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/</guid>
+    <pubDate>Mon, 02 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Инструменты</category>
+    <description>Как расшифровать голосовое сообщение нейросетью бесплатно и без облака: ставим Whisper и Hex на компьютер, расшифровываем созвоны, делаем протокол. Мои цифры и поломки.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Как ставить задачи ИИ голосом в Telegram и получать готовый результат</title>
     <link>https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/</link>

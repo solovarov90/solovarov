@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" width="100%" role="img" aria-label="Путь записи созвона: запись или голосовое, Whisper на своём компьютере, текст с метками времени, Claude или ChatGPT с шаблоном, протокол, чат команды или трекер. Звук не уходит наружу.">
+  <title>Путь записи созвона: звук расшифровывается у тебя, наружу уходит только текст</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9 Z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <path d="M50 108 V92 H760 V108" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="405" y="70" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--accent)">звук не уходит наружу</text>
+
+  <rect x="50" y="120" width="320" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="76" y="162" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">1</text>
+  <text x="108" y="160" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Запись созвона</text>
+  <text x="108" y="190" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">или голосовое</text>
+  <text x="108" y="238" font-family="var(--font-body)" font-size="18" fill="var(--muted)">файл у тебя на диске</text>
+
+  <rect x="440" y="120" width="320" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="466" y="162" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">2</text>
+  <text x="498" y="160" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Whisper</text>
+  <text x="498" y="190" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">на твоём компьютере</text>
+  <text x="498" y="238" font-family="var(--font-body)" font-size="18" fill="var(--muted)">звук превращается в текст</text>
+
+  <rect x="830" y="120" width="320" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="856" y="162" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">3</text>
+  <text x="888" y="160" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Текст</text>
+  <text x="888" y="190" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">с метками времени</text>
+  <text x="888" y="238" font-family="var(--font-body)" font-size="18" fill="var(--muted)">кто и когда сказал</text>
+
+  <rect x="50" y="380" width="320" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="76" y="422" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">4</text>
+  <text x="108" y="420" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Claude или ChatGPT</text>
+  <text x="108" y="450" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">с шаблоном</text>
+  <text x="108" y="498" font-family="var(--font-body)" font-size="18" fill="var(--muted)">уходит только текст</text>
+
+  <rect x="440" y="380" width="320" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="466" y="422" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">5</text>
+  <text x="498" y="420" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Протокол</text>
+  <text x="498" y="468" font-family="var(--font-body)" font-size="18" fill="var(--muted)">итог, решения,</text>
+  <text x="498" y="494" font-family="var(--font-body)" font-size="18" fill="var(--muted)">таблица задач</text>
+
+  <rect x="830" y="380" width="320" height="160" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="856" y="422" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">6</text>
+  <text x="888" y="420" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Чат команды</text>
+  <text x="888" y="450" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">или трекер</text>
+  <text x="888" y="498" font-family="var(--font-body)" font-size="18" fill="var(--muted)">задачи с исполнителями</text>
+
+  <path d="M374 200 H436" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+  <path d="M764 200 H826" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+  <path d="M990 284 V332 H210 V376" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrA)"/>
+  <path d="M374 460 H436" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+  <path d="M764 460 H826" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+</svg>
