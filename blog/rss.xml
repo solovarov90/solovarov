@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Sat, 07 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Sun, 08 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</title>
+    <link>https://petrsolovarov.ru/blog/bezopasno-li-puskat-claude-code-na-server/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/bezopasno-li-puskat-claude-code-na-server/</guid>
+    <pubDate>Fri, 06 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Инструменты</category>
+    <description>Безопасно ли использовать Claude Code на сервере с данными бизнеса: отдельный пользователь Linux, узкий --allowedTools, ключи вне рабочей папки и ручная кнопка на всё внешнее.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/bezopasno-li-puskat-claude-code-na-server/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</title>
     <link>https://petrsolovarov.ru/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/</link>

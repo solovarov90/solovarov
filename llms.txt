@@ -6,6 +6,7 @@
 
 ## Статьи блога
 
+- [Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса](https://petrsolovarov.ru/blog/bezopasno-li-puskat-claude-code-na-server/): Безопасно ли использовать Claude Code на сервере с данными бизнеса: отдельный пользователь Linux, узкий --allowedTools, ключи вне рабочей папки и ручная кнопка на всё внешнее.
 - [Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере](https://petrsolovarov.ru/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/): Как расшифровать голосовое сообщение нейросетью бесплатно и без облака: ставим Whisper и Hex на компьютер, расшифровываем созвоны, делаем протокол. Мои цифры и поломки.
 - [Как ставить задачи ИИ голосом в Telegram и получать готовый результат](https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/): Как ставить задачи голосом через ИИ: голосовое в Telegram, расшифровка Whisper, разбор Claude и карточка задачи в Notion. Схема, цены, поломки и мой опыт.
 - [Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager](https://petrsolovarov.ru/blog/reklama-meta-cherez-claude-pipeboard/): Как настроить рекламу Meta через нейросеть: Claude с коннектором Pipeboard собрал мне кампании, креативы и лендинг с пикселем. Цифры за 2 дня и что сломалось.
