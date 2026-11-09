@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Sun, 08 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Mon, 09 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</title>
+    <link>https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/</guid>
+    <pubDate>Sat, 07 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Инструменты</category>
+    <description>Gemini Omni 1.2 Flash делает и правит видео до 15 секунд со звуком за $0,07 в секунду. Разбираю, где модель полезна бизнесу, сколько стоит и чем отличается от обычной Gemini Flash.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</title>
     <link>https://petrsolovarov.ru/blog/bezopasno-li-puskat-claude-code-na-server/</link>

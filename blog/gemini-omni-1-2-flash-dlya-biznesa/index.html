@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе — блог Петра Соловарова</title>
+<meta name="description" content="Gemini Omni 1.2 Flash делает и правит видео до 15 секунд со звуком за $0,07 в секунду. Разбираю, где модель полезна бизнесу, сколько стоит и чем отличается от обычной Gemini Flash.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе">
+<meta property="og:description" content="Gemini Omni 1.2 Flash делает и правит видео до 15 секунд со звуком за $0,07 в секунду. Разбираю, где модель полезна бизнесу, сколько стоит и чем отличается от обычной Gemini Flash.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gemini Omni 1.2 Flash для бизнеса, обложка статьи о новой модели Google для видео">
+<meta property="article:published_time" content="2026-11-07">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Инструменты">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе">
+<meta name="twitter:description" content="Gemini Omni 1.2 Flash делает и правит видео до 15 секунд со звуком за $0,07 в секунду. Разбираю, где модель полезна бизнесу, сколько стоит и чем отличается от обычной Gemini Flash.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/"
+   },
+   "headline": "Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе",
+   "description": "Gemini Omni 1.2 Flash делает и правит видео до 15 секунд со звуком за $0,07 в секунду. Разбираю, где модель полезна бизнесу, сколько стоит и чем отличается от обычной Gemini Flash.",
+   "image": [
+    "https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-07",
+   "dateModified": "2026-11-09",
+   "inLanguage": "ru-RU",
+   "wordCount": 2351,
+   "articleSection": "Инструменты",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе",
+     "item": "https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Чем Gemini Omni Flash отличается от обычной Gemini Flash?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Omni 1.2 Flash делает и правит видео со звуком, роликами от 3 до 15 секунд. Обычная Flash работает с текстом и смотрит видео, чтобы описать его словами. По документации Google у Omni нет вызова функций и ответа строго в JSON, поэтому для разбора заявок и переписки она не годится."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Можно ли пользоваться Gemini Omni 1.2 Flash бесплатно в рабочих процессах?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "По API нет. На странице цен Google на 6 ноября 2026 у Omni 1.2 Flash бесплатного уровня нет, модель доступна только на платном. Обычные текстовые модели Flash бесплатный лимит имеют, у меня на нём с 30.09.2026 работал разбор роликов."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как подключить Gemini API, находясь в России?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Напрямую не выйдет. 02.11.2026 я проверял: Google AI Studio и Gemini API для России закрыты, ответ 403. В проекте VetCT я с 30.10.2026 отправляю запросы к Gemini через российский шлюз Polza.ai с оплатой в рублях, формат запросов остаётся гугловский."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Хватит ли возможностей Flash для ответов клиентам в поддержке?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Текстовой Flash хватает на короткие типовые задачи. В проекте JE 3.0 я 05.11.2026 перевёл на gemini-flash-latest черновики ответов клиенту, алерты и благодарности. Там, где нужен большой контекст и долгий разговор, оставил Pro. Omni 1.2 Flash для поддержки не предназначена."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему модель Flash иногда теряет параметры при вызове инструментов?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "На длинных инструкциях облегчённые модели хуже держат формат. У меня 18.10.2026 flash-lite вызвал запись файла без пути к файлу, и весь прогон конвейера упал. Помог перевод этих шагов на более сильную gemini-3-flash-preview и проверка ответа перед выполнением."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Что выгоднее малому бизнесу, подписка на чат или Flash по ключу?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Зависит от того, руками ли ты работаешь. Для разовых роликов и текстов удобнее подписка и приложение. Если задача повторяется каждый день и её запускает бот, выгоднее ключ с оплатой за запрос. Мой разбор одного ролика на платной Flash стоит около цента."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько стоит один ролик на Gemini Omni 1.2 Flash?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "По ценам Google на 6 ноября 2026 секунда видео в 720p стоит около $0,07, значит 15 секунд выходят примерно в $1,05. Черновик в 360p стоит $0,023 в секунду, 4K около $0,21. Сразу закладывай несколько попыток на один удачный кадр."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Инструменты</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Новость → как применить · Инструменты · 13 мин чтения</div>
+    <h1>Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</h1>
+    <p class="lead">Gemini Omni 1.2 Flash делает и правит видео до 15 секунд со звуком за $0,07 в секунду. Разбираю, где модель полезна бизнесу, сколько стоит и чем отличается от обычной Gemini Flash.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-07">7 ноября 2026</time> · обновлено <time datetime="2026-11-09">9 ноября 2026</time> · 2 351 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/gemini-omni-1-2-flash-dlya-biznesa/img/cover.jpg" alt="Gemini Omni 1.2 Flash для бизнеса, обложка статьи о новой модели Google для видео" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#chem-gemini-omni-1-2-flash-otlichaetsya-ot-predyduschih-vers">Чем Gemini Omni 1.2 Flash отличается от предыдущих версий?</a></li><li><a href="#kakie-biznes-zadachi-stoit-otdat-modeli-lineyki-flash">Какие бизнес-задачи стоит отдать модели линейки Flash?</a></li><li><a href="#kak-zapustit-generatsiyu-video-cherez-api-bez-lishnih-zatrat">Как запустить генерацию видео через API без лишних затрат?</a></li><li><a href="#skolko-stoit-rabota-modeli-pri-regulyarnyh-nagruzkah">Сколько стоит работа модели при регулярных нагрузках?</a></li><li><a href="#proveril-na-sebe-gde-flash-rabotaet-idealno-a-gde-lomaetsya">Проверил на себе: где Flash работает идеально, а где ломается?</a></li><li><a href="#kak-podklyuchit-gemini-v-rossii-i-ne-poteryat-dostup">Как подключить Gemini в России и не потерять доступ?</a></li><li><a href="#komu-model-ne-podoydet-i-gde-nuzhen-polnotsennyy-pro">Кому модель не подойдёт и где нужен полноценный Pro?</a></li></ol></nav>
+    <article class="article">
+<p>Gemini Omni 1.2 Flash это модель Google, которая делает и правит короткие видео со звуком: от 3 до 15 секунд, в разрешении от 360p до 4K. Для малого бизнеса это быстрый способ получить ролик о товаре, рекламную вставку или примерку без съёмки. Секунда видео в 720p стоит около $0,07 по <a href="https://aistudio.google.com/docs/pricing">ценам Google</a> на 6 ноября 2026, бесплатного уровня в API у модели нет.</p>
+<p>Важная оговорка сразу. В выдаче модель часто путают с обычной Gemini Flash, которая читает текст и смотрит видео. Это разные инструменты, и ниже я разбираю, куда ставить каждый.</p>
+<h2 id="chem-gemini-omni-1-2-flash-otlichaetsya-ot-predyduschih-vers">Чем Gemini Omni 1.2 Flash отличается от предыдущих версий?</h2>
+<p>Главное отличие от версии 1.1 в длине и цене. Ролик стал до 15 секунд вместо 10, а секунда видео подешевела на 30%. Об этом Google написал в <a href="https://cloud.google.com/blog/products/ai-machine-learning/gemini-omni-1-2-flash-generally-available">анонсе 6 ноября 2026</a>.</p>
+<p>Что ещё добавили:</p>
+<ul>
+<li><strong>Правку в разговоре.</strong> Пишешь «поменяй товар», «сделай свет теплее», «сними с другого угла», и модель меняет только это, остальное сохраняет.</li>
+<li><strong>Речь и звук.</strong> Диалоги звучат естественнее, губы точнее попадают в слова, есть шумы и музыка.</li>
+<li><strong>Точность по образцам.</strong> До 10 картинок и до 3 видео в одном запросе, модель держится ближе к ним.</li>
+<li><strong>Форматы 16:9 и 9:16.</strong> Вертикаль подходит сразу под Reels и Shorts.</li>
+</ul>
+<p>Невидимая метка SynthID стоит на каждом ролике. С 3 декабря 2026 все запросы к версии 1.1 Google сам переводит на 1.2.</p>
+<h2 id="kakie-biznes-zadachi-stoit-otdat-modeli-lineyki-flash">Какие бизнес-задачи стоит отдать модели линейки Flash?</h2>
+<p>Omni 1.2 Flash отдавай короткое видео, обычной Flash отдавай чтение и разбор. Так задачи и делятся.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Задача</th>
+<th>Какая модель</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ролик о товаре, примерка, рекламная вставка до 15 секунд</td>
+<td>Omni 1.2 Flash</td>
+</tr>
+<tr>
+<td>Перекрасить фон, поменять товар в готовом ролике</td>
+<td>Omni 1.2 Flash</td>
+</tr>
+<tr>
+<td>Разобрать чужой ролик: хук, структура, монтаж</td>
+<td>обычная Flash</td>
+</tr>
+<tr>
+<td>Черновик ответа клиенту, алерт, короткая карточка</td>
+<td>обычная Flash</td>
+</tr>
+<tr>
+<td>Разговор с большим контекстом, загрузка базы знаний</td>
+<td>Pro</td>
+</tr>
+</tbody>
+</table></div>
+<!-- img: type=scheme what="три узла и стрелки задач: Omni 1.2 Flash (ролик о товаре, вставка, правка видео) ← задача → обычная Flash (разбор ролика, черновик ответа, алерт) → Pro (большой контекст, база знаний); подписать, что выбирать по типу задачи" caption="Как делить задачи между Omni 1.2 Flash, обычной Flash и Pro: видео делает одна модель, чтение и разбор другая." alt="gemini omni 1.2 flash и обычная gemini flash: какие задачи бизнеса отдать каждой" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Как делить задачи между Omni 1.2 Flash, обычной Flash и Pro: видео делает одна модель, чтение и разбор другая">
+  <title>Как делить задачи между Omni 1.2 Flash, обычной Flash и Pro</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="arrLine" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+  </defs>
+
+  <text x="600" y="48" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Выбирай модель по типу задачи</text>
+
+  <rect x="40" y="110" width="320" height="300" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="200" y="158" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="28" fill="var(--fg)">Omni 1.2 Flash</text>
+  <text x="200" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает видео</text>
+  <text x="70" y="248" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Ролик о товаре</text>
+  <text x="70" y="288" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Рекламная вставка</text>
+  <text x="70" y="328" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Правка готового видео</text>
+  <text x="70" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">до 15 секунд</text>
+
+  <rect x="440" y="110" width="320" height="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="600" y="158" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="28" fill="var(--fg)">Обычная Flash</text>
+  <text x="600" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">читает и разбирает</text>
+  <text x="470" y="248" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Разбор ролика</text>
+  <text x="470" y="288" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Черновик ответа клиенту</text>
+  <text x="470" y="328" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Алерт, короткая карточка</text>
+
+  <rect x="840" y="110" width="320" height="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="1000" y="158" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="28" fill="var(--fg)">Pro</text>
+  <text x="1000" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">держит много контекста</text>
+  <text x="870" y="248" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Большой контекст</text>
+  <text x="870" y="288" font-family="var(--font-body)" font-size="19" fill="var(--fg)">База знаний</text>
+  <text x="870" y="328" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Долгий разговор</text>
+
+  <line x1="364" y1="260" x2="436" y2="260" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <line x1="764" y1="260" x2="836" y2="260" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+
+  <circle cx="200" cy="470" r="16" fill="var(--accent)"/>
+  <text x="200" y="477" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="19" fill="var(--surface)">1</text>
+  <text x="228" y="477" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Нужно видео?</text>
+  <circle cx="600" cy="470" r="16" fill="var(--accent)"/>
+  <text x="600" y="477" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="19" fill="var(--surface)">2</text>
+  <text x="628" y="477" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Нужен разбор?</text>
+  <circle cx="900" cy="470" r="16" fill="var(--accent)"/>
+  <text x="900" y="477" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="19" fill="var(--surface)">3</text>
+  <text x="928" y="477" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Много данных?</text>
+</svg>
+<figcaption>Как делить задачи между Omni 1.2 Flash, обычной Flash и Pro: видео делает одна модель, чтение и разбор другая.</figcaption>
+</figure>
+
+<p>По <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash">документации Google</a> у Omni нет вызова функций, ответа строго в формате JSON и поиска. Это значит, что бот не сможет попросить её «разложи заявку по полям». Для этого есть текстовые модели.</p>
+<h2 id="kak-zapustit-generatsiyu-video-cherez-api-bez-lishnih-zatrat">Как запустить генерацию видео через API без лишних затрат?</h2>
+<p>Делай черновики в 360p или 720p, а в 1080p или 4K переводи только удачный вариант. Это совет из самого анонса Google, и он прямо бьёт по счёту.</p>
+<p>Порядок работы:</p>
+<ol>
+<li><strong>Ключ на платном уровне.</strong> Бесплатного у Omni 1.2 Flash нет, модель зовётся <code>gemini-omni-1.2-flash</code>.</li>
+<li><strong>Сначала образцы.</strong> Фото товара, логотипа, комнаты. Чем точнее образец, тем меньше попыток.</li>
+<li><strong>Черновик в 360p.</strong> Секунда стоит $0,023, ошибиться не жалко.</li>
+<li><strong>Правки словами.</strong> Меняешь одно за раз, а не генерируешь заново.</li>
+<li><strong>Финал в нужном качестве.</strong> Апскейл до 1080p или 4K той же моделью.</li>
+</ol>
+<p>Если руками не хочется, модель доступна в Google Vids, а владельцы подписки Google AI Ultra делают ролики до 15 секунд в приложении Gemini.</p>
+<h2 id="skolko-stoit-rabota-modeli-pri-regulyarnyh-nagruzkah">Сколько стоит работа модели при регулярных нагрузках?</h2>
+<p>Пятнадцатисекундный ролик в 720p стоит около $1,05, в 4K около $3,1. Цифры посчитаны по <a href="https://aistudio.google.com/docs/pricing">ценам Gemini API</a> на 6 ноября 2026.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Разрешение</th>
+<th>Цена за секунду</th>
+<th>Ролик 15 секунд</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>360p</td>
+<td>$0,023</td>
+<td>около $0,35</td>
+</tr>
+<tr>
+<td>720p</td>
+<td>около $0,07</td>
+<td>около $1,05</td>
+</tr>
+<tr>
+<td>1080p</td>
+<td>$0,104</td>
+<td>около $1,56</td>
+</tr>
+<tr>
+<td>4K</td>
+<td>$0,209</td>
+<td>около $3,14</td>
+</tr>
+</tbody>
+</table></div>
+<p>Для сравнения из своего: замена человека на персонажа через Wan 2.2 на сервисе fal у меня стоит около $0,08 за секунду дубля в 720p (<a href="https://app.notion.com/p/Wan-2-2-Animate-Replace-40cdfdb1482281b1aeb0ea7dab76cbbf">журнал изменений, 02.11.2026</a>). Порядок цен тот же. Считай не один ролик, а попытки: удачный кадр редко выходит с первого раза.</p>
+<h2 id="proveril-na-sebe-gde-flash-rabotaet-idealno-a-gde-lomaetsya">Проверил на себе: где Flash работает идеально, а где ломается?</h2>
+<p>Omni 1.2 Flash я ещё не гонял: модель вышла 6 ноября. Обычную Flash использую каждый день в трёх проектах, и вот что вижу.</p>
+<p><strong>Разбор видео.</strong> С 30.09.2026 Gemini Flash смотрит чужие ролики целиком и описывает хук, структуру и монтаж (<a href="https://app.notion.com/p/Gemini-gemini-3-6-flash-3ebdfdb1482281f78aadfbb877945015">AI-стек</a>). Бесплатного лимита на тяжёлые файлы не хватило, и в тот же день я перевёл разбор на платную Flash с низким разрешением видео: около 1 цента за ролик (<a href="https://app.notion.com/p/Gemini-3ebdfdb14822816293ebf92c09831bd4">журнал</a>). Как это устроено целиком, писал в статье <a href="/blog/pochemu-rolik-zaletel/">«Почему ролик залетел»</a>.</p>
+<p><strong>Счёт клиента.</strong> В проекте JE 3.0 расходы за месяц на Gemini API и сервер вышли $46 вместе с двумя месяцами аренды (04.11.2026). Основную часть съедали алерты, которые запускаются каждые 5 минут на Pro. 05.11.2026 я перевёл на gemini-flash-latest алерты, карточки уснувших клиентов, черновики ответов и благодарности, а Pro оставил там, где нужен большой контекст (<a href="https://app.notion.com/p/LLM-je30-server-Flash-40fdfdb1482281dd845fd6c683367685">задача</a>). Если ответ пришёл не в JSON, бот повторяет запрос один раз.</p>
+<p><strong>Что сломалось.</strong> 18.10.2026 в контентном конвейере проекта «Техномаг» модель flash-lite на длинной инструкции вызвала запись файла без пути. Весь прогон упал, отчёт не дошёл. Длинные шаги я перевёл на gemini-3-flash-preview.</p>
+<p>Вывод простой: облегчённая модель хороша на коротких задачах и подводит на длинных инструкциях. Проверяй ответ перед тем, как бот его выполнит.</p>
+<h2 id="kak-podklyuchit-gemini-v-rossii-i-ne-poteryat-dostup">Как подключить Gemini в России и не потерять доступ?</h2>
+<p>Напрямую из России Gemini API не работает. Я проверял 02.11.2026: Google AI Studio и API отвечают 403. На российском сервере проекта VetCT Gemini не ответил совсем (<a href="/vetctschool/">кейс</a>, 30.10.2026).</p>
+<p>Рабочий путь у меня один: российский шлюз Polza.ai. С 30.10.2026 все запросы VetCT к Gemini идут через него, оплата в рублях, ключ передаётся тем же заголовком <code>x-goog-api-key</code>. Код почти не меняется, меняется только адрес. Есть ли там уже Omni 1.2 Flash, проверь перед подключением: у меня такого факта нет.</p>
+<h2 id="komu-model-ne-podoydet-i-gde-nuzhen-polnotsennyy-pro">Кому модель не подойдёт и где нужен полноценный Pro?</h2>
+<p>Omni 1.2 Flash не подойдёт, если тебе нужно разбирать переписку, считать, отвечать клиентам или вести долгий разговор. Это задачи текстовых моделей, а для длинного контекста нужна Pro.</p>
+<p>Ещё три случая, когда стоит подождать:</p>
+<ul>
+<li><strong>Нужен ролик длиннее 15 секунд одним куском.</strong> Продлевать можно, но шов останется твоей заботой.</li>
+<li><strong>Пакетная обработка.</strong> Batch-режим для модели в Google Cloud не поддерживается.</li>
+<li><strong>Нет платной карты.</strong> На HN разработчики больше всего жалуются как раз на оплату и кабинет AI Studio (<a href="https://news.ycombinator.com/item?id=50392118">обсуждение</a>).</li>
+</ul>
+<p>Если хочешь понять, какую рутину в твоём деле отдать видеомодели, а какую обычной Flash, напиши мне слово «система» в личку в Telegram: <a href="https://t.me/solovarov">t.me/solovarov</a>. Посмотрим на твои процессы и соберём связку без лишних расходов. Как такие связки работают у меня каждый день, видно в статье про <a href="/blog/media-konveyer-na-ii/">медиа-конвейер на ИИ</a>.</p>
+    </article>
+
+    
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Чем Gemini Omni Flash отличается от обычной Gemini Flash?</h3><p>Omni 1.2 Flash делает и правит видео со звуком, роликами от 3 до 15 секунд. Обычная Flash работает с текстом и смотрит видео, чтобы описать его словами. По документации Google у Omni нет вызова функций и ответа строго в JSON, поэтому для разбора заявок и переписки она не годится.</p></div><div class="qa"><h3 id="faq-2">Можно ли пользоваться Gemini Omni 1.2 Flash бесплатно в рабочих процессах?</h3><p>По API нет. На странице цен Google на 6 ноября 2026 у Omni 1.2 Flash бесплатного уровня нет, модель доступна только на платном. Обычные текстовые модели Flash бесплатный лимит имеют, у меня на нём с 30.09.2026 работал разбор роликов.</p></div><div class="qa"><h3 id="faq-3">Как подключить Gemini API, находясь в России?</h3><p>Напрямую не выйдет. 02.11.2026 я проверял: Google AI Studio и Gemini API для России закрыты, ответ 403. В проекте VetCT я с 30.10.2026 отправляю запросы к Gemini через российский шлюз Polza.ai с оплатой в рублях, формат запросов остаётся гугловский.</p></div><div class="qa"><h3 id="faq-4">Хватит ли возможностей Flash для ответов клиентам в поддержке?</h3><p>Текстовой Flash хватает на короткие типовые задачи. В проекте JE 3.0 я 05.11.2026 перевёл на gemini-flash-latest черновики ответов клиенту, алерты и благодарности. Там, где нужен большой контекст и долгий разговор, оставил Pro. Omni 1.2 Flash для поддержки не предназначена.</p></div><div class="qa"><h3 id="faq-5">Почему модель Flash иногда теряет параметры при вызове инструментов?</h3><p>На длинных инструкциях облегчённые модели хуже держат формат. У меня 18.10.2026 flash-lite вызвал запись файла без пути к файлу, и весь прогон конвейера упал. Помог перевод этих шагов на более сильную gemini-3-flash-preview и проверка ответа перед выполнением.</p></div><div class="qa"><h3 id="faq-6">Что выгоднее малому бизнесу, подписка на чат или Flash по ключу?</h3><p>Зависит от того, руками ли ты работаешь. Для разовых роликов и текстов удобнее подписка и приложение. Если задача повторяется каждый день и её запускает бот, выгоднее ключ с оплатой за запрос. Мой разбор одного ролика на платной Flash стоит около цента.</p></div><div class="qa"><h3 id="faq-7">Сколько стоит один ролик на Gemini Omni 1.2 Flash?</h3><p>По ценам Google на 6 ноября 2026 секунда видео в 720p стоит около $0,07, значит 15 секунд выходят примерно в $1,05. Черновик в 360p стоит $0,023 в секунду, 4K около $0,21. Сразу закладывай несколько попыток на один удачный кадр.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://cloud.google.com/blog/products/ai-machine-learning/gemini-omni-1-2-flash-generally-available" rel="noopener">Google Cloud Blog — Gemini Omni 1.2 Flash generally available</a> <span>анонс 6 ноября 2026, длина до 15 секунд, цена на 30% ниже версии 1.1, SynthID, Google Vids</span></li><li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash" rel="noopener">Документация Gemini Omni 1.2 Flash в Google Cloud</a> <span>что модель умеет и чего не умеет, разрешения, форматы 16:9 и 9:16, ограничения</span></li><li><a href="https://aistudio.google.com/docs/pricing" rel="noopener">Цены Gemini API</a> <span>цена за секунду по разрешениям, нет бесплатного уровня, перевод запросов 1.1 на 1.2 с 3 декабря 2026</span></li><li><a href="https://news.ycombinator.com/item?id=50392118" rel="noopener">Обсуждение на Hacker News</a> <span>отзывы разработчиков, жалобы на оплату и кабинет AI Studio</span></li><li><a href="https://app.notion.com/p/Gemini-gemini-3-6-flash-3ebdfdb1482281f78aadfbb877945015" rel="noopener">AI-стек ii.systema, Gemini (gemini-3.6-flash)</a> <span>разбор видео на бесплатном лимите, 30.09.2026</span></li><li><a href="https://app.notion.com/p/Gemini-3ebdfdb14822816293ebf92c09831bd4" rel="noopener">Журнал изменений ii.systema, разбор на платном Gemini</a> <span>около 1 цента за ролик, 30.09.2026</span></li><li><a href="https://app.notion.com/p/LLM-je30-server-Flash-40fdfdb1482281dd845fd6c683367685" rel="noopener">Задача JE 3.0, перевод сценариев с Pro на Flash</a> <span>какие сценарии ушли на gemini-flash-latest, 05.11.2026</span></li><li><a href="https://app.notion.com/p/Wan-2-2-Animate-Replace-40cdfdb1482281b1aeb0ea7dab76cbbf" rel="noopener">Журнал изменений ii.systema, персонаж через Wan 2.2 на fal</a> <span>около $0,08 за секунду дубля в 720p, 02.11.2026</span></li><li><a href="https://app.notion.com/p/4-40cdfdb148228142bee8e436424039b4" rel="noopener">Журнал изменений ii.systema, доступ к ИИ из России</a> <span>проверка 02.11.2026, AI Studio и Gemini API для РФ закрыты</span></li><li><a href="https://petrsolovarov.ru/vetctschool/" rel="noopener">Кейс VetCTschool</a> <span>Gemini через Polza.ai с российского сервера, 30.10.2026</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Помогу понять, какие задачи в твоём деле отдать видеомодели, а какие обычной Gemini Flash, и соберу связку, которая работает каждый день без ручных кликов.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, списывается раз в месяц, отменить можно в любой момент</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/bezopasno-li-puskat-claude-code-na-server/">Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</a><span>Инструменты · 6 ноября 2026</span></li><li><a href="/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/">Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</a><span>Инструменты · 2 ноября 2026</span></li><li><a href="/blog/zadachi-ii-golosom-telegram/">Как ставить задачи ИИ голосом в Telegram и получать готовый результат</a><span>Автоматизация · 1 ноября 2026</span></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+}
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
+</script>
+</body>
+</html>

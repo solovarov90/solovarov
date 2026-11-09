@@ -6,6 +6,7 @@
 
 ## Статьи блога
 
+- [Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе](https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/): Gemini Omni 1.2 Flash делает и правит видео до 15 секунд со звуком за $0,07 в секунду. Разбираю, где модель полезна бизнесу, сколько стоит и чем отличается от обычной Gemini Flash.
 - [Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса](https://petrsolovarov.ru/blog/bezopasno-li-puskat-claude-code-na-server/): Безопасно ли использовать Claude Code на сервере с данными бизнеса: отдельный пользователь Linux, узкий --allowedTools, ключи вне рабочей папки и ручная кнопка на всё внешнее.
 - [Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере](https://petrsolovarov.ru/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/): Как расшифровать голосовое сообщение нейросетью бесплатно и без облака: ставим Whisper и Hex на компьютер, расшифровываем созвоны, делаем протокол. Мои цифры и поломки.
 - [Как ставить задачи ИИ голосом в Telegram и получать готовый результат](https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/): Как ставить задачи голосом через ИИ: голосовое в Telegram, расшифровка Whisper, разбор Claude и карточка задачи в Notion. Схема, цены, поломки и мой опыт.

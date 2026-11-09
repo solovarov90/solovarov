@@ -1,0 +1,48 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Как делить задачи между Omni 1.2 Flash, обычной Flash и Pro: видео делает одна модель, чтение и разбор другая">
+  <title>Как делить задачи между Omni 1.2 Flash, обычной Flash и Pro</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="arrLine" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+  </defs>
+
+  <text x="600" y="48" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Выбирай модель по типу задачи</text>
+
+  <rect x="40" y="110" width="320" height="300" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="200" y="158" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="28" fill="var(--fg)">Omni 1.2 Flash</text>
+  <text x="200" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">делает видео</text>
+  <text x="70" y="248" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Ролик о товаре</text>
+  <text x="70" y="288" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Рекламная вставка</text>
+  <text x="70" y="328" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Правка готового видео</text>
+  <text x="70" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">до 15 секунд</text>
+
+  <rect x="440" y="110" width="320" height="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="600" y="158" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="28" fill="var(--fg)">Обычная Flash</text>
+  <text x="600" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">читает и разбирает</text>
+  <text x="470" y="248" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Разбор ролика</text>
+  <text x="470" y="288" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Черновик ответа клиенту</text>
+  <text x="470" y="328" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Алерт, короткая карточка</text>
+
+  <rect x="840" y="110" width="320" height="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="1000" y="158" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="28" fill="var(--fg)">Pro</text>
+  <text x="1000" y="192" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">держит много контекста</text>
+  <text x="870" y="248" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Большой контекст</text>
+  <text x="870" y="288" font-family="var(--font-body)" font-size="19" fill="var(--fg)">База знаний</text>
+  <text x="870" y="328" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Долгий разговор</text>
+
+  <line x1="364" y1="260" x2="436" y2="260" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <line x1="764" y1="260" x2="836" y2="260" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+
+  <circle cx="200" cy="470" r="16" fill="var(--accent)"/>
+  <text x="200" y="477" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="19" fill="var(--surface)">1</text>
+  <text x="228" y="477" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Нужно видео?</text>
+  <circle cx="600" cy="470" r="16" fill="var(--accent)"/>
+  <text x="600" y="477" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="19" fill="var(--surface)">2</text>
+  <text x="628" y="477" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Нужен разбор?</text>
+  <circle cx="900" cy="470" r="16" fill="var(--accent)"/>
+  <text x="900" y="477" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="19" fill="var(--surface)">3</text>
+  <text x="928" y="477" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Много данных?</text>
+</svg>
