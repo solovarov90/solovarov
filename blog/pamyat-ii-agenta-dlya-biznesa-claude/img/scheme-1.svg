@@ -1,0 +1,47 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Четыре уровня памяти ИИ-агента: разговор и атомы едут в каждый запрос, сценарии и архив достаются по запросу">
+<title>Четыре уровня памяти ИИ-агента</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+<marker id="arrl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+</defs>
+
+<rect x="40" y="30" width="760" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="70" y="75" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">L0</text>
+<text x="120" y="75" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Разговор</text>
+<text x="70" y="112" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Текущая сессия Claude Code, без сжатия</text>
+
+<rect x="40" y="170" width="760" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="70" y="215" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">L1</text>
+<text x="120" y="215" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Атомы</text>
+<text x="70" y="252" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Факты и запреты в CLAUDE.md и автопамяти</text>
+
+<rect x="40" y="310" width="760" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="70" y="355" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">L2</text>
+<text x="120" y="355" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Сценарии</text>
+<text x="70" y="392" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Навыки и страницы Notion под проект</text>
+
+<rect x="40" y="450" width="760" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="70" y="495" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">L3</text>
+<text x="120" y="495" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Архив</text>
+<text x="70" y="532" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Второй мозг: Notion, сайт, заметки, с поиском</text>
+
+<line x1="420" y1="140" x2="420" y2="168" stroke="var(--line)" stroke-width="2" marker-end="url(#arrl)"/>
+<line x1="420" y1="280" x2="420" y2="308" stroke="var(--line)" stroke-width="2" marker-end="url(#arrl)"/>
+<line x1="420" y1="420" x2="420" y2="448" stroke="var(--line)" stroke-width="2" marker-end="url(#arrl)"/>
+
+<path d="M830 85 H870 V235 H830" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+<line x1="870" y1="160" x2="920" y2="160" stroke="var(--accent)" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="930" y="110" width="230" height="100" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<text x="1045" y="152" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">В каждый</text>
+<text x="1045" y="184" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">запрос</text>
+
+<path d="M830 365 H870 V505 H830" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#arrl)"/>
+<line x1="870" y1="435" x2="920" y2="435" stroke="var(--line)" stroke-width="3" marker-end="url(#arrl)"/>
+<rect x="930" y="385" width="230" height="100" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<text x="1045" y="427" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">По запросу</text>
+<text x="1045" y="459" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--muted)">агент достаёт сам</text>
+</svg>
