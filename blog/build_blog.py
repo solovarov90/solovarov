@@ -412,11 +412,20 @@ def build_article(article: dict, template: str, all_articles: list[dict]) -> Non
         )
         sources_html = f'<section class="sources" id="sources"><h2>Источники</h2><ul>{li}</ul></section>'
 
-    related = [a for a in all_articles if a["slug"] != article["slug"] and not a["draft"]][:3]
+    # «Ещё в блоге»: сначала статьи той же рубрики, потом свежие; ниже — ссылки на все остальные статьи,
+    # чтобы на каждую статью вели ссылки со всех страниц блога, а не только с ленты
+    others = [a for a in all_articles if a["slug"] != article["slug"] and not a["draft"]]
+    same = [a for a in others if a["cluster"] == article["cluster"]]
+    related = (same + [a for a in others if a not in same])[:RELATED_TOP]
+    rest = [a for a in others if a not in related][:ALL_LINKS_MAX]
     related_html = ""
     if related:
         li = "".join(f'<li><a href="{esc(a["url"])}">{esc(a["title"])}</a><span>{esc(a["cluster"])} · {ru_date(a["date"])}</span></li>' for a in related)
-        related_html = f'<section class="related"><h2>Ещё в блоге</h2><ul>{li}</ul></section>'
+        related_html = f'<section class="related"><h2>Ещё в блоге</h2><ul>{li}</ul>'
+        if rest:
+            li = "".join(f'<li><a href="{esc(a["url"])}">{esc(a["title"])}</a></li>' for a in rest)
+            related_html += f'<h3 class="related-all-t">Все статьи блога</h3><ul class="related-all">{li}</ul>'
+        related_html += "</section>"
 
     cases_html = "".join(f'<li><a href="{esc(c["url"])}">{esc(c["title"])}</a><span>{esc(c["note"])}</span></li>' for c in CASES)
 
@@ -574,8 +583,13 @@ def build_llms(articles: list[dict]) -> None:
 
 # ---------------------------------------------------------------- homepage block
 
+RELATED_TOP = 4        # карточек «Ещё в блоге» в статье
+ALL_LINKS_MAX = 40     # ссылок в списке «Все статьи» (статья и главная)
+
 HOME_START = "<!-- BLOG:START -->"
 HOME_END = "<!-- BLOG:END -->"
+HOME_ALL_START = "<!-- BLOGALL:START -->"
+HOME_ALL_END = "<!-- BLOGALL:END -->"
 
 
 def home_cards(articles: list[dict]) -> str:
@@ -593,6 +607,15 @@ def home_cards(articles: list[dict]) -> str:
     return "".join(out)
 
 
+def home_all(articles: list[dict]) -> str:
+    """Ссылки на статьи, которым не хватило места в трёх карточках: главная ведёт на каждую статью блога."""
+    rest = [a for a in articles if not a["draft"]][3:3 + ALL_LINKS_MAX]
+    if not rest:
+        return ""
+    li = "".join(f'<li><a href="{esc(a["url"])}">{esc(a["title"])}</a></li>' for a in rest)
+    return f'<div class="posts-all"><h3>Ещё статьи</h3><ul>{li}</ul></div>'
+
+
 def update_home(articles: list[dict]) -> None:
     if not HOME.exists():
         print("  главная не найдена, пропускаю")
@@ -604,6 +627,10 @@ def update_home(articles: list[dict]) -> None:
     before, rest = text.split(HOME_START, 1)
     _, after = rest.split(HOME_END, 1)
     new = before + HOME_START + "\n" + home_cards(articles) + "\n                " + HOME_END + after
+    if HOME_ALL_START in new and HOME_ALL_END in new:
+        before, rest = new.split(HOME_ALL_START, 1)
+        _, after = rest.split(HOME_ALL_END, 1)
+        new = before + HOME_ALL_START + "\n" + home_all(articles) + "\n            " + HOME_ALL_END + after
     if new != text:
         HOME.write_text(new, encoding="utf-8", newline="\n")
         print("  обновил блок «Последние статьи» на главной")
