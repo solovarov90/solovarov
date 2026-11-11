@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кейсы: ИИ в работе бизнеса · Пётр Соловаров</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<meta name="description" content="Шесть проектов, где ИИ забрал рутину: конвейер роликов, сервис для ветеринарных радиологов, бот заявок с AMO CRM, детская сказка в Telegram, «второй мозг» для клиентских чатов и сервис постов. Задача, решение и цифры по каждому.">
+<meta property="og:title" content="Кейсы: ИИ в работе бизнеса">
+<meta property="og:description" content="Шесть проектов с задачей, решением и цифрами.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petrsolovarov.ru/cases/">
+<meta property="og:image" content="https://petrsolovarov.ru/iisystema/img/notion-conveyor.jpg">
+<link rel="canonical" href="https://petrsolovarov.ru/cases/">
+<!-- Яндекс.Метрика и Google Analytics (те же счётчики, что на главной) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8LDD3GC32"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-L8LDD3GC32');
+</script>
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612','ym');
+ym(113666612,'init',{webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true,referrer:document.referrer,url:location.href});
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f6f4ef;--surface:#fff;--fg:#1c1f24;--muted:#5d636b;--line:#e2ddd2;--accent:#9a6b12;--gold:#d9a93a;--ink:#1c1f24;--soft:#fbf3df;
+--font-display:"Jost","Segoe UI",system-ui,sans-serif;--font-body:"Open Sans","Segoe UI",system-ui,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121417;--surface:#1b1e23;--fg:#ece8df;--muted:#a7a59f;--line:#2c3037;--accent:#e2b552;--soft:#262118;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121417;--surface:#1b1e23;--fg:#ece8df;--muted:#a7a59f;--line:#2c3037;--accent:#e2b552;--soft:#262118;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6;padding:0 16px 64px;overflow-x:hidden}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto}
+header{padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+header a{color:var(--muted);text-decoration:none;font-size:15px}
+header nav{display:flex;gap:18px;flex-wrap:wrap}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+h1{font-family:var(--font-display);font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin:24px 0 16px;letter-spacing:-.01em}
+h1 mark{background:var(--gold);color:var(--ink);padding:0 .15em;border-radius:4px}
+.lead{font-size:19px;color:var(--muted);max-width:680px;margin:0 0 8px}
+.lead b{color:var(--fg)}
+section{margin-top:56px}
+h2{font-family:var(--font-display);font-size:clamp(24px,3.6vw,34px);line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 20px;max-width:680px}
+.step{font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column}
+.card.main{border:2px solid var(--gold)}
+.card h3{font-family:var(--font-display);font-size:23px;line-height:1.2;margin:0 0 6px}
+.card .for{color:var(--muted);font-size:15px;margin:0 0 12px}
+.amount{font-family:var(--font-display);font-weight:700;font-size:34px;line-height:1.05;margin:6px 0 2px}
+.amount small{font-size:17px;color:var(--muted);font-weight:600}
+.term{color:var(--muted);font-size:15px;margin:0 0 14px}
+ul.check{list-style:none;margin:0 0 18px;padding:0;flex:1}
+ul.check li{position:relative;padding-left:30px;margin-bottom:7px;font-size:16px}
+ul.check li::before{content:"✓";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:var(--ink);font-weight:700;font-size:17px;line-height:1.25;padding:15px 22px;border-radius:12px;text-decoration:none;text-align:center;box-shadow:0 8px 24px rgba(217,169,58,.3)}
+.btn:hover{filter:brightness(1.05)}
+.ghost{display:inline-flex;align-items:center;justify-content:center;color:var(--fg);font-weight:600;font-size:16px;padding:13px 20px;border-radius:12px;text-decoration:none;border:1px solid var(--line);background:var(--surface);text-align:center}
+.ghost:hover{border-color:var(--accent)}
+.card .acts{display:flex;flex-direction:column;gap:8px}
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:28px 0 0}
+.ladder a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:var(--fg);font-size:15px;line-height:1.35}
+.ladder a b{display:block;font-family:var(--font-display);font-size:18px}
+.ladder a span{color:var(--muted)}
+.ladder a:hover{border-color:var(--accent)}
+.note{background:var(--soft);border-radius:14px;padding:18px 20px;color:var(--fg);font-size:16px}
+.cta{background:var(--ink);color:#ece8df;border-radius:20px;padding:36px 24px;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:#a7a59f;margin:0 auto 22px;max-width:560px}
+.cta .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.cta .ghost{background:transparent;color:#ece8df;border-color:#3d424a}
+footer{margin-top:48px;font-size:14px;color:var(--muted)}
+footer a{color:var(--muted)}
+@media (max-width:820px){.cards,.cards.c3{grid-template-columns:1fr}.ladder{grid-template-columns:1fr 1fr}}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;margin-top:20px;scroll-margin-top:16px}
+.case h2{margin:4px 0 6px}
+.case .who{color:var(--muted);font-size:15px;margin:0 0 16px}
+.case .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.case h3{font-family:var(--font-display);font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.case p{margin:0}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.nums div{background:var(--soft);border-radius:12px;padding:14px}
+.nums b{display:block;font-family:var(--font-display);font-size:26px;line-height:1.1}
+.nums span{color:var(--muted);font-size:14px}
+.case ul.check{margin-bottom:0}
+.case .acts{display:flex;gap:10px;flex-wrap:wrap}
+.ladder.c3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:820px){.case .cols,.nums{grid-template-columns:1fr}.case{padding:20px}.ladder.c3{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+<header><a href="/">Пётр Соловаров</a><nav><a href="/blog/">Блог</a><a href="/uslugi/">Цены</a><a href="/club/">Клуб</a></nav></header>
+
+<span class="tag">Кейсы</span>
+<h1>ИИ забрал рутину: <mark>шесть проектов с цифрами</mark></h1>
+<p class="lead">Свои продукты и работа для заказчиков. У каждого проекта — задача, что я собрал и что получилось. По кнопке открывается полный разбор: этапы, снимки экранов и то, что ломалось.</p>
+
+<div class="ladder c3">
+<a href="#iisystema"><b>🎬 ii.systema</b><span>Медиа-конвейер на ИИ: 44 ролика за 14 дней</span></a>
+<a href="#vetctschool"><b>🩻 VetCTschool</b><span>Голосовой чеклист для ветеринарных радиологов</span></a>
+<a href="#orient"><b>📊 Orient</b><span>Бот для заявок на перевод и дашборд из AMO CRM</span></a>
+<a href="#risunok"><b>🖍️ Рисунок ожил</b><span>Детский рисунок становится сказкой в Telegram</span></a>
+<a href="#je30"><b>🧠 JE 3.0</b><span>«Второй мозг» для клиентских Telegram-групп</span></a>
+<a href="#smart-posting"><b>✍️ Smart Posting</b><span>Сервис, который пишет и публикует посты</span></a>
+</div>
+
+<section class="case" id="iisystema">
+<span class="step">🎬 ii.systema</span>
+<h2>Медиа-конвейер на ИИ: 44 ролика за 14 дней</h2>
+<p class="who">Свой блог про ИИ</p>
+<div class="cols">
+<div><h3>Задача</h3><p>Чтобы вести блог, нужно каждый день придумывать сценарии, снимать, монтировать, выкладывать и отвечать на комментарии. Рутина съедает время и ломает регулярность.</p></div>
+<div><h3>Что сделал</h3><ul class="check"><li>Ссылка на залетевший ролик превращается в карточку с планом</li><li>Сценарий под мой голос, дубль записываю на телефон по суфлёру</li><li>Автомонтаж: вставки, субтитры, звук и обложки</li><li>Выкладка по расписанию на YouTube, Instagram* и TikTok</li><li>Бот отвечает на кодовое слово и отправляет инструкцию</li></ul></div>
+</div>
+<div class="nums"><div><b>44</b><span>ролика за 14 дней</span></div><div><b>170 942</b><span>просмотра на трёх площадках</span></div><div><b>994</b><span>человека написали кодовое слово</span></div></div>
+<div class="acts"><a class="btn js-go" data-goal="iisystema" href="/iisystema/">Читать кейс</a></div>
+</section>
+
+<section class="case" id="vetctschool">
+<span class="step">🩻 VetCTschool</span>
+<h2>Голосовой чеклист для ветеринарных радиологов</h2>
+<p class="who">Школа и клиники ветеринарной КТ</p>
+<div class="cols">
+<div><h3>Задача</h3><p>Тысячи заключений КТ лежали в Word-файлах разного вида, без поиска и без проверки, а врач набирал каждый протокол руками.</p></div>
+<div><h3>Что сделал</h3><ul class="check"><li>Архив обезличен и разобран по органам, числа сверены с оригиналом</li><li>База знаний с поиском по органам и находкам и банком формулировок</li><li>Врач диктует, фразы раскладываются по пунктам шаблона школы</li><li>Демо без регистрации: клиника пробует кабинет врача сразу</li></ul></div>
+</div>
+<div class="nums"><div><b>4 622</b><span>заключения КТ разобраны</span></div><div><b>≈ $29</b><span>стоил разбор всего архива</span></div><div><b>10</b><span>областей КТ с чеклистами</span></div></div>
+<div class="acts"><a class="btn js-go" data-goal="vetctschool" href="/vetctschool/">Читать кейс</a></div>
+</section>
+
+<section class="case" id="orient">
+<span class="step">📊 Orient</span>
+<h2>Бот для заявок на перевод и дашборд из AMO CRM</h2>
+<p class="who">Бюро переводов</p>
+<div class="cols">
+<div><h3>Задача</h3><p>Заявки приходят в WhatsApp и Telegram круглые сутки, а менеджеры работают с 9 до 21. Ночные клиенты не получали ответа, а руководитель собирал сводку из CRM вручную.</p></div>
+<div><h3>Что сделал</h3><ul class="check"><li>Бот собирает заказ: документ, языки, срок, заверение</li><li>Цену считает код по прайсу, бот её только озвучивает</li><li>Сделка в AMO CRM с заметкой о заказе и задачей менеджеру</li><li>Дашборд: план и факт, воронки, отчёты по закрытым сделкам</li></ul></div>
+</div>
+<div class="nums"><div><b>21:00–09:00</b><span>бот отвечает сам</span></div><div><b>2 канала</b><span>WhatsApp и Telegram</span></div><div><b>0</b><span>цен от ИИ: стоимость считает код</span></div></div>
+<div class="acts"><a class="btn js-go" data-goal="orient" href="/orient/">Читать кейс</a></div>
+</section>
+
+<section class="case" id="risunok">
+<span class="step">🖍️ Рисунок ожил</span>
+<h2>Детский рисунок становится сказкой в Telegram</h2>
+<p class="who">Продукт для родителей и детей</p>
+<div class="cols">
+<div><h3>Задача</h3><p>Детский рисунок живёт пять минут и уходит в стопку. Хотелось дать ему продолжение, где ребёнок сам решает, что случится с героем.</p></div>
+<div><h3>Что сделал</h3><ul class="check"><li>Холст в Telegram: рисовать пальцем прямо в мессенджере</li><li>Бот дорисовывает мир вокруг героя и пишет главу, сверяясь с рисунком и памятью сюжета</li><li>Ребёнок выбирает, что будет дальше: три пути или своя идея</li><li>Оплата звёздами Telegram, админка, лендинг и реклама</li></ul></div>
+</div>
+<div class="nums"><div><b>10 дней</b><span>до работающего продукта</span></div><div><b>53</b><span>иллюстрированные сцены</span></div><div><b>≈ 7 ¢</b><span>расход на нейросеть за сцену</span></div></div>
+<div class="acts"><a class="btn js-go" data-goal="risunok" href="/risunok/">Читать кейс</a></div>
+</section>
+
+<section class="case" id="je30">
+<span class="step">🧠 JE 3.0</span>
+<h2>«Второй мозг» для клиентских Telegram-групп</h2>
+<p class="who">Компания с сотнями клиентов в чатах · проект в работе</p>
+<div class="cols">
+<div><h3>Задача</h3><p>Компания ведёт сотни клиентов в отдельных Telegram-группах. Клиент остаётся без ответа, крупный заказчик сбавляет темп, постоянный клиент засыпает, и заметить это вручную некому.</p></div>
+<div><h3>Что сделал</h3><ul class="check"><li>Переписка обезличивается перед любым обращением к ИИ</li><li>База знаний компании отвечает на вопросы в Telegram с источниками</li><li>Сигналы: клиент ждёт ответа, пульс крупных клиентов, разговор без сделки</li><li>Карточки уснувших клиентов: повод, тезисы из истории и черновик в тоне компании</li></ul></div>
+</div>
+<div class="nums"><div><b>4</b><span>сигнала для менеджеров и руководителей</span></div><div><b>до 10</b><span>карточек в день</span></div><div><b>≈ 2 ¢</b><span>ответ на один вопрос</span></div></div>
+<div class="acts"><a class="btn js-go" data-goal="je30" href="/je30/">Читать кейс</a></div>
+</section>
+
+<section class="case" id="smart-posting">
+<span class="step">✍️ Smart Posting</span>
+<h2>Сервис, который пишет и публикует посты</h2>
+<p class="who">Блогеры и SMM-специалисты</p>
+<div class="cols">
+<div><h3>Задача</h3><p>Блогеры и SMM-специалисты тратят на один пост полчаса и больше: нет идей, сложно планировать.</p></div>
+<div><h3>Что сделал</h3><ul class="check"><li>Пост из чата или голосового сообщения</li><li>Контент-план на неделю и банк идей</li><li>Оценка зацепки и читаемости перед публикацией</li><li>Автопостинг в Threads и Telegram, стиль учится на твоих постах</li></ul></div>
+</div>
+<div class="nums"><div><b>30 → 3 мин</b><span>время на пост</span></div><div><b>5 минут</b><span>на контент-план на неделю</span></div><div><b>2 площадки</b><span>Threads и Telegram</span></div></div>
+<div class="acts"><a class="btn js-go" data-goal="smart-posting" href="https://case.smart-posting.ru" rel="noopener">Читать кейс</a><a class="ghost" href="https://smart-posting.ru" rel="noopener">Сам сервис</a></div>
+</section>
+
+<section class="cta">
+<h2>Хочешь так же разобрать свою рутину?</h2>
+<p>Напиши мне в Telegram слово «система» и коротко, чем занимаешься, — подскажу, с чего начать.</p>
+<div class="btns">
+<a class="btn js-go" data-goal="dm_bottom" href="https://t.me/solovarov">Написать «система»</a>
+<a class="ghost js-go" data-goal="uslugi_bottom" href="/uslugi/">Продукты и цены</a>
+</div>
+</section>
+
+<footer>© Пётр Соловаров · <a href="/privacy/">Политика конфиденциальности</a>
+<p>* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой в России.</p></footer>
+</div>
+<script>
+document.querySelectorAll('.js-go').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'cases_' + a.dataset.goal); });
+});
+</script>
+</body>
+</html>
