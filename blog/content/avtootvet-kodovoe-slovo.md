@@ -98,7 +98,7 @@ sources:
   </defs>
 
   <!-- Верхний ряд: основной путь -->
-  <rect x="30" y="60" width="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="30" y="60" width="210" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
   <circle cx="62" cy="88" r="14" fill="var(--accent)"/>
   <text x="62" y="94" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="17" fill="var(--surface)">1</text>
   <text x="135" y="128" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ролик</text>

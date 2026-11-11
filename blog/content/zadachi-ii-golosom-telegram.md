@@ -96,7 +96,7 @@ sources:
 </defs>
 
 <!-- Ряд 1: три узла -->
-<rect x="40" y="40" width="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<rect x="40" y="40" width="300" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
 <circle cx="82" cy="82" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
 <text x="82" y="90" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">1</text>
 <text x="120" y="90" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Telegram</text>
@@ -234,7 +234,7 @@ Whisper это открытая модель распознавания речи
 </marker>
 </defs>
 
-<rect x="60" y="30" width="1080" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<rect x="60" y="30" width="1080" height="96" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
 <circle cx="120" cy="78" r="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
 <text x="120" y="87" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">1</text>
 <text x="180" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Голосовое сообщение в Telegram</text>
