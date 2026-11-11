@@ -107,7 +107,7 @@ sources:
 
 <line x1="600" y1="80" x2="600" y2="470" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 8"/>
 
-<rect x="60" y="340" width="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<rect x="60" y="340" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
 <text x="210" y="378" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Правила</text>
 <rect x="60" y="406" width="300" height="60" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
 <text x="210" y="444" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Новый вопрос</text>
@@ -222,7 +222,7 @@ sources:
 <text x="1024" y="374" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ту же сессию</text>
 
 <g>
-<rect x="40" y="60" width="300" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<rect x="40" y="60" width="300" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
 <circle cx="70" cy="95" r="17" fill="none" stroke="var(--accent)" stroke-width="2"/>
 <text x="70" y="102" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
 <text x="100" y="102" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Старт</text>
@@ -314,7 +314,7 @@ sources:
   </defs>
 
   <!-- Ряд 1: обычный путь -->
-  <rect x="40" y="40" width="280" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="40" y="40" width="280" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
   <text x="180" y="88" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Вопрос Петра</text>
   <text x="180" y="122" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">пишу боту</text>
 

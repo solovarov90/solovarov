@@ -97,7 +97,7 @@ sources:
   </defs>
 
   <!-- Ряд 1 -->
-  <rect x="30" y="30" width="320" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <rect x="30" y="30" width="320" height="200" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
   <circle cx="68" cy="68" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
   <text x="68" y="76" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">1</text>
   <text x="54" y="128" font-family="var(--font-display)" font-weight="600" font-size="25" fill="var(--fg)">Ссылка в Telegram</text>

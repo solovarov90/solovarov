@@ -152,7 +152,7 @@ sources:
 </g>
 
 <g>
-<rect x="50" y="30" width="230" rx="10" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="3"/>
+<rect x="50" y="30" width="230" height="210" rx="10" fill="var(--accent)" fill-opacity="0.12" stroke="var(--accent)" stroke-width="3"/>
 <text x="70" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">1</text>
 <text x="70" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ссылка на</text>
 <text x="70" y="134" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">референс</text>
