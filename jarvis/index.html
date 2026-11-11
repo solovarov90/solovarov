@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Свой Джарвис — набор ii.systema</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<meta name="description" content="Набор: Telegram-бот и живой разговор голосом на Claude Code по подписке, без API-ключей. Помнит тебя, ищет в интернете, ведёт заметки. 9 шагов, видео, файлы и 7 дней вопросов. $39 (2 990 ₽).">
+<meta property="og:title" content="Свой Джарвис — набор ii.systema">
+<meta property="og:description" content="Telegram-бот и голос на Claude Code по подписке. Помнит тебя, ищет, ведёт заметки. $39 (2 990 ₽).">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petrsolovarov.ru/jarvis/">
+<meta property="og:image" content="https://petrsolovarov.ru/iisystema/img/telegram-channel.jpg">
+<link rel="canonical" href="https://petrsolovarov.ru/jarvis/">
+<!-- Яндекс.Метрика и Google Analytics (те же счётчики, что на главной) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8LDD3GC32"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-L8LDD3GC32');
+</script>
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612','ym');
+ym(113666612,'init',{webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true,referrer:document.referrer,url:location.href});
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#f6f4ef;--surface:#fff;--fg:#1c1f24;--muted:#5d636b;--line:#e2ddd2;--accent:#9a6b12;--gold:#d9a93a;--ink:#1c1f24;--soft:#fbf3df;--bubble:#eef3f8;
+--font-display:"Jost","Segoe UI",system-ui,sans-serif;--font-body:"Open Sans","Segoe UI",system-ui,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121417;--surface:#1b1e23;--fg:#ece8df;--muted:#a7a59f;--line:#2c3037;--accent:#e2b552;--soft:#262118;--bubble:#232a33;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121417;--surface:#1b1e23;--fg:#ece8df;--muted:#a7a59f;--line:#2c3037;--accent:#e2b552;--soft:#262118;--bubble:#232a33;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6;padding:0 16px 96px;overflow-x:hidden}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto}
+.topbar{margin:0 -16px;padding:8px 16px;background:var(--ink);color:#ece8df;font-size:14px;text-align:center}
+.topbar b{color:var(--gold)}
+header{padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+header a{color:var(--muted);text-decoration:none;font-size:15px}
+header nav{display:flex;gap:18px;flex-wrap:wrap}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:16px 0}
+.tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+h1{font-family:var(--font-display);font-size:clamp(32px,5.4vw,54px);line-height:1.06;margin:0 0 16px;letter-spacing:-.01em}
+h1 mark{background:var(--gold);color:var(--ink);padding:0 .15em;border-radius:4px}
+.lead{font-size:19px;color:var(--muted);max-width:600px;margin:0 0 24px}
+.lead b{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:var(--ink);font-weight:700;font-size:18px;line-height:1.25;padding:17px 26px;border-radius:12px;text-decoration:none;box-shadow:0 8px 24px rgba(217,169,58,.35);text-align:center}
+.btn:hover{filter:brightness(1.05)}
+.ghost{display:inline-flex;align-items:center;gap:10px;color:var(--fg);font-weight:600;font-size:17px;padding:15px 22px;border-radius:12px;text-decoration:none;border:1px solid var(--line);background:var(--surface)}
+.ghost:hover{border-color:var(--accent)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.micro{font-size:14px;color:var(--muted);margin:10px 0 0}
+.proof{display:flex;flex-wrap:wrap;gap:8px 28px;margin:24px 0 0;padding:16px 0 0;border-top:1px solid var(--line)}
+.proof div{font-size:14px;color:var(--muted);line-height:1.3}
+.proof b{display:block;font-family:var(--font-display);font-size:26px;color:var(--fg)}
+.chat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 24px 50px rgba(28,31,36,.18)}
+.chat .head{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:14px}
+.chat .orb{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f3d27a,#d9a93a 55%,#9a6b12)}
+.chat .head small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.msg{max-width:85%;padding:10px 14px;border-radius:14px;margin-bottom:10px;font-size:15px;line-height:1.45}
+.msg.me{margin-left:auto;background:var(--gold);color:var(--ink);border-bottom-right-radius:4px}
+.msg.bot{background:var(--bubble);border-bottom-left-radius:4px}
+.msg.voice{display:flex;align-items:center;gap:8px}
+.msg.voice i{flex:1;height:4px;border-radius:2px;background:repeating-linear-gradient(90deg,var(--ink) 0 3px,transparent 3px 6px);opacity:.6}
+.chat .note{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+section{margin-top:72px}
+h2{font-family:var(--font-display);font-size:clamp(26px,4vw,38px);line-height:1.15;margin:0 0 14px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 24px;max-width:680px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid.g2{grid-template-columns:repeat(2,1fr)}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.item .n{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.04em}
+.item b{display:block;font-size:18px;line-height:1.35;margin:6px 0 6px}
+.item p{margin:0;color:var(--muted);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:s}
+.steps div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:15px;color:var(--muted)}
+.steps b{display:block;color:var(--fg);font-size:16px}
+.steps b::before{counter-increment:s;content:counter(s) ". ";color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.box h3{font-family:var(--font-display);font-size:22px;margin:0 0 10px}
+.box.no{background:transparent}
+ul.check,ul.cross{list-style:none;margin:0;padding:0}
+ul.check li{position:relative;padding-left:32px;margin-bottom:8px}
+ul.check li::before{content:"✓";position:absolute;left:0;top:3px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+ul.cross li{position:relative;padding-left:32px;margin-bottom:8px;color:var(--muted)}
+ul.cross li::before{content:"✕";position:absolute;left:4px;top:0;color:var(--muted);font-weight:700}
+.bugs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.bugs div{background:var(--soft);border-radius:12px;padding:16px;font-size:15px;color:var(--muted)}
+.bugs b{display:block;color:var(--fg);margin-bottom:4px}
+.price{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}
+.plan{background:var(--surface);border:2px solid var(--gold);border-radius:18px;padding:28px;position:relative}
+.plan .badge{position:absolute;top:-14px;left:24px;background:var(--gold);color:var(--ink);font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:4px 12px;border-radius:999px}
+.plan h3{font-family:var(--font-display);font-size:24px;margin:6px 0 4px}
+.amount{font-family:var(--font-display);font-weight:700;font-size:48px;line-height:1;margin:14px 0 4px}
+.rub{color:var(--muted);font-size:17px;margin:0 0 18px}
+.plan .btn{width:100%;margin-top:18px}
+.plan.later{border:1px solid var(--line);background:transparent}
+.plan.later .badge{background:var(--line);color:var(--fg)}
+.plan.later p.note{color:var(--muted);margin:0}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer}
+.faq details p{margin:10px 0 0;color:var(--muted)}
+.cta{background:var(--ink);color:#ece8df;border-radius:20px;padding:36px 24px;text-align:center}
+.cta h2{color:#fff}
+.cta p{color:#a7a59f;margin:0 auto 22px;max-width:560px}
+.cta .btns{justify-content:center}
+.cta .ghost{background:transparent;color:#ece8df;border-color:#3d424a}
+footer{margin-top:48px;font-size:14px;color:var(--muted)}
+footer a{color:var(--muted)}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px;background:linear-gradient(transparent,var(--bg) 35%);display:none;justify-content:center;z-index:5}
+.sticky .btn{width:100%;max-width:480px}
+@media (max-width:820px){.hero,.two,.grid,.grid.g2,.price,.bugs{grid-template-columns:1fr}.hero{gap:28px}.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.sticky.show{display:flex}.hero .btn{width:100%}.plan{padding:22px}.amount{font-size:40px}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">Набор ii.systema · <b>$39 (2 990 ₽)</b> · цена засчитывается, если потом вступишь в клуб</div>
+<div class="wrap">
+<header><a href="/">Пётр Соловаров</a><nav><a href="/uslugi/">Продукты и цены</a><a href="/club/">Клуб ii.systema</a></nav></header>
+
+<div class="hero">
+<div>
+<span class="tag">Набор · собрать за вечер</span>
+<h1>Свой Джарвис: <mark>пишешь или говоришь</mark> — он делает</h1>
+<p class="lead">Telegram-бот и живой разговор голосом на твоём Claude Code. Помнит тебя между разговорами, ищет в интернете, ведёт заметки, по желанию работает с Notion. <b>Платишь только подписку Claude</b> — без API-ключей.</p>
+<div class="btns">
+<a class="btn js-buy" href="https://t.me/iisystema_producer_bot?start=jarvis" data-src="hero">🧰 Забрать набор за $39 (2 990 ₽)</a>
+</div>
+<p class="micro">Кнопка откроет бота в Telegram: оплата картой, СБП или SberPay, сразу после неё — видео и файлы.</p>
+<div class="proof">
+<div><b>9</b>шагов от нуля до работающего бота</div>
+<div><b>4</b>ошибки, которые я поймал и исправил</div>
+<div><b>0</b>API-ключей</div>
+</div>
+</div>
+<div class="chat" aria-label="Пример переписки с Джарвисом">
+<div class="head"><span class="orb"></span><span>Джарвис<small>бот в Telegram</small></span></div>
+<div class="msg me">Запомни: созвоны ставлю только после 14:00</div>
+<div class="msg bot">Запомнил, дописал в память.</div>
+<div class="msg me voice">🎤 <i></i> 0:07</div>
+<div class="msg bot">Услышал: «найди, что нового вышло у Claude Code за неделю». Ищу…</div>
+<div class="note">пример — так выглядит разговор</div>
+</div>
+</div>
+
+<section>
+<h2>Что он умеет</h2>
+<div class="grid">
+<div class="item"><span class="n">TELEGRAM</span><b>Текст и голосовые</b><p>Голосовые расшифровываются на твоём компьютере, без облака и ключей. Сначала бот показывает, что услышал, потом отвечает.</p></div>
+<div class="item"><span class="n">ГОЛОС</span><b>Живой разговор</b><p>Страница в браузере: нажал на шар и говоришь, он отвечает вслух и снова слушает. Ответ — 10–20 секунд, честно.</p></div>
+<div class="item"><span class="n">ПАМЯТЬ</span><b>Помнит тебя</b><p>«Запомни: …» — и строка ложится в файл памяти. Новый разговор память не стирает, файл можно править руками.</p></div>
+<div class="item"><span class="n">ХАРАКТЕР</span><b>Твои правила</b><p>Как к тебе обращаться, как коротко отвечать, что можно без спроса — в одном файле CLAUDE.md.</p></div>
+<div class="item"><span class="n">ПОИСК</span><b>Ищет в интернете</b><p>И ведёт заметки в своей папке. По желанию — задачи и страницы в Notion прямо из Telegram.</p></div>
+<div class="item"><span class="n">БЕЗОПАСНОСТЬ</span><b>Только тебе</b><p>Отвечает одному хозяину. Команды терминала по умолчанию выключены: читает и пишет файлы только в своей папке.</p></div>
+</div>
+</section>
+
+<section>
+<h2>9 шагов, которые ты пройдёшь</h2>
+<p class="sub">Так устроен мой бот «Мозг», только без клиентов, облачных задач и пульта. Это база, из которой он вырос.</p>
+<div class="steps">
+<div><b>Где он будет жить</b>Компьютер или сервер от 500 ₽ в месяц.</div>
+<div><b>Claude Code по подписке</b>Вход в аккаунт Claude один раз.</div>
+<div><b>Бот в Telegram</b>Токен от @BotFather за минуту.</div>
+<div><b>Запуск</b>Первый /start делает тебя хозяином.</div>
+<div><b>Характер</b>Правила в CLAUDE.md глаголами.</div>
+<div><b>Память</b>«Запомни», /memory, /new.</div>
+<div><b>Голосовые</b>Распознавание на твоём компьютере.</div>
+<div><b>Живой разговор</b>Страница голоса и Notion по желанию.</div>
+<div><b>Чтобы работал сам</b>Автозапуск в Windows или служба на сервере.</div>
+</div>
+</section>
+
+<section>
+<h2>Ошибки, на которых я споткнулся</h2>
+<p class="sub">Собирал набор с нуля и честно записал всё, что сломалось. В наборе это уже исправлено, а в инструкции разобрано.</p>
+<div class="bugs">
+<div><b>Видеокарта есть, библиотек нет</b>Бот отвечал «не разобрал». Теперь, если видеокарта не завелась, распознавание само переходит на процессор.</div>
+<div><b>Порт занят другой программой</b>Страница голоса открывала не то. Теперь порт по умолчанию 8777, и бот пишет, что вписать, если занят и он.</div>
+<div><b>Тишина стала «2. 3. 4. … 29.»</b>Распознавание выдумывало текст на паузах. Теперь паузы и шум отбрасываются до распознавания.</div>
+<div><b>Ответ голосом не мгновенный</b>Думает Claude Code — 10–20 секунд. Быстрее, но проще — одна настройка модели.</div>
+</div>
+</section>
+
+<section>
+<h2>Что внутри набора</h2>
+<div class="grid g2">
+<div class="item"><span class="n">ВИДЕО</span><b>Собираю всё на экране</b><p>От входа в Claude Code до первого голосового разговора. Повторяешь за мной по шагам.</p></div>
+<div class="item"><span class="n">ФАЙЛЫ</span><b>jarvis.py и страница голоса</b><p>Бот, страница живого разговора, CLAUDE.md с характером, memory.md с памятью, список зависимостей.</p></div>
+<div class="item"><span class="n">ИНСТРУКЦИЯ</span><b>9 шагов и «если не работает»</b><p>Команды для Windows и сервера, настройки, безопасность и что делать при каждой ошибке.</p></div>
+<div class="item"><span class="n">7 ДНЕЙ</span><b>Вопросы мне</b><p>Застрял — пишешь боту, который прислал набор, отвечаю сам.</p></div>
+</div>
+</section>
+
+<section>
+<div class="two">
+<div class="box">
+<h3>Подойдёт, если ты</h3>
+<ul class="check">
+<li>уже платишь за Claude и хочешь пользоваться им с телефона и голосом;</li>
+<li>хочешь помощника, который помнит твои правила и не начинает каждый раз с нуля;</li>
+<li>готов вечер повторять шаги за мной.</li>
+</ul>
+</div>
+<div class="box no">
+<h3>Не подойдёт, если</h3>
+<ul class="cross">
+<li>нет подписки Claude и оформлять её ты не готов;</li>
+<li>нужен бот для клиентов или команды — это уже <a href="/uslugi/#pod-klyuch">внедрение</a>;</li>
+<li>нужно «настройте за меня» — это <a href="/konsultaciya/">консультация</a> или внедрение.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="price">
+<h2>Сколько стоит</h2>
+<div class="price">
+<div class="plan">
+<span class="badge">Набор</span>
+<h3>Свой Джарвис</h3>
+<div class="amount">$39</div>
+<p class="rub">2 990 ₽ один раз, картой, СБП или SberPay</p>
+<ul class="check">
+<li>Видео: вся сборка на экране</li>
+<li>Бот, страница голоса, характер, память, инструкция</li>
+<li>7 дней вопросов мне в Telegram</li>
+<li>Без абонентской платы: работает на твоём компьютере или сервере</li>
+</ul>
+<a class="btn js-buy" href="https://t.me/iisystema_producer_bot?start=jarvis" data-src="price">🧰 Забрать набор</a>
+</div>
+<div class="plan later">
+<span class="badge">Потом</span>
+<h3>Клуб ii.systema</h3>
+<p class="note">Вступишь в клуб в течение 30 дней после покупки — 2 990 ₽ за набор зачтутся в первый месяц. В клубе вся система по частям, каждую неделю новая сборка. <a href="/club/">Что в клубе →</a></p>
+</div>
+</div>
+</section>
+
+<section class="faq">
+<h2>Частые вопросы</h2>
+<details><summary>Я не программист. Справлюсь?</summary><p>Код писать не нужно: вставляешь токен бота в файл настроек и запускаешь одну команду. Всё это есть на видео. Застрял — пишешь мне 7 дней после покупки.</p></details>
+<details><summary>Что нужно, кроме набора?</summary><p>Подписка Claude, Python на компьютере и аккаунт Telegram. Для круглосуточной работы — сервер от 500 ₽ в месяц, но можно и на своём компьютере, пока он включён.</p></details>
+<details><summary>Почему без API-ключей?</summary><p>Бот обращается к Claude Code, в который ты вошёл по своей подписке. Отдельно за API платить не нужно.</p></details>
+<details><summary>Это безопасно?</summary><p>Бот отвечает только хозяину, команды терминала по умолчанию выключены. Не диктуй ему пароли и данные карт: всё, что ты пишешь, уходит в Claude.</p></details>
+<details><summary>Чем отличается от твоего «Мозга»?</summary><p>«Мозг» — моя рабочая версия: клиентские группы, облачные задачи, пульт. В наборе — база, из которой он вырос, без всего клиентского.</p></details>
+</section>
+
+<section class="cta">
+<h2>Свой помощник на Claude — за вечер</h2>
+<p>Пишешь или говоришь — он помнит, ищет и делает.</p>
+<div class="btns">
+<a class="btn js-buy" href="https://t.me/iisystema_producer_bot?start=jarvis" data-src="bottom">🧰 Забрать набор за $39 (2 990 ₽)</a>
+<a class="ghost" href="/uslugi/">Все продукты и цены</a>
+</div>
+</section>
+
+<footer>© Пётр Соловаров · <a href="/privacy/">Политика конфиденциальности</a></footer>
+</div>
+
+<div class="sticky"><a class="btn js-buy" href="https://t.me/iisystema_producer_bot?start=jarvis" data-src="sticky">🧰 Набор за $39 (2 990 ₽)</a></div>
+
+<script>
+(function(){
+  var hero = document.querySelector('.hero .btn'), sticky = document.querySelector('.sticky');
+  document.querySelectorAll('.js-buy').forEach(function(a){
+    a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'kit_jarvis_' + a.dataset.src); });
+  });
+  if (!hero || !sticky) return;
+  if (!('IntersectionObserver' in window)) { sticky.classList.add('show'); return; }
+  new IntersectionObserver(function(es){ sticky.classList.toggle('show', !es[0].isIntersecting); }).observe(hero);
+})();
+</script>
+</body>
+</html>
