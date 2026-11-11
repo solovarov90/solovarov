@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой — блог Петра Соловарова</title>
+<meta name="description" content="Нейросеть для обработки обращений клиентов: как ИИ сортирует заявки, готовит черновик ответа по базе знаний, а человек отправляет его в один клик. Схема, кейс и поломки.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой">
+<meta property="og:description" content="Нейросеть для обработки обращений клиентов: как ИИ сортирует заявки, готовит черновик ответа по базе знаний, а человек отправляет его в один клик. Схема, кейс и поломки.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Нейросеть для обработки обращений клиентов готовит черновики ответов, человек проверяет и отправляет">
+<meta property="article:published_time" content="2026-11-09">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Продажи и заявки">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой">
+<meta name="twitter:description" content="Нейросеть для обработки обращений клиентов: как ИИ сортирует заявки, готовит черновик ответа по базе знаний, а человек отправляет его в один клик. Схема, кейс и поломки.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/"
+   },
+   "headline": "Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой",
+   "description": "Нейросеть для обработки обращений клиентов: как ИИ сортирует заявки, готовит черновик ответа по базе знаний, а человек отправляет его в один клик. Схема, кейс и поломки.",
+   "image": [
+    "https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-09",
+   "dateModified": "2026-11-11",
+   "inLanguage": "ru-RU",
+   "wordCount": 4841,
+   "articleSection": "Продажи и заявки",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой",
+     "item": "https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Что делать, если клиент задал вопрос, которого нет в базе знаний компании?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Модель не должна додумывать. В правилах прямо написано отвечать только по регламенту, а при нехватке данных ставить метку «Сомневаюсь». Такой черновик уходит человеку, он отвечает сам, и хороший ответ потом становится новой карточкой в базе знаний после подтверждения администратора."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как защитить коммерческую тайну и персональные данные клиентов при передаче текста в нейросеть?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ставить слой обезличивания между перепиской и нейросетью. В проекте JE 3.0 переписка хранится на сервере компании, перед отправкой в ИИ настоящие значения заменяются метками, а каждое обращение к модели пишется в журнал. Настоящие имена возвращаются только внутри компании, в черновике для менеджера."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько времени уходит у сотрудника на модерацию черновика ответа?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Точного замера по времени у меня нет, поэтому цифру не называю. Устроено так, чтобы проверка была одним действием, кнопкой «Отправить» или правкой словами. А читать нужно только черновики с меткой «Сомневаюсь» и темы про деньги, договоры и жалобы."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Можно ли подключить такую систему, если переписка идёт одновременно в Telegram, WhatsApp и на почте?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да, схема от канала не зависит. Каждое сообщение сначала попадает в одну таблицу или CRM, дальше с ним работают одинаково. Мои проекты живут в Telegram, а в инструкции «План Б для ИИ-бота» показано, как поставить запись в таблицу сразу после вебхука Telegram или WhatsApp в Make или n8n."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Какая модель лучше справляется с генерацией черновиков ответов для бизнеса?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Черновики для клиентов у меня пишет Claude Opus по подписке, тексты попроще и запасной путь закрывает Gemini. Выбирать лучше на своих задачах. Возьми десяток настоящих обращений, прогони их через две модели и посмотри, какой ответ ты отправил бы без правок."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Что произойдет, если облако нейросети упадет или временно не ответит?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Заявка не потеряется, если её записать в базу до запроса к нейросети. Дальше бот переключается на запасную модель другой компании, а если не отвечают обе, клиент получает честный автоответ, что сообщение принято. Таймаут основной модели стоит держать в пределах 10–15 секунд."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему бы не дать ИИ отвечать клиентам самому, без человека?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Модели ошибаются уверенно, и клиент видит такую ошибку сразу. Поэтому в моих проектах бот клиентам сам не пишет, сообщение уходит после кнопки человека. Автоматически можно отпускать только типовые ответы с меткой «Уверен», и то с выборочной проверкой 3–5 случайных ответов дважды в неделю."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Продажи и заявки</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Как внедрить · Продажи и заявки · 27 мин чтения</div>
+    <h1>Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</h1>
+    <p class="lead">Нейросеть для обработки обращений клиентов: как ИИ сортирует заявки, готовит черновик ответа по базе знаний, а человек отправляет его в один клик. Схема, кейс и поломки.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-09">9 ноября 2026</time> · обновлено <time datetime="2026-11-11">11 ноября 2026</time> · 4 841 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/razbor-obrascheniy-klientov-ii-chernoviki/img/cover.jpg" alt="Нейросеть для обработки обращений клиентов готовит черновики ответов, человек проверяет и отправляет" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#pochemu-slepoy-avtootvet-robotom-portit-otnosheniya-s-klient">Почему слепой автоответ роботом портит отношения с клиентом?</a></li><li><a href="#kak-ustroena-shema-ii-gotovit-chernovik-chelovek-utverzhdaet">Как устроена схема «ИИ готовит черновик, человек утверждает»?</a></li><li><a href="#shag-1-kak-sohranit-zayavku-do-otpravki-v-neyroset-chtoby-ne">Шаг 1: как сохранить заявку до отправки в нейросеть, чтобы не терять лиды?</a></li><li><a href="#shag-2-kak-ii-nahodit-nuzhnyy-otvet-v-baze-znaniy-i-reglamen">Шаг 2: как ИИ находит нужный ответ в базе знаний и регламентах бизнеса?</a></li><li><a href="#shag-3-kak-nastroit-shkalu-uverennosti-modeli-i-vyborochnuyu">Шаг 3: как настроить шкалу уверенности модели и выборочную проверку?</a></li><li><a href="#gde-menedzher-vidit-chernoviki-i-kak-otpravlyaet-otvet-v-odi">Где менеджер видит черновики и как отправляет ответ в один клик?</a></li><li><a href="#proveril-na-sebe-keys-je-3-0-i-razbor-potoka-v-telegram">Проверил на себе: кейс JE 3.0 и разбор потока в Telegram</a></li><li><a href="#chto-lomaetsya-v-takom-konveyere-pervym">Что ломается в таком конвейере первым?</a></li><li><a href="#skolko-stoit-zapusk-takogo-konveyera-i-chto-v-nem-dorogo">Сколько стоит запуск такого конвейера и что в нём дорого?</a></li></ol></nav>
+    <article class="article">
+<p>Нейросеть для обработки обращений клиентов работает надёжно, когда она готовит черновик, а отправляет ответ человек. Схема из трёх звеньев: заявка сразу пишется в базу, ИИ находит ответ в базе знаний компании и ставит себе оценку уверенности, а менеджер жмёт «Отправить» или правит текст словами. Так поток разбирает машина, а за каждое слово перед клиентом отвечает живой сотрудник.</p>
+<p>Ниже разбираю, как это собрать по шагам, где ставить проверку и что у меня ломалось. Примеры из двух моих проектов: JE 3.0, где компания ведёт сотни клиентов в отдельных Telegram-группах, и мой собственный поток сообщений после роликов ii.systema.</p>
+<h2 id="pochemu-slepoy-avtootvet-robotom-portit-otnosheniya-s-klient">Почему слепой автоответ роботом портит отношения с клиентом?</h2>
+<p>Слепой автоответ портит отношения, потому что модель ошибается уверенно, а клиент видит ошибку первым. Неверная цена, выдуманный срок или ответ невпопад на жалобу стоят дороже, чем десять минут ожидания. Поэтому первое правило всех моих проектов с клиентской перепиской: бот сам клиентам не пишет.</p>
+<p>В кейсе <a href="/je30/">JE 3.0</a> это правило закреплено с первого дня, по данным на 18.10.2026: сообщение уходит клиенту только после кнопки «Отправил» у менеджера. Менеджеры и порядок работы остаются прежними, ИИ читает переписку и таблицу сделок и подсказывает.</p>
+<p>Вторая крайность тоже плохая. Если перечитывать каждый ответ нейросети целиком, автоматизация ничего не экономит. Ты нанял помощника и сам работаешь у него контролёром. Решение посередине: ИИ готовит всё, человек смотрит быстро, а внимательно читает только спорное. Про это ниже, в шаге 3.</p>
+<p>Что именно идёт не так при автоответе без человека:</p>
+<ul>
+<li><strong>Выдумки.</strong> Модель отвечает гладко даже тогда, когда в базе нет нужного факта.</li>
+<li><strong>Тон.</strong> Шаблонная вежливость там, где клиент зол, звучит как издёвка.</li>
+<li><strong>Деньги и обязательства.</strong> Скидка, возврат или срок, названные роботом, клиент считает обещанием компании.</li>
+<li><strong>Контекст.</strong> Бот не знает, что этому клиенту договорились напоминать раз в три месяца, если это не записано.</li>
+</ul>
+<h2 id="kak-ustroena-shema-ii-gotovit-chernovik-chelovek-utverzhdaet">Как устроена схема «ИИ готовит черновик, человек утверждает»?</h2>
+<p>Схема состоит из пяти узлов: приём, запись в базу, поиск по базе знаний, черновик с меткой уверенности и кнопка у человека. Каждый узел делает одно дело, и поломка одного не роняет остальные. Если нейросеть легла, заявка уже лежит в таблице. Если человек не успел, карточка ждёт и напоминает о себе.</p>
+<!-- img: type=scheme what="обращение клиента (Telegram, WhatsApp, почта) → запись в таблицу или CRM → поиск по базе знаний компании → черновик ответа с меткой «Уверен» или «Сомневаюсь» → карточка менеджеру в Telegram с кнопками «Отправить», «Исправить», «Пропустить» → ответ клиенту" caption="Схема разбора обращений через ИИ: заявка сохраняется до нейросети, а клиенту отвечает человек по готовому черновику." alt="схема обработки обращений клиентов нейросетью с черновиком и проверкой человеком" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-label="Схема разбора обращений через ИИ: обращение клиента записывается в таблицу, ИИ ищет ответ в базе знаний и готовит черновик с меткой уверенности, менеджер в Telegram отправляет, исправляет или пропускает, и ответ уходит клиенту">
+  <title>Схема разбора обращений через ИИ: заявка сохраняется до нейросети, а клиенту отвечает человек по готовому черновику</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Ряд 1 -->
+  <rect x="40" y="40" width="320" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="78" cy="78" r="20" fill="var(--accent)"/>
+  <text x="78" y="86" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">1</text>
+  <text x="112" y="86" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Приём</text>
+  <text x="64" y="128" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Обращение клиента:</text>
+  <text x="64" y="154" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Telegram, WhatsApp, почта</text>
+
+  <rect x="440" y="40" width="320" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="478" cy="78" r="20" fill="var(--accent)"/>
+  <text x="478" y="86" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">2</text>
+  <text x="512" y="86" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Запись</text>
+  <text x="464" y="128" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Заявка в таблице или CRM.</text>
+  <text x="464" y="154" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Лежит, даже если ИИ упал</text>
+
+  <rect x="840" y="40" width="320" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="878" cy="78" r="20" fill="var(--accent)"/>
+  <text x="878" y="86" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">3</text>
+  <text x="912" y="86" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Поиск</text>
+  <text x="864" y="128" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Ответ ищется в базе</text>
+  <text x="864" y="154" font-family="var(--font-body)" font-size="18" fill="var(--muted)">знаний компании</text>
+
+  <!-- Стрелки ряд 1 -->
+  <line x1="360" y1="110" x2="436" y2="110" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="760" y1="110" x2="836" y2="110" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Перенос вниз -->
+  <path d="M1000 180 L1000 250 L600 250 L600 290" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Ряд 2 -->
+  <rect x="440" y="290" width="320" height="170" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="478" cy="328" r="20" fill="var(--accent)"/>
+  <text x="478" y="336" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">4</text>
+  <text x="512" y="336" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Черновик</text>
+  <text x="464" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Ответ с меткой</text>
+  <text x="464" y="404" font-family="var(--font-body)" font-size="18" fill="var(--fg)">«Уверен» или «Сомневаюсь»</text>
+  <text x="464" y="436" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Спорное читают внимательно</text>
+
+  <rect x="40" y="290" width="320" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="78" cy="328" r="20" fill="var(--accent)"/>
+  <text x="78" y="336" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">6</text>
+  <text x="112" y="336" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Клиент</text>
+  <text x="64" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Получает ответ</text>
+  <text x="64" y="404" font-family="var(--font-body)" font-size="18" fill="var(--muted)">от человека, а не</text>
+  <text x="64" y="430" font-family="var(--font-body)" font-size="18" fill="var(--muted)">от робота</text>
+
+  <rect x="840" y="290" width="320" height="170" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="878" cy="328" r="20" fill="var(--accent)"/>
+  <text x="878" y="336" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">5</text>
+  <text x="912" y="336" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Менеджер</text>
+  <text x="864" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Карточка в Telegram.</text>
+  <text x="864" y="404" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Не успел — карточка</text>
+  <text x="864" y="430" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ждёт и напоминает</text>
+
+  <!-- Стрелки ряд 2: 4 -> 5 -> 6 -->
+  <line x1="760" y1="375" x2="836" y2="375" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+  <path d="M1000 460 L1000 510 L200 510 L200 464" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+  <!-- Кнопки -->
+  <rect x="740" y="528" width="140" height="44" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="810" y="557" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--fg)">Отправить</text>
+  <rect x="900" y="528" width="140" height="44" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="970" y="557" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--fg)">Исправить</text>
+  <rect x="1060" y="528" width="100" height="44" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="1110" y="557" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--fg)">Пропустить</text>
+</svg>
+<figcaption>Схема разбора обращений через ИИ: заявка сохраняется до нейросети, а клиенту отвечает человек по готовому черновику.</figcaption>
+</figure>
+
+<p>Как это выглядит по ролям:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Кто</th>
+<th>Что делает</th>
+<th>Что не делает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>База (таблица, CRM)</td>
+<td>хранит каждое обращение с датой, контактом и текстом</td>
+<td>не думает</td>
+</tr>
+<tr>
+<td>ИИ</td>
+<td>сортирует, ищет ответ в базе знаний, пишет черновик, ставит метку уверенности</td>
+<td>не пишет клиенту сам</td>
+</tr>
+<tr>
+<td>Менеджер</td>
+<td>смотрит карточку, отправляет или правит</td>
+<td>не набирает ответ с нуля</td>
+</tr>
+<tr>
+<td>Администратор</td>
+<td>подтверждает новые знания кнопкой «Согласен»</td>
+<td>не правит базу вслепую</td>
+</tr>
+</tbody>
+</table></div>
+<p>Важная деталь: в такой схеме ИИ работает поверх уже существующих процессов. В JE 3.0 заказчику не понадобились новая CRM и новый регламент. Таблица сделок, группы и порядок работы остались на месте, надстройка читает то, что уже есть.</p>
+<h2 id="shag-1-kak-sohranit-zayavku-do-otpravki-v-neyroset-chtoby-ne">Шаг 1: как сохранить заявку до отправки в нейросеть, чтобы не терять лиды?</h2>
+<p>Заявку нужно записать в таблицу или CRM сразу после того, как сообщение пришло, ещё до запроса к нейросети. Тогда при любом сбое имя, контакт и текст вопроса уже лежат в базе, и менеджер ответит сам. Это правило я записал в инструкции <a href="https://app.notion.com/p/3-408dfdb1482281fca974e7b5259e360c">«План Б для ИИ-бота»</a> от 29.10.2026.</p>
+<p>Как поставить на практике, если связка собрана в Make или n8n:</p>
+<ol>
+<li>Открой сценарий, который принимает входящие сообщения.</li>
+<li>Сразу после вебхука (это адрес, на который Telegram или WhatsApp присылают каждое новое сообщение) поставь модуль записи строки в CRM или Google Таблицу.</li>
+<li>Привяжи поля: дата, имя клиента, телефон или ID чата, текст сообщения, статус «получено».</li>
+<li>Только после этого передавай текст нейросети.</li>
+<li>Перед отправкой ответа проверяй статус строки, чтобы клиент не получил два одинаковых ответа после повтора.</li>
+</ol>
+<p>Что ставить на случай, если нейросеть не ответила. Таймаут основной модели держи на 10–15 секундах, иначе клиент ждёт до минуты. Ошибки «слишком много запросов» и «сервер недоступен» перехватывай и отправляй запрос запасной модели другой компании. Если молчат обе, клиент сразу получает честный автоответ: сообщение принято, менеджер ответит позже.</p>
+<p>Отдельно про сортировку. Её удобно делать на этом же шаге: ИИ ставит обращению тип (вопрос, заявка, жалоба, оплата) и пишет его в ту же строку. Дальше по типу решается, кому уходит карточка и насколько строго её проверять.</p>
+<h2 id="shag-2-kak-ii-nahodit-nuzhnyy-otvet-v-baze-znaniy-i-reglamen">Шаг 2: как ИИ находит нужный ответ в базе знаний и регламентах бизнеса?</h2>
+<p>ИИ отвечает по базе знаний компании: перед черновиком он ищет подходящие карточки (правила, услуги, цены, решения) и пишет ответ только по ним, с указанием источника. Если нужного факта в базе нет, модель не должна додумывать. Такой черновик получает метку «Сомневаюсь» и идёт человеку.</p>
+<p>Как устроена база знаний в JE 3.0, по данным кейса на 18.10.2026:</p>
+<ul>
+<li><strong>Слои карточек.</strong> Правила и тон общения, услуги и исполнители, процессы, возражения клиентов, принятые решения, сами клиенты и группы.</li>
+<li><strong>Статус у каждой карточки.</strong> «Черновик», «проверено» или «устарело». Свежий и проверенный материал при поиске выигрывает у старого.</li>
+<li><strong>Поиск двумя способами.</strong> По смыслу (через векторы, то есть числовые «отпечатки» текста) и по словам, с учётом слоя и статуса.</li>
+<li><strong>Инструменты у модели.</strong> Она ищет по знаниям, открывает карточку клиента, берёт цифры по сделкам из таблицы.</li>
+</ul>
+<p>Ответ на вопрос приходит в Telegram за полминуту, с источниками. Один такой ответ стоит около 2 центов.</p>
+<p>Самое важное правило базы касается её обновления. Документ можно загрузить в чат, бот находит затронутые карточки и предлагает замены, но изменение вступает в силу только после того, как администратор нажмёт «Согласен». Так в базу не попадает случайное или устаревшее правило, а значит и в черновики клиентам тоже.</p>
+<p>Если у тебя пока нет базы знаний, начни с одной страницы. Выпиши частые вопросы клиентов, правильные ответы, цены, сроки и то, чего вы не делаете. Вставь её в инструкцию помощника (системный промпт, то есть постоянное задание модели) и добавь строку: «Отвечай только по этим правилам. Нет точного факта, ставь «Сомневаюсь»». Как устроена долгая память ИИ-помощника, я подробно разобрал в статье <a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">про память ИИ-агента для бизнеса</a>.</p>
+<h2 id="shag-3-kak-nastroit-shkalu-uverennosti-modeli-i-vyborochnuyu">Шаг 3: как настроить шкалу уверенности модели и выборочную проверку?</h2>
+<p>Модель ставит каждому ответу метку «Уверен» или «Сомневаюсь», а человек внимательно читает только спорные и критичные. Темы про деньги, договоры и жалобы идут на проверку всегда, как бы модель ни была уверена. Остальное ты проверяешь выборочно, несколько случайных ответов пару раз в неделю.</p>
+<p>Этот подход описан в препринте <a href="https://arxiv.org/abs/2610.31662">«Reliable AI-Assisted Decisions via Selective Auditing»</a> (arXiv, 22.10.2026). Авторы рассматривают поток решений ИИ, у каждого есть оценка уверенности, и для каждого решается: принять автоматически или отдать эксперту. Цель: проверять как можно реже и при этом держать долю непроверенных ошибок ниже заданного порога. Я переложил это в два правила для обычного помощника, они лежат в материале <a href="https://app.notion.com/p/407dfdb148228127a1aac70551e43fa9">«Как перестать проверять каждый ответ ИИ»</a> от 28.10.2026.</p>
+<p>Правила, которые вставляются в конец инструкции помощника:</p>
+<ol>
+<li><strong>Оценка уверенности.</strong> В первой строке каждого ответа метка: «Уверен», если ситуация стандартная и в заявке всё понятно; «Сомневаюсь», если есть неопределённость, нестандартные условия или не хватает данных.</li>
+<li><strong>Жёсткая проверка.</strong> Если запрос касается денег (стоимость, скидки, возвраты), договоров или в нём жалоба, метка всегда «Сомневаюсь», независимо от уверенности.</li>
+</ol>
+<p>Дальше поток делится:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Метка</th>
+<th>Куда идёт</th>
+<th>Что делает человек</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Уверен</td>
+<td>карточка с черновиком, можно отправить сразу</td>
+<td>пробегает глазами и жмёт «Отправить»</td>
+</tr>
+<tr>
+<td>Сомневаюсь</td>
+<td>карточка с пометкой «проверь»</td>
+<td>читает, правит, отправляет</td>
+</tr>
+<tr>
+<td>Деньги, договор, жалоба</td>
+<td>всегда к человеку</td>
+<td>решает сам, черновик как подсказка</td>
+</tr>
+</tbody>
+</table></div>
+<p>И третье правило, про которое забывают: выборочный контроль уверенных. Дважды в неделю открывай 3–5 случайных ответов с меткой «Уверен». Модели иногда ошибаются с высокой уверенностью, и только так ты это заметишь. Если ИИ начал слать на проверку слишком много обычных обращений, уточни критерии: с какой суммы вопрос считается «деньгами» и какие слова считать жалобой.</p>
+<!-- img: type=scheme what="поток черновиков ИИ → развилка по метке: «Уверен» (зелёная стрелка) → быстрая отправка; «Сомневаюсь» (жёлтая) → проверка человеком; «деньги, договор, жалоба» (красная) → всегда человеку; сбоку лупа: 3–5 случайных «Уверен» дважды в неделю" caption="Выборочная проверка ответов ИИ: внимательно читаешь только спорное и критичное, уверенные ответы проверяешь наугад." alt="выборочная проверка ответов ИИ в поддержке по оценке уверенности" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Схема: черновики ИИ делятся по метке на три потока: «Уверен» уходит на быструю отправку, «Сомневаюсь» на проверку человеком, запросы про деньги, договор и жалобы всегда решает человек. Отдельно дважды в неделю проверяются 3–5 случайных ответов с меткой «Уверен»."><title>Выборочная проверка ответов ИИ</title><defs><marker id="arA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker><marker id="arL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--line)"/></marker></defs><rect x="30" y="290" width="270" height="100" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><text x="50" y="328" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Черновики ИИ</text><text x="50" y="356" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Каждое обращение получает</text><text x="50" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ответ и метку</text><rect x="370" y="290" width="250" height="100" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/><text x="390" y="328" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Развилка по метке</text><text x="390" y="356" font-family="var(--font-body)" font-size="18" fill="var(--muted)">О чём запрос и насколько</text><text x="390" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ИИ уверен в ответе</text><path d="M300 340H366" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arA)"/><path d="M620 340H690V200H756" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arA)"/><path d="M620 340H756" fill="none" stroke="var(--line)" stroke-width="3" stroke-dasharray="10 7" marker-end="url(#arL)"/><path d="M620 340H690V480H756" fill="none" stroke="var(--line)" stroke-width="6" marker-end="url(#arL)"/><rect x="760" y="150" width="410" height="100" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/><text x="780" y="188" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Уверен</text><text x="780" y="216" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Карточка с черновиком, пробегаешь</text><text x="780" y="238" font-family="var(--font-body)" font-size="18" fill="var(--muted)">глазами и жмёшь «Отправить»</text><rect x="760" y="290" width="410" height="100" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2" stroke-dasharray="10 7"/><text x="780" y="328" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Сомневаюсь</text><text x="780" y="356" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Карточка с пометкой «проверь»:</text><text x="780" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">читаешь, правишь, отправляешь</text><rect x="760" y="430" width="410" height="100" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="5"/><text x="780" y="468" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Деньги, договор, жалоба</text><text x="780" y="496" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Всегда к человеку: решаешь сам,</text><text x="780" y="518" font-family="var(--font-body)" font-size="18" fill="var(--muted)">черновик ИИ служит подсказкой</text><rect x="760" y="20" width="410" height="90" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><circle cx="800" cy="62" r="14" fill="none" stroke="var(--accent)" stroke-width="4"/><path d="M810 73L824 87" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/><text x="846" y="55" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Выборочный контроль</text><text x="846" y="78" font-family="var(--font-body)" font-size="18" fill="var(--muted)">2 раза в неделю: 3–5 случайных</text><text x="846" y="100" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ответов «Уверен»</text><path d="M965 110V146" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="6 6" marker-end="url(#arA)"/></svg>
+<figcaption>Выборочная проверка ответов ИИ: внимательно читаешь только спорное и критичное, уверенные ответы проверяешь наугад.</figcaption>
+</figure>
+
+<h2 id="gde-menedzher-vidit-chernoviki-i-kak-otpravlyaet-otvet-v-odi">Где менеджер видит черновики и как отправляет ответ в один клик?</h2>
+<p>Черновики приходят менеджеру карточками в Telegram, в рабочую группу с темами, где он и так сидит. В карточке повод, контекст клиента, черновик и кнопки. Одно нажатие отправляет ответ, правка делается словами, ненужное закрывается.</p>
+<p>Как это устроено в JE 3.0 на 19.10.2026. Каждые 15 минут система проверяет группы, где последнее слово за клиентом, и присылает карточку «Клиент ждёт ответа». Режимов два:</p>
+<ul>
+<li><strong>Быстрый.</strong> Идёт живой разговор: жёлтая отметка через 30 минут, красная через 60 минут рабочего времени.</li>
+<li><strong>Долгий.</strong> Клиент сам взял паузу («подумаю») или группа партнёрская: жёлтая через 2 дня, оранжевая через 4, без красной.</li>
+</ul>
+<p>Рабочее время считается с 9 до 21 по Москве. «Спасибо», «ок» и стикеры ожиданием не считаются. Под карточкой кнопки: отложить на 2 часа или до утра, закрыть, пропустить и «предложить», по которой ИИ описывает ситуацию и пишет черновик ответа.</p>
+<p>Для клиентов, которые давно молчат, карточки другие: в будни утром приходит до 10 штук, в каждой повод, три-четыре тезиса из истории и черновик в тоне компании. Кнопки: скопировать, открыть группу, «Отправил», другой вариант, пропустить. Через три дня тишины приходит второе касание. Лимит в 10 карточек нужен, чтобы менеджеры не тонули.</p>
+<!-- img: type=screenshot url=https://petrsolovarov.ru/je30/ selector=".figures" caption="Блок цифр кейса JE 3.0: сигналы, лимит карточек в день, цена ответа и порог приёмки." alt="ИИ ассистент для клиентского сервиса: цифры кейса JE 3.0" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="ИИ ассистент для клиентского сервиса: цифры кейса JE 3.0" src="/blog/razbor-obrascheniy-klientov-ii-chernoviki/img/screenshot-3.jpg"></div><figcaption>Блок цифр кейса JE 3.0: сигналы, лимит карточек в день, цена ответа и порог приёмки.</figcaption></figure>
+<p>В моём рабочем боте «Мозг» тот же принцип для вопросов клиентов в группах проектов (с 30.10.2026). Клиент пишет вопрос, через 3 минуты тишины бот разбирает пачку сообщений и делит их на задачи и вопросы. На вопрос ИИ готовит два текста: ответ мне (что на самом деле, со ссылкой на файл или страницу) и черновик клиенту. Под черновиком «Отправить в группу», второе нажатие «Да, отправить» уходит ответом на сообщение клиента. Поправить можно словами: «короче», «добавь, что…».</p>
+<h2 id="proveril-na-sebe-keys-je-3-0-i-razbor-potoka-v-telegram">Проверил на себе: кейс JE 3.0 и разбор потока в Telegram</h2>
+<p>У меня два живых примера: клиентский проект JE 3.0 и собственный поток сообщений после роликов. В обоих ИИ сортирует и пишет черновики, а отправляю или решаю я сам либо менеджеры.</p>
+<p><strong>JE 3.0.</strong> Компания в сфере услуг ведёт сотни клиентов в отдельных Telegram-группах, сделки пишет в таблицу (кейс, 18.10.2026). Информации много, а поднять её в нужный момент некому: клиент остался без ответа, крупный заказчик тихо сбавил темп, постоянный клиент уснул. Надстройка читает переписку и таблицу и присылает менеджерам карточки с действием. Переписка хранится на сервере компании и попадает в ИИ только через слой обезличивания: настоящие имена заменяются метками, каждое обращение к модели пишется в журнал. К приёмке первого этапа бот должен был ответить минимум на 8 из 10 контрольных вопросов.</p>
+<p><strong>Мой поток после роликов.</strong> Под роликами ii.systema кодовое слово прислали почти 1000 человек, и диалоги я разбирал сам, с телефона, между делами (по данным на 02.11.2026). К 05.11.2026 слово «система» написали уже 2 661 человек, и выяснилось неприятное: ответы людей в директе Instagram никто не видел. Автоответ уходил, а человек писал в ответ, и сообщение терялось.</p>
+<p>Что я сделал 05.11.2026. Раз в 5 минут программа читает переписки Instagram и присылает мне каждое сообщение человека карточкой в Telegram. Ответить можно текстом прямо на карточку или взять черновик от Claude Opus и нажать «Отправить». Решение осталось за мной: продажи веду лично, бот только доносит сообщения и помогает черновиком. Как устроен сам автоответ по кодовому слову, я разобрал в статье <a href="/blog/avtootvet-kodovoe-slovo/">«Автоответ в Instagram по кодовому слову»</a>.</p>
+<!-- img: type=telegram chat=shtab topic="💬 Комментарии" find="карточка с заголовком «ОТВЕТ В ДИРЕКТЕ», входящим сообщением пользователя из Instagram и кнопками «Черновик» и «Отправить»" caption="Карточка ответа из директа Instagram в Telegram: черновик пишет ИИ, отправляю я." alt="ИИ черновик ответа клиенту в Telegram с кнопкой отправки" was="Telegram, тема «💬 Комментарии» в штабе роликов: карточка «ОТВЕТ В ДИРЕКТЕ» с сообщением человека из Instagram и кнопками «Черновик» и «Отправить»; имя и ник человека замазать" -->
+
+<h2 id="chto-lomaetsya-v-takom-konveyere-pervym">Что ломается в таком конвейере первым?</h2>
+<p>Первым ломается польза карточек, техника держится дольше. Менеджеры перестают смотреть сигналы, которые повторяют их собственную работу, а лишние карточки превращаются в шум. Вот что случалось у меня.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Что случилось</th>
+<th>Что сделал</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Менеджеры JE 3.0 сами обходят группы каждые 25–30 минут, и карточка «клиент ждёт ответа» дублировала этот обход (26.10.2026)</td>
+<td>Перенёс упор на нестандартные ситуации: новые карточки «Клиент в меню» и «Ошибочный платёж»</td>
+</tr>
+<tr>
+<td>Карточки висели открытыми, хотя клиент уже сказал «спасибо, получил»</td>
+<td>Авто-принятие (28.10.2026): карточка закрывается сама, если разговор закрыт и 20 рабочих минут нет нового вопроса; красные карточки, отказы и насмешки сами не закрываются</td>
+</tr>
+<tr>
+<td>Одних сигналов мало, менеджеру нужен быстрый шаг</td>
+<td>После второй встречи с заказчиком добавил кнопки «Передать старшему партнёру» и «Контекст клиента», контекст учитывается в следующих карточках</td>
+</tr>
+<tr>
+<td>Ответы людей в директе Instagram терялись, 2 661 человек написали слово, а их ответы никто не видел (05.11.2026)</td>
+<td>Карточка каждого сообщения в Telegram и черновик с кнопкой «Отправить»</td>
+</tr>
+<tr>
+<td>Клиент присылает пачку из десятков сообщений подряд (35 сообщений 29.10.2026), и карточки сыпались россыпью</td>
+<td>Бот ждёт 3 минуты тишины и собирает пачку в одну карточку со статусом каждого пункта</td>
+</tr>
+</tbody>
+</table></div>
+<p>Главный урок: показывать мало. Каждая карточка должна давать понятное действие в одно нажатие, иначе её перестанут открывать через неделю.</p>
+<h2 id="skolko-stoit-zapusk-takogo-konveyera-i-chto-v-nem-dorogo">Сколько стоит запуск такого конвейера и что в нём дорого?</h2>
+<p>Сам ответ нейросети стоит копейки: в JE 3.0 ответ базы знаний на один вопрос обходится примерно в 2 цента (18.10.2026). Черновики в моих ботах пишет Claude по подписке, без оплаты за каждый вызов. Основные затраты уходят на сборку: базу знаний, правила, обезличивание и карточки под ваш процесс.</p>
+<p>Из чего складывается работа:</p>
+<ol>
+<li><strong>Разбор потока.</strong> Откуда приходят обращения, какие типы, где сейчас теряются ответы.</li>
+<li><strong>Запись в базу.</strong> Таблица или CRM, куда каждое обращение пишется до нейросети.</li>
+<li><strong>База знаний.</strong> Правила, услуги, цены, тон. Её наполняет ваша команда, я раскладываю по карточкам и настраиваю обновление через «Согласен».</li>
+<li><strong>Правила уверенности и проверки.</strong> Что отправляется после быстрого взгляда, что всегда к человеку.</li>
+<li><strong>Карточки в Telegram.</strong> Кнопки под ваш процесс и лимиты, чтобы не утопить менеджеров.</li>
+<li><strong>Защита переписки.</strong> Обезличивание и журнал обращений к ИИ, если в переписке имена, телефоны и адреса клиентов.</li>
+</ol>
+<p>Чего я не обещаю: конкретного сокращения времени ответа в разах. Замера «до и после» по времени ответа у меня пока нет, и цифру я не называю. Зато есть проверяемая планка приёмки: база знаний отвечает на контрольные вопросы, а карточки закрываются действием менеджера.</p>
+<p>Если хочешь начать сам, без кода, сделай три вещи на этой неделе. Заведи таблицу, куда руками или через Make пишется каждое обращение. Собери страницу с частыми вопросами и правильными ответами. Вставь её в Claude или ChatGPT вместе с двумя правилами из шага 3 и неделю отвечай клиентам только через черновики. Через неделю будет видно, сколько черновиков ты отправил без правок. Если захочешь собрать то же самое под твой поток с карточками и базой знаний, напиши мне слово «система» в личку <a href="https://t.me/solovarov">t.me/solovarov</a>. Посмотрим, как устроены обращения в твоём деле и что можно безопасно перевести на ИИ с проверкой в один клик.</p>
+    </article>
+
+    
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Что делать, если клиент задал вопрос, которого нет в базе знаний компании?</h3><p>Модель не должна додумывать. В правилах прямо написано отвечать только по регламенту, а при нехватке данных ставить метку «Сомневаюсь». Такой черновик уходит человеку, он отвечает сам, и хороший ответ потом становится новой карточкой в базе знаний после подтверждения администратора.</p></div><div class="qa"><h3 id="faq-2">Как защитить коммерческую тайну и персональные данные клиентов при передаче текста в нейросеть?</h3><p>Ставить слой обезличивания между перепиской и нейросетью. В проекте JE 3.0 переписка хранится на сервере компании, перед отправкой в ИИ настоящие значения заменяются метками, а каждое обращение к модели пишется в журнал. Настоящие имена возвращаются только внутри компании, в черновике для менеджера.</p></div><div class="qa"><h3 id="faq-3">Сколько времени уходит у сотрудника на модерацию черновика ответа?</h3><p>Точного замера по времени у меня нет, поэтому цифру не называю. Устроено так, чтобы проверка была одним действием, кнопкой «Отправить» или правкой словами. А читать нужно только черновики с меткой «Сомневаюсь» и темы про деньги, договоры и жалобы.</p></div><div class="qa"><h3 id="faq-4">Можно ли подключить такую систему, если переписка идёт одновременно в Telegram, WhatsApp и на почте?</h3><p>Да, схема от канала не зависит. Каждое сообщение сначала попадает в одну таблицу или CRM, дальше с ним работают одинаково. Мои проекты живут в Telegram, а в инструкции «План Б для ИИ-бота» показано, как поставить запись в таблицу сразу после вебхука Telegram или WhatsApp в Make или n8n.</p></div><div class="qa"><h3 id="faq-5">Какая модель лучше справляется с генерацией черновиков ответов для бизнеса?</h3><p>Черновики для клиентов у меня пишет Claude Opus по подписке, тексты попроще и запасной путь закрывает Gemini. Выбирать лучше на своих задачах. Возьми десяток настоящих обращений, прогони их через две модели и посмотри, какой ответ ты отправил бы без правок.</p></div><div class="qa"><h3 id="faq-6">Что произойдет, если облако нейросети упадет или временно не ответит?</h3><p>Заявка не потеряется, если её записать в базу до запроса к нейросети. Дальше бот переключается на запасную модель другой компании, а если не отвечают обе, клиент получает честный автоответ, что сообщение принято. Таймаут основной модели стоит держать в пределах 10–15 секунд.</p></div><div class="qa"><h3 id="faq-7">Почему бы не дать ИИ отвечать клиентам самому, без человека?</h3><p>Модели ошибаются уверенно, и клиент видит такую ошибку сразу. Поэтому в моих проектах бот клиентам сам не пишет, сообщение уходит после кнопки человека. Автоматически можно отпускать только типовые ответы с меткой «Уверен», и то с выборочной проверкой 3–5 случайных ответов дважды в неделю.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://petrsolovarov.ru/je30/" rel="noopener">Кейс JE 3.0 на petrsolovarov.ru</a> <span>сотни клиентов в Telegram-группах, правило «решает человек», обезличивание, до 10 карточек в день, около 2 центов за ответ, 8 из 10 контрольных вопросов; данные на 18.10.2026</span></li><li><a href="https://github.com/solovarov90/je30-server/blob/main/scripts/waiting.py" rel="noopener">Модуль «Клиент ждёт ответа» проекта JE 3.0</a> <span>проверка каждые 15 минут, два режима ожидания, рабочее время 9–21 МСК; закрытый репозиторий, состояние на 19.10.2026</span></li><li><a href="https://app.notion.com/p/JE-3-0-26-10-5-405dfdb14822818bbf51ed5f4f79dfd2" rel="noopener">Журнал изменений, замечания менеджеров JE 3.0</a> <span>карточка «клиент ждёт ответа» дублирует обход менеджеров каждые 25–30 минут; 26.10.2026</span></li><li><a href="https://app.notion.com/p/JE-3-0-a-407dfdb14822812cac88cadb127fefd6" rel="noopener">Журнал изменений, авто-принятие карточек JE 3.0</a> <span>карточка закрывается сама через 20 рабочих минут после закрытого разговора; 28.10.2026</span></li><li><a href="https://app.notion.com/p/407dfdb148228127a1aac70551e43fa9" rel="noopener">Как перестать проверять каждый ответ ИИ: два правила для ассистента</a> <span>метки «Уверен / Сомневаюсь», деньги, договоры и жалобы всегда на проверку, 3–5 случайных ответов дважды в неделю; 28.10.2026</span></li><li><a href="https://app.notion.com/p/3-408dfdb1482281fca974e7b5259e360c" rel="noopener">План Б для ИИ-бота: 3 шага защиты от сбоев</a> <span>запись заявки до запроса к нейросети, запасная модель, таймаут 10–15 секунд, автоответ при полном сбое; 29.10.2026</span></li><li><a href="https://app.notion.com/p/Notion-JE-3-0-409dfdb1482281b192ede0ba783e38ff" rel="noopener">Журнал изменений, вопросы клиентов в боте «Мозг»</a> <span>вопрос клиента разбирается по коду, Notion и базе знаний, черновик уходит в группу после подтверждения; 30.10.2026</span></li><li><a href="https://github.com/solovarov90/ii-systema/blob/main/brain-bot/README.md" rel="noopener">README бота «Мозг», карточка пачки и вопросы клиентов</a> <span>разбор после 3 минут тишины, пачка из 35 сообщений 29.10.2026 одной карточкой; закрытый репозиторий, состояние на 05.11.2026</span></li><li><a href="https://app.notion.com/p/Instagram-40fdfdb14822817394a9e95b0c0b3557" rel="noopener">Журнал изменений, ответы в директе Instagram</a> <span>2 661 человек написали «система», ответы в директе никто не видел, карточки и черновики Петру; 05.11.2026</span></li><li><a href="https://app.notion.com/p/40cdfdb14822818eb5a5f64ce79d4249" rel="noopener">Посты канала: что отвечаю на сотни сообщений в личке</a> <span>почти 1000 человек прислали кодовое слово, диалоги разбирал сам с телефона; 02.11.2026</span></li><li><a href="https://arxiv.org/abs/2610.31662" rel="noopener">Gibbs, Han, Tibshirani, Zrnic. Reliable AI-Assisted Decisions via Selective Auditing (arXiv:2610.31662)</a> <span>препринт от 22.10.2026 о выборочной проверке решений ИИ по оценке уверенности</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я собираю такую схему под твой поток обращений: сохраняю заявки, подключаю базу знаний и правила проверки, а черновики приходят менеджеру в Telegram с кнопкой отправки.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, списывается раз в месяц, отменить можно в любой момент</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">Память ИИ-агента: как сделать, чтобы Claude помнил бизнес и не путал контекст</a><span>Документы и знания · 8 ноября 2026</span></li><li><a href="/blog/gemini-omni-1-2-flash-dlya-biznesa/">Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</a><span>Инструменты · 7 ноября 2026</span></li><li><a href="/blog/bezopasno-li-puskat-claude-code-na-server/">Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</a><span>Инструменты · 6 ноября 2026</span></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+}
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
+</script>
+</body>
+</html>
