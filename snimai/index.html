@@ -91,6 +91,13 @@ nav a{font-size:15px;color:var(--mut)}nav a:hover{color:var(--ink)}
 .steps h3{font:600 26px/1.05 var(--display);text-transform:uppercase}
 .steps .you h3{color:var(--gold)}
 .steps p{color:var(--mut)}
+.feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:32px}
+.feat{background:var(--raise);border-radius:16px;padding:22px}
+.feat h3{font:600 24px/1.1 var(--display);text-transform:uppercase;margin-top:8px}
+.feat ul{list-style:none;margin-top:14px;display:grid;gap:9px}
+.feat li{color:var(--mut);font-size:16px;line-height:1.45;padding-left:18px;position:relative}
+.feat li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+@media(max-width:760px){.feats{grid-template-columns:minmax(0,1fr)}}
 .tag{display:inline-block;margin-left:7px;font:500 11.5px var(--mono);color:#17100A;background:var(--gold);padding:2px 6px;border-radius:5px;vertical-align:2px}
 
 .nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin-top:32px}
@@ -160,7 +167,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <body>
 <header><div class="wrap">
   <a class="logo" href="#top">Снимай<i></i></a>
-  <nav><a href="#styles">Стили</a><a href="#math">Один дубль</a><a href="#how">Как работает</a><a href="#price">Цена</a><a href="#faq">Вопросы</a></nav>
+  <nav><a href="#styles">Стили</a><a href="#math">Один дубль</a><a href="#how">Как работает</a><a href="#inside">Что внутри</a><a href="#price">Цена</a><a href="#faq">Вопросы</a></nav>
   <a class="btn gold hdr" href="https://t.me/snimai_agent?start=site" rel="noopener">Открыть в Telegram</a>
 </div></header>
 
@@ -217,6 +224,22 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <li><h3>Монтажёр</h3><p>Паузы, подписи, вклейки под слова, звук, две обложки, всё в выбранном стиле. Обычно 15–30 минут. Ролик и текст для площадок приходят в чат.</p></li>
     <li><h3>Кабинет</h3><p>Твои дубли, шаги монтажа в реальном времени и готовые ролики. Следующий вариант заказывается одной кнопкой. За каждый шаг идут очки, звания и подарки.</p></li>
   </ol>
+</div></section>
+
+<section id="inside"><div class="wrap">
+  <p class="mono">ЧТО ВНУТРИ</p>
+  <h2 style="margin-top:8px">Весь путь: <em>от темы до просмотров</em></h2>
+  <p class="lead">Те же пять шагов подробно, и что происходит после монтажа. Всё работает внутри Telegram: приложение и чат с ботом устроены одинаково.</p>
+  <div class="feats">
+    <div class="feat"><p class="mono">01 · РАДАР</p><h3>Темы, которые уже зашли</h3><ul><li>Вписываешь свои ключевые слова один раз, они сохраняются.</li><li>Каждое утро Радар ищет по ним короткие ролики на YouTube, TikTok и в Instagram и берёт те, что уже набрали просмотры.</li><li>Открываешь ролик и видишь «Коротко о ролике»: о чём он, чем цепляет в первые секунды, главное по порядку и почему зашёл.</li><li>Понравилась тема, берёшь её в работу одной кнопкой.</li></ul></div>
+    <div class="feat"><p class="mono">02 · СЦЕНАРИЙ</p><h3>Текст своими словами</h3><ul><li>От чужого ролика остаются тема и структура. Слова пишутся заново.</li><li>В каждом сценарии три начала, основная часть и три концовки.</li><li>Текст готовится, пока ты выбираешь стиль. Ждать отдельно не надо.</li></ul></div>
+    <div class="feat"><p class="mono">03 · СТИЛЬ</p><h3>Пять стилей и свой</h3><ul><li>Листаешь образцы: четыре стиля с тобой в кадре и «Персонаж», где лицо показывать не нужно.</li><li>Настраиваешь цвет акцента, место подписей, темп, число вклеек, музыку, звуки на словах и наезды на лицо.</li><li>Своё кодовое слово ставится на плашку в ролике.</li><li>Нужен монтаж как у конкретного автора? Присылаешь 2–5 его роликов, и система измеряет его стиль.</li></ul></div>
+    <div class="feat"><p class="mono">04 · СУФЛЁР</p><h3>Читаешь и смотришь в камеру</h3><ul><li>Текст бежит над объективом прямо в приложении, запись идёт там же.</li><li>Читаешь всё подряд, одним дублем: три начала, середину, три концовки.</li><li>Оговорился, прочитай фразу заново: монтаж возьмёт чистый вариант.</li><li>Если телефон не даёт приложению камеру, текст всё равно бежит на экране, а видео присылаешь в чат.</li></ul></div>
+    <div class="feat"><p class="mono">05 · МОНТАЖ</p><h3>Ролик без твоего участия</h3><ul><li>Паузы и оговорки вырезаются, ставятся подписи, вклейки под слова, звук и музыка.</li><li>К ролику приходят две обложки и текст для площадок.</li><li>Обычно это 15–30 минут. Если монтаж не получился, ролик возвращается на баланс.</li><li>Из одного дубля выходит 6–9 вариантов, следующий заказывается одной кнопкой.</li></ul></div>
+    <div class="feat"><p class="mono">06 · ВЫКЛАДКА</p><h3>Просмотры считаются сами</h3><ul><li>Ролик, обложки и текст приходят в чат. Выкладываешь ты.</li><li>Присылаешь ссылку на вышедший ролик, и бот раз в сутки обновляет его просмотры.</li><li>Автовыкладка на твои аккаунты в разработке.</li></ul></div>
+    <div class="feat"><p class="mono">07 · КАБИНЕТ</p><h3>Всё в одном месте</h3><ul><li>Твои дубли, шаги монтажа в реальном времени и готовые ролики.</li><li>Баланс роликов и пополнение: карта, СБП или SberPay.</li><li>Те же разделы есть в чате кнопками: Радар, стиль, запись, кабинет.</li></ul></div>
+    <div class="feat"><p class="mono">08 · ТРЕНЕР</p><h3>Чтобы не бросить</h3><ul><li>Второй бот даёт задание дня и начисляет очки за каждый шаг и за просмотры.</li><li>Звания открывают бонусные ролики, топ-3 недели получают ролики в подарок.</li><li>Партнёрская программа: 10–20 % с оплат друзей, которых ты привёл.</li></ul></div>
+  </div>
 </div></section>
 
 <section><div class="wrap">
