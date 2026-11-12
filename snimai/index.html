@@ -159,7 +159,12 @@ details p{color:var(--mut);margin-top:9px;max-width:72ch}
 footer{padding:34px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--dim)}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
+.dots{display:none}
 @media(max-width:960px){
+  .dots{display:flex;justify-content:center;gap:4px;margin:6px 0 14px}
+  .dots button{width:26px;height:26px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+  .dots button::before{content:"";width:8px;height:8px;border-radius:8px;background:var(--dim);transition:width .2s,background .2s}
+  .dots button.on::before{width:22px;background:var(--gold)}
   nav{display:none}.hdr{margin-left:auto}
   section{padding:58px 0}
   .hero .wrap,.calc,.about{grid-template-columns:minmax(0,1fr)}
@@ -205,6 +210,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <p class="lead">«Учитель», «Импульс» и «Коллаж» смонтированы из одной и той же моей записи: одни и те же слова, разная картинка.</p>
   <div class="scale" aria-hidden="true"><span>Настоящий</span><div></div><span>Мультик</span></div>
   <div class="strip" id="strip"></div>
+  <div class="dots" id="dots" role="tablist" aria-label="Стили: листай"></div>
   <div class="tune"><span>цвет акцента</span><span>где подписи</span><span>темп</span><span>сколько вклеек</span><span>музыка</span><span>звуки на словах</span><span>наезды на лицо</span><span>твоё кодовое слово на плашке</span></div>
   <p class="note">Настройки меняются в приложении, образец рядом сразу показывает результат. Нравится монтаж конкретного автора? Пришли 2–5 его роликов, и система измерит темп, раскладки, подписи и звук: свой стиль стоит $6 · ≈ 500 ₽.</p>
 </div></section>
@@ -367,6 +373,18 @@ const io = new IntersectionObserver(entries => entries.forEach(({ target, isInte
   if (isIntersecting) { if (!target.src) target.src = target.dataset.src; target.play().catch(() => {}); } else target.pause();
 }), { threshold: .55 });
 strip.querySelectorAll("video").forEach(v => io.observe(v));
+
+const dots = document.getElementById("dots"), cards = [...strip.children];
+dots.innerHTML = STYLES.map((s, i) => `<button role="tab" data-i="${i}" aria-label="${s.name}"></button>`).join("");
+function mark() {
+  const mid = strip.scrollLeft + strip.clientWidth / 2;
+  let best = 0, gap = Infinity;
+  cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft - strip.offsetLeft + c.offsetWidth / 2 - mid); if (d < gap) { gap = d; best = i; } });
+  [...dots.children].forEach((b, i) => { b.classList.toggle("on", i === best); b.setAttribute("aria-selected", i === best); });
+}
+strip.addEventListener("scroll", mark, { passive: true });
+dots.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { const c = cards[+b.dataset.i]; strip.scrollTo({ left: c.offsetLeft - strip.offsetLeft - (strip.clientWidth - c.offsetWidth) / 2, behavior: "smooth" }); } });
+mark();
 })();
 </script>
 </body>
