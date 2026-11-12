@@ -114,7 +114,10 @@ nav a{font-size:15px;color:var(--mut)}nav a:hover{color:var(--ink)}
 .reels b{display:block;font:600 28px/1 var(--display);color:var(--gold);margin-top:10px}
 .reels p{font-size:15px;color:var(--mut);margin-top:4px;line-height:1.35}
 
-.plans{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:32px}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:32px}
+.plan .u{color:var(--gold);font:500 12.5px var(--mono);letter-spacing:.04em;margin-top:10px}
+.vipline{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:14px;padding:16px 20px;border-radius:16px;background:var(--raise);color:var(--mut);font-size:16px}
+.vipline b{font:500 12px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#17100A;background:var(--gold);padding:3px 7px;border-radius:6px}
 .plan{background:var(--raise);border-radius:16px;padding:20px;display:flex;flex-direction:column}
 .plan.top{outline:1.5px solid var(--gold)}
 .plan h3{font:600 23px/1 var(--display);text-transform:uppercase}
@@ -272,7 +275,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div class="plan"><h3>Старт</h3><div class="q">10 роликов</div><div class="p">$29</div><div class="r">≈ 2 400 ₽</div><div class="e">Один-два дубля</div></div>
     <div class="plan"><h3>Блогер</h3><div class="q">30 роликов</div><div class="p">$69</div><div class="r">≈ 5 700 ₽</div><div class="e">Около ролика в день</div></div>
     <div class="plan"><h3>Завод</h3><div class="q">60 роликов</div><div class="p">$119</div><div class="r">≈ 9 800 ₽</div><div class="e">Два ролика в день</div></div>
+    <div class="plan"><h3>Студия</h3><div class="q">90 роликов</div><div class="p">$159</div><div class="r">≈ 13 000 ₽</div><div class="e">Три ролика в день</div><div class="u">$1,77 за ролик</div></div>
+    <div class="plan"><h3>Медиа</h3><div class="q">150 роликов</div><div class="p">$239</div><div class="r">≈ 19 500 ₽</div><div class="e">4–6 роликов в день, на несколько аккаунтов</div><div class="u">$1,59 за ролик</div></div>
   </div>
+  <p class="vipline"><b>Скоро · VIP</b>Те же объёмы и сверху ИИ-аватар вместо съёмки, автовыкладка в YouTube, Instagram и TikTok, статистика и консультация со мной. Запишись в ранний список, напишу первым.</p>
   <div class="early" id="early">
     <div>
       <p class="mono">ДО РЕЛИЗА · РАННИЙ СПИСОК</p>
@@ -284,6 +290,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <li><span>Старт · 10 роликов</span><span><s>$29</s><b>$14.5 · 1 200 ₽</b></span></li>
       <li><span>Блогер · 30 роликов</span><span><s>$69</s><b>$34.5 · 2 850 ₽</b></span></li>
       <li><span>Завод · 60 роликов</span><span><s>$119</s><b>$59.5 · 4 900 ₽</b></span></li>
+      <li><span>Студия · 90 роликов</span><span><s>$159</s><b>$79.5 · 6 500 ₽</b></span></li>
+      <li><span>Медиа · 150 роликов</span><span><s>$239</s><b>$119.5 · 9 750 ₽</b></span></li>
     </ul>
   </div>
   <p class="note">Звания дают бонусные ролики, а на звании «Система» консультацию со мной. Приглашай друзей и получай 10–20 % с их оплат.</p>
