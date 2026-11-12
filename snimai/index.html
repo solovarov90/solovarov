@@ -202,7 +202,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <section class="band" id="styles"><div class="wrap">
   <p class="mono">5 СТИЛЕЙ</p>
   <h2 style="margin-top:8px">Одна фраза. <em>Разный ролик.</em></h2>
-  <p class="lead">«Учитель», «Импульс» и «Коллаж» смонтированы из одной и той же моей записи. Сравни, что меняет стиль.</p>
+  <p class="lead">«Учитель», «Импульс» и «Коллаж» смонтированы из одной и той же моей записи: одни и те же слова, разная картинка.</p>
   <div class="scale" aria-hidden="true"><span>Настоящий</span><div></div><span>Мультик</span></div>
   <div class="strip" id="strip"></div>
   <div class="tune"><span>цвет акцента</span><span>где подписи</span><span>темп</span><span>сколько вклеек</span><span>музыка</span><span>звуки на словах</span><span>наезды на лицо</span><span>твоё кодовое слово на плашке</span></div>
@@ -216,9 +216,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="calc">
     <div class="m" role="img" aria-label="Таблица три на три: начала по строкам, концовки по столбцам, девять роликов, каждый в своём стиле">
       <span></span><span>КОНЦОВКА 1</span><span>КОНЦОВКА 2</span><span>КОНЦОВКА 3</span>
-      <span>ХУК 1</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/uchitel.jpg);background-position:center 88%"><i>1</i><u>Учитель</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/grid-avatar.jpg);background-position:center 32%"><i>2</i><u>Аватар</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kollazh.jpg);background-position:center 62%"><i>3</i><u>Коллаж</u></b>
-      <span>ХУК 2</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kino.jpg);background-position:center 45%"><i>4</i><u>Кино</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/impuls.jpg);background-position:center 88%"><i>5</i><u>Импульс</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/professor.jpg);background-position:center 28%"><i>6</i><u>Профессор</u></b>
-      <span>ХУК 3</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/robot.jpg);background-position:center 90%"><i>7</i><u>Персонаж</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kino.jpg);background-position:center 45%"><i>8</i><u>Кино</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kollazh.jpg);background-position:center 62%"><i>9</i><u>Коллаж</u></b>
+      <span>ХУК 1</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/uchitel.jpg?v=1112);background-position:center 88%"><i>1</i><u>Учитель</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/grid-avatar.jpg?v=1112);background-position:center 32%"><i>2</i><u>Аватар</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kollazh.jpg?v=1112);background-position:center 62%"><i>3</i><u>Коллаж</u></b>
+      <span>ХУК 2</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kino.jpg?v=1112);background-position:center 45%"><i>4</i><u>Кино</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/impuls.jpg?v=1112);background-position:center 6%"><i>5</i><u>Импульс</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/professor.jpg?v=1112);background-position:center 28%"><i>6</i><u>Профессор</u></b>
+      <span>ХУК 3</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/robot.jpg?v=1112);background-position:center 90%"><i>7</i><u>Персонаж</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kino.jpg?v=1112);background-position:center 45%"><i>8</i><u>Кино</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kollazh.jpg?v=1112);background-position:center 62%"><i>9</i><u>Коллаж</u></b>
     </div>
     <div>
       <p>Три начала на три концовки дают девять роликов. Если какое-то начало или концовка записались неудачно, выйдет меньше, поэтому честная цифра 6–9. Каждый можно смонтировать в своём стиле.</p>
@@ -340,10 +340,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 (() => {
 "use strict";
 const PV = location.hostname === "localhost" ? "../app/previews/" : "https://video.petrsolovarov.ru/snimai/app/previews/";
+const V = "?v=1112";   // образцы кэшируются на 7 дней: после замены роликов меняй метку
 const STYLES = [
-  { id: "uchitel", name: "Учитель", kind: "Твоё лицо", line: "Спокойно и по делу. Лицо и тёмные карточки с цифрами на нужных словах." },
+  { id: "uchitel", name: "Учитель", kind: "Твоё лицо", line: "Объясняет схемами: графики, счётчики и карточки с цифрами на каждой мысли." },
   { id: "avatar", name: "Аватар", kind: "ИИ-аватар · скоро", line: "Твой голос, в кадре ИИ-аватар в своей комнате. Вставать к камере не нужно. Появится в старшем тарифе." },
-  { id: "impuls", name: "Импульс", kind: "Твоё лицо", line: "Сочный цвет и картинка почти на каждой фразе." },
+  { id: "impuls", name: "Импульс", kind: "Твоё лицо", line: "Живая картинка: настоящие фото и скриншоты почти на каждой фразе." },
   { id: "kollazh", name: "Коллаж", kind: "Ты + бумага", line: "Тебя вырезаем и клеим на бумагу. Движение как в стоп-моушене." },
   { id: "robot", name: "Персонаж", kind: "Герой вместо тебя", line: "Твой голос, в кадре робот или ИИ-профессор. Лицо показывать не нужно." },
 ];
@@ -351,7 +352,7 @@ const hero = document.getElementById("heroV"), pills = document.getElementById("
 let current = 0, auto = true;
 function show(i) {
   current = i;
-  hero.poster = `${PV}${STYLES[i].id}.jpg`; hero.src = `${PV}${STYLES[i].id}.mp4`; hero.play().catch(() => {});
+  hero.poster = `${PV}${STYLES[i].id}.jpg${V}`; hero.src = `${PV}${STYLES[i].id}.mp4${V}`; hero.play().catch(() => {});
   [...pills.children].forEach((b, n) => { b.classList.toggle("on", n === i); b.setAttribute("aria-selected", n === i); });
 }
 pills.innerHTML = STYLES.map((s, i) => `<button class="pill" role="tab" data-i="${i}">${s.name}</button>`).join("");
@@ -361,7 +362,7 @@ setInterval(() => { const t = Math.floor(hero.currentTime || 0); document.getEle
 setInterval(() => { if (auto && !document.hidden) show((current + 1) % STYLES.length); }, 9000);
 show(0);
 
-strip.innerHTML = STYLES.map(s => `<article class="sty"><div class="vf"><video poster="${PV}${s.id}.jpg" data-src="${PV}${s.id}.mp4" muted loop playsinline preload="none" aria-label="Образец стиля ${s.name}"></video></div><h3>${s.name}</h3><small>${s.kind}</small><p>${s.line}</p></article>`).join("");
+strip.innerHTML = STYLES.map(s => `<article class="sty"><div class="vf"><video poster="${PV}${s.id}.jpg${V}" data-src="${PV}${s.id}.mp4${V}" muted loop playsinline preload="none" aria-label="Образец стиля ${s.name}"></video></div><h3>${s.name}</h3><small>${s.kind}</small><p>${s.line}</p></article>`).join("");
 const io = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
   if (isIntersecting) { if (!target.src) target.src = target.dataset.src; target.play().catch(() => {}); } else target.pause();
 }), { threshold: .55 });
