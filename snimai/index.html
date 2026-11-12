@@ -84,6 +84,11 @@ nav a{font-size:15px;color:var(--mut)}nav a:hover{color:var(--ink)}
 .m b i{position:absolute;left:6px;top:6px;z-index:1;min-width:22px;height:22px;border-radius:7px;background:var(--gold);color:#17100A;font:600 12.5px/22px var(--mono);font-style:normal}
 .m b u{position:absolute;left:0;right:0;bottom:6px;z-index:1;text-decoration:none;color:var(--ink);font:500 11.5px var(--mono);letter-spacing:.02em}
 .m span{padding:0 4px}
+.m b.own{outline:1.5px dashed var(--gold);outline-offset:-1.5px}
+.m b.own:after{inset:0;height:auto;background:rgba(11,11,16,.72)}
+.m b.own em{position:absolute;inset:0 0 34% 0;z-index:1;display:grid;place-items:center;font:600 34px/1 var(--mono);font-style:normal;color:var(--gold)}
+.m b.own u{bottom:8px;line-height:1.35;color:var(--gold2)}
+.m b.own u small{display:block;font-size:10.5px;color:var(--ink)}
 .calc p{font-size:clamp(17px,2vw,20px);color:var(--mut)}
 .calc p+p{margin-top:14px}
 .calc .cap{font-size:14.5px;color:var(--dim)}
@@ -159,7 +164,12 @@ details p{color:var(--mut);margin-top:9px;max-width:72ch}
 footer{padding:34px 0;border-top:1px solid var(--line);font-size:14.5px;color:var(--dim)}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
+.dots{display:none}
 @media(max-width:960px){
+  .dots{display:flex;justify-content:center;gap:4px;margin:6px 0 14px}
+  .dots button{width:26px;height:26px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+  .dots button::before{content:"";width:8px;height:8px;border-radius:8px;background:var(--dim);transition:width .2s,background .2s}
+  .dots button.on::before{width:22px;background:var(--gold)}
   nav{display:none}.hdr{margin-left:auto}
   section{padding:58px 0}
   .hero .wrap,.calc,.about{grid-template-columns:minmax(0,1fr)}
@@ -205,6 +215,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <p class="lead">«Учитель», «Импульс» и «Коллаж» смонтированы из одной и той же моей записи: одни и те же слова, разная картинка.</p>
   <div class="scale" aria-hidden="true"><span>Настоящий</span><div></div><span>Мультик</span></div>
   <div class="strip" id="strip"></div>
+  <div class="dots" id="dots" role="tablist" aria-label="Стили: листай"></div>
   <div class="tune"><span>цвет акцента</span><span>где подписи</span><span>темп</span><span>сколько вклеек</span><span>музыка</span><span>звуки на словах</span><span>наезды на лицо</span><span>твоё кодовое слово на плашке</span></div>
   <p class="note">Настройки меняются в приложении, образец рядом сразу показывает результат. Нравится монтаж конкретного автора? Пришли 2–5 его роликов, и система измерит темп, раскладки, подписи и звук: свой стиль стоит $6 · ≈ 500 ₽.</p>
 </div></section>
@@ -214,14 +225,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <h2 style="margin-top:8px">Снял один раз. <em>Получил 6–9 роликов</em></h2>
   <p class="lead">Самое дорогое в роликах — твоё время у камеры. Здесь оно тратится один раз: в сценарии три начала и три концовки, ты читаешь их подряд, а монтаж собирает из этой записи до девяти разных роликов.</p>
   <div class="calc">
-    <div class="m" role="img" aria-label="Таблица три на три: начала по строкам, концовки по столбцам, девять роликов, каждый в своём стиле">
+    <div class="m" role="img" aria-label="Таблица три на три: начала по строкам, концовки по столбцам, девять роликов, каждый в своём стиле; последние два — свой стиль, с лицом и без лица">
       <span></span><span>КОНЦОВКА 1</span><span>КОНЦОВКА 2</span><span>КОНЦОВКА 3</span>
       <span>ХУК 1</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/uchitel.jpg?v=1112);background-position:center 88%"><i>1</i><u>Учитель</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/grid-avatar.jpg?v=1112);background-position:center 32%"><i>2</i><u>Аватар</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kollazh.jpg?v=1112);background-position:center 62%"><i>3</i><u>Коллаж</u></b>
       <span>ХУК 2</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kino.jpg?v=1112);background-position:center 45%"><i>4</i><u>Кино</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/impuls.jpg?v=1112);background-position:center 6%"><i>5</i><u>Импульс</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/professor.jpg?v=1112);background-position:center 28%"><i>6</i><u>Профессор</u></b>
-      <span>ХУК 3</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/robot.jpg?v=1112);background-position:center 90%"><i>7</i><u>Персонаж</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kino.jpg?v=1112);background-position:center 45%"><i>8</i><u>Кино</u></b><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/kollazh.jpg?v=1112);background-position:center 62%"><i>9</i><u>Коллаж</u></b>
+      <span>ХУК 3</span><b style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/robot.jpg?v=1112);background-position:center 90%"><i>7</i><u>Персонаж</u></b><b class="own" style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/uchitel.jpg?v=1112);background-position:center 88%"><i>8</i><em>+</em><u>Свой стиль<small>с твоим лицом</small></u></b><b class="own" style="background-image:url(https://video.petrsolovarov.ru/snimai/app/previews/avatar.jpg?v=1112);background-position:center 60%"><i>9</i><em>+</em><u>Свой стиль<small>без лица</small></u></b>
     </div>
     <div>
       <p>Три начала на три концовки дают девять роликов. Если какое-то начало или концовка записались неудачно, выйдет меньше, поэтому честная цифра 6–9. Каждый можно смонтировать в своём стиле.</p>
+      <p>Кроме готовых стилей можно собрать свой: с твоим лицом в кадре или без него, когда вместо тебя говорит персонаж. Присылаешь 2–5 роликов, монтаж которых нравится, и система повторяет их темп, раскладки и подписи.</p>
       <p>Что это даёт: роликов хватает на три площадки и на несколько недель вперёд, а по просмотрам видно, какое начало цепляет.</p>
       <p><b>В месяц это выглядит так:</b> 10 записей по 18 минут — три часа у камеры и 60–90 роликов.</p>
       <p class="cap">Платишь только за те ролики, которые заказал: один смонтированный вариант списывает один ролик с баланса. Все девять заказывать не обязательно.</p>
@@ -367,6 +379,18 @@ const io = new IntersectionObserver(entries => entries.forEach(({ target, isInte
   if (isIntersecting) { if (!target.src) target.src = target.dataset.src; target.play().catch(() => {}); } else target.pause();
 }), { threshold: .55 });
 strip.querySelectorAll("video").forEach(v => io.observe(v));
+
+const dots = document.getElementById("dots"), cards = [...strip.children];
+dots.innerHTML = STYLES.map((s, i) => `<button role="tab" data-i="${i}" aria-label="${s.name}"></button>`).join("");
+function mark() {
+  const mid = strip.scrollLeft + strip.clientWidth / 2;
+  let best = 0, gap = Infinity;
+  cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft - strip.offsetLeft + c.offsetWidth / 2 - mid); if (d < gap) { gap = d; best = i; } });
+  [...dots.children].forEach((b, i) => { b.classList.toggle("on", i === best); b.setAttribute("aria-selected", i === best); });
+}
+strip.addEventListener("scroll", mark, { passive: true });
+dots.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { const c = cards[+b.dataset.i]; strip.scrollTo({ left: c.offsetLeft - strip.offsetLeft - (strip.clientWidth - c.offsetWidth) / 2, behavior: "smooth" }); } });
+mark();
 })();
 </script>
 </body>
