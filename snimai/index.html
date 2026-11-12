@@ -111,6 +111,13 @@ nav a{font-size:15px;color:var(--mut)}nav a:hover{color:var(--ink)}
 .plan .p{font:600 42px/1 var(--display);color:var(--gold);margin-top:16px}
 .plan .r{color:var(--dim);font-size:14.5px;margin-top:3px}
 .plan .e{color:var(--mut);font-size:14.5px;margin-top:12px;line-height:1.35}
+.early{margin-top:14px;background:var(--raise);border-radius:16px;outline:1.5px solid var(--gold);padding:24px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px;align-items:center}
+.early h3{font:600 26px/1.1 var(--display);text-transform:uppercase;margin-top:8px}
+.early p{color:var(--mut);font-size:16px;margin-top:10px;line-height:1.45}
+.early ul{list-style:none;display:grid;gap:8px}
+.early li{display:flex;justify-content:space-between;gap:12px;font-size:16px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.early li s{color:var(--dim);margin-right:8px}.early li b{color:var(--gold)}
+@media(max-width:760px){.early{grid-template-columns:minmax(0,1fr)}}
 .more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
 .more a{display:block;border:1px solid var(--line);border-radius:14px;padding:16px 18px;transition:border-color .15s}
 .more a:hover{border-color:var(--gold)}
@@ -233,6 +240,19 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div class="plan"><h3>Старт</h3><div class="q">10 роликов</div><div class="p">$29</div><div class="r">≈ 2 400 ₽</div><div class="e">Один-два дубля</div></div>
     <div class="plan"><h3>Блогер</h3><div class="q">30 роликов</div><div class="p">$69</div><div class="r">≈ 5 700 ₽</div><div class="e">Около ролика в день</div></div>
     <div class="plan"><h3>Завод</h3><div class="q">60 роликов</div><div class="p">$119</div><div class="r">≈ 9 800 ₽</div><div class="e">Два ролика в день</div></div>
+  </div>
+  <div class="early" id="early">
+    <div>
+      <p class="mono">ДО РЕЛИЗА · РАННИЙ СПИСОК</p>
+      <h3>Скидка 50% на один пакет</h3>
+      <p>Сейчас дорабатываю радар и интерфейс. Кто запишется в ранний список до релиза, покупает один пакет роликов за полцены. Запись в Telegram: бот запомнит тебя и сразу покажет пакеты со скидкой. Скидка срабатывает при покупке.</p>
+      <div class="row" style="margin-top:18px"><a class="btn gold" href="https://t.me/iisystema_materials_bot?start=snimai-site" rel="noopener">Записаться и выбрать пакет</a></div>
+    </div>
+    <ul>
+      <li><span>Старт · 10 роликов</span><span><s>$29</s><b>$14.5 · 1 200 ₽</b></span></li>
+      <li><span>Блогер · 30 роликов</span><span><s>$69</s><b>$34.5 · 2 850 ₽</b></span></li>
+      <li><span>Завод · 60 роликов</span><span><s>$119</s><b>$59.5 · 4 900 ₽</b></span></li>
+    </ul>
   </div>
   <p class="note">Звания дают бонусные ролики, а на звании «Система» консультацию со мной. Приглашай друзей и получай 10–20 % с их оплат.</p>
   <div class="row" style="margin-top:22px"><a class="btn gold" href="https://t.me/snimai_agent?start=site" rel="noopener">Сделать первый ролик бесплатно</a></div>
