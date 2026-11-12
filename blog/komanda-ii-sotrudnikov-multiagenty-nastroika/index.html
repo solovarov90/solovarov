@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу — блог Петра Соловарова</title>
+<meta name="description" content="ИИ-сотрудник для бизнеса: как настроить, чтобы несколько агентов не болтали вместо работы. Регламент до 200 строк, конвейер шагов и отчёт из трёх колонок.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу">
+<meta property="og:description" content="ИИ-сотрудник для бизнеса: как настроить, чтобы несколько агентов не болтали вместо работы. Регламент до 200 строк, конвейер шагов и отчёт из трёх колонок.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Команда ИИ-сотрудников для бизнеса и как настроить мультиагентную систему, обложка статьи">
+<meta property="article:published_time" content="2026-11-10">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Автоматизация">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу">
+<meta name="twitter:description" content="ИИ-сотрудник для бизнеса: как настроить, чтобы несколько агентов не болтали вместо работы. Регламент до 200 строк, конвейер шагов и отчёт из трёх колонок.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/"
+   },
+   "headline": "Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу",
+   "description": "ИИ-сотрудник для бизнеса: как настроить, чтобы несколько агентов не болтали вместо работы. Регламент до 200 строк, конвейер шагов и отчёт из трёх колонок.",
+   "image": [
+    "https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-10",
+   "dateModified": "2026-11-12",
+   "inLanguage": "ru-RU",
+   "wordCount": 4889,
+   "articleSection": "Автоматизация",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу",
+     "item": "https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Зачем делить задачи между несколькими ИИ-агентами, если можно использовать один чат?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Один чат на всё быстро разрастается, и модель хуже видит то, что было в середине разговора. Когда у каждого шага своя короткая инструкция и своя сессия, агент держит в голове только свою часть. У меня так работают сценарии роликов, проверка штампов и статьи блога, каждый шаг отдельным запуском."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему агенты начинают галлюцинировать при длинном диалоге?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Длинная сессия забивает контекст, и факты из начала работы теряются в середине. Debashish Ghosal 09.11.2026 описал агента, который через 20 минут работы отчитался о зелёных тестах, хотя тесты вообще не запускались. Лечится внешней проверкой и коротким файлом состояния, куда агент пишет только проверенные факты."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как ограничить размер инструкций для ИИ-сотрудника?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Держи файл правил AGENTS.md или CLAUDE.md в пределах 150–200 строк и пиши глаголами действия. Файл читается при каждом запуске, поэтому длинный регламент тратит лимит и размывает внимание. Подробности выноси в отдельные навыки, которые агент открывает только под задачу."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Что делать, если ИИ-агент упёрся в лимит сообщений посреди процесса?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Сохраняй номер сессии и продолжай ту же сессию после сброса лимита. В Claude Code это флаг --resume, агент помнит решения и не повторяет готовые шаги. У меня 01.10.2026 так продолжились три монтажа после сброса лимита в 16:39, без моего участия."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Нужно ли программировать, чтобы настроить маршрутизацию задач между агентами?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Простую цепочку можно собрать в Make или n8n без кода: запись заявки в таблицу, потом запрос к нейросети, потом уведомление человеку. Очередь, автопродолжение после лимита и отчёты из облачных сессий я собирал уже кодом, на Python и Claude Code."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как проверять ночную автономную работу ИИ-сотрудников за одну минуту?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Требуй от агента в конце отчёт в трёх полях, Статус, Результат и Ссылки, в строке базы Notion. Статус один из трёх, Готово, Нужен ты или Не вышло, а в Результате отдельно написано, что агент не проверил. Утром ты читаешь статусы и открываешь только строки с вопросом или ошибкой."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько стоит держать ИИ-сотрудника на сервере?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Сервер для ботов у меня стоит от 500 рублей в месяц, основная работа идёт по подписке Claude. Резерв через платный API включается только при лимите и ограничен потолком 3 доллара в сутки. Клиентская система «Второй мозг» с платным софтом выходит около 22 000–25 000 рублей в месяц."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+.related-all-t { font-size: 18px; margin: 28px 0 12px; }
+.related ul.related-all { gap: 8px; }
+.related ul.related-all li { background: none; border: 0; border-radius: 0; padding: 0; }
+.related ul.related-all li a { font-family: inherit; font-weight: 400; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Автоматизация</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Инструкция · Автоматизация · 27 мин чтения</div>
+    <h1>Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</h1>
+    <p class="lead">ИИ-сотрудник для бизнеса: как настроить, чтобы несколько агентов не болтали вместо работы. Регламент до 200 строк, конвейер шагов и отчёт из трёх колонок.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-10">10 ноября 2026</time> · обновлено <time datetime="2026-11-12">12 ноября 2026</time> · 4 889 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/img/cover.jpg" alt="Команда ИИ-сотрудников для бизнеса и как настроить мультиагентную систему, обложка статьи" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#pochemu-komanda-ii-sotrudnikov-nachinaet-boltat-vmesto-rabot">Почему команда ИИ-сотрудников начинает болтать вместо работы?</a></li><li><a href="#pochemu-agent-teryaet-logiku-cherez-20-minut-dialoga-i-kak-s">Почему агент теряет логику через 20 минут диалога и как спасает регламент?</a></li><li><a href="#kak-ustroena-lineynaya-marshrutizatsiya-vmesto-haotichnogo-r">Как устроена линейная маршрутизация вместо хаотичного роя?</a></li><li><a href="#kak-nastroit-kontrol-nochnyh-zadach-agenta-cherez-otchet-iz-">Как настроить контроль ночных задач агента через отчёт из трёх колонок?</a></li><li><a href="#proveril-na-sebe-kak-ya-upravlyayu-agentami-na-servere-i-cht">Проверил на себе: как я управляю агентами на сервере и что сломалось на лимитах подписки</a></li><li><a href="#skolko-stoit-infrastruktura-dlya-nadezhnoy-raboty-ii-assiste">Сколько стоит инфраструктура для надёжной работы ИИ-ассистентов?</a></li><li><a href="#poshagovyy-plan-kak-zapustit-pervogo-nadezhnogo-ii-sotrudnik">Пошаговый план: как запустить первого надёжного ИИ-сотрудника за 3 шага?</a></li></ol></nav>
+    <article class="article">
+<p>ИИ-сотрудник для бизнеса настраивается так: один агент выполняет один понятный шаг по короткому регламенту, кладёт результат в базу и отчитывается человеку. Команда из нескольких агентов начинает путаться и жечь токены, когда агенты общаются друг с другом напрямую, без жёсткого порядка и без координатора. Поэтому в малом бизнесе я ставлю последовательный конвейер: регламент до 150–200 строк, изоляцию ролей и проверку результата человеком на каждом важном шаге.</p>
+<p>Ниже разбираю, откуда берётся хаос в мультиагентной системе, почему агент «врёт» через 20 минут работы, как устроен конвейер в моём проекте ii.systema и как я проверяю ночную работу агентов за минуту. В конце план из трёх шагов, по которому можно запустить первого надёжного ИИ-сотрудника.</p>
+<h2 id="pochemu-komanda-ii-sotrudnikov-nachinaet-boltat-vmesto-rabot">Почему команда ИИ-сотрудников начинает болтать вместо работы?</h2>
+<p>Потому что агентам дали общий чат и свободу говорить друг с другом, а результат никто не требует в конкретной форме. Агент, который может написать «работаю над этим», пишет это. Каждое такое сообщение читают все остальные, и токены уходят на переписку.</p>
+<p>Свежий пример. Elliot Brenya sarfo <a href="https://dev.to/elliot_brenya/i-gave-my-startup-6-ai-employees-they-talked-more-than-they-worked-480p">описал на DEV Community</a> 09.11.2026, как с 25 октября его стартапом управляют шесть ИИ-сотрудников: технический директор, аналитик, служба поддержки и другие. За первую неделю в общем чате набралось 330 строк переписки при 75 сделанных делах, а самого основателя агенты отметили 105 раз. Аналитика пришлось заменить: она объявляла в чате работу, которую не сделала.</p>
+<p>Что он сделал дальше, полезно и тебе:</p>
+<ul>
+<li>запретил кодом статусы без результата;</li>
+<li>убрал шутки и болтовню из ролей;</li>
+<li>записал короткие правила: «сначала сдай, потом объявляй», «без извинений», «без светских разговоров».</li>
+</ul>
+<p>Это три правила регламента, и все три про одно: агент отчитывается сделанным делом. Слово «агент» здесь значит программу на основе нейросети, которая сама выполняет шаги задачи: читает файлы, пишет тексты, вызывает инструменты.</p>
+<p>Вторая причина хаоса в том, что агенты подстраиваются друг под друга. В <a href="https://app.notion.com/p/413dfdb14822810c9f5ef70ffeacafe7">идее ролика от 09.11.2026</a> я разбирал исследование Phantom Consensus на arXiv: когда несколько ИИ видят ответы друг друга, их «единогласие» может оказаться ложным. Отсюда правило: если нужны мнения нескольких моделей, спрашивай каждую отдельно и сравнивай сам.</p>
+<h2 id="pochemu-agent-teryaet-logiku-cherez-20-minut-dialoga-i-kak-s">Почему агент теряет логику через 20 минут диалога и как спасает регламент?</h2>
+<p>Агент теряет логику, потому что контекст разрастается, и факты из середины работы он видит хуже всего. Контекст здесь это всё, что модель читает за один раз: инструкции, историю, результаты команд. Регламент и короткие сессии держат этот объём под контролем.</p>
+<p>Debashish Ghosal 09.11.2026 <a href="https://dev.to/debashish_ghosal/why-your-ai-agent-is-brilliant-for-20-minutes-and-then-starts-lying-232j">разобрал на DEV Community</a> случай, знакомый каждому, кто запускал агента на длинную задачу. Первые 20 минут агент работал отлично. Потом отчитался, что тесты зелёные и окружение готово. Тесты при этом ни разу не запускались. Автор ссылается на эффект «потерянной середины»: модель хорошо помнит начало и конец длинного текста, а середину теряет. У агента в середине лежат результаты первых проверок.</p>
+<p>Его решения:</p>
+<ol>
+<li><strong>Файл состояния.</strong> Агент ведёт короткий документ: цель, проверенные факты, решения, открытые вопросы. Этот файл подаётся ему на каждом шаге.</li>
+<li><strong>Ссылка на проверку.</strong> Каждый факт в файле ссылается на команду, которая его подтвердила. Нет ссылки, нет записи.</li>
+<li><strong>Проверка другим агентом.</strong> В конце другая модель или другая инструкция заново перепроверяет факты свежими командами.</li>
+</ol>
+<p>Сам автор честно пишет, что галлюцинации это не убирает совсем. Если задача требует сорока минут непрерывной работы агента, он делит её на проверенные этапы с остановками на человека.</p>
+<p>Теперь про регламент. Файл с правилами, AGENTS.md или CLAUDE.md, загружается в память при каждом запросе или старте сессии. Поэтому в <a href="https://app.notion.com/p/AGENTS-md-7-3f3dfdb14822814da13ad4e0b76816c1">моём шаблоне AGENTS.md</a> от 08.10.2026 стоит ограничение: не длиннее 150–200 строк. Длиннее, и ты платишь лимитом за каждое слово при каждом запуске.</p>
+<p>Второе правило оттуда же: писать глаголами действия. «Пиши красивый код» агент проигнорирует. «Не устанавливай новые библиотеки», «сначала запусти тесты» он выполнит. Для бизнеса то же самое: «отвечай вежливо» не работает, «в ответе клиенту назови срок и цену из прайса, ссылку на прайс бери из таблицы» работает.</p>
+<p>Длину я проверил на себе. 02.11.2026, по <a href="https://app.notion.com/p/AGENTS-md-Watch-Claude-Code-40cdfdb1482281c5914ee676a2613e8f">журналу изменений</a>, я сравнил одну и ту же задачу в Claude Code без файла правил и с ним: 36 строк против 15. Короткий регламент сразу сжал результат.</p>
+<p>И ловушка, на которой я потерял время на сервере клиента. Агентная платформа OpenClaw молча обрезает AGENTS.md длиннее 12 000 символов. Правила в хвосте файла просто не доходят до агента, и со стороны это выглядит как «игнорирует инструкции». Теперь после каждой правки регламента я проверяю его длину, а подробности выношу в отдельные навыки.</p>
+<h2 id="kak-ustroena-lineynaya-marshrutizatsiya-vmesto-haotichnogo-r">Как устроена линейная маршрутизация вместо хаотичного роя?</h2>
+<p>Линейная маршрутизация это заранее заданный порядок шагов: после агента поиска всегда запускается редактор, после редактора всегда финальный шаг. Агенты не решают сами, кому передать работу. Порядок держит диспетчер, программа или человек, поэтому цепочка не зацикливается.</p>
+<p>Эту схему я записал во втором мозге ещё 27.03.2026, когда собирал SmartPosting: диспетчер знает, что после агента поиска нужно запустить агента-редактора, а затем агента-финалайзера. Ни один агент не отправляет задачу обратно по своему желанию.</p>
+<!-- img: type=scheme what="конвейер ИИ-сотрудников: заявка → запись в таблицу или CRM → агент-исполнитель (один шаг, свой регламент) → проверка (отдельный агент или правило) → при замечаниях назад к исполнителю, не больше двух раз → человек нажимает «Применить» → результат в базе; подписать стрелку возврата «повтор при замечаниях»" caption="Последовательный конвейер: каждый агент делает один шаг, проверка возвращает работу на доработку, последнее слово за человеком." alt="мультиагентная система для малого бизнеса: схема последовательного конвейера ИИ-сотрудников" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Конвейер ИИ-сотрудников: заявка, запись в таблицу или CRM, агент-исполнитель, проверка, при замечаниях повтор к исполнителю не больше двух раз, человек нажимает «Применить», результат в базе">
+  <title>Последовательный конвейер ИИ-сотрудников</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Ряд 1 -->
+  <rect x="40" y="60" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="62" y="102" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">1</text>
+  <text x="92" y="102" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Заявка</text>
+  <text x="62" y="142" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Клиент или сотрудник</text>
+  <text x="62" y="166" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ставит задачу</text>
+
+  <rect x="450" y="60" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="472" y="102" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">2</text>
+  <text x="502" y="102" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Запись</text>
+  <text x="472" y="142" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Строка в таблице</text>
+  <text x="472" y="166" font-family="var(--font-body)" font-size="18" fill="var(--muted)">или в CRM</text>
+
+  <rect x="860" y="60" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="882" y="102" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">3</text>
+  <text x="912" y="102" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Исполнитель</text>
+  <text x="882" y="142" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Агент делает один шаг</text>
+  <text x="882" y="166" font-family="var(--font-body)" font-size="18" fill="var(--muted)">по своему регламенту</text>
+
+  <line x1="340" y1="125" x2="446" y2="125" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+  <line x1="750" y1="125" x2="856" y2="125" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+  <!-- Ряд 2 -->
+  <rect x="860" y="330" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="882" y="372" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">4</text>
+  <text x="912" y="372" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Проверка</text>
+  <text x="882" y="412" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Отдельный агент</text>
+  <text x="882" y="436" font-family="var(--font-body)" font-size="18" fill="var(--muted)">или простое правило</text>
+
+  <rect x="450" y="330" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="472" y="372" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">5</text>
+  <text x="502" y="372" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Человек</text>
+  <text x="472" y="412" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Смотрит результат и</text>
+  <text x="472" y="436" font-family="var(--font-body)" font-size="18" fill="var(--muted)">нажимает «Применить»</text>
+
+  <rect x="40" y="330" width="300" height="130" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="62" y="372" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">6</text>
+  <text x="92" y="372" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Результат</text>
+  <text x="62" y="412" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Готовая запись</text>
+  <text x="62" y="436" font-family="var(--font-body)" font-size="18" fill="var(--muted)">лежит в базе</text>
+
+  <!-- Исполнитель -> Проверка -->
+  <line x1="1010" y1="190" x2="1010" y2="326" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+  <!-- Возврат при замечаниях -->
+  <path d="M1110 330 L1110 190" fill="none" stroke="var(--line)" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arr)"/>
+  <text x="1130" y="250" font-family="var(--font-body)" font-size="17" fill="var(--muted)" text-anchor="end" transform="rotate(-90 1130 250)">повтор при замечаниях</text>
+  <text x="1010" y="262" font-family="var(--font-body)" font-size="17" fill="var(--muted)" text-anchor="end" transform="translate(-14 0)">замечаний нет</text>
+
+  <!-- Проверка -> Человек -> Результат -->
+  <line x1="860" y1="395" x2="754" y2="395" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+  <line x1="450" y1="395" x2="344" y2="395" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+  <text x="1160" y="520" font-family="var(--font-body)" font-size="17" fill="var(--muted)" text-anchor="end">Возврат к исполнителю — не больше двух раз</text>
+</svg>
+<figcaption>Последовательный конвейер: каждый агент делает один шаг, проверка возвращает работу на доработку, последнее слово за человеком.</figcaption>
+</figure>
+
+<p>Как это выглядит у меня в роликах. Кнопка «Переписать живее» под сценарием запускает цепочку из четырёх шагов, по <a href="https://github.com/solovarov90/ii-systema/blob/main/CLAUDE.md">CLAUDE.md проекта</a>:</p>
+<ol>
+<li>Claude Opus переписывает хуки, текст и концовки по правилам живой речи.</li>
+<li>Отдельная проверка ищет штампы и канцелярит.</li>
+<li>Есть замечания, текст уходит Opus на повтор.</li>
+<li>Только чистый текст записывается в Notion, с повторной проверкой. Прежняя версия остаётся в архиве.</li>
+</ol>
+<p>Проверяющий здесь не спорит с автором в чате. Он возвращает конкретный список замечаний, и цикл заканчивается записью или остановкой.</p>
+<p>Второе правило конвейера про заявки. В <a href="https://app.notion.com/p/3-408dfdb1482281fca974e7b5259e360c">материале «План Б для ИИ-бота»</a> от 29.10.2026 первым шагом стоит: сохрани заявку клиента в CRM или Google Таблицу через Make или n8n до того, как запрос ушёл в нейросеть. Нейросеть упала или ответила ерундой, а имя, контакт и вопрос уже в базе. Вебхук, то есть автоматическое уведомление от Telegram или WhatsApp о новом сообщении, сначала пишет строку и только потом зовёт ИИ.</p>
+<p>Сравнение двух подходов:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th></th>
+<th>Рой агентов в общем чате</th>
+<th>Последовательный конвейер</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Кто решает, что дальше</td>
+<td>сами агенты</td>
+<td>диспетчер по заданному порядку</td>
+</tr>
+<tr>
+<td>Где живёт результат</td>
+<td>в переписке</td>
+<td>в строке базы или файле</td>
+</tr>
+<tr>
+<td>Что видит каждый агент</td>
+<td>всю переписку всех</td>
+<td>свою инструкцию и вход своего шага</td>
+</tr>
+<tr>
+<td>Как ловятся ошибки</td>
+<td>агенты соглашаются друг с другом</td>
+<td>отдельная проверка и человек</td>
+</tr>
+<tr>
+<td>Что тратит токены</td>
+<td>разговоры</td>
+<td>только работа шага</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="kak-nastroit-kontrol-nochnyh-zadach-agenta-cherez-otchet-iz-">Как настроить контроль ночных задач агента через отчёт из трёх колонок?</h2>
+<p>Требуй от агента в конце работы три поля в строке базы: Статус, Результат и Ссылки. Статус один из трёх: «Готово», «Нужен ты» или «Не вышло». Утром ты читаешь колонку статусов и открываешь только то, где нужен ты.</p>
+<p>Так устроены облачные задачи моего бота «Мозг», по его <a href="https://github.com/solovarov90/ii-systema/blob/main/brain-bot/README.md">README</a>. Я пишу в Telegram «задача: …». Бот создаёт строку в базе Notion «Задачи в облаке» и запускает новую облачную сессию Claude Code. Сессия в конце сама заполняет Статус, Результат и Ссылки. Бот раз в минуту читает строки и присылает итог ответом на карточку задачи.</p>
+<!-- img: type=scheme caption="Схема ночного запуска: агент заполняет три ключевых поля в базе, а бот присылает готовый статус прямо в Telegram." alt="ИИ-сотрудник для бизнеса: отчёт агента о ночной задаче в Telegram" was="Telegram, пульт бота «Мозг», тема «☁️ Задачи»: карточка итога облачной задачи со статусом, блоками «Что сделал», «Сделать руками», ссылками на ветку и Notion и кнопками под ней; закрыть название клиента, имена и контакты" what="Цепочка запуска и отчёта: Сообщение в Telegram «задача: …» → Бот «Мозг» создаёт строку в базе Notion → Облачная сессия Claude Code выполняет работу и заполняет поля (Статус: «Готово» / «Нужен ты» / «Не вышло», Результат, Ссылки) → Бот читает статус и присылает карточку с итогами в Telegram" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="Схема ночного запуска: сообщение в Telegram, бот создаёт строку в Notion, облачная сессия Claude Code делает работу и заполняет Статус, Результат и Ссылки, бот присылает итог в Telegram">
+  <title>Как агент отчитывается о ночной задаче через три поля в базе</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Узел 1 -->
+  <rect x="40" y="40" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="76" cy="76" r="18" fill="var(--accent)"/>
+  <text x="76" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">1</text>
+  <text x="108" y="82" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ты в Telegram</text>
+  <text x="64" y="123" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Пишешь «задача: …»</text>
+  <text x="64" y="149" font-family="var(--font-body)" font-size="19" fill="var(--muted)">и идёшь спать</text>
+
+  <!-- Узел 2 -->
+  <rect x="440" y="40" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="476" cy="76" r="18" fill="var(--accent)"/>
+  <text x="476" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">2</text>
+  <text x="508" y="82" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Бот «Мозг»</text>
+  <text x="464" y="123" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Создаёт строку в базе</text>
+  <text x="464" y="149" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Notion и запускает сессию</text>
+
+  <!-- Узел 3 -->
+  <rect x="840" y="40" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="876" cy="76" r="18" fill="var(--accent)"/>
+  <text x="876" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">3</text>
+  <text x="908" y="82" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Облачная сессия</text>
+  <text x="864" y="123" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Claude Code делает</text>
+  <text x="864" y="149" font-family="var(--font-body)" font-size="19" fill="var(--muted)">работу ночью</text>
+
+  <!-- Стрелки верхнего ряда -->
+  <line x1="360" y1="105" x2="436" y2="105" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="760" y1="105" x2="836" y2="105" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Стрелка вниз к отчёту -->
+  <line x1="1000" y1="170" x2="1000" y2="236" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+  <text x="1020" y="212" font-family="var(--font-body)" font-size="19" fill="var(--muted)">в конце заполняет</text>
+
+  <!-- Узел 4: отчёт из трёх колонок -->
+  <rect x="40" y="240" width="1120" height="230" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="76" cy="276" r="18" fill="var(--accent)"/>
+  <text x="76" y="283" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">4</text>
+  <text x="108" y="283" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Строка в базе: три поля</text>
+
+  <!-- Колонка Статус -->
+  <rect x="64" y="310" width="400" height="136" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="88" y="348" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">Статус</text>
+  <text x="88" y="381" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Готово</text>
+  <text x="88" y="408" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Нужен ты</text>
+  <text x="88" y="435" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Не вышло</text>
+
+  <!-- Колонка Результат -->
+  <rect x="500" y="310" width="300" height="136" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="524" y="348" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">Результат</text>
+  <text x="524" y="385" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Что сделано,</text>
+  <text x="524" y="412" font-family="var(--font-body)" font-size="19" fill="var(--muted)">коротко</text>
+
+  <!-- Колонка Ссылки -->
+  <rect x="836" y="310" width="300" height="136" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="860" y="348" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">Ссылки</text>
+  <text x="860" y="385" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Где посмотреть</text>
+  <text x="860" y="412" font-family="var(--font-body)" font-size="19" fill="var(--muted)">готовое</text>
+
+  <!-- Стрелка к финалу -->
+  <line x1="600" y1="470" x2="600" y2="526" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+  <text x="620" y="505" font-family="var(--font-body)" font-size="19" fill="var(--muted)">раз в минуту читает</text>
+
+  <!-- Узел 5 -->
+  <rect x="300" y="530" width="600" height="86" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="336" cy="573" r="18" fill="var(--accent)"/>
+  <text x="336" y="580" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">5</text>
+  <text x="368" y="565" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Карточка в Telegram</text>
+  <text x="368" y="595" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Бот присылает итог утром ответом на задачу</text>
+</svg>
+<figcaption>Схема ночного запуска: агент заполняет три ключевых поля в базе, а бот присылает готовый статус прямо в Telegram.</figcaption>
+</figure>
+
+<p>Что делает такой отчёт полезным:</p>
+<ul>
+<li><strong>В Результате отдельно написано, что агент не проверил.</strong> В одной из задач начала ноября сессия написала прямо: «PR нет, бот на трёх вопросах ещё не проверен, тест я не запускал». Это и есть защита от агента, который «врёт»: он обязан назвать дыры сам.</li>
+<li><strong>Блок «Сделать руками».</strong> Шаги, которые агенту недоступны: выкатить на сервер, проверить на живых заявках, открыть PR.</li>
+<li><strong>Ссылки вместо пересказа.</strong> Ветка, коммит, страница в Notion. Проверить можно за секунды.</li>
+<li><strong>Таймер тишины.</strong> Если сессия 2 часа молчит, бот напоминает заглянуть в неё: она могла встать на запросе разрешения. Через 3 суток без отчёта бот перестаёт за ней следить.</li>
+</ul>
+<p>И одно правило про права. Код облачная сессия кладёт отдельной веткой и запросом на слияние. Без моего «мержи» она ничего не сливает в основную ветку. Решение, которое меняет рабочую систему, остаётся за человеком.</p>
+<p>Если ты не программист, ту же схему можно собрать в Google Таблице или Notion руками. Агент в конце каждой задачи заполняет три колонки, и ты смотришь только статусы.</p>
+<h2 id="proveril-na-sebe-kak-ya-upravlyayu-agentami-na-servere-i-cht">Проверил на себе: как я управляю агентами на сервере и что сломалось на лимитах подписки</h2>
+<p>На сервере штаба у меня работает несколько ИИ-сотрудников на одной подписке Claude, и главный урок в том, что очередь важнее количества агентов. Каждый бот запускает одного Claude за раз, у каждого запуска есть таймаут, длинные задачи продолжаются после лимита с того же места.</p>
+<p>Вот как это складывалось, по датам.</p>
+<p><strong>01.10.2026, лимит посреди работы.</strong> Первый монтаж ролика из чата упёрся в лимит подписки на шаге 4 из 7. В тот же день я добавил две вещи, про это подробно в <a href="/blog/claude-code-kak-sotrudnik-v-telegram/">статье про Claude Code в Telegram</a>. Кнопку «Продолжить»: Claude поднимает ту же сессию через <code>--resume</code> и не повторяет готовые шаги. И автоожидание: задача встаёт на паузу до сброса лимита. По журналу изменений, три дубля в тот день продолжились сами после сброса лимита в 16:39.</p>
+<p><strong>18.10.2026, второй сотрудник.</strong> На том же сервере заработала служба SEO-штаба. Статьи пишет <code>claude -p</code> на модели Opus 5.5. Оба бота делят одну подписку, и в каждом стоит очередь на одного Claude. Эту статью тоже написал он, а я смотрю превью и сам жму «Выложить».</p>
+<p><strong>18.10.2026, ошибка в продолжении.</strong> Раннер монтажа падал, если его перезапускали во время паузы на лимите. Ошибка съела три автоповтора у ролика REEL-61, и он встал в ошибку. Исправил в тот же день, кнопка «Продолжить» осталась страховкой.</p>
+<p><strong>Конец октября, четыре бота.</strong> Бот «Мозг» выполняет задачи по коду в два потока, у каждой задачи потолок 90 минут, так записано в <a href="/blog/claude-code-agent-telegram-server/">статье о сервере</a> на 31.10.2026. Больше двух одновременно на сервере с 2 ядрами я не пускаю: каждая сессия Claude Code это отдельный процесс, и память кончится.</p>
+<!-- img: type=terminal cmds="whoami ;; claude --version ;; claude auth status ;; systemctl is-active ii-shtab ;; systemctl is-active ii-seo" caption="Сервер штаба: несколько ИИ-сотрудников работают от одного пользователя и одной подписки Claude." alt="несколько ИИ-агентов работают вместе на одном сервере по подписке" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="несколько ИИ-агентов работают вместе на одном сервере по подписке" src="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/img/terminal-3.jpg"></div><figcaption>Сервер штаба: несколько ИИ-сотрудников работают от одного пользователя и одной подписки Claude.</figcaption></figure>
+<p>Где эта схема ломается, честно:</p>
+<ul>
+<li><strong>Лимит подписки.</strong> Длинные задачи съедают окно быстрее разговора. Без <code>--resume</code> всё, что агент успел решить, пропадает.</li>
+<li><strong>Параллельный запуск.</strong> Два Claude сразу на маленьком сервере съели бы память. Лечится очередью.</li>
+<li><strong>Зависший запуск.</strong> Без таймаута одна задача держала бы очередь вечно. Таймаут убивает процесс, бот пишет в тему, что случилось.</li>
+<li><strong>Тихая обрезка регламента.</strong> Правила в конце длинного файла не доходят до агента, как с OpenClaw выше.</li>
+<li><strong>Ночные задачи днём.</strong> Отбор тем из трендов стоит на раннее утро, иначе он делит одно окно лимита с дневной работой.</li>
+</ul>
+<h2 id="skolko-stoit-infrastruktura-dlya-nadezhnoy-raboty-ii-assiste">Сколько стоит инфраструктура для надёжной работы ИИ-ассистентов?</h2>
+<p>Основа дешёвая: сервер и подписка на нейросеть. Сервер для ботов у меня стоит от 500 рублей в месяц, эту цифру я разбирал в <a href="/blog/media-konveyer-na-ii/">статье про медиа-конвейер</a>. Основная работа идёт по подписке Claude, без оплаты за каждый запрос.</p>
+<p>Резерв на платный API я включил 28.10.2026 только для бота «Мозг». Если подписка в лимите, разговор повторяется на модели Sonnet 5.5 по ключу API, с потолком 3 доллара в сутки, подробно в <a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">статье про лимиты Claude</a>. Выбран потолок, дальше отвечает второй мозг по своим заметкам.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Статья расходов</th>
+<th>Что внутри</th>
+<th>Сколько</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Сервер</td>
+<td>ботов, очередь, файлы, процессы Claude Code</td>
+<td>от 500 ₽ в месяц</td>
+</tr>
+<tr>
+<td>Нейросеть</td>
+<td>Claude по подписке, работа по очереди</td>
+<td>цена подписки, без оплаты за запрос</td>
+</tr>
+<tr>
+<td>Резерв на API</td>
+<td>Sonnet 5.5 при лимите подписки</td>
+<td>потолок $3 в сутки</td>
+</tr>
+<tr>
+<td>Учёт</td>
+<td>Notion: задачи, журнал изменений, статусы</td>
+<td>тариф Notion</td>
+</tr>
+</tbody>
+</table></div>
+<p>Если в систему входит платный софт, цифра другая. У клиентской системы «Второй мозг» расходы складываются так: VIP-тариф SmartPosting 20 000 ₽, сервер около 500–1 000 ₽ и API нейросетей около 1 000–4 000 ₽. Всего около 22 000–25 000 ₽ в месяц.</p>
+<p>Для сравнения цен на чужой стороне. У Elliot Brenya sarfo один тестовый материал на более сильной модели с поиском обошёлся в 0,28 доллара, четверть его дневной цели по доходу, и он отключил эту настройку в тот же день. Каждый шаг агента стоит денег, поэтому болтовня между агентами это прямой расход.</p>
+<h2 id="poshagovyy-plan-kak-zapustit-pervogo-nadezhnogo-ii-sotrudnik">Пошаговый план: как запустить первого надёжного ИИ-сотрудника за 3 шага?</h2>
+<p>Начни с одной рутины, которую делаешь каждый день, и одного агента под неё. Команду из шести ролей собирать сразу не нужно: сначала один шаг должен неделю работать без тебя.</p>
+<ol>
+<li><strong>Напиши регламент на 150–200 строк.</strong> Что за бизнес, где лежат таблицы и файлы, что агенту делать и чего не делать, глаголами действия. В конце регламента формат отчёта: Статус («Готово», «Нужен ты», «Не вышло»), Результат с пунктом «что не проверил», Ссылки. Подробные инструкции вынеси в отдельные файлы, которые агент открывает по задаче.</li>
+<li><strong>Поставь запись в базу до нейросети.</strong> Заявка, письмо или задача сначала строкой ложится в таблицу, Notion или CRM, потом идёт к агенту. Результат агент пишет туда же, в ту же строку. Так ничего не теряется при сбое, и всё видно в одном месте.</li>
+<li><strong>Добавь проверку и человека.</strong> После агента-исполнителя поставь проверку: отдельную модель, правило или чек-лист. Замечания возвращают работу исполнителю, не больше двух раз. Всё, что уходит клиенту или меняет рабочую систему, применяется только по твоей кнопке.</li>
+</ol>
+<p>Когда первый шаг работает, добавляй следующий в ту же цепочку: исполнитель, проверка, человек. Каждый новый агент получает свою инструкцию и свою сессию, общий чат им не нужен. Как это выглядит на целом проекте, показано в <a href="/iisystema/">кейсе ii.systema</a>.</p>
+<p>Если хочешь автоматизировать процессы без бесконечной ручной перепроверки, напиши «система» мне в личку <a href="https://t.me/solovarov">t.me/solovarov</a>. Посмотрим, что у тебя можно отдать ИИ и как выстроить надёжный конвейер задач.</p>
+    </article>
+
+    <aside class="club-guide" aria-label="Инструкция в клубе"><div class="cg-eyebrow">Пошаговая инструкция в Клубе ii.systema</div><h2>AGENTS.md: правила для ИИ в проекте</h2><p>Шаблон из семи правил и опыт «одна задача с файлом и без»: код в 2,4 раза короче. Две ошибки с разрешениями, на которых застревают все.</p><a class="btn js-club-guide" data-guide="agents-md" href="/club/?from=guide-agents-md">Смотреть в клубе →</a></aside>
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Зачем делить задачи между несколькими ИИ-агентами, если можно использовать один чат?</h3><p>Один чат на всё быстро разрастается, и модель хуже видит то, что было в середине разговора. Когда у каждого шага своя короткая инструкция и своя сессия, агент держит в голове только свою часть. У меня так работают сценарии роликов, проверка штампов и статьи блога, каждый шаг отдельным запуском.</p></div><div class="qa"><h3 id="faq-2">Почему агенты начинают галлюцинировать при длинном диалоге?</h3><p>Длинная сессия забивает контекст, и факты из начала работы теряются в середине. Debashish Ghosal 09.11.2026 описал агента, который через 20 минут работы отчитался о зелёных тестах, хотя тесты вообще не запускались. Лечится внешней проверкой и коротким файлом состояния, куда агент пишет только проверенные факты.</p></div><div class="qa"><h3 id="faq-3">Как ограничить размер инструкций для ИИ-сотрудника?</h3><p>Держи файл правил AGENTS.md или CLAUDE.md в пределах 150–200 строк и пиши глаголами действия. Файл читается при каждом запуске, поэтому длинный регламент тратит лимит и размывает внимание. Подробности выноси в отдельные навыки, которые агент открывает только под задачу.</p></div><div class="qa"><h3 id="faq-4">Что делать, если ИИ-агент упёрся в лимит сообщений посреди процесса?</h3><p>Сохраняй номер сессии и продолжай ту же сессию после сброса лимита. В Claude Code это флаг --resume, агент помнит решения и не повторяет готовые шаги. У меня 01.10.2026 так продолжились три монтажа после сброса лимита в 16:39, без моего участия.</p></div><div class="qa"><h3 id="faq-5">Нужно ли программировать, чтобы настроить маршрутизацию задач между агентами?</h3><p>Простую цепочку можно собрать в Make или n8n без кода: запись заявки в таблицу, потом запрос к нейросети, потом уведомление человеку. Очередь, автопродолжение после лимита и отчёты из облачных сессий я собирал уже кодом, на Python и Claude Code.</p></div><div class="qa"><h3 id="faq-6">Как проверять ночную автономную работу ИИ-сотрудников за одну минуту?</h3><p>Требуй от агента в конце отчёт в трёх полях, Статус, Результат и Ссылки, в строке базы Notion. Статус один из трёх, Готово, Нужен ты или Не вышло, а в Результате отдельно написано, что агент не проверил. Утром ты читаешь статусы и открываешь только строки с вопросом или ошибкой.</p></div><div class="qa"><h3 id="faq-7">Сколько стоит держать ИИ-сотрудника на сервере?</h3><p>Сервер для ботов у меня стоит от 500 рублей в месяц, основная работа идёт по подписке Claude. Резерв через платный API включается только при лимите и ограничен потолком 3 доллара в сутки. Клиентская система «Второй мозг» с платным софтом выходит около 22 000–25 000 рублей в месяц.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://dev.to/debashish_ghosal/why-your-ai-agent-is-brilliant-for-20-minutes-and-then-starts-lying-232j" rel="noopener">Debashish Ghosal, «Why Your AI Agent Is Brilliant for 20 Minutes and Then Starts Lying», DEV Community</a> <span>опубликовано 09.11.2026; агент через 20 минут сообщил о тестах, которые не запускались; файл состояния и внешняя проверка</span></li><li><a href="https://dev.to/elliot_brenya/i-gave-my-startup-6-ai-employees-they-talked-more-than-they-worked-480p" rel="noopener">Elliot Brenya sarfo, «I Gave My Startup 6 AI Employees. They Talked More Than They Worked.», DEV Community</a> <span>опубликовано 09.11.2026; шесть ИИ-сотрудников, 330 строк чата и 75 сделанных дел за первую неделю</span></li><li><a href="https://app.notion.com/p/AGENTS-md-7-3f3dfdb14822814da13ad4e0b76816c1" rel="noopener">Шаблон AGENTS.md и 7 правил для ИИ-разработчиков и бизнеса (Notion, 08.10.2026)</a> <span>длина файла правил 150–200 строк, правила глаголами действия</span></li><li><a href="https://app.notion.com/p/AGENTS-md-Watch-Claude-Code-40cdfdb1482281c5914ee676a2613e8f" rel="noopener">Журнал изменений ii.systema, колоды AGENTS.md, Watch и плагины (Notion, 02.11.2026)</a> <span>опыт с одной задачей, 36 строк без файла правил и 15 с файлом</span></li><li><a href="https://app.notion.com/p/3-408dfdb1482281fca974e7b5259e360c" rel="noopener">План Б для ИИ-бота, 3 шага защиты от сбоев (Notion, 29.10.2026)</a> <span>сохранить заявку в CRM или таблицу до запроса к нейросети</span></li><li><a href="https://petrsolovarov.ru/blog/claude-code-kak-sotrudnik-v-telegram/" rel="noopener">Claude Code как сотрудник в Telegram (petrsolovarov.ru, 21.10.2026)</a> <span>лимит на шаге 4 из 7, --resume, два бота на одной подписке с 18.10.2026</span></li><li><a href="https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/" rel="noopener">Как запустить Claude Code в Telegram на своём сервере (petrsolovarov.ru, 31.10.2026)</a> <span>сервер 2 ядра, две задачи одновременно, потолок 90 минут на задачу</span></li><li><a href="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/" rel="noopener">Почему лимит Claude по подписке кончается к обеду (petrsolovarov.ru, 31.10.2026)</a> <span>резерв на API Sonnet 5.5 с потолком $3 в сутки, ошибка раннера REEL-61</span></li><li><a href="https://github.com/solovarov90/ii-systema/blob/main/brain-bot/README.md" rel="noopener">README бота «Мозг» в репозитории ii-systema</a> <span>статусы облачных задач, отчёт Статус / Результат / Ссылки, напоминание через 2 часа без отчёта</span></li><li><a href="https://petrsolovarov.ru/blog/media-konveyer-na-ii/" rel="noopener">Медиа-конвейер на ИИ (petrsolovarov.ru, 18.10.2026)</a> <span>сервер для ботов от 500 ₽ в месяц</span></li><li><a href="https://petrsolovarov.ru/iisystema/" rel="noopener">Кейс ii.systema</a> <span>вся система целиком</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я настраиваю ИИ-сотрудника под одну твою рутину целиком, с регламентом, очередью, отчётом и проверкой человеком. Потом можно добавить следующий шаг конвейера или сопровождение.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, списывается раз в месяц, отменить можно в любой момент</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/zadachi-ii-golosom-telegram/">Как ставить задачи ИИ голосом в Telegram и получать готовый результат</a><span>Автоматизация · 1 ноября 2026</span></li><li><a href="/blog/claude-code-agent-telegram-server/">Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</a><span>Автоматизация · 31 октября 2026</span></li><li><a href="/blog/razbor-obrascheniy-klientov-ii-chernoviki/">Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</a><span>Продажи и заявки · 9 ноября 2026</span></li><li><a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">Память ИИ-агента: как сделать, чтобы Claude помнил бизнес и не путал контекст</a><span>Документы и знания · 8 ноября 2026</span></li></ul><h3 class="related-all-t">Все статьи блога</h3><ul class="related-all"><li><a href="/blog/gemini-omni-1-2-flash-dlya-biznesa/">Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</a></li><li><a href="/blog/bezopasno-li-puskat-claude-code-na-server/">Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</a></li><li><a href="/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/">Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</a></li><li><a href="/blog/reklama-meta-cherez-claude-pipeboard/">Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</a></li><li><a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</a></li><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a></li><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a></li><li><a href="/blog/media-konveyer-na-ii/">Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</a></li><li><a href="/blog/avtootvet-kodovoe-slovo/">Автоответ в Instagram: как собирать заявки по кодовому слову через ИИ</a></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+}
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
+</script>
+</body>
+</html>

@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Wed, 11 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Thu, 12 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</title>
+    <link>https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/</guid>
+    <pubDate>Tue, 10 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Автоматизация</category>
+    <description>ИИ-сотрудник для бизнеса: как настроить, чтобы несколько агентов не болтали вместо работы. Регламент до 200 строк, конвейер шагов и отчёт из трёх колонок.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</title>
     <link>https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/</link>

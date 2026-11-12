@@ -1,0 +1,79 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="Схема ночного запуска: сообщение в Telegram, бот создаёт строку в Notion, облачная сессия Claude Code делает работу и заполняет Статус, Результат и Ссылки, бот присылает итог в Telegram">
+  <title>Как агент отчитывается о ночной задаче через три поля в базе</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Узел 1 -->
+  <rect x="40" y="40" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="76" cy="76" r="18" fill="var(--accent)"/>
+  <text x="76" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">1</text>
+  <text x="108" y="82" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Ты в Telegram</text>
+  <text x="64" y="123" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Пишешь «задача: …»</text>
+  <text x="64" y="149" font-family="var(--font-body)" font-size="19" fill="var(--muted)">и идёшь спать</text>
+
+  <!-- Узел 2 -->
+  <rect x="440" y="40" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="476" cy="76" r="18" fill="var(--accent)"/>
+  <text x="476" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">2</text>
+  <text x="508" y="82" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Бот «Мозг»</text>
+  <text x="464" y="123" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Создаёт строку в базе</text>
+  <text x="464" y="149" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Notion и запускает сессию</text>
+
+  <!-- Узел 3 -->
+  <rect x="840" y="40" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="876" cy="76" r="18" fill="var(--accent)"/>
+  <text x="876" y="83" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">3</text>
+  <text x="908" y="82" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Облачная сессия</text>
+  <text x="864" y="123" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Claude Code делает</text>
+  <text x="864" y="149" font-family="var(--font-body)" font-size="19" fill="var(--muted)">работу ночью</text>
+
+  <!-- Стрелки верхнего ряда -->
+  <line x1="360" y1="105" x2="436" y2="105" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="760" y1="105" x2="836" y2="105" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Стрелка вниз к отчёту -->
+  <line x1="1000" y1="170" x2="1000" y2="236" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+  <text x="1020" y="212" font-family="var(--font-body)" font-size="19" fill="var(--muted)">в конце заполняет</text>
+
+  <!-- Узел 4: отчёт из трёх колонок -->
+  <rect x="40" y="240" width="1120" height="230" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="76" cy="276" r="18" fill="var(--accent)"/>
+  <text x="76" y="283" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">4</text>
+  <text x="108" y="283" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Строка в базе: три поля</text>
+
+  <!-- Колонка Статус -->
+  <rect x="64" y="310" width="400" height="136" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="88" y="348" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">Статус</text>
+  <text x="88" y="381" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Готово</text>
+  <text x="88" y="408" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Нужен ты</text>
+  <text x="88" y="435" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Не вышло</text>
+
+  <!-- Колонка Результат -->
+  <rect x="500" y="310" width="300" height="136" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="524" y="348" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">Результат</text>
+  <text x="524" y="385" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Что сделано,</text>
+  <text x="524" y="412" font-family="var(--font-body)" font-size="19" fill="var(--muted)">коротко</text>
+
+  <!-- Колонка Ссылки -->
+  <rect x="836" y="310" width="300" height="136" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="860" y="348" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">Ссылки</text>
+  <text x="860" y="385" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Где посмотреть</text>
+  <text x="860" y="412" font-family="var(--font-body)" font-size="19" fill="var(--muted)">готовое</text>
+
+  <!-- Стрелка к финалу -->
+  <line x1="600" y1="470" x2="600" y2="526" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+  <text x="620" y="505" font-family="var(--font-body)" font-size="19" fill="var(--muted)">раз в минуту читает</text>
+
+  <!-- Узел 5 -->
+  <rect x="300" y="530" width="600" height="86" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="336" cy="573" r="18" fill="var(--accent)"/>
+  <text x="336" y="580" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">5</text>
+  <text x="368" y="565" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Карточка в Telegram</text>
+  <text x="368" y="595" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Бот присылает итог утром ответом на задачу</text>
+</svg>
