@@ -119,6 +119,9 @@ nav a{font-size:15px;color:var(--mut)}nav a:hover{color:var(--ink)}
 .plan .r{color:var(--dim);font-size:14.5px;margin-top:3px}
 .plan .e{color:var(--mut);font-size:14.5px;margin-top:12px;line-height:1.35}
 .early{margin-top:14px;background:var(--raise);border-radius:16px;outline:1.5px solid var(--gold);padding:24px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px;align-items:center}
+.earlylink{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:18px;padding:11px 16px;border-radius:12px;outline:1.5px solid var(--gold);color:var(--ink);font-size:15.5px}
+.earlylink b{font:500 12px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#17100A;background:var(--gold);padding:3px 7px;border-radius:6px}
+.earlylink:hover{background:var(--raise)}
 .early h3{font:600 26px/1.1 var(--display);text-transform:uppercase;margin-top:8px}
 .early p{color:var(--mut);font-size:16px;margin-top:10px;line-height:1.45}
 .early ul{list-style:none;display:grid;gap:8px}
@@ -178,6 +181,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <p class="lead">Радар находит темы, которые уже залетели. Суфлёр даёт текст. Монтажёр собирает ролики в выбранном стиле. Из одного дубля выходит 6–9 разных роликов.</p>
     <div class="row" style="margin-top:26px"><a class="btn gold" href="https://t.me/snimai_agent?start=site" rel="noopener">Выбрать стиль в Telegram</a><a class="btn ghost" href="#math">Откуда 6–9 роликов</a></div>
     <p class="note">Первый ролик бесплатно. Работает внутри Telegram, ставить ничего не надо.</p>
+    <a class="earlylink" href="#early"><b>До релиза</b> ранний список: скидка 50% на один пакет <span aria-hidden="true">→</span></a>
   </div>
   <div class="phone">
     <div class="vf"><video id="heroV" muted loop playsinline autoplay></video><div class="corners"></div><div class="rec"><i></i>REC <span id="heroT">00:00</span></div></div>
