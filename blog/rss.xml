@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Thu, 12 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Fri, 13 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>ИИ-агенты в Premiere и Photoshop: что они умеют и кому заменят монтажёра</title>
+    <link>https://petrsolovarov.ru/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/</guid>
+    <pubDate>Wed, 11 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Контент и видео</category>
+    <description>ИИ-агенты Adobe в Premiere и Photoshop: что показали 10 ноября 2026, чем помощник в программе отличается от автомонтажа роликов нейросетью и кому что подойдёт.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</title>
     <link>https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/</link>
