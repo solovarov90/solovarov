@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Почему Claude тупеет от MCP-коннекторов и как настроить инструменты — блог Петра Соловарова</title>
+<meta name="description" content="MCP-коннекторы Claude съедают контекст описаниями инструментов, и модель начинает путаться. Разбираю, сколько это стоит, какие серверы держать и как настроить.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Почему Claude тупеет от MCP-коннекторов и как настроить инструменты">
+<meta property="og:description" content="MCP-коннекторы Claude съедают контекст описаниями инструментов, и модель начинает путаться. Разбираю, сколько это стоит, какие серверы держать и как настроить.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MCP-коннекторы Claude перегружают контекст модели описаниями инструментов">
+<meta property="article:published_time" content="2026-11-13">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Инструменты">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Почему Claude тупеет от MCP-коннекторов и как настроить инструменты">
+<meta name="twitter:description" content="MCP-коннекторы Claude съедают контекст описаниями инструментов, и модель начинает путаться. Разбираю, сколько это стоит, какие серверы держать и как настроить.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/"
+   },
+   "headline": "Почему Claude тупеет от MCP-коннекторов и как настроить инструменты",
+   "description": "MCP-коннекторы Claude съедают контекст описаниями инструментов, и модель начинает путаться. Разбираю, сколько это стоит, какие серверы держать и как настроить.",
+   "image": [
+    "https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-13",
+   "dateModified": "2026-11-14",
+   "inLanguage": "ru-RU",
+   "wordCount": 4600,
+   "articleSection": "Инструменты",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Почему Claude тупеет от MCP-коннекторов и как настроить инструменты",
+     "item": "https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Что такое MCP простыми словами?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "MCP (Model Context Protocol) это открытый стандарт Anthropic, по которому Claude подключается к внешним сервисам и базам данных. Подключаешь сервис один раз, и дальше Claude сам читает оттуда данные и выполняет действия, без копирования текста между вкладками. Отдельная программа-переходник с инструментами для одного сервиса называется MCP-сервером, в интерфейсе Claude это коннектор."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему Claude начинает ошибаться, когда подключено много MCP-серверов?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Каждый сервер приносит в разговор описания своих инструментов, и модели приходится выбирать из длинного списка похожих действий. В документации Claude Code прямо написано, что точность выбора инструмента падает, когда одновременно загружено больше 30–50 инструментов. Вдобавок описания занимают место в контексте, и на саму задачу его остаётся меньше."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько токенов тратит один подключённый MCP-коннектор?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Зависит от числа и подробности инструментов. По замеру Anthropic от 24 ноября 2025 года сервер GitHub с 35 инструментами занимает около 26 тысяч токенов, а пять серверов на 58 инструментов около 55 тысяч. По документации Claude Code 50 инструментов обычно занимают 10–20 тысяч токенов."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Чем отличается настройка MCP в Claude Desktop от Claude Code?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "В Claude Desktop серверы прописываются в файле claude_desktop_config.json через Settings, раздел Developer, а удалённые коннекторы добавляются в меню Connectors. В Claude Code серверы добавляются командой claude mcp add и живут в трёх местах, у каждого своя видимость. Общий для проекта набор лежит в файле .mcp.json в корне папки, личный набор для всех проектов хранится в ~/.claude.json."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Можно ли ограничить доступ инструментов к конфиденциальным данным?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да. В Claude Code есть список разрешённых инструментов --allowedTools и правила deny, которые запрещают конкретное действие. У меня продюсер канала с 19.10.2026 Notion только читает, а SEO-штаб может запустить в терминале ровно одну команду. Права в самом сервисе, например только чтение у токена, режь отдельно."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как понять, что модель запуталась именно из-за перегрузки инструментами?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Признаки такие. Claude зовёт похожий инструмент другого сервиса, путает поля, отвечает «у меня нет доступа», хотя коннектор включён, или к середине длинного разговора забывает условия задачи. Проверка простая. Выключи все коннекторы, кроме нужного для этой задачи, повтори запрос в новом чате и сравни ответы."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Нужно ли платить, чтобы подключить несколько коннекторов?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "По моему материалу к ролику от 08.10.2026, на бесплатном аккаунте Claude доступен один слот для своего коннектора, а для нескольких внешних MCP-серверов нужна подписка Pro, Max или Team. Сами сервисы за коннектором оплачиваются отдельно по своим тарифам."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+.related-all-t { font-size: 18px; margin: 28px 0 12px; }
+.related ul.related-all { gap: 8px; }
+.related ul.related-all li { background: none; border: 0; border-radius: 0; padding: 0; }
+.related ul.related-all li a { font-family: inherit; font-weight: 400; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Инструменты</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Разбор инструмента · Инструменты · 26 мин чтения</div>
+    <h1>Почему Claude тупеет от MCP-коннекторов и как настроить инструменты</h1>
+    <p class="lead">MCP-коннекторы Claude съедают контекст описаниями инструментов, и модель начинает путаться. Разбираю, сколько это стоит, какие серверы держать и как настроить.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-13">13 ноября 2026</time> · обновлено <time datetime="2026-11-14">14 ноября 2026</time> · 4 600 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/img/cover.jpg" alt="MCP-коннекторы Claude перегружают контекст модели описаниями инструментов" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#chto-takoe-protokol-mcp-i-kak-on-svyazyvaet-neyroset-s-servi">Что такое протокол MCP и как он связывает нейросеть с сервисами?</a></li><li><a href="#pochemu-podklyuchenie-desyatka-instrumentov-lomaet-logiku-cl">Почему подключение десятка инструментов ломает логику Claude?</a></li><li><a href="#skolko-konteksta-i-deneg-szhirayut-opisaniya-instrumentov-v-">Сколько контекста и денег сжирают описания инструментов в каждом запросе?</a></li><li><a href="#kakie-konnektory-nuzhny-postoyanno-a-kakie-luchshe-vyklyucha">Какие коннекторы нужны постоянно, а какие лучше выключать?</a></li><li><a href="#kak-podklyuchit-mcp-server-v-claude-desktop-i-claude-code-be">Как подключить MCP-сервер в Claude Desktop и Claude Code без ошибок?</a></li><li><a href="#proveril-na-sebe-kak-ya-nastraival-konnektory-dlya-bazy-znan">Проверил на себе: как я настраивал коннекторы для базы знаний и рабочих агентов</a></li><li><a href="#chto-delat-esli-u-nuzhnogo-servisa-net-gotovogo-mcp-servera">Что делать, если у нужного сервиса нет готового MCP-сервера?</a></li><li><a href="#poshagovyy-chek-list-kak-sobrat-chistyy-stek-instrumentov-dl">Пошаговый чек-лист: как собрать чистый стек инструментов для бизнеса</a></li></ol></nav>
+    <article class="article">
+<p>MCP-коннекторы делают Claude глупее, когда их подключено много: каждый сервер отдаёт модели описания своих инструментов, и эти описания съедают контекст ещё до твоего вопроса. Модель выбирает из длинного списка похожих действий, путает параметры и хуже держит суть разговора. Чтобы этого не было, держи постоянно включёнными два-три базовых сервера, а узкие коннекторы подключай под конкретную задачу и выключай после.</p>
+<p>Ниже разбираю, как это устроено, сколько стоит в токенах, какие серверы держать всегда, как подключить их в Claude Desktop и Claude Code и как у меня настроены инструменты в штабе ii.systema, где на Claude работают несколько ботов.</p>
+<h2 id="chto-takoe-protokol-mcp-i-kak-on-svyazyvaet-neyroset-s-servi">Что такое протокол MCP и как он связывает нейросеть с сервисами?</h2>
+<p>MCP (Model Context Protocol) это открытый стандарт Anthropic, по которому Claude подключается к внешним сервисам и базам данных. Ты подключаешь сервис один раз, и дальше Claude сам туда ходит: читает базу, создаёт задачу, генерирует картинку. Копировать текст между вкладками больше не нужно. Так записано в <a href="https://app.notion.com/p/MCP-Claude-3f3dfdb14822810f913fee58bf3f3b0d">моём материале к ролику про коннекторы</a>, актуальном на 08.10.2026.</p>
+<p>Слова, которые дальше встретятся:</p>
+<ul>
+<li><strong>MCP-сервер</strong> это маленькая программа-переходник для одного сервиса. Она знает, что умеет сервис, и передаёт это Claude.</li>
+<li><strong>Инструмент</strong> это одно действие сервера: «найти страницу», «создать строку в базе», «прочитать файл». У сервера их бывает от одного до сотни.</li>
+<li><strong>Коннектор</strong> так называется подключённый сервер в интерфейсе Claude. По сути то же самое.</li>
+<li><strong>Контекст</strong> это всё, что модель видит за один раз: правила, историю чата, файлы, описания инструментов и твой вопрос. Токены это кусочки текста, в которых этот объём считают.</li>
+</ul>
+<p>Серверы бывают двух видов. Удалённые живут в интернете по адресу HTTPS, их добавляют в меню Connectors на claude.ai или в Claude Desktop. Локальные запускаются на твоём компьютере или сервере как программа, например сервер файловой системы <code>@modelcontextprotocol/server-filesystem</code>, который открывает Claude одну папку на диске.</p>
+<p>Тема живая. Мой ролик про подключение коннекторов вышел 11.10.2026 и к 10.11.2026 набрал в Instagram 3 174 просмотра и 148 сохранений, под ним 28 человек написали кодовое слово (<a href="https://app.notion.com/p/MCP-Claude-3f3dfdb1482281dbae32fd6b9cd7c4cf">по Контент-плану</a>). Люди сохраняют такие ролики, подключают всё подряд и потом удивляются, почему ассистент стал хуже.</p>
+<h2 id="pochemu-podklyuchenie-desyatka-instrumentov-lomaet-logiku-cl">Почему подключение десятка инструментов ломает логику Claude?</h2>
+<p>Модель выбирает инструмент по его названию и описанию. Когда в списке пять понятных действий, выбор простой. Когда их сотня, и у трёх сервисов есть свой «search», модель начинает ошибаться. В <a href="https://code.claude.com/docs/en/agent-sdk/tool-search">документации Claude Code</a> (проверено 13.11.2026) так и написано: точность выбора инструмента падает, когда одновременно загружено больше 30–50 инструментов.</p>
+<p>Как это выглядит на практике:</p>
+<ol>
+<li><strong>Зовёт не тот инструмент.</strong> Просишь найти заметку в Notion, а Claude ищет на Google Диске, потому что у обоих сервисов есть поиск.</li>
+<li><strong>Путает поля.</strong> Подставляет параметр от соседнего инструмента или пропускает обязательный, и сервис отвечает ошибкой.</li>
+<li><strong>Отказывается.</strong> Пишет «у меня нет доступа к этому сервису», хотя коннектор включён. Нужный инструмент просто потерялся в списке.</li>
+<li><strong>Забывает задачу.</strong> К середине длинного разговора теряет условия, которые ты дал в начале. На них не хватило места.</li>
+</ol>
+<p>Anthropic в <a href="https://www.anthropic.com/engineering/advanced-tool-use">посте от 24 ноября 2025 года</a> показала это цифрами на своих внутренних проверках. Когда Claude получил поиск по инструментам вместо полного списка, точность Opus 4 выросла с 49% до 74%, а Opus 4.5 с 79,5% до 88,1%. Разница между этими числами и есть цена лишних инструментов в контексте.</p>
+<!-- img: type=scheme what="контекстное окно Claude как шкала: слева блоки «правила проекта», «описания инструментов: Notion, GitHub, Google Диск, почта, календарь» занимают большую часть, справа узкий остаток «твоя задача и история разговора»; под шкалой второй вариант: два коннектора и широкое место под задачу" caption="Каждый коннектор занимает место в контексте до первого вопроса, и на саму задачу остаётся меньше." alt="mcp коннекторы claude занимают контекст описаниями инструментов: схема" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Контекстное окно Claude как шкала: при десяти коннекторах описания инструментов занимают большую часть, на задачу остаётся узкий остаток; при двух коннекторах место под задачу широкое">
+  <title>Сколько места в контексте остаётся на задачу при десяти коннекторах и при двух</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="52" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Десять коннекторов</text>
+  <text x="60" y="84" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Контекстное окно уже заполнено до первого вопроса</text>
+
+  <rect x="60" y="108" width="190" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="155" y="156" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Правила</text>
+  <text x="155" y="186" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">проекта</text>
+
+  <rect x="260" y="108" width="640" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="580" y="150" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Описания инструментов</text>
+  <text x="580" y="182" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Notion, GitHub, Google Диск, почта, календарь</text>
+  <text x="580" y="204" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и ещё пять</text>
+
+  <rect x="910" y="108" width="230" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="1025" y="156" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">Твоя задача</text>
+  <text x="1025" y="186" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и история разговора</text>
+
+  <line x1="60" y1="244" x2="1140" y2="244" stroke="var(--line)" stroke-width="2"/>
+  <text x="600" y="276" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Контекстное окно Claude</text>
+
+  <text x="60" y="336" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Два коннектора</text>
+  <text x="60" y="368" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Под задачу остаётся широкое место</text>
+
+  <rect x="60" y="392" width="190" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="155" y="440" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Правила</text>
+  <text x="155" y="470" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">проекта</text>
+
+  <rect x="260" y="392" width="170" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="345" y="440" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Инструменты</text>
+  <text x="345" y="470" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">только два</text>
+
+  <rect x="440" y="392" width="700" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="790" y="440" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">Твоя задача</text>
+  <text x="790" y="470" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и история разговора: условия не теряются</text>
+</svg>
+<figcaption>Каждый коннектор занимает место в контексте до первого вопроса, и на саму задачу остаётся меньше.</figcaption>
+</figure>
+
+<h2 id="skolko-konteksta-i-deneg-szhirayut-opisaniya-instrumentov-v-">Сколько контекста и денег сжирают описания инструментов в каждом запросе?</h2>
+<p>Описание одного инструмента это название, пара абзацев текста и список параметров с типами. Без поиска по инструментам все эти описания уходят модели в каждом запросе. По <a href="https://code.claude.com/docs/en/agent-sdk/tool-search">документации Claude Code</a> 50 инструментов обычно занимают 10–20 тысяч токенов. Тяжёлые серверы весят больше.</p>
+<p>Замеры из открытых источников:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Что подключено</th>
+<th>Сколько токенов до первого вопроса</th>
+<th>Источник</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub, 35 инструментов</td>
+<td>около 26 000</td>
+<td><a href="https://www.anthropic.com/engineering/advanced-tool-use">Anthropic, 24.11.2025</a></td>
+</tr>
+<tr>
+<td>Пять серверов: GitHub, Slack, Sentry, Grafana, Splunk, 58 инструментов</td>
+<td>около 55 000</td>
+<td><a href="https://www.anthropic.com/engineering/advanced-tool-use">Anthropic, 24.11.2025</a></td>
+</tr>
+<tr>
+<td>Notion</td>
+<td>около 9 000</td>
+<td><a href="https://mcpplaygroundonline.com/blog/mcp-context-bloat-tool-search">MCP Playground, 12.09.2026</a></td>
+</tr>
+<tr>
+<td>Семь типовых серверов</td>
+<td>67 300, треть окна в 200 тысяч</td>
+<td><a href="https://mcpplaygroundonline.com/blog/mcp-context-bloat-tool-search">MCP Playground, 12.09.2026</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Что это значит для кошелька, зависит от того, как ты платишь.</p>
+<ul>
+<li><strong>Подписка.</strong> Лимит Claude считает объём текста, который прочитала модель. Описания инструментов читаются каждый раз, поэтому лимит тает быстрее. Подробно механику я разобрал в статье <a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">почему лимит Claude кончается к обеду</a>.</li>
+<li><strong>API.</strong> Платишь за каждый токен на входе. Тысячи запросов в день с тяжёлым набором коннекторов дают заметный счёт за текст, который модель даже не использовала.</li>
+<li><strong>Качество.</strong> Это главная цена. Лишние описания вытесняют из контекста то, что действительно важно для ответа.</li>
+</ul>
+<p>Отдельная статья расходов это сами вызовы инструментов. Описание лежит в контексте, а вызов тратит деньги у сервиса. Я это проходил: за сутки 01–02.08.2026 поисковые агенты на моих серверах сделали 651 запрос к Brave Search на $3,26 и получили 544 ошибки «429», это ответ «слишком много запросов». Причина была в одном ключе на три сервера и отсутствии пауз между вызовами. Починил сменой поискового провайдера на Gemini и бюджетом поиска на каждый прогон (запись в моей базе знаний от 18.10.2026). Правило с тех пор: у каждого агента с платным инструментом есть потолок вызовов.</p>
+<h2 id="kakie-konnektory-nuzhny-postoyanno-a-kakie-luchshe-vyklyucha">Какие коннекторы нужны постоянно, а какие лучше выключать?</h2>
+<p>Постоянно держи то, что нужно почти в каждой задаче: базу знаний, где живут твои правила и цифры, и один рабочий сервис. Остальное включай под задачу. Если коннектор нужен раз в неделю, ему незачем висеть в каждом разговоре.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Держать всегда</th>
+<th>Включать под задачу</th>
+<th>Убрать совсем</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>база знаний (Notion, свой поиск по заметкам)</td>
+<td>генерация картинок и видео</td>
+<td>дубли: два сервера с одинаковым поиском</td>
+</tr>
+<tr>
+<td>файлы проекта, если работаешь с кодом или документами</td>
+<td>реклама, аналитика соцсетей</td>
+<td>сервисы, которыми не пользовался месяц</td>
+</tr>
+<tr>
+<td>один главный рабочий сервис (CRM или задачник)</td>
+<td>почта, календарь, таблицы для разовой выгрузки</td>
+<td>тестовые коннекторы из роликов «подключи за 2 минуты»</td>
+</tr>
+</tbody>
+</table></div>
+<p>Как решить по конкретному серверу, три вопроса:</p>
+<ol>
+<li><strong>Сколько у него инструментов?</strong> Счётчик видно в списке серверов, в Claude Code это команда <code>/mcp</code>. Сервер на 40 действий, из которых ты пользуешься двумя, лучше включать по требованию.</li>
+<li><strong>Что он умеет менять?</strong> Сервер, который только читает, безопаснее держать включённым. Тот, что пишет в CRM или отправляет письма, включай под задачу.</li>
+<li><strong>Есть ли пересечения?</strong> Два сервиса с поиском и похожими названиями действий путают модель сильнее всего.</li>
+</ol>
+<p>У MCP-серверов бывает и обратная польза. Есть серверы, которые экономят токены. В <a href="https://app.notion.com/p/Markitdown-Claude-MCP-3efdfdb148228179a655f1d550962248">моей инструкции от 04.10.2026</a> разобран Markitdown от Microsoft: он превращает PDF, Word и Excel в чистый текст на твоём компьютере, и Claude не тратит токены на картинки страниц. Такой сервер окупает своё место в контексте, если ты каждый день работаешь с документами.</p>
+<h2 id="kak-podklyuchit-mcp-server-v-claude-desktop-i-claude-code-be">Как подключить MCP-сервер в Claude Desktop и Claude Code без ошибок?</h2>
+<p>В Claude Desktop удалённый коннектор добавляется в меню Connectors, а локальный сервер прописывается в файле <code>claude_desktop_config.json</code>. В Claude Code сервер добавляется командой <code>claude mcp add</code>, и сразу выбирается, где он будет виден: в одном проекте или во всех.</p>
+<p><strong>Claude Desktop, удалённый коннектор</strong> (по <a href="https://app.notion.com/p/MCP-Claude-3f3dfdb14822810f913fee58bf3f3b0d">материалу от 08.10.2026</a>):</p>
+<ol>
+<li>Скопируй адрес MCP-сервера на сайте сервиса. Нужен адрес HTTPS.</li>
+<li>В Claude открой Customize, вкладку Connectors, нажми Add custom connector.</li>
+<li>Впиши название и адрес, нажми Add, потом Connect и подтверди вход в сервис кнопкой Authorize.</li>
+<li>В окне ввода, в меню коннекторов под значком плюса, проверь, что включены только нужные для этого чата.</li>
+</ol>
+<p><strong>Claude Desktop, локальный сервер:</strong> Settings, раздел Developer, кнопка Edit Config. В файле <code>claude_desktop_config.json</code> добавь сервер в блок <code>mcpServers</code>, сохрани и полностью перезапусти приложение. Самая частая ошибка, по <a href="https://app.notion.com/p/Claude-3efdfdb1482281a08313c8afa59efcf1">моему гайду</a>, это лишняя запятая или скобка в этом файле: одна опечатка, и не запускается ни один сервер.</p>
+<!-- img: type=scheme caption="Подключайте к диалогу только те инструменты, которые нужны для текущей задачи, чтобы избежать перегрузки контекста." alt="настройка mcp в claude desktop: меню коннекторов с переключателями" was="Claude Desktop на компьютере: открыто меню коннекторов под значком плюса в строке ввода, видно несколько коннекторов с переключателями, включены только два" what="Схема переключения инструментов в чате: блок «Строка ввода (значок +)» со стрелкой к «Меню коннекторов», от него две ветки: правильная — «Включены 1–2 нужных сервера» → «Быстрый ответ и чистый контекст», ошибочная — «Включены все серверы подряд» → «Перегруз промпта и ошибки модели»." -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Схема переключения инструментов в чате: из строки ввода открывается меню коннекторов. Если включить один-два нужных сервера, ответ быстрый и контекст чистый. Если включить все серверы подряд, промпт перегружен и модель ошибается.">
+  <title>Какие коннекторы включать в чате</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrAccent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <rect x="60" y="50" width="400" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="260" y="95" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Строка ввода</text>
+  <text x="260" y="128" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">значок «+» под полем чата</text>
+
+  <line x1="460" y1="105" x2="590" y2="105" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <rect x="600" y="50" width="540" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="870" y="95" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Меню коннекторов</text>
+  <text x="870" y="128" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">список подключённых серверов</text>
+
+  <path d="M870 160 L870 205 L330 205 L330 250" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+  <path d="M870 160 L870 205 L870 250" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <text x="60" y="235" font-family="var(--font-body)" font-size="19" font-weight="600" fill="var(--accent)">Правильно</text>
+  <text x="900" y="235" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Ошибка</text>
+
+  <rect x="60" y="260" width="540" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="105" cy="315" r="22" fill="none" stroke="var(--accent)" stroke-width="3"/>
+  <text x="105" y="323" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">1</text>
+  <text x="145" y="308" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Включены 1–2</text>
+  <text x="145" y="342" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">нужных сервера</text>
+
+  <rect x="630" y="260" width="510" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="675" cy="315" r="22" fill="none" stroke="var(--line)" stroke-width="3"/>
+  <text x="675" y="323" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--muted)">2</text>
+  <text x="715" y="308" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Включены все</text>
+  <text x="715" y="342" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">серверы подряд</text>
+
+  <line x1="330" y1="370" x2="330" y2="440" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+  <line x1="885" y1="370" x2="885" y2="440" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <rect x="60" y="450" width="540" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="330" y="495" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Быстрый ответ</text>
+  <text x="330" y="528" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и чистый контекст</text>
+
+  <rect x="630" y="450" width="510" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="885" y="495" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Перегруз промпта</text>
+  <text x="885" y="528" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и ошибки модели</text>
+</svg>
+<figcaption>Подключайте к диалогу только те инструменты, которые нужны для текущей задачи, чтобы избежать перегрузки контекста.</figcaption>
+</figure>
+
+<p><strong>Claude Code.</strong> По <a href="https://code.claude.com/docs/en/mcp">документации</a> (проверено 13.11.2026) есть три области:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Область</th>
+<th>Где хранится</th>
+<th>Кому виден</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local, по умолчанию</td>
+<td><code>~/.claude.json</code></td>
+<td>только тебе, только в этой папке</td>
+</tr>
+<tr>
+<td>project</td>
+<td><code>.mcp.json</code> в корне проекта</td>
+<td>всем, кто работает с проектом</td>
+</tr>
+<tr>
+<td>user</td>
+<td><code>~/.claude.json</code></td>
+<td>только тебе, во всех проектах</td>
+</tr>
+</tbody>
+</table></div>
+<p>Команды такие: <code>claude mcp add --transport http notion https://mcp.notion.com/mcp</code> для удалённого сервера, <code>claude mcp add &lt;имя&gt; -- &lt;команда&gt;</code> для локального, <code>claude mcp list</code> чтобы посмотреть список, <code>claude mcp remove &lt;имя&gt;</code> чтобы удалить. Флаг <code>--scope project</code> кладёт сервер в общий <code>.mcp.json</code>, <code>--scope user</code> делает его видимым везде.</p>
+<p>Совет из практики: в область user клади только то, что действительно нужно в каждом проекте. Всё остальное держи в project, тогда в чужой папке лишние инструменты не появятся.</p>
+<p>Хорошая новость про Claude Code. По той же <a href="https://code.claude.com/docs/en/agent-sdk/tool-search">документации про поиск инструментов</a> он по умолчанию не грузит описания MCP-инструментов в контекст целиком. Модель видит короткую сводку, а когда нужна возможность, ищет подходящие инструменты по названию и описанию и подгружает до пяти самых подходящих. Переменная <code>ENABLE_TOOL_SEARCH=false</code> возвращает старое поведение, когда все описания уходят в каждый запрос. Поиск стоит одного лишнего шага на каждую подгрузку, поэтому при наборе меньше десятка инструментов быстрее грузить всё сразу.</p>
+<p>Это сильно помогает, но не решает всё. Модель всё равно может найти не тот инструмент из двух похожих, а в обычном чате Claude и в Claude Desktop поиск по инструментам может работать иначе. Чем короче набор, тем меньше поводов ошибиться.</p>
+<h2 id="proveril-na-sebe-kak-ya-nastraival-konnektory-dlya-bazy-znan">Проверил на себе: как я настраивал коннекторы для базы знаний и рабочих агентов</h2>
+<p>В штабе ii.systema на сервере работают несколько ботов на Claude Code: сценарии роликов, SEO-штаб, который пишет эти статьи, продюсер канала. Им всем нужен Notion, поиск по моим знаниям и тренды. Я держу на сервере короткий общий набор и режу каждому боту доступ под его задачу.</p>
+<p><strong>Общий набор.</strong> В файле <code>.mcp.json</code> рабочей папки штаба ровно два сервера, оба локальные:</p>
+<ul>
+<li><code>trend-pulse</code> собирает тренды из открытых источников для отбора тем;</li>
+<li><code>brain</code> это мой второй мозг, поиск по Notion, сайту и заметкам. У него три инструмента: <code>brain_search</code>, <code>brain_note</code> и <code>brain_map</code> (<a href="https://github.com/solovarov90/ii-systema/blob/main/brain/mcp_server.py">код сервера</a>).</li>
+</ul>
+<p>Notion подключён коннектором claude.ai на уровне аккаунта. Свой сервер для базы знаний я написал с тремя инструментами специально: модели не из чего выбирать, и ошибиться в выборе почти негде.</p>
+<!-- img: type=terminal cmds="whoami ;; cd /opt/ii-shtab/workspace ;; ls -la ;; claude --version ;; claude -p 'Перечисли названия MCP-серверов, которые у тебя подключены в этой папке, одной строкой через запятую'" caption="Рабочая папка штаба: рядом с правилами проекта лежит .mcp.json с двумя серверами, и Claude сам называет, что у него подключено." alt="mcp коннекторы claude code на сервере: файл .mcp.json и список серверов" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="mcp коннекторы claude code на сервере: файл .mcp.json и список серверов" src="/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/img/terminal-3.jpg"></div><figcaption>Рабочая папка штаба: рядом с правилами проекта лежит .mcp.json с двумя серверами, и Claude сам называет, что у него подключено.</figcaption></figure>
+<p><strong>Доступ под задачу.</strong> У каждого бота свой список разрешённых инструментов, флаг <code>--allowedTools</code>. Как это устроено, я разбирал в статье <a href="/blog/bezopasno-li-puskat-claude-code-na-server/">про безопасность Claude Code на сервере</a>, коротко:</p>
+<ul>
+<li>SEO-штаб пишет статью с поиском по второму мозгу и одной командой в терминале: проверкой текста на штампы;</li>
+<li>продюсер канала с 19.10.2026 Notion только читает, процессы других ботов он предлагает из белого списка, а запускаются они по моей кнопке.</li>
+</ul>
+<p>Так у бота в голове только то, что нужно для его работы. Статья не может случайно что-то удалить в Notion, потому что инструмента записи у неё нет.</p>
+<p><strong>Что сломалось и чему научило.</strong></p>
+<ul>
+<li><strong>Сервер «для всех проектов» на компьютере.</strong> 11.07.2026 я поставил на ноутбук codebase-memory-mcp, это сервер, который индексирует код проекта в граф. Зарегистрировал его в области user, <code>~/.claude.json</code>, и он стал виден во всех папках. Индексы у проектов разного размера, от 110 до примерно 4 000 узлов графа. Удобно, но его инструменты теперь есть и там, где я пишу тексты и код вообще не нужен. Вывод: в user кладу только то, что нужно везде.</li>
+<li><strong>Платный инструмент без потолка.</strong> История с Brave Search выше: 651 запрос за сутки и 544 ошибки. После неё у каждого поискового агента есть бюджет вызовов.</li>
+<li><strong>Коннекторы протухают.</strong> По <a href="https://app.notion.com/p/MCP-Claude-Instagram-3f6dfdb148228172a655c1a02fb08025">моему материалу про Instagram от 11.10.2026</a> вход через Meta живёт до 60 дней, потом коннектор молча перестаёт отвечать. Адрес уже добавленного коннектора в Claude поменять нельзя, только удалить и добавить заново.</li>
+</ul>
+<p>Вся система штаба с цифрами описана в <a href="/iisystema/">кейсе ii.systema</a>.</p>
+<!-- img: type=gen prompt="a minimalist workbench with only two precise golden tools neatly laid out, while a large heap of unused tools sits blurred in the dark background, dark graphite surface, warm gold accent light" caption="Пара точных инструментов под рукой работает лучше, чем ящик со всем подряд." alt="как выбрать mcp сервер для ии: мало инструментов вместо многих" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="как выбрать mcp сервер для ии: мало инструментов вместо многих" src="/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/img/gen-4.jpg"></div><figcaption>Пара точных инструментов под рукой работает лучше, чем ящик со всем подряд.</figcaption></figure>
+<h2 id="chto-delat-esli-u-nuzhnogo-servisa-net-gotovogo-mcp-servera">Что делать, если у нужного сервиса нет готового MCP-сервера?</h2>
+<p>Есть три пути: поискать готовый сервер в открытых каталогах, дать Claude Code командную строку сервиса или написать маленький свой сервер на несколько инструментов. Последний вариант часто лучший: ты сам решаешь, какие действия нужны, и не тащишь в контекст сотню лишних.</p>
+<ol>
+<li><strong>Готовый сервер.</strong> Проверь сайт сервиса и <a href="https://modelcontextprotocol.io">документацию MCP</a>. Перед подключением посмотри, сколько у сервера инструментов и что они умеют менять.</li>
+<li><strong>Командная строка.</strong> Если у сервиса есть своя программа для терминала или понятный API, Claude Code сам наберёт нужную команду и запустит её. MCP для этого не нужен, а в контексте не висит ни одного лишнего описания. В моём сценарии ролика про CRM этот выбор так и звучит: есть готовый переходник, ставь его, нет переходника, но есть командная строка, это работа для Claude Code.</li>
+<li><strong>Свой сервер.</strong> Сервер <code>brain</code> у меня это один файл на Python с тремя функциями. Такой сервер под свою задачу пишется за вечер, и Claude Code может написать его сам.</li>
+</ol>
+<p>Как не прогадать с первым заходом: один сервис, одна задача. Например, заносить заявки в CRM. Прогони через ИИ десять заявок, проверь каждую руками и только потом отдавай остальное.</p>
+<h2 id="poshagovyy-chek-list-kak-sobrat-chistyy-stek-instrumentov-dl">Пошаговый чек-лист: как собрать чистый стек инструментов для бизнеса</h2>
+<p>Чистый стек это короткий постоянный набор, правила доступа и привычка выключать лишнее. Вот порядок, по которому я бы собирал его с нуля:</p>
+<ol>
+<li><strong>Выпиши задачи, а не сервисы.</strong> Что Claude должен делать каждый день: отвечать по базе знаний, заносить заявки, готовить отчёт. Под каждую задачу один сервис.</li>
+<li><strong>Оставь в постоянных два-три сервера.</strong> База знаний и главный рабочий сервис. Всё остальное по требованию.</li>
+<li><strong>Проверь число инструментов.</strong> Если сервер приносит десятки действий, а нужны два, ищи сервер поуже или пиши свой.</li>
+<li><strong>Разведи чтение и запись.</strong> Читающие коннекторы можно держать включёнными. Пишущие включай под задачу и проси Claude показывать план перед изменениями.</li>
+<li><strong>В Claude Code раздели области.</strong> Общее для проекта в <code>.mcp.json</code>, личное и нужное везде в user, остальное в local.</li>
+<li><strong>Режь права агентам.</strong> Для ботов на сервере задай <code>--allowedTools</code> и правила deny. Подробно в статье <a href="/blog/bezopasno-li-puskat-claude-code-na-server/">про безопасность Claude Code</a>.</li>
+<li><strong>Поставь потолок платным инструментам.</strong> Поиск, генерация картинок, рассылки: у каждого бюджет вызовов на прогон.</li>
+<li><strong>Раз в месяц делай ревизию.</strong> Убери то, чем не пользовался, переподключи протухшие коннекторы и запиши изменения в журнал.</li>
+<li><strong>Длинные задачи начинай в новом чате.</strong> Даже с чистым набором коннекторов длинная история забивает контекст. Как это влияет на память агента, я разбирал в статье <a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">про память ИИ-агента</a>.</li>
+</ol>
+<p>Если хочешь, чтобы Claude работал с твоими сервисами и не путался, напиши слово «система» мне в личку <a href="https://t.me/solovarov">t.me/solovarov</a>. Разберём твои рабочие задачи и посмотрим, какие коннекторы и связки действительно нужны твоему бизнесу, а что только перегружает модель и сливает бюджет.</p>
+    </article>
+
+    
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Что такое MCP простыми словами?</h3><p>MCP (Model Context Protocol) это открытый стандарт Anthropic, по которому Claude подключается к внешним сервисам и базам данных. Подключаешь сервис один раз, и дальше Claude сам читает оттуда данные и выполняет действия, без копирования текста между вкладками. Отдельная программа-переходник с инструментами для одного сервиса называется MCP-сервером, в интерфейсе Claude это коннектор.</p></div><div class="qa"><h3 id="faq-2">Почему Claude начинает ошибаться, когда подключено много MCP-серверов?</h3><p>Каждый сервер приносит в разговор описания своих инструментов, и модели приходится выбирать из длинного списка похожих действий. В документации Claude Code прямо написано, что точность выбора инструмента падает, когда одновременно загружено больше 30–50 инструментов. Вдобавок описания занимают место в контексте, и на саму задачу его остаётся меньше.</p></div><div class="qa"><h3 id="faq-3">Сколько токенов тратит один подключённый MCP-коннектор?</h3><p>Зависит от числа и подробности инструментов. По замеру Anthropic от 24 ноября 2025 года сервер GitHub с 35 инструментами занимает около 26 тысяч токенов, а пять серверов на 58 инструментов около 55 тысяч. По документации Claude Code 50 инструментов обычно занимают 10–20 тысяч токенов.</p></div><div class="qa"><h3 id="faq-4">Чем отличается настройка MCP в Claude Desktop от Claude Code?</h3><p>В Claude Desktop серверы прописываются в файле claude_desktop_config.json через Settings, раздел Developer, а удалённые коннекторы добавляются в меню Connectors. В Claude Code серверы добавляются командой claude mcp add и живут в трёх местах, у каждого своя видимость. Общий для проекта набор лежит в файле .mcp.json в корне папки, личный набор для всех проектов хранится в ~/.claude.json.</p></div><div class="qa"><h3 id="faq-5">Можно ли ограничить доступ инструментов к конфиденциальным данным?</h3><p>Да. В Claude Code есть список разрешённых инструментов --allowedTools и правила deny, которые запрещают конкретное действие. У меня продюсер канала с 19.10.2026 Notion только читает, а SEO-штаб может запустить в терминале ровно одну команду. Права в самом сервисе, например только чтение у токена, режь отдельно.</p></div><div class="qa"><h3 id="faq-6">Как понять, что модель запуталась именно из-за перегрузки инструментами?</h3><p>Признаки такие. Claude зовёт похожий инструмент другого сервиса, путает поля, отвечает «у меня нет доступа», хотя коннектор включён, или к середине длинного разговора забывает условия задачи. Проверка простая. Выключи все коннекторы, кроме нужного для этой задачи, повтори запрос в новом чате и сравни ответы.</p></div><div class="qa"><h3 id="faq-7">Нужно ли платить, чтобы подключить несколько коннекторов?</h3><p>По моему материалу к ролику от 08.10.2026, на бесплатном аккаунте Claude доступен один слот для своего коннектора, а для нескольких внешних MCP-серверов нужна подписка Pro, Max или Team. Сами сервисы за коннектором оплачиваются отдельно по своим тарифам.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://app.notion.com/p/MCP-Claude-3f3dfdb14822810f913fee58bf3f3b0d" rel="noopener">Материал «Настройка MCP-коннекторов и генерация ИИ-контента в Claude»</a> <span>что такое MCP, подключение коннектора, ограничение бесплатного тарифа; актуально на 08.10.2026</span></li><li><a href="https://app.notion.com/p/Claude-3efdfdb1482281a08313c8afa59efcf1" rel="noopener">Пошаговый гайд «как превратить Claude в автономного сотрудника»</a> <span>claude_desktop_config.json, сервер @modelcontextprotocol/server-filesystem, частые ошибки конфига</span></li><li><a href="https://app.notion.com/p/MCP-Claude-Instagram-3f6dfdb148228172a655c1a02fb08025" rel="noopener">Материал «Пошаговая настройка MCP-коннектора Claude для Instagram»</a> <span>срок жизни авторизации Meta, правка адреса коннектора; актуально на 11.10.2026</span></li><li><a href="https://app.notion.com/p/Markitdown-Claude-MCP-3efdfdb148228179a655f1d550962248" rel="noopener">Инструкция по подключению Markitdown к Claude через MCP</a> <span>пример MCP-сервера, который экономит токены на PDF; актуально на 04.10.2026</span></li><li><a href="https://github.com/solovarov90/ii-systema/blob/main/brain/mcp_server.py" rel="noopener">MCP-сервер brain для Claude Code штаба (код)</a> <span>три инструмента brain_search, brain_note, brain_map; подключение через .mcp.json</span></li><li><a href="https://app.notion.com/p/MCP-Claude-3f3dfdb1482281dbae32fd6b9cd7c4cf" rel="noopener">Контент-план, ролик «Подключение MCP-коннекторов к Claude»</a> <span>просмотры, сохранения и кодовые слова, данные на 10.11.2026</span></li><li><a href="https://www.anthropic.com/engineering/advanced-tool-use" rel="noopener">Anthropic, «Introducing advanced tool use on the Claude Developer Platform»</a> <span>24.11.2025; токены пяти серверов, Tool Search Tool, точность Opus 4 и Opus 4.5</span></li><li><a href="https://code.claude.com/docs/en/agent-sdk/tool-search" rel="noopener">Документация Claude Code, Tool search</a> <span>проверено 13.11.2026; 50 инструментов = 10–20 тысяч токенов, точность падает после 30–50 инструментов, ENABLE_TOOL_SEARCH</span></li><li><a href="https://code.claude.com/docs/en/mcp" rel="noopener">Документация Claude Code, MCP</a> <span>проверено 13.11.2026; claude mcp add, области local, project, user, команда /mcp</span></li><li><a href="https://mcpplaygroundonline.com/blog/mcp-context-bloat-tool-search" rel="noopener">MCP Playground, «MCP Context Bloat. The 67,000 Tokens You Pay Before Hello»</a> <span>12.09.2026; сервер Notion около 9 000 токенов, семь серверов 67 300 токенов</span></li><li><a href="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/" rel="noopener">Статья «Почему лимит Claude по подписке кончается к обеду»</a> <span>как контекст расходует лимит подписки</span></li><li><a href="https://petrsolovarov.ru/blog/bezopasno-li-puskat-claude-code-na-server/" rel="noopener">Статья «Безопасно ли пускать Claude Code на свой сервер»</a> <span>--allowedTools, правила deny, права агентов штаба</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я разберу твои рабочие задачи и соберу под них короткий набор коннекторов и правил доступа, чтобы Claude работал с твоими сервисами и не путался в лишнем.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, списывается раз в месяц, отменить можно в любой момент</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/gemini-omni-1-2-flash-dlya-biznesa/">Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</a><span>Инструменты · 7 ноября 2026</span></li><li><a href="/blog/bezopasno-li-puskat-claude-code-na-server/">Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</a><span>Инструменты · 6 ноября 2026</span></li><li><a href="/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/">Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</a><span>Инструменты · 2 ноября 2026</span></li><li><a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</a><span>Инструменты · 31 октября 2026</span></li></ul><h3 class="related-all-t">Все статьи блога</h3><ul class="related-all"><li><a href="/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/">ИИ-агенты в Premiere и Photoshop: что они умеют и кому заменят монтажёра</a></li><li><a href="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</a></li><li><a href="/blog/razbor-obrascheniy-klientov-ii-chernoviki/">Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</a></li><li><a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">Память ИИ-агента: как сделать, чтобы Claude помнил бизнес и не путал контекст</a></li><li><a href="/blog/zadachi-ii-golosom-telegram/">Как ставить задачи ИИ голосом в Telegram и получать готовый результат</a></li><li><a href="/blog/reklama-meta-cherez-claude-pipeboard/">Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</a></li><li><a href="/blog/claude-code-agent-telegram-server/">Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</a></li><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a></li><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a></li><li><a href="/blog/media-konveyer-na-ii/">Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</a></li><li><a href="/blog/avtootvet-kodovoe-slovo/">Автоответ в Instagram: как собирать заявки по кодовому слову через ИИ</a></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+}
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
+</script>
+</body>
+</html>

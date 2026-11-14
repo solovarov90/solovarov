@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Fri, 13 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Sat, 14 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Почему Claude тупеет от MCP-коннекторов и как настроить инструменты</title>
+    <link>https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/</guid>
+    <pubDate>Fri, 13 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Инструменты</category>
+    <description>MCP-коннекторы Claude съедают контекст описаниями инструментов, и модель начинает путаться. Разбираю, сколько это стоит, какие серверы держать и как настроить.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>ИИ-агенты в Premiere и Photoshop: что они умеют и кому заменят монтажёра</title>
     <link>https://petrsolovarov.ru/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/</link>

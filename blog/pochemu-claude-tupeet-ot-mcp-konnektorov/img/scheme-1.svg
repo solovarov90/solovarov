@@ -1,0 +1,42 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Контекстное окно Claude как шкала: при десяти коннекторах описания инструментов занимают большую часть, на задачу остаётся узкий остаток; при двух коннекторах место под задачу широкое">
+  <title>Сколько места в контексте остаётся на задачу при десяти коннекторах и при двух</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="52" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Десять коннекторов</text>
+  <text x="60" y="84" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Контекстное окно уже заполнено до первого вопроса</text>
+
+  <rect x="60" y="108" width="190" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="155" y="156" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Правила</text>
+  <text x="155" y="186" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">проекта</text>
+
+  <rect x="260" y="108" width="640" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="580" y="150" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Описания инструментов</text>
+  <text x="580" y="182" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Notion, GitHub, Google Диск, почта, календарь</text>
+  <text x="580" y="204" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и ещё пять</text>
+
+  <rect x="910" y="108" width="230" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="1025" y="156" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">Твоя задача</text>
+  <text x="1025" y="186" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и история разговора</text>
+
+  <line x1="60" y1="244" x2="1140" y2="244" stroke="var(--line)" stroke-width="2"/>
+  <text x="600" y="276" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Контекстное окно Claude</text>
+
+  <text x="60" y="336" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Два коннектора</text>
+  <text x="60" y="368" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Под задачу остаётся широкое место</text>
+
+  <rect x="60" y="392" width="190" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="155" y="440" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Правила</text>
+  <text x="155" y="470" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">проекта</text>
+
+  <rect x="260" y="392" width="170" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="345" y="440" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Инструменты</text>
+  <text x="345" y="470" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">только два</text>
+
+  <rect x="440" y="392" width="700" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <text x="790" y="440" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">Твоя задача</text>
+  <text x="790" y="470" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и история разговора: условия не теряются</text>
+</svg>
