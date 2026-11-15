@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Sat, 14 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Sun, 15 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз</title>
+    <link>https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/</guid>
+    <pubDate>Fri, 13 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Инструменты</category>
+    <description>Скиллы Claude Code: как создать навык в .claude/skills, что писать в SKILL.md, как ограничить права агента и где брать готовые. На примере моих навыков статей и монтажа.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Почему Claude тупеет от MCP-коннекторов и как настроить инструменты</title>
     <link>https://petrsolovarov.ru/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/</link>

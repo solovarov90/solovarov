@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз — блог Петра Соловарова</title>
+<meta name="description" content="Скиллы Claude Code: как создать навык в .claude/skills, что писать в SKILL.md, как ограничить права агента и где брать готовые. На примере моих навыков статей и монтажа.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз">
+<meta property="og:description" content="Скиллы Claude Code: как создать навык в .claude/skills, что писать в SKILL.md, как ограничить права агента и где брать готовые. На примере моих навыков статей и монтажа.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Скиллы Claude Code как создать инструкцию для ИИ-агента, обложка статьи">
+<meta property="article:published_time" content="2026-11-13">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Инструменты">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз">
+<meta name="twitter:description" content="Скиллы Claude Code: как создать навык в .claude/skills, что писать в SKILL.md, как ограничить права агента и где брать готовые. На примере моих навыков статей и монтажа.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/"
+   },
+   "headline": "Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз",
+   "description": "Скиллы Claude Code: как создать навык в .claude/skills, что писать в SKILL.md, как ограничить права агента и где брать готовые. На примере моих навыков статей и монтажа.",
+   "image": [
+    "https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-13",
+   "dateModified": "2026-11-15",
+   "inLanguage": "ru-RU",
+   "wordCount": 3712,
+   "articleSection": "Инструменты",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз",
+     "item": "https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/skilly-claude-code-instruktsii-dlya-agenta/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Чем скилл в .claude/skills отличается от файла CLAUDE.md?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "CLAUDE.md агент читает в начале каждой сессии целиком, поэтому там лежит короткая памятка о проекте. Скилл описывает одну задачу, и его полный текст загружается, только когда задача подходит. У меня правила статей блога лежат в навыке и не тратят лимит, пока агент занят сценариями роликов."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько скиллов можно одновременно подключить к Claude Code?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Жёсткого числа я не встречал, но каждый включённый навык занимает место. По моему материалу от 20.10.2026, имя и описание каждого включённого навыка подгружаются в начале чата, около 100 токенов на навык. Поэтому держи включёнными те, что нужны в работе, а остальные убирай."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Тратит ли неактивный скилл токены подписки в каждом сообщении?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Немного тратит, только на имя и описание. Полный текст SKILL.md по документации Claude Code загружается, только когда навык используется. Длинные справочники внутри навыка почти ничего не стоят, пока не нужны."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "На каком тарифе подписки работают навыки и Claude Code?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Claude Code входит в платные тарифы. По моему руководству от 04.10.2026, Pro стоит $20 в месяц или $17 при оплате за год, Team стоит $25 за пользователя в месяц. На бесплатном тарифе доступны только базовые диалоги."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как агент понимает, какой именно навык нужно запустить под задачу?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "По полю description в начале файла SKILL.md. Claude сравнивает твою задачу с описаниями и берёт подходящий навык. Поэтому в описании пиши, что навык делает и какими словами его обычно просят, а запустить вручную можно командой /имя-навыка."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Можно ли передать скиллам доступ к внешним скриптам и программам?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да. В папке навыка рядом с SKILL.md можно положить скрипты, а в инструкции написать, когда их запускать. Права на команды задаются полем allowed-tools в навыке или флагом --allowedTools при запуске. Мой SEO-штаб пишет статьи с разрешением ровно на одну команду в терминале, на проверку текста."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Безопасно ли ставить чужие навыки с GitHub?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Только после того, как прочитал SKILL.md и скрипты в папке. Навык это прямые инструкции для нейросети, и в нём может лежать что угодно. Бери репозитории с понятным автором и ставь навык в проект, где у агента узкие права."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+.related-all-t { font-size: 18px; margin: 28px 0 12px; }
+.related ul.related-all { gap: 8px; }
+.related ul.related-all li { background: none; border: 0; border-radius: 0; padding: 0; }
+.related ul.related-all li a { font-family: inherit; font-weight: 400; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Инструменты</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Инструкция · Инструменты · 21 мин чтения</div>
+    <h1>Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз</h1>
+    <p class="lead">Скиллы Claude Code: как создать навык в .claude/skills, что писать в SKILL.md, как ограничить права агента и где брать готовые. На примере моих навыков статей и монтажа.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-13">13 ноября 2026</time> · обновлено <time datetime="2026-11-15">15 ноября 2026</time> · 3 712 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/skilly-claude-code-instruktsii-dlya-agenta/img/cover.jpg" alt="Скиллы Claude Code как создать инструкцию для ИИ-агента, обложка статьи" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#chto-takoe-skilly-v-claude-code-i-chem-oni-otlichayutsya-ot-">Что такое скиллы в Claude Code и чем они отличаются от системного промпта?</a></li><li><a href="#gde-zhivut-navyki-agenta-i-kak-ustroena-faylovaya-struktura-">Где живут навыки агента и как устроена файловая структура проекта?</a></li><li><a href="#kak-poshagovo-napisat-i-oformit-svoy-pervyy-skill-dlya-rutin">Как пошагово написать и оформить свой первый скилл для рутинной задачи?</a></li><li><a href="#kak-ogranichit-prava-agenta-vnutri-navyka-chtoby-on-ne-troga">Как ограничить права агента внутри навыка, чтобы он не трогал лишнее?</a></li><li><a href="#proveril-na-sebe-kak-skilly-pishut-stati-i-montiruyut-video-">Проверил на себе: как скиллы пишут статьи и монтируют видео в моём конвейере</a></li><li><a href="#pochemu-agenty-lomayut-stsenariy-v-dlinnyh-sessiyah-i-kak-de">Почему агенты ломают сценарий в длинных сессиях и как держать рамки регламента?</a></li><li><a href="#gde-brat-proverennye-shablony-navykov-i-kak-ih-bezopasno-pod">Где брать проверенные шаблоны навыков и как их безопасно подключать?</a></li><li><a href="#s-chego-nachat-esli-navykov-u-tebya-poka-nol">С чего начать, если навыков у тебя пока ноль?</a></li></ol></nav>
+    <article class="article">
+<p>Скилл в Claude Code это отдельная текстовая инструкция на одну повторяющуюся задачу. Лежит она в папке <code>.claude/skills/&lt;имя&gt;/SKILL.md</code>, и агент подключает её сам, когда задача подходит: читает шаги, правила и формат результата. Чтобы создать скилл, хватит одного файла с коротким описанием сверху и пошаговым регламентом ниже. Главный файл проекта <code>CLAUDE.md</code> при этом остаётся коротким.</p>
+<p>У меня на навыках держится половина проекта ii.systema. Эту статью пишет навык блога, ролики монтирует навык монтажа, чужие ролики разбирает навык разбора. Ниже покажу, как устроен файл, как его написать, как закрыть агенту лишние права и что у меня ломалось.</p>
+<h2 id="chto-takoe-skilly-v-claude-code-i-chem-oni-otlichayutsya-ot-">Что такое скиллы в Claude Code и чем они отличаются от системного промпта?</h2>
+<p>Скилл это инструкция на одну задачу, которую Claude загружает по требованию. Системный промпт и <code>CLAUDE.md</code> агент читает в каждой сессии целиком, что бы ты ни спросил. Навык подгружается, только когда твоя задача совпала с его описанием.</p>
+<p>Агентом я называю программу на основе нейросети, которая сама делает шаги задачи: читает файлы, пишет тексты, запускает команды. Claude Code как раз такая программа от Anthropic, она работает в терминале или в приложении Claude.</p>
+<p>Разница видна на деньгах и на качестве. Каждая строка <code>CLAUDE.md</code> уходит модели в каждом запуске и съедает лимит подписки. Правила статей блога у меня лежат в навыке, поэтому в разговоре про монтаж они лимит не тратят. Об этом я подробно писал в <a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">статье про лимиты Claude</a> 31.10.2026.</p>
+<p>По <a href="https://code.claude.com/docs/en/skills">документации Claude Code</a> (проверено 13.11.2026) в начале сессии в контекст попадают только имена и описания навыков, а полный текст подгружается при использовании. Контекст здесь это всё, что модель читает за один раз: инструкции, историю чата, файлы. В моём материале от 20.10.2026 это записано в цифрах: около 100 токенов на каждый включённый навык. Токен это кусочек слова, в таких единицах модель считает текст.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th></th>
+<th>CLAUDE.md</th>
+<th>Скилл</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Когда читается</td>
+<td>в начале каждой сессии</td>
+<td>когда задача подходит</td>
+</tr>
+<tr>
+<td>Что внутри</td>
+<td>что за проект, где базы, чего нельзя</td>
+<td>шаги одной задачи, тон, формат, проверки</td>
+</tr>
+<tr>
+<td>Сколько стоит</td>
+<td>весь текст в каждом запуске</td>
+<td>описание всегда, текст по требованию</td>
+</tr>
+<tr>
+<td>Пример у меня</td>
+<td>профиль ii.systema, адреса баз Notion</td>
+<td>навык статьи блога, навык монтажа</td>
+</tr>
+</tbody>
+</table></div>
+<p>Правило у меня простое, я записал его ещё в <a href="/blog/claude-code-agent-telegram-server/">статье про Claude Code на сервере</a>: если объяснил агенту что-то второй раз, пора записать это в файл. Общее про проект идёт в <code>CLAUDE.md</code>, порядок работы над конкретной задачей идёт в навык.</p>
+<!-- img: type=scheme what="слева блок CLAUDE.md с подписью «читается всегда», справа три карточки навыков: статья, монтаж, разбор ролика; от задачи «напиши статью» стрелка к карточке «статья», карточка подсвечена золотом, две другие серые с подписью «только описание»" caption="CLAUDE.md агент читает в каждой сессии, а из навыков загружает целиком только тот, что подходит под задачу." alt="скиллы claude code как создать: схема загрузки навыков и CLAUDE.md" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Схема: CLAUDE.md агент читает в каждой сессии, а из трёх навыков загружает целиком только тот, что подходит под задачу «напиши статью»">
+  <title>CLAUDE.md читается всегда, из навыков загружается только подходящий</title>
+  <defs>
+    <marker id="arrAccent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+    <marker id="arrLine" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+  </defs>
+
+  <!-- CLAUDE.md -->
+  <rect x="40" y="60" width="380" height="400" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="70" y="115" font-family="var(--font-display)" font-weight="600" font-size="28" fill="var(--fg)">CLAUDE.md</text>
+  <text x="70" y="160" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Что за проект</text>
+  <text x="70" y="195" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Где базы Notion</text>
+  <text x="70" y="230" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Чего нельзя</text>
+  <line x1="70" y1="270" x2="390" y2="270" stroke="var(--line)" stroke-width="2"/>
+  <text x="70" y="315" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Читается в начале</text>
+  <text x="70" y="345" font-family="var(--font-body)" font-size="19" fill="var(--fg)">каждой сессии, весь текст</text>
+  <text x="70" y="420" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--accent)">читается всегда</text>
+
+  <!-- Задача -->
+  <rect x="470" y="60" width="240" height="90" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="590" y="98" text-anchor="middle" font-family="var(--font-body)" font-size="17" fill="var(--muted)">Задача</text>
+  <text x="590" y="130" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">«напиши статью»</text>
+
+  <!-- Стрелка к главной карточке -->
+  <path d="M590 150 L590 190 L760 190 L760 215" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+
+  <!-- Навык: статья (подсвечен) -->
+  <rect x="760" y="220" width="400" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="4"/>
+  <text x="790" y="265" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--accent)">Навык «статья»</text>
+  <text x="790" y="300" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Загружен целиком: шаги, тон, проверки</text>
+
+  <!-- Навык: монтаж -->
+  <rect x="760" y="355" width="400" height="90" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="790" y="397" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--muted)">Навык «монтаж»</text>
+  <text x="790" y="428" font-family="var(--font-body)" font-size="17" fill="var(--muted)">только описание</text>
+
+  <!-- Навык: разбор ролика -->
+  <rect x="760" y="470" width="400" height="90" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="790" y="512" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--muted)">Навык «разбор ролика»</text>
+  <text x="790" y="543" font-family="var(--font-body)" font-size="17" fill="var(--muted)">только описание</text>
+
+  <!-- Связь CLAUDE.md с навыками -->
+  <path d="M420 260 L470 260" fill="none" stroke="var(--line)" stroke-width="2" marker-end="url(#arrLine)"/>
+
+  <!-- Подпись -->
+  <text x="590" y="250" text-anchor="middle" font-family="var(--font-body)" font-size="17" fill="var(--muted)"> </text>
+</svg>
+<figcaption>CLAUDE.md агент читает в каждой сессии, а из навыков загружает целиком только тот, что подходит под задачу.</figcaption>
+</figure>
+
+<h2 id="gde-zhivut-navyki-agenta-i-kak-ustroena-faylovaya-struktura-">Где живут навыки агента и как устроена файловая структура проекта?</h2>
+<p>Навыки проекта лежат в папке <code>.claude/skills</code> внутри рабочей папки, личные навыки лежат в <code>~/.claude/skills</code> в домашней папке. На каждый навык заводится своя папка, а в ней обязательный файл <code>SKILL.md</code>. Рядом можно положить справочники, примеры и скрипты.</p>
+<p>По <a href="https://code.claude.com/docs/en/skills">документации</a> разница такая:</p>
+<ul>
+<li><strong>Навыки проекта</strong> (<code>.claude/skills/&lt;имя&gt;/SKILL.md</code>) работают в сессиях этого проекта. Их можно положить в git, и у всей команды будут одни правила.</li>
+<li><strong>Личные навыки</strong> (<code>~/.claude/skills/&lt;имя&gt;/SKILL.md</code>) работают во всех твоих проектах на этом компьютере.</li>
+<li><strong>Навыки из плагинов</strong> ставятся одной командой и вызываются как <code>/плагин:навык</code>.</li>
+</ul>
+<p>Вот как это выглядит у меня. Рабочая папка штаба роликов на сервере лежит в <code>/opt/ii-shtab/workspace</code>. В ней <code>CLAUDE.md</code> с описанием проекта и папка <code>.claude/skills</code> с двумя навыками: <code>blog-article</code> пишет статьи, <code>razbor</code> разбирает чужие ролики в базу «Референсы». Навык монтажа живёт отдельно, на моём компьютере, потому что монтаж идёт на видеокарте.</p>
+<pre><code>/opt/ii-shtab/workspace/
+├── CLAUDE.md
+└── .claude/
+    └── skills/
+        ├── blog-article/
+        │   └── SKILL.md
+        └── razbor/
+            └── SKILL.md
+</code></pre>
+<p>Если агенту нужны файлы из другой папки, их открывают флагом <code>--add-dir</code>. Мой SEO-штаб так и работает: Claude запускается из папки штаба с навыками и получает доступ к клону сайта, куда сохраняет статью.</p>
+<!-- img: type=terminal cmds="cd /opt/ii-shtab/workspace ;; ls -la /opt/ii-shtab/workspace/.claude/skills ;; claude --version" caption="Папка навыков в рабочей папке агента на сервере: на каждый навык своя папка с файлом SKILL.md." alt="где лежат скиллы claude code: папка .claude/skills на сервере" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="где лежат скиллы claude code: папка .claude/skills на сервере" src="/blog/skilly-claude-code-instruktsii-dlya-agenta/img/terminal-2.jpg"></div><figcaption>Папка навыков в рабочей папке агента на сервере: на каждый навык своя папка с файлом SKILL.md.</figcaption></figure>
+<h2 id="kak-poshagovo-napisat-i-oformit-svoy-pervyy-skill-dlya-rutin">Как пошагово написать и оформить свой первый скилл для рутинной задачи?</h2>
+<p>Первый скилл пишется за один заход: выбери задачу, которую объясняешь ИИ по кругу, и запиши порядок её выполнения в <code>SKILL.md</code>. Сверху два поля, <code>name</code> и <code>description</code>, ниже шаги, правила и формат результата. Потом дай агенту задачу обычными словами и посмотри, подхватил ли он навык.</p>
+<p>Порядок такой:</p>
+<ol>
+<li><strong>Выбери одну задачу.</strong> Ответ на претензию клиента, коммерческое предложение, сводка по заявкам за неделю. Одна задача на один навык. Навык «про маркетинг вообще» агент будет применять как попало.</li>
+<li><strong>Создай папку и файл.</strong> <code>.claude/skills/pretenziya/SKILL.md</code>. Имя папки латиницей, оно же станет командой <code>/pretenziya</code>.</li>
+<li><strong>Напиши описание.</strong> В поле <code>description</code> укажи, что делает навык и какими словами его обычно просят. По этому полю Claude решает, брать навык или нет.</li>
+<li><strong>Распиши шаги глаголами.</strong> «Найди заказ», «сверь сроки», «предложи замену». В моих правилах проекта это записано отдельной строкой: правила пишутся глаголом действия, не заголовками.</li>
+<li><strong>Задай формат результата.</strong> Что должно получиться на выходе: письмо в три абзаца, таблица, файл в такой-то папке.</li>
+<li><strong>Добавь запреты коротко.</strong> Чего обещать нельзя, какие слова под запретом. Без готовых примеров внутри запретов: модель начинает воспроизводить сам пример.</li>
+<li><strong>Проверь на живой задаче.</strong> Дай агенту настоящую претензию и прочитай результат. Ошибся, значит допиши строку в навык.</li>
+</ol>
+<p>Вот каркас такого файла:</p>
+<pre><code class="language-markdown">---
+name: pretenziya
+description: Ответить клиенту на претензию по заказу. Использовать, когда просят «ответь на жалобу», «разбери претензию», «клиент недоволен».
+---
+
+# Ответ на претензию
+
+1. Найди заказ по номеру или имени клиента в таблице заказов.
+2. Сверь, что клиент получил и в какой срок.
+3. Определи, кто ошибся: мы, доставка или клиент.
+4. Напиши ответ: признай факт, назови решение, назови срок.
+
+## Правила
+- Пиши на «вы», спокойно, без оправданий.
+- Обещай только то, что есть в регламенте возвратов.
+- Скидку предлагай только с согласия руководителя.
+
+## Результат
+Черновик письма в три абзаца. Не отправляй его сам.
+</code></pre>
+<p>Если не хочется писать с нуля, в моём <a href="https://app.notion.com/p/Claude-3ffdfdb148228171b4c4d352637efcf2">материале про готовые навыки</a> от 20.10.2026 есть промпт для Claude, который собирает такой файл по описанию задачи. Структура там та же: название, описание, когда включать навык, пошаговый алгоритм с правилами и шаблон результата.</p>
+<p>Ещё две полезные настройки из <a href="https://code.claude.com/docs/en/skills">документации</a>. Поле <code>disable-model-invocation: true</code> запрещает Claude включать навык самому, тогда он срабатывает только по команде <code>/имя</code>. Это удобно для действий, которые ты хочешь запускать руками. А длинные справочники лучше класть в отдельные файлы рядом с <code>SKILL.md</code> и ссылаться на них из инструкции: агент откроет их, только когда дойдёт до нужного шага.</p>
+<h2 id="kak-ogranichit-prava-agenta-vnutri-navyka-chtoby-on-ne-troga">Как ограничить права агента внутри навыка, чтобы он не трогал лишнее?</h2>
+<p>Права агента задаются заранее и снаружи текста навыка. В самом <code>SKILL.md</code> есть поле <code>allowed-tools</code>, а при запуске Claude Code из скрипта работает флаг <code>--allowedTools</code>: он перечисляет, что агенту можно, и всё остальное Claude не сделает. Фраза «будь аккуратен» в инструкции защитой не считается.</p>
+<p>По <a href="https://code.claude.com/docs/en/skills">документации</a> поле <code>allowed-tools</code> заранее разрешает перечисленные инструменты, пока навык работает, например только <code>git status</code> и <code>git commit</code>. Разрешение снимается со следующим сообщением. Это удобно в обычной работе за компьютером, чтобы агент не спрашивал подтверждение на каждую команду.</p>
+<p>Когда агент работает без человека, через <code>claude -p</code>, спросить подтверждение не у кого. Это режим запуска без окна: задача передаётся одной строкой, Claude делает её и печатает результат. Так работают все мои боты. Поэтому список разрешений я передаю флагом при запуске, а режим <code>--permission-mode dontAsk</code> отклоняет всё лишнее без вопроса.</p>
+<p>Примеры из моих ботов, подробнее в <a href="/blog/bezopasno-li-puskat-claude-code-na-server/">статье про безопасность Claude Code</a> от 06.11.2026:</p>
+<ul>
+<li><strong>SEO-штаб</strong> пишет статьи навыком блога с разрешением ровно на одну команду в терминале: проверку текста на штампы. Любую другую команду он запустить не может.</li>
+<li><strong>Продюсер канала</strong> с 19.10.2026 Notion только читает. Процессы других ботов он предлагает командами из белого списка, а запускаются они по моей кнопке.</li>
+<li><strong>Слепая оценка хука</strong> с 07.11.2026 запускает <code>claude -p</code> из пустой временной папки, инструмент у него один: чтение файлов. Без навыков, без подключений к сервисам и без описания проекта, чтобы оценщик видел только ролик.</li>
+</ul>
+<p>И последнее правило, которое стоит в каждом моём навыке, где есть отправка наружу: агент готовит, человек нажимает. Навык статьи пишет черновик с пометкой <code>draft: true</code>, а кнопку «Выложить» жму я, когда посмотрел превью глазами.</p>
+<h2 id="proveril-na-sebe-kak-skilly-pishut-stati-i-montiruyut-video-">Проверил на себе: как скиллы пишут статьи и монтируют видео в моём конвейере</h2>
+<p>На навыках у меня работают два самых тяжёлых процесса: статьи блога и монтаж роликов. Навык монтажа собран 01.10.2026, навык статей работает в SEO-штабе с 18.10.2026. По <a href="/blog/claude-code-agent-telegram-server/">статье про Claude Code на сервере</a> от 31.10.2026, SEO-штаб пишет статью через <code>claude -p</code> за 10–25 минут.</p>
+<p><strong>Навык монтажа.</strong> 01.10.2026 я разобрал три чужих ролика, которые мне нравились по монтажу: расшифровка речи на своей видеокарте плюс Gemini по кадрам и звуку. Из разборов собрал «библию стиля» и упаковал её в навык <code>montage-uchitel</code> (<a href="https://app.notion.com/p/montage-uchitel-3ecdfdb14822813e8089cdaf94baa11c">запись в журнале изменений</a>). В навыке записаны доли кадра под лицо и графику, длина бита, шрифт подписей, акцентный цвет, звук и финал с плашкой. Вставки чужого ролика там ограничены: не длиннее 3 секунд и не больше трёх на ролик.</p>
+<p>Дальше навык заработал из Telegram (<a href="https://app.notion.com/p/Telegram-Claude-Code-3ecdfdb1482281108dc4c35381092ae6">запись от 01.10.2026</a>). Под дублем в чате кнопка «Смонтировать». Бот берёт сценарий из «Контент-плана», кладёт задачу в общую папку, на компьютере её подхватывает раннер и запускает Claude Code со скиллом монтажа. Задачи идут по одной, на каждую лимит 2 часа. Готовый ролик приходит обратно в тему.</p>
+<p>Навык при этом растёт. Каждое новое решение по монтажу становится пронумерованным правилом в <code>SKILL.md</code>: формат «Указка», где я показываю пальцем на карточки над головой, записан там правилом 18, анимации интерфейса на фразах правилом 17. Агент не помнит, что мы решили месяц назад. Помнит файл.</p>
+<p><strong>Навык статей.</strong> Бот SEO-штаба собирает бриф: тема, запросы, план разделов, мои факты из второго мозга. Потом запускает Claude с навыком <code>blog-article</code>. В навыке записаны структура статьи, тон, правила про факты и цифры, теги под картинки и последняя проверка штампов. Эта статья написана именно так.</p>
+<p>Что сломалось по дороге:</p>
+<ul>
+<li><strong>Навык монтажа не завёлся под Windows с первого раза.</strong> 01.10.2026 по <a href="https://app.notion.com/p/Kossolapov-3ebdfdb1482281ce8016e357a738136f">записи в AI-стеке</a> пришлось чинить кодировку, скрипты набора запускаются только с <code>PYTHONUTF8=1</code>. Второе: сведение звука в ffmpeg 8 зависало, лечилось одним параметром. Готовый чужой навык почти всегда требует доводки под твою машину.</li>
+<li><strong>Монтаж упирался в лимит подписки посреди работы.</strong> 01.10.2026 монтаж встал на шаге 4 из 7. После этого появились кнопка «Продолжить» и автоожидание сброса лимита: раннер поднимает ту же сессию Claude, и готовые шаги не повторяются.</li>
+<li><strong>Правила противоречили друг другу.</strong> Когда в навыке появляются два указания про одну зону текста, например про концовку, модель исполняет их как попало. Теперь на одну вещь пишу одно правило, старое удаляю.</li>
+</ul>
+<!-- img: type=telegram chat=seo topic="✍️ Статьи" find="карточка готовой статьи с превью и кнопкой «Выложить»" caption="Навык статьи пишет черновик и превью, а публикует только человек по кнопке." alt="скилл claude code пишет статью блога: карточка черновика в Telegram" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="скилл claude code пишет статью блога: карточка черновика в Telegram" src="/blog/skilly-claude-code-instruktsii-dlya-agenta/img/telegram-3.jpg"></div><figcaption>Навык статьи пишет черновик и превью, а публикует только человек по кнопке.</figcaption></figure>
+<h2 id="pochemu-agenty-lomayut-stsenariy-v-dlinnyh-sessiyah-i-kak-de">Почему агенты ломают сценарий в длинных сессиях и как держать рамки регламента?</h2>
+<p>Агент ломает регламент, когда сессия разрастается: правила из начала тонут в истории, и модель хуже видит середину. Лечится это короткими сессиями, коротким <code>CLAUDE.md</code> и внешней проверкой результата. Навык помогает тем, что каждая задача начинается с чистого регламента.</p>
+<p>Хороший свежий пример разобрал Debashish Ghosal 09.11.2026 <a href="https://dev.to/debashish_ghosal/why-your-ai-agent-is-brilliant-for-20-minutes-and-then-starts-lying-232j">на DEV Community</a>. Его агент первые 20 минут работал отлично, а потом отчитался, что тесты зелёные. Тесты при этом ни разу не запускались. Я разбирал этот случай в <a href="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">статье про команду ИИ-сотрудников</a> 10.11.2026.</p>
+<p>Что я делаю, чтобы навык держал рамки:</p>
+<ol>
+<li><strong>Одна задача, одна сессия.</strong> Статья пишется отдельным запуском, сценарий отдельным, монтаж отдельным. Ни одна сессия не тащит чужую историю.</li>
+<li><strong>Сворачиваю историю.</strong> В Claude Code есть команда <code>/compact</code>, она сжимает историю в краткую выжимку, и <code>/clear</code>, она открывает чистый разговор. Обе описаны в моей инструкции к Claude Code на 22.10.2026.</li>
+<li><strong>Держу файл правил коротким.</strong> В статье про команду ИИ-сотрудников я писал про предел 150–200 строк для <code>CLAUDE.md</code>. Всё подробное уходит в навыки.</li>
+<li><strong>Проверяю результат снаружи.</strong> Последний шаг навыка статьи это команда проверки штампов. Агент не может написать «проверил» на словах: скрипт либо пропустил текст, либо назвал абзацы, которые надо переписать.</li>
+<li><strong>Пишу шаги глаголами.</strong> «Прогони проверку и перепиши, что она назвала» исполняется лучше, чем «Качество текста важно».</li>
+</ol>
+<p>Четвёртый пункт главный. Навык задаёт порядок, но только внешняя проверка показывает, что порядок выполнен.</p>
+<h2 id="gde-brat-proverennye-shablony-navykov-i-kak-ih-bezopasno-pod">Где брать проверенные шаблоны навыков и как их безопасно подключать?</h2>
+<p>Готовые навыки лежат в открытых репозиториях на GitHub, их ставят папкой в <code>.claude/skills</code> или одной командой как плагин. Перед установкой прочитай <code>SKILL.md</code> и все скрипты в папке: навык это прямые инструкции для нейросети. Ставь чужое в проект, где у агента узкие права.</p>
+<p>Репозитории, которые я собрал в <a href="https://app.notion.com/p/Claude-3ffdfdb148228171b4c4d352637efcf2">материале от 20.10.2026</a>:</p>
+<ul>
+<li><a href="https://github.com/google/skills">google/skills</a>: официальная библиотека Google с инструкциями под их облачные сервисы.</li>
+<li><a href="https://github.com/VoltAgent/awesome-agent-skills">VoltAgent/awesome-agent-skills</a>: большой каталог навыков сообщества под маркетинг, аналитику, дизайн и код.</li>
+<li><a href="https://github.com/alirezarezvani/claude-skills">alirezarezvani/claude-skills</a>: навыки под бизнес-задачи, тексты и аналитику.</li>
+</ul>
+<p>Для тех, кто пишет код, есть <a href="https://github.com/addyosmani/agent-skills">addyosmani/agent-skills</a>. По README на 13.11.2026 в наборе 25 навыков: планирование, тесты, ревью кода, выкладка, плюс навык, который учит пользоваться остальными. Ставится в Claude Code двумя командами:</p>
+<pre><code>/plugin marketplace add addyosmani/agent-skills
+/plugin install agent-skills@addy-agent-skills
+</code></pre>
+<p>Как подключать чужое без сюрпризов:</p>
+<ol>
+<li><strong>Открой папку навыка и прочитай <code>SKILL.md</code>.</strong> Ищи команды, которые качают что-то из сети, читают ключи или отправляют файлы наружу.</li>
+<li><strong>Посмотри скрипты рядом.</strong> Навык может запускать файлы из своей папки, и они выполняются на твоём компьютере.</li>
+<li><strong>Проверь, что <code>SKILL.md</code> лежит в корне папки.</strong> В моём материале это частая ошибка при загрузке: файл спрятан глубоко в подпапках, и Claude навык не видит.</li>
+<li><strong>Не включай десятки навыков сразу.</strong> Описание каждого включённого навыка занимает место в каждом чате. Поставил, попробовал, не пригодилось, убрал.</li>
+<li><strong>Перепиши под себя.</strong> Чужой навык написан под чужую работу. Мой навык монтажа начинался с чужого набора, а сейчас в нём мои правила стиля, мои форматы и мои поломки.</li>
+</ol>
+<!-- img: type=screenshot url=https://github.com/addyosmani/agent-skills caption="Открытый набор навыков для Claude Code на GitHub: перед установкой стоит открыть папку skills и прочитать SKILL.md." alt="готовые навыки для claude code: репозиторий agent-skills на GitHub" -->
+
+<h2 id="s-chego-nachat-esli-navykov-u-tebya-poka-nol">С чего начать, если навыков у тебя пока ноль?</h2>
+<p>Начни с одной задачи, которую делаешь каждую неделю и объясняешь ИИ одними и теми же словами. Запиши её навыком по каркасу выше, прогони на трёх живых примерах и дописывай строку после каждой ошибки. Через пару недель у тебя будет инструкция, по которой агент работает одинаково.</p>
+<p>Короткий чеклист:</p>
+<ul>
+<li>[ ] Задача одна и повторяется.</li>
+<li>[ ] В <code>description</code> есть слова, которыми ты обычно её просишь.</li>
+<li>[ ] Шаги написаны глаголами, на одну вещь одно правило.</li>
+<li>[ ] Формат результата описан, отправка наружу только по твоей кнопке.</li>
+<li>[ ] Права узкие: <code>allowed-tools</code> или <code>--allowedTools</code> под эту задачу.</li>
+<li>[ ] Последний шаг проверяет результат скриптом или человеком.</li>
+</ul>
+<p>Если хочешь посмотреть, как это собрано целиком, на <a href="/iisystema/">странице кейса ii.systema</a> видно, как навыки, боты и Notion складываются в один конвейер.</p>
+<p>Если хочешь упаковать процессы своей компании в такие регламенты и запустить ИИ-сотрудников под свои задачи, напиши мне в личку <a href="https://t.me/solovarov">t.me/solovarov</a> слово «система». Разберём твои рутинные операции и посмотрим, что у тебя можно отдать ИИ.</p>
+    </article>
+
+    <aside class="club-guide" aria-label="Инструкция в клубе"><div class="cg-eyebrow">Пошаговая инструкция в Клубе ii.systema</div><h2>Плагины для Claude Code: проверено руками</h2><p>Ponytail, Agent Skills, Claude Code Setup и claude-mem на одной задаче: что сокращает код втрое, а что молча не работает. Как проверить плагин до установки.</p><a class="btn js-club-guide" data-guide="plugins" href="/club/?from=guide-plugins">Смотреть в клубе →</a></aside>
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Чем скилл в .claude/skills отличается от файла CLAUDE.md?</h3><p>CLAUDE.md агент читает в начале каждой сессии целиком, поэтому там лежит короткая памятка о проекте. Скилл описывает одну задачу, и его полный текст загружается, только когда задача подходит. У меня правила статей блога лежат в навыке и не тратят лимит, пока агент занят сценариями роликов.</p></div><div class="qa"><h3 id="faq-2">Сколько скиллов можно одновременно подключить к Claude Code?</h3><p>Жёсткого числа я не встречал, но каждый включённый навык занимает место. По моему материалу от 20.10.2026, имя и описание каждого включённого навыка подгружаются в начале чата, около 100 токенов на навык. Поэтому держи включёнными те, что нужны в работе, а остальные убирай.</p></div><div class="qa"><h3 id="faq-3">Тратит ли неактивный скилл токены подписки в каждом сообщении?</h3><p>Немного тратит, только на имя и описание. Полный текст SKILL.md по документации Claude Code загружается, только когда навык используется. Длинные справочники внутри навыка почти ничего не стоят, пока не нужны.</p></div><div class="qa"><h3 id="faq-4">На каком тарифе подписки работают навыки и Claude Code?</h3><p>Claude Code входит в платные тарифы. По моему руководству от 04.10.2026, Pro стоит $20 в месяц или $17 при оплате за год, Team стоит $25 за пользователя в месяц. На бесплатном тарифе доступны только базовые диалоги.</p></div><div class="qa"><h3 id="faq-5">Как агент понимает, какой именно навык нужно запустить под задачу?</h3><p>По полю description в начале файла SKILL.md. Claude сравнивает твою задачу с описаниями и берёт подходящий навык. Поэтому в описании пиши, что навык делает и какими словами его обычно просят, а запустить вручную можно командой /имя-навыка.</p></div><div class="qa"><h3 id="faq-6">Можно ли передать скиллам доступ к внешним скриптам и программам?</h3><p>Да. В папке навыка рядом с SKILL.md можно положить скрипты, а в инструкции написать, когда их запускать. Права на команды задаются полем allowed-tools в навыке или флагом --allowedTools при запуске. Мой SEO-штаб пишет статьи с разрешением ровно на одну команду в терминале, на проверку текста.</p></div><div class="qa"><h3 id="faq-7">Безопасно ли ставить чужие навыки с GitHub?</h3><p>Только после того, как прочитал SKILL.md и скрипты в папке. Навык это прямые инструкции для нейросети, и в нём может лежать что угодно. Бери репозитории с понятным автором и ставь навык в проект, где у агента узкие права.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/" rel="noopener">Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</a> <span>CLAUDE.md, навыки, --allowedTools, SEO-штаб пишет статьи навыком блога, по состоянию на 31.10.2026</span></li><li><a href="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/" rel="noopener">Почему лимит Claude по подписке кончается к обеду</a> <span>команды /compact и /clear, норма длины CLAUDE.md, подробности в навыки, 31.10.2026</span></li><li><a href="https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/" rel="noopener">Команда ИИ-сотрудников: почему мультиагенты путаются</a> <span>регламент 150–200 строк, случай агента с незапущенными тестами, 10.11.2026</span></li><li><a href="https://petrsolovarov.ru/blog/bezopasno-li-puskat-claude-code-na-server/" rel="noopener">Безопасно ли пускать Claude Code на свой сервер</a> <span>слои защиты агента, 06.11.2026</span></li><li><a href="https://app.notion.com/p/Claude-3ffdfdb148228171b4c4d352637efcf2" rel="noopener">Подборка готовых навыков для Claude и инструкция по установке (Notion)</a> <span>репозитории навыков, промпт для своего навыка, около 100 токенов на навык, безопасность, 20.10.2026</span></li><li><a href="https://app.notion.com/p/Claude-60-3efdfdb1482281f29f6ede5d1c6f2e0a" rel="noopener">Пошаговое руководство по настройке Claude за 60 минут (Notion)</a> <span>тарифы Pro и Team, 04.10.2026</span></li><li><a href="https://app.notion.com/p/montage-uchitel-3ecdfdb14822813e8089cdaf94baa11c" rel="noopener">Журнал изменений: скилл монтажа montage-uchitel собран (Notion)</a> <span>навык монтажа из трёх разобранных референсов, 01.10.2026</span></li><li><a href="https://app.notion.com/p/Telegram-Claude-Code-3ecdfdb1482281108dc4c35381092ae6" rel="noopener">Журнал изменений: монтаж из Telegram через Claude Code (Notion)</a> <span>раннер запускает Claude Code со скиллом монтажа, задачи по одной, лимит 2 часа, 01.10.2026</span></li><li><a href="https://app.notion.com/p/Kossolapov-3ebdfdb1482281ce8016e357a738136f" rel="noopener">AI-стек: скилл «Монтажёр» (Notion)</a> <span>что пришлось чинить под Windows, 01.10.2026</span></li><li><a href="https://code.claude.com/docs/en/skills" rel="noopener">Документация Claude Code, раздел Skills</a> <span>где лежат навыки, поля SKILL.md, allowed-tools, disable-model-invocation, проверено 13.11.2026</span></li><li><a href="https://github.com/addyosmani/agent-skills" rel="noopener">addyosmani/agent-skills на GitHub</a> <span>набор из 25 навыков для разработки и команды установки, проверено 13.11.2026</span></li><li><a href="https://github.com/google/skills" rel="noopener">google/skills на GitHub</a> <span>официальная библиотека навыков Google</span></li><li><a href="https://github.com/VoltAgent/awesome-agent-skills" rel="noopener">VoltAgent/awesome-agent-skills на GitHub</a> <span>каталог навыков сообщества</span></li><li><a href="https://dev.to/debashish_ghosal/why-your-ai-agent-is-brilliant-for-20-minutes-and-then-starts-lying-232j" rel="noopener">Debashish Ghosal: Why your AI agent is brilliant for 20 minutes and then starts lying</a> <span>агент отчитался о тестах, которые не запускал, 09.11.2026</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я разберу твою повторяющуюся работу, упакую её в навыки и запущу агента, который делает задачу по твоим правилам каждый день. Права, проверки и кнопки подтверждения настрою сразу.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, списывается раз в месяц, отменить можно в любой момент</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/">Почему Claude тупеет от MCP-коннекторов и как настроить инструменты</a><span>Инструменты · 13 ноября 2026</span></li><li><a href="/blog/gemini-omni-1-2-flash-dlya-biznesa/">Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</a><span>Инструменты · 7 ноября 2026</span></li><li><a href="/blog/bezopasno-li-puskat-claude-code-na-server/">Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</a><span>Инструменты · 6 ноября 2026</span></li><li><a href="/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/">Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</a><span>Инструменты · 2 ноября 2026</span></li></ul><h3 class="related-all-t">Все статьи блога</h3><ul class="related-all"><li><a href="/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/">ИИ-агенты в Premiere и Photoshop: что они умеют и кому заменят монтажёра</a></li><li><a href="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</a></li><li><a href="/blog/razbor-obrascheniy-klientov-ii-chernoviki/">Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</a></li><li><a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">Память ИИ-агента: как сделать, чтобы Claude помнил бизнес и не путал контекст</a></li><li><a href="/blog/zadachi-ii-golosom-telegram/">Как ставить задачи ИИ голосом в Telegram и получать готовый результат</a></li><li><a href="/blog/reklama-meta-cherez-claude-pipeboard/">Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</a></li><li><a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</a></li><li><a href="/blog/claude-code-agent-telegram-server/">Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</a></li><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a></li><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a></li><li><a href="/blog/media-konveyer-na-ii/">Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</a></li><li><a href="/blog/avtootvet-kodovoe-slovo/">Автоответ в Instagram: как собирать заявки по кодовому слову через ИИ</a></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+}
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
+</script>
+</body>
+</html>
