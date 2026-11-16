@@ -1,0 +1,63 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Как задача из Telegram расходится на два параллельных потока Claude Code и возвращается итогом">
+<title>Как задача из Telegram расходится на два параллельных потока Claude Code и возвращается итогом</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<!-- 1 Telegram -->
+<rect x="40" y="230" width="230" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="72" cy="262" r="16" fill="var(--accent)"/>
+<text x="72" y="268" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">1</text>
+<text x="155" y="300" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Telegram</text>
+<text x="155" y="334" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">задача словами</text>
+
+<!-- 2 Notion -->
+<rect x="340" y="230" width="250" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="372" cy="262" r="16" fill="var(--accent)"/>
+<text x="372" y="268" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">2</text>
+<text x="475" y="300" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Notion</text>
+<text x="475" y="334" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">строка «Задачи в облаке»</text>
+
+<!-- 3a flow A -->
+<rect x="680" y="90" width="270" height="150" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="712" cy="122" r="16" fill="var(--accent)"/>
+<text x="712" y="128" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">3</text>
+<text x="815" y="168" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Поток A</text>
+<text x="815" y="198" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Claude Code</text>
+<text x="815" y="224" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">своя ветка и папка</text>
+
+<!-- 3b flow B -->
+<rect x="680" y="360" width="270" height="150" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="712" cy="392" r="16" fill="var(--accent)"/>
+<text x="712" y="398" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">3</text>
+<text x="815" y="438" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Поток B</text>
+<text x="815" y="468" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Claude Code</text>
+<text x="815" y="494" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">своя ветка и папка</text>
+
+<!-- 4 result -->
+<rect x="1020" y="230" width="150" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="1052" cy="262" r="16" fill="var(--accent)"/>
+<text x="1052" y="268" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">4</text>
+<text x="1095" y="316" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Итог</text>
+<text x="1095" y="346" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">в Telegram</text>
+
+<!-- arrows -->
+<line x1="270" y1="300" x2="336" y2="300" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<path d="M590 280 L635 280 L635 165 L676 165" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<path d="M590 320 L635 320 L635 435 L676 435" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<path d="M950 165 L985 165 L985 280 L1016 280" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+<path d="M950 435 L985 435 L985 320 L1016 320" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+
+<!-- status back to Notion -->
+<path d="M815 510 L815 560 L475 560 L475 374" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arr)"/>
+<text x="645" y="548" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">статус и итог обратно в строку</text>
+
+<!-- ceiling -->
+<text x="815" y="64" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">у каждого потока потолок 90 минут</text>
+<text x="815" y="586" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">потолок 90 минут</text>
+</svg>

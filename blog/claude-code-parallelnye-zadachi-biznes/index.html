@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса — блог Петра Соловарова</title>
+<meta name="description" content="Claude Code параллельные задачи: как работают новые Projects с несколькими исполнителями, сколько они съедают лимита и как я веду две задачи сразу из Telegram.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса">
+<meta property="og:description" content="Claude Code параллельные задачи: как работают новые Projects с несколькими исполнителями, сколько они съедают лимита и как я веду две задачи сразу из Telegram.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Claude Code параллельные задачи для бизнеса, обложка статьи">
+<meta property="article:published_time" content="2026-11-14">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Инструменты">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса">
+<meta name="twitter:description" content="Claude Code параллельные задачи: как работают новые Projects с несколькими исполнителями, сколько они съедают лимита и как я веду две задачи сразу из Telegram.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/"
+   },
+   "headline": "Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса",
+   "description": "Claude Code параллельные задачи: как работают новые Projects с несколькими исполнителями, сколько они съедают лимита и как я веду две задачи сразу из Telegram.",
+   "image": [
+    "https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-14",
+   "dateModified": "2026-11-16",
+   "inLanguage": "ru-RU",
+   "wordCount": 2349,
+   "articleSection": "Инструменты",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса",
+     "item": "https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Можно ли запускать параллельные сессии Claude Code по обычной подписке Pro?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да. Новые Projects, по данным VentureBeat от 17.09.2026, вышли в бету для части подписчиков Pro и Max с облачными сессиями. Отдельной цены нет, работа идёт из лимита подписки. У меня четыре бота живут на одной подписке Pro."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько оперативной памяти требуется на каждый параллельный процесс агента?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Точной цифры на процесс у меня нет. Есть правило: на сервере с 2 ядрами и 3,7 ГБ памяти я пускаю не больше двух задач Claude Code одновременно, потому что каждая сессия это отдельный процесс. Облачные потоки Projects работают на серверах Anthropic и твою память не тратят."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Что произойдёт, если два агента одновременно изменят один и тот же файл?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Каждый поток работает в своей ветке и своей копии репозитория, поэтому друг другу они не мешают. Конфликт всплывёт при слиянии, как у двух разработчиков, и решается обычным способом. У меня у каждой задачи своя ветка claude/task-номер, а в main код попадает только после моего слова."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как ограничить права фоновым процессам Claude Code при параллельном запуске?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Права задаются заранее, потому что спросить подтверждение в фоне некого. У меня исполнитель правит файлы только в папке задачи, из команд ему доступен только git, режим dontAsk отклоняет всё, чего нет в списке. Хук pre-push не пускает код в main без моего «мержи»."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему при параллельных задачах быстрее заканчивается лимит сообщений?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Каждый поток это полноценная сессия Claude Code, и все они тратят один лимит. Anthropic сама предупреждает, что Projects быстрее доходят до лимита. У меня чат, Claude Code и четыре бота делят один пул подписки, поэтому тяжёлое идёт по расписанию."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как настроить управление параллельными воркерами через Telegram?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Нужен бот, который принимает задачу словами, кладёт её строкой в Notion и запускает сессию Claude Code. Сессия в конце пишет статус, результат и ссылки, а бот присылает итог ответом на карточку. Так у меня с 25.10.2026 работает бот «Мозг»."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+.related-all-t { font-size: 18px; margin: 28px 0 12px; }
+.related ul.related-all { gap: 8px; }
+.related ul.related-all li { background: none; border: 0; border-radius: 0; padding: 0; }
+.related ul.related-all li a { font-family: inherit; font-weight: 400; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Инструменты</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Новость → как применить · Инструменты · 13 мин чтения</div>
+    <h1>Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса</h1>
+    <p class="lead">Claude Code параллельные задачи: как работают новые Projects с несколькими исполнителями, сколько они съедают лимита и как я веду две задачи сразу из Telegram.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-14">14 ноября 2026</time> · обновлено <time datetime="2026-11-16">16 ноября 2026</time> · 2 349 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/claude-code-parallelnye-zadachi-biznes/img/cover.jpg" alt="Claude Code параллельные задачи для бизнеса, обложка статьи" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#chto-izmenilos-v-obnovlenii-projects-dlya-claude-code">Что изменилось в обновлении Projects для Claude Code?</a></li><li><a href="#kak-zapustit-neskolko-zadach-claude-code-odnovremenno">Как запустить несколько задач Claude Code одновременно?</a></li><li><a href="#skolko-resursov-servera-trebuet-parallelnaya-rabota-agentov">Сколько ресурсов сервера требует параллельная работа агентов?</a></li><li><a href="#proveril-na-sebe-kak-bot-mozg-vedet-dve-zadachi-po-kodu-sraz">Проверил на себе: как бот «Мозг» ведёт две задачи по коду сразу</a></li><li><a href="#kogda-parallelnaya-rabota-polezna-biznesu-a-kogda-opasna">Когда параллельная работа полезна бизнесу, а когда опасна?</a></li><li><a href="#kak-svyazat-parallelnye-sessii-claude-code-s-notion-i-telegr">Как связать параллельные сессии Claude Code с Notion и Telegram?</a></li><li><a href="#chto-nuzhno-nastroit-dlya-zaschity-dannyh-pered-zapuskom-fon">Что нужно настроить для защиты данных перед запуском фоновых воркеров?</a></li><li><a href="#chto-delat-s-limitom-podpiski">Что делать с лимитом подписки?</a></li></ol></nav>
+    <article class="article">
+<p>Claude Code параллельные задачи теперь ведёт сам: в новых Projects один координатор раздаёт работу нескольким исполнителям, и они идут одновременно, без тебя за клавиатурой. Для бизнеса это значит, что пачку однотипных задач можно отдать разом и утром проверить готовые правки. Платишь за это лимитом подписки, и он тает быстрее.</p>
+<p>Ниже разбираю, как устроена новинка, во что она упирается и как я веду две задачи по коду сразу из Telegram на своём сервере.</p>
+<h2 id="chto-izmenilos-v-obnovlenii-projects-dlya-claude-code">Что изменилось в обновлении Projects для Claude Code?</h2>
+<p>Projects превратились из папки с файлами в координатора, который сам дробит задачу и раздаёт её потокам. По данным <a href="https://venturebeat.com/2026/09/17/anthropic-launches-claude-code-projects-an-always-on-conversation-that-remembers-and-delegates-your-long-running-dev-work/">VentureBeat</a> от 17.09.2026, каждый поток это отдельная облачная сессия Claude Code в своей ветке и своей копии репозитория. Репозиторий тут значит папку с кодом проекта и всей историей правок.</p>
+<p>Что ещё есть в обновлении по тому же источнику:</p>
+<ul>
+<li><strong>Общая память проекта.</strong> Потоки пишут в неё и читают из неё: сдвинулся срок, убрали функцию, кого спросить перед правкой.</li>
+<li><strong>Библиотека.</strong> Туда попадают твои файлы и то, что собрал Claude.</li>
+<li><strong>Итог запросом на слияние.</strong> Поток предлагает свои правки, а координатор подсказывает, что вливать первым.</li>
+<li><strong>Работа в облаке.</strong> Ноутбук можно закрыть. Доступа к файлам на твоём компьютере и к внутренней сети у потоков пока нет.</li>
+</ul>
+<p>Бета открылась для части подписчиков Pro и Max. 07.11.2026 я писал в <a href="https://app.notion.com/p/Claude-Code-411dfdb14822812db1b4eb58daeba030">канале</a>, что на странице Projects появился блок «Недавняя активность», он коротко пересказывает последние события проекта.</p>
+<h2 id="kak-zapustit-neskolko-zadach-claude-code-odnovremenno">Как запустить несколько задач Claude Code одновременно?</h2>
+<p>Есть два пути: дать задачу координатору в Projects или поднять параллельные сессии самому. Первый проще, второй даёт больше контроля над правами и очередью.</p>
+<ol>
+<li><strong>Через Projects.</strong> Описываешь цель словами, подключаешь репозитории, координатор сам решает, сколько потоков открыть. Зайти в любой поток и поправить курс можно и с телефона.</li>
+<li><strong>Своими руками.</strong> Бот или скрипт запускает <code>claude -p</code>, это режим без окна: задача одной строкой, ответ текстом. Каждой задаче своя папка, свой номер сессии и свой таймаут.</li>
+</ol>
+<p>Я пошёл вторым путём ещё до новинки, потому что мне нужны мои правила доступа и Notion как общий журнал.</p>
+<!-- img: type=scheme what="задача словами в Telegram → строка в Notion «Задачи в облаке» → два потока Claude Code, у каждого своя ветка и папка → статус и итог обратно в строку → ответ в Telegram; подписать «потолок 90 минут» у потоков" caption="Как задача из Telegram расходится на два параллельных потока Claude Code и возвращается итогом." alt="claude code параллельные задачи: схема запуска из Telegram через Notion" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Как задача из Telegram расходится на два параллельных потока Claude Code и возвращается итогом">
+<title>Как задача из Telegram расходится на два параллельных потока Claude Code и возвращается итогом</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<!-- 1 Telegram -->
+<rect x="40" y="230" width="230" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="72" cy="262" r="16" fill="var(--accent)"/>
+<text x="72" y="268" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">1</text>
+<text x="155" y="300" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Telegram</text>
+<text x="155" y="334" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">задача словами</text>
+
+<!-- 2 Notion -->
+<rect x="340" y="230" width="250" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="372" cy="262" r="16" fill="var(--accent)"/>
+<text x="372" y="268" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">2</text>
+<text x="475" y="300" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Notion</text>
+<text x="475" y="334" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">строка «Задачи в облаке»</text>
+
+<!-- 3a flow A -->
+<rect x="680" y="90" width="270" height="150" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="712" cy="122" r="16" fill="var(--accent)"/>
+<text x="712" y="128" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">3</text>
+<text x="815" y="168" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Поток A</text>
+<text x="815" y="198" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Claude Code</text>
+<text x="815" y="224" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">своя ветка и папка</text>
+
+<!-- 3b flow B -->
+<rect x="680" y="360" width="270" height="150" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="712" cy="392" r="16" fill="var(--accent)"/>
+<text x="712" y="398" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">3</text>
+<text x="815" y="438" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Поток B</text>
+<text x="815" y="468" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Claude Code</text>
+<text x="815" y="494" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">своя ветка и папка</text>
+
+<!-- 4 result -->
+<rect x="1020" y="230" width="150" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="1052" cy="262" r="16" fill="var(--accent)"/>
+<text x="1052" y="268" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="18" fill="var(--surface)">4</text>
+<text x="1095" y="316" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Итог</text>
+<text x="1095" y="346" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">в Telegram</text>
+
+<!-- arrows -->
+<line x1="270" y1="300" x2="336" y2="300" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<path d="M590 280 L635 280 L635 165 L676 165" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<path d="M590 320 L635 320 L635 435 L676 435" fill="none" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<path d="M950 165 L985 165 L985 280 L1016 280" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+<path d="M950 435 L985 435 L985 320 L1016 320" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+
+<!-- status back to Notion -->
+<path d="M815 510 L815 560 L475 560 L475 374" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arr)"/>
+<text x="645" y="548" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">статус и итог обратно в строку</text>
+
+<!-- ceiling -->
+<text x="815" y="64" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">у каждого потока потолок 90 минут</text>
+<text x="815" y="586" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">потолок 90 минут</text>
+</svg>
+<figcaption>Как задача из Telegram расходится на два параллельных потока Claude Code и возвращается итогом.</figcaption>
+</figure>
+
+<h2 id="skolko-resursov-servera-trebuet-parallelnaya-rabota-agentov">Сколько ресурсов сервера требует параллельная работа агентов?</h2>
+<p>Облачным потокам Projects твой сервер не нужен: они работают у Anthropic. Если гоняешь сессии у себя, упираешься в память, потому что каждая сессия Claude Code это отдельный процесс.</p>
+<p>Мой штаб живёт на Hetzner: 2 ядра и 3,7 ГБ памяти, по данным на 30.09.2026 (<a href="/blog/claude-code-agent-telegram-server/">статья о сервере</a>). На нём четыре бота и одна подписка Pro. В штабе роликов и SEO-штабе стоит очередь на одного Claude. Бот «Мозг» берёт две задачи по коду сразу, больше на таком железе я не пускаю.</p>
+<h2 id="proveril-na-sebe-kak-bot-mozg-vedet-dve-zadachi-po-kodu-sraz">Проверил на себе: как бот «Мозг» ведёт две задачи по коду сразу</h2>
+<p>«Мозг» работает с 25.10.2026 (<a href="https://app.notion.com/p/ii-systema-Notion-Claude-Code-404dfdb1482281128bdce87842fd8cd8">журнал изменений</a>). Я пишу «задача: …», бот ставит строку в Notion и запускает исполнителя. По его README на 30.10.2026 одновременно идут 2 задачи, у каждой потолок 90 минут.</p>
+<p>Как устроено:</p>
+<ul>
+<li><strong>Своя папка на задачу.</strong> Это отдельная копия репозитория в ветке <code>claude/task-&lt;номер&gt;</code>, поэтому два исполнителя не правят одни файлы.</li>
+<li><strong>Статус в конце.</strong> Сессия пишет в строку «Готово», «Нужен ты» или «Не вышло», плюс результат и ссылки. Бот раз в минуту читает строки и шлёт итог ответом на карточку.</li>
+<li><strong>Облако как запасной путь.</strong> Задачу можно отдать облачной сессии через триггер запланированной задачи. У триггера по README на 30.10.2026 лимит 30 запусков в час, расход из той же подписки.</li>
+</ul>
+<p>Что сломалось. Когда ботов стало четыре, правило «один Claude за раз» пришлось уточнить: без потолка две тяжёлые сессии съели бы память. Облачная сессия до моих серверов не достаёт, поэтому код оттуда приходит только запросом на слияние. Это неудобно, зато безопасно.</p>
+<!-- img: type=terminal cmds="whoami ;; uptime ;; free -h ;; claude --version ;; systemctl is-active ii-shtab ;; systemctl is-active ii-seo ;; systemctl is-active ii-producer" caption="Сервер штаба: память, на которую рассчитаны две параллельные сессии Claude Code, и службы ботов." alt="claude code несколько агентов одновременно на сервере: память и службы" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="claude code несколько агентов одновременно на сервере: память и службы" src="/blog/claude-code-parallelnye-zadachi-biznes/img/terminal-2.jpg"></div><figcaption>Сервер штаба: память, на которую рассчитаны две параллельные сессии Claude Code, и службы ботов.</figcaption></figure>
+<h2 id="kogda-parallelnaya-rabota-polezna-biznesu-a-kogda-opasna">Когда параллельная работа полезна бизнесу, а когда опасна?</h2>
+<p>Полезна, когда задачи независимые: поправить пять страниц сайта, собрать отчёты по разным клиентам, обновить описания товаров. Опасна, когда задачи трогают одно и то же или уходят наружу без проверки.</p>
+<p>Хорошо параллелится:</p>
+<ul>
+<li>однотипные правки в разных файлах или проектах;</li>
+<li>черновики, которые потом смотрит человек;</li>
+<li>исследование по нескольким темам сразу.</li>
+</ul>
+<p>Плохо параллелится:</p>
+<ul>
+<li>правки одного файла несколькими потоками, получишь конфликт при слиянии;</li>
+<li>публикации, рассылки, письма клиентам;</li>
+<li>всё, где нужен доступ к твоей внутренней сети: облачным потокам он пока закрыт.</li>
+</ul>
+<h2 id="kak-svyazat-parallelnye-sessii-claude-code-s-notion-i-telegr">Как связать параллельные сессии Claude Code с Notion и Telegram?</h2>
+<p>Telegram принимает задачу, Notion хранит её статус, Claude Code делает работу. Бот в середине склеивает всё и присылает итог туда, откуда пришла задача.</p>
+<p>Порядок, который работает у меня:</p>
+<ol>
+<li>Задача словами или голосом в группу, бот проверяет, что пишу я.</li>
+<li>Строка в базе Notion со статусом «В работе».</li>
+<li>Запуск сессии в отдельной папке.</li>
+<li>Итог в строку и ответом в Telegram, ответ на карточку уходит в ту же сессию.</li>
+</ol>
+<p>Подробно путь разобран в <a href="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">статье о команде ИИ-сотрудников</a>.</p>
+<h2 id="chto-nuzhno-nastroit-dlya-zaschity-dannyh-pered-zapuskom-fon">Что нужно настроить для защиты данных перед запуском фоновых воркеров?</h2>
+<p>Права задаются до запуска, потому что фоновой сессии некого спросить. Чем больше потоков, тем важнее, чтобы ограничения стояли снаружи модели.</p>
+<p>Минимальный набор, как у меня (<a href="/blog/bezopasno-li-puskat-claude-code-na-server/">статья о безопасности</a>):</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Слой</th>
+<th>Что закрывает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Отдельный пользователь Linux</td>
+<td>системные файлы и чужие папки</td>
+</tr>
+<tr>
+<td>Узкий список инструментов и режим <code>dontAsk</code></td>
+<td>лишние команды</td>
+</tr>
+<tr>
+<td>Своя ветка и папка на задачу</td>
+<td>правки вне задачи</td>
+</tr>
+<tr>
+<td>Хук <code>pre-push</code></td>
+<td>выкат в main без моего «мержи»</td>
+</tr>
+</tbody>
+</table></div>
+<p>Хук это маленький скрипт git перед отправкой кода. Он смотрит на мои слова, текст модели не считается.</p>
+<h2 id="chto-delat-s-limitom-podpiski">Что делать с лимитом подписки?</h2>
+<p>Считай, что каждый поток тратит лимит как отдельная сессия. Anthropic, по данным VentureBeat, прямо предупреждает: Projects быстрее доходят до лимита. Начни с двух потоков на небольшой задаче, посмотри расход и только потом добавляй.</p>
+<p>Всю систему ботов, на которой я это проверяю, показываю в <a href="/iisystema/">кейсе ii.systema</a>.</p>
+<p>Если хочешь раздать рутину компании нескольким ИИ-исполнителям и не потерять контроль, напиши слово «система» мне в личку https://t.me/solovarov. Посмотрим, какие задачи у тебя можно безопасно отдать агентам.</p>
+    </article>
+
+    <aside class="club-guide" aria-label="Инструкция в клубе"><div class="cg-eyebrow">Пошаговая инструкция в Клубе ii.systema</div><h2>Свой Джарвис за 9 шагов</h2><p>Telegram-бот и живой голосовой разговор на Claude Code по подписке: память, голосовые, Notion. 17 слайдов с настоящими скринами, три ошибки, на которых спотыкаются, и готовый набор файлов.</p><a class="btn js-club-guide" data-guide="jarvis" href="/club/?from=guide-jarvis">Смотреть в клубе →</a></aside>
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Можно ли запускать параллельные сессии Claude Code по обычной подписке Pro?</h3><p>Да. Новые Projects, по данным VentureBeat от 17.09.2026, вышли в бету для части подписчиков Pro и Max с облачными сессиями. Отдельной цены нет, работа идёт из лимита подписки. У меня четыре бота живут на одной подписке Pro.</p></div><div class="qa"><h3 id="faq-2">Сколько оперативной памяти требуется на каждый параллельный процесс агента?</h3><p>Точной цифры на процесс у меня нет. Есть правило: на сервере с 2 ядрами и 3,7 ГБ памяти я пускаю не больше двух задач Claude Code одновременно, потому что каждая сессия это отдельный процесс. Облачные потоки Projects работают на серверах Anthropic и твою память не тратят.</p></div><div class="qa"><h3 id="faq-3">Что произойдёт, если два агента одновременно изменят один и тот же файл?</h3><p>Каждый поток работает в своей ветке и своей копии репозитория, поэтому друг другу они не мешают. Конфликт всплывёт при слиянии, как у двух разработчиков, и решается обычным способом. У меня у каждой задачи своя ветка claude/task-номер, а в main код попадает только после моего слова.</p></div><div class="qa"><h3 id="faq-4">Как ограничить права фоновым процессам Claude Code при параллельном запуске?</h3><p>Права задаются заранее, потому что спросить подтверждение в фоне некого. У меня исполнитель правит файлы только в папке задачи, из команд ему доступен только git, режим dontAsk отклоняет всё, чего нет в списке. Хук pre-push не пускает код в main без моего «мержи».</p></div><div class="qa"><h3 id="faq-5">Почему при параллельных задачах быстрее заканчивается лимит сообщений?</h3><p>Каждый поток это полноценная сессия Claude Code, и все они тратят один лимит. Anthropic сама предупреждает, что Projects быстрее доходят до лимита. У меня чат, Claude Code и четыре бота делят один пул подписки, поэтому тяжёлое идёт по расписанию.</p></div><div class="qa"><h3 id="faq-6">Как настроить управление параллельными воркерами через Telegram?</h3><p>Нужен бот, который принимает задачу словами, кладёт её строкой в Notion и запускает сессию Claude Code. Сессия в конце пишет статус, результат и ссылки, а бот присылает итог ответом на карточку. Так у меня с 25.10.2026 работает бот «Мозг».</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://venturebeat.com/2026/09/17/anthropic-launches-claude-code-projects-an-always-on-conversation-that-remembers-and-delegates-your-long-running-dev-work/" rel="noopener">VentureBeat: Anthropic launches Claude Code Projects (17.09.2026)</a> <span>координатор и потоки, облачные сессии, общая память, бета для Pro и Max, предупреждение о лимитах</span></li><li><a href="https://petrsolovarov.ru/blog/claude-code-agent-telegram-server/" rel="noopener">Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</a> <span>сервер Hetzner 2 ядра и 3,7 ГБ, две задачи по коду, потолок 90 минут, лимит триггера облачных задач, данные на 30.10.2026</span></li><li><a href="https://petrsolovarov.ru/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/" rel="noopener">Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</a> <span>очередь на одного Claude в каждом боте, четыре бота на одном сервере</span></li><li><a href="https://petrsolovarov.ru/blog/bezopasno-li-puskat-claude-code-na-server/" rel="noopener">Безопасно ли пускать Claude Code на свой сервер</a> <span>слои прав, хук pre-push, отдельный пользователь</span></li><li><a href="https://app.notion.com/p/ii-systema-Notion-Claude-Code-404dfdb1482281128bdce87842fd8cd8" rel="noopener">Журнал изменений: бот «Мозг», задачи в облако Claude Code (25.10.2026)</a> <span>запуск бота и облачных задач из Telegram</span></li><li><a href="https://app.notion.com/p/Claude-Code-411dfdb14822812db1b4eb58daeba030" rel="noopener">Пост канала: кооперативный режим в Claude Code (07.11.2026)</a> <span>блок «Недавняя активность» на странице Projects</span></li><li><a href="https://petrsolovarov.ru/iisystema/" rel="noopener">Кейс ii.systema</a> <span>вся система ботов и конвейера</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я настраиваю параллельную работу Claude Code под задачи компании, с очередью, правами и управлением из Telegram. Ты ставишь задачи словами, проверяешь итог и сам решаешь, что уходит в работу.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, списывается раз в месяц, отменить можно в любой момент</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/skilly-claude-code-instruktsii-dlya-agenta/">Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз</a><span>Инструменты · 13 ноября 2026</span></li><li><a href="/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/">Почему Claude тупеет от MCP-коннекторов и как настроить инструменты</a><span>Инструменты · 13 ноября 2026</span></li><li><a href="/blog/gemini-omni-1-2-flash-dlya-biznesa/">Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</a><span>Инструменты · 7 ноября 2026</span></li><li><a href="/blog/bezopasno-li-puskat-claude-code-na-server/">Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</a><span>Инструменты · 6 ноября 2026</span></li></ul><h3 class="related-all-t">Все статьи блога</h3><ul class="related-all"><li><a href="/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/">ИИ-агенты в Premiere и Photoshop: что они умеют и кому заменят монтажёра</a></li><li><a href="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</a></li><li><a href="/blog/razbor-obrascheniy-klientov-ii-chernoviki/">Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</a></li><li><a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">Память ИИ-агента: как сделать, чтобы Claude помнил бизнес и не путал контекст</a></li><li><a href="/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/">Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</a></li><li><a href="/blog/zadachi-ii-golosom-telegram/">Как ставить задачи ИИ голосом в Telegram и получать готовый результат</a></li><li><a href="/blog/reklama-meta-cherez-claude-pipeboard/">Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</a></li><li><a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</a></li><li><a href="/blog/claude-code-agent-telegram-server/">Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</a></li><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a></li><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a></li><li><a href="/blog/media-konveyer-na-ii/">Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</a></li><li><a href="/blog/avtootvet-kodovoe-slovo/">Автоответ в Instagram: как собирать заявки по кодовому слову через ИИ</a></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+}
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
+</script>
+</body>
+</html>
