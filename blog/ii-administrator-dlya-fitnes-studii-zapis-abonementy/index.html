@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов — блог Петра Соловарова</title>
+<meta name="description" content="ИИ-администратор для фитнес-студии: как бот записывает на занятия без накладок, напоминает о тренировках и присылает ссылку на продление абонемента. Схема, шаги, смета.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов">
+<meta property="og:description" content="ИИ-администратор для фитнес-студии: как бот записывает на занятия без накладок, напоминает о тренировках и присылает ссылку на продление абонемента. Схема, шаги, смета.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ИИ-администратор для фитнес-студии записывает клиентов на занятия и продлевает абонементы">
+<meta property="article:published_time" content="2026-11-16">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Автоматизация">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов">
+<meta name="twitter:description" content="ИИ-администратор для фитнес-студии: как бот записывает на занятия без накладок, напоминает о тренировках и присылает ссылку на продление абонемента. Схема, шаги, смета.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/"
+   },
+   "headline": "ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов",
+   "description": "ИИ-администратор для фитнес-студии: как бот записывает на занятия без накладок, напоминает о тренировках и присылает ссылку на продление абонемента. Схема, шаги, смета.",
+   "image": [
+    "https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-16",
+   "dateModified": "2026-11-17",
+   "inLanguage": "ru-RU",
+   "wordCount": 4134,
+   "articleSection": "Автоматизация",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов",
+     "item": "https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Может ли ИИ случайно записать двух клиентов на одно место?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Может, если запись делает сама нейросеть. Поэтому в правильной схеме место бронирует код, который проверяет остаток мест и пишет бронь одним действием. Нейросеть только понимает, куда хочет клиент, и передаёт это коду. Тот же принцип у меня в кейсе Orient, где цену считает функция по прайсу, а модель её только озвучивает."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Что делать, если клиент пишет голосовым или с опечатками?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Голосовое сначала расшифровывается в текст, у меня это делает Whisper на своём сервере, дальше бот работает с текстом как с обычным сообщением. Опечатки и вольные формулировки вроде «завтра вечером на растяжку» языковая модель понимает хорошо. Если она не уверена, она переспрашивает клиента, а не гадает."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как бот понимает, что у клиента заканчивается абонемент?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Он берёт дату окончания из твоей таблицы или CRM и раз в день проверяет, у кого до конца осталось несколько дней. В клубе ii.systema так работает продление с 01.11.2026, по README продюсер-бота на 15.11.2026: в 10:00 за 3 дня до конца участник получает в личку свою ссылку на оплату. Оплатил, и бот сам добавляет 30 дней."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Нужно ли менять CRM ради ИИ-администратора?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Нет. Бот подключается к тому, что уже есть, к таблице расписания, CRM или журналу. В кейсе JE 3.0 заказчику не понадобились ни новая CRM, ни новый регламент, надстройка читает таблицу сделок и переписку. Новая система нужна, только если записей сейчас нет нигде, кроме блокнота администратора."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Что будет, если клиент просит скидку или жалуется на тренера?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Такие сообщения бот не решает сам. Он пишет черновик ответа и присылает администратору карточку с кнопками «Отправить» и «Исправить». Деньги, жалобы и исключения из правил остаются за человеком, это правило всех моих проектов с клиентской перепиской."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько стоит содержать такого бота в месяц?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Основные расходы это сервер и нейросеть. Сервер под ботов у меня стоит от 500 рублей в месяц, у клиентского проекта JE 3.0 сервер обходится примерно в $12 в месяц. Ответ «второго мозга» JE 3.0 на один вопрос стоит около 2 центов, по кейсу на 18.10.2026. Точный счёт зависит от числа клиентов и сообщений."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+.related-all-t { font-size: 18px; margin: 28px 0 12px; }
+.related ul.related-all { gap: 8px; }
+.related ul.related-all li { background: none; border: 0; border-radius: 0; padding: 0; }
+.related ul.related-all li a { font-family: inherit; font-weight: 400; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Автоматизация</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Инструкция · Автоматизация · 23 мин чтения</div>
+    <h1>ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов</h1>
+    <p class="lead">ИИ-администратор для фитнес-студии: как бот записывает на занятия без накладок, напоминает о тренировках и присылает ссылку на продление абонемента. Схема, шаги, смета.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-16">16 ноября 2026</time> · обновлено <time datetime="2026-11-17">17 ноября 2026</time> · 4 134 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/img/cover.jpg" alt="ИИ-администратор для фитнес-студии записывает клиентов на занятия и продлевает абонементы" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#kakie-zadachi-studii-ii-administrator-zakryvaet-bez-chelovek">Какие задачи студии ИИ-администратор закрывает без человека?</a></li><li><a href="#kak-ustroena-shema-raspisanie-telegram-i-neyroset">Как устроена схема: расписание, Telegram и нейросеть?</a></li><li><a href="#kak-ii-proveryaet-sloty-i-zapisyvaet-na-zanyatie-bez-naklado">Как ИИ проверяет слоты и записывает на занятие без накладок?</a></li><li><a href="#kak-avtomatizirovat-prodlenie-abonementov-i-napominaniya-ob-">Как автоматизировать продление абонементов и напоминания об оплате?</a></li><li><a href="#gde-granitsa-kogda-ii-obyazan-peredat-dialog-cheloveku">Где граница: когда ИИ обязан передать диалог человеку?</a></li><li><a href="#proveril-na-sebe-kak-rabotayut-podtverzhdeniya-i-prodleniya-">Проверил на себе: как работают подтверждения и продления в моих ботах</a></li><li><a href="#skolko-stoit-razrabotka-i-podderzhka-ii-administratora-dlya-">Сколько стоит разработка и поддержка ИИ-администратора для студии?</a></li><li><a href="#kak-vnedrit-i-proverit-ii-administratora-za-7-dney-na-odnoy-">Как внедрить и проверить ИИ-администратора за 7 дней на одной группе?</a></li><li><a href="#chto-lomaetsya-chasche-vsego">Что ломается чаще всего?</a></li></ol></nav>
+    <article class="article">
+<p>ИИ-администратор для фитнес-студии берёт на себя рутину стойки: отвечает клиентам в Telegram или WhatsApp, проверяет свободные места в расписании, записывает на занятие, напоминает о тренировке и за несколько дней до конца абонемента присылает ссылку на продление. Сложные случаи (скидки, жалобы, переносы с исключениями) он передаёт живому администратору готовой карточкой. Чтобы запустить такого бота, менять CRM не нужно: он подключается к таблице расписания или к системе, где студия уже ведёт клиентов.</p>
+<p>Фитнес-студию я сам не автоматизировал, скажу это сразу. Но каждый кусок этой схемы у меня уже работает в других проектах: бот, который собирает заказ по шагам и не придумывает цены, продление подписки ссылкой в личку за 3 дня до конца, черновики ответов с кнопкой у человека. Ниже собираю из этих кусков администратора для студии и показываю, где он ломается.</p>
+<h2 id="kakie-zadachi-studii-ii-administrator-zakryvaet-bez-chelovek">Какие задачи студии ИИ-администратор закрывает без человека?</h2>
+<p>Без человека бот закрывает всё, что повторяется по одним и тем же правилам: вопросы о расписании и ценах, запись и отмену по правилам студии, напоминания о занятии, напоминания об оплате. Решения, где нужно отступить от правил, остаются администратору.</p>
+<p>Вот как я делю поток сообщений студии:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Задача</th>
+<th>Кто делает</th>
+<th>Почему</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>«Во сколько завтра пилатес?», «Сколько стоит абонемент?»</td>
+<td>бот</td>
+<td>ответ есть в расписании и прайсе</td>
+</tr>
+<tr>
+<td>Запись на занятие, где есть места</td>
+<td>бот + код</td>
+<td>место бронирует код, бот только понимает запрос</td>
+</tr>
+<tr>
+<td>Отмена записи по правилам студии</td>
+<td>бот + код</td>
+<td>правило отмены прописано заранее</td>
+</tr>
+<tr>
+<td>Напоминание о занятии</td>
+<td>бот по расписанию</td>
+<td>обычная проверка раз в час или раз в день</td>
+</tr>
+<tr>
+<td>Напоминание о конце абонемента и ссылка на оплату</td>
+<td>бот по расписанию</td>
+<td>дата окончания лежит в базе</td>
+</tr>
+<tr>
+<td>Скидка, заморозка, перенос по болезни</td>
+<td>администратор по черновику бота</td>
+<td>это исключение, решает человек</td>
+</tr>
+<tr>
+<td>Жалоба на тренера или на зал</td>
+<td>администратор</td>
+<td>тон и последствия важнее скорости</td>
+</tr>
+</tbody>
+</table></div>
+<p>Главная выгода появляется вечером и в выходные. В кейсе <a href="/orient/">Orient</a> (бюро переводов, кейс на 18.10.2026) менеджеры работают с 9 до 21, а с 21:00 до 09:00 бот отвечает сам: собирает заказ, называет точную цену и утром отдаёт менеджеру готовую сделку. Раньше ночной клиент ждал ответа до утра и к утру уже договаривался с другим бюро. У студии то же самое: человек решает записаться на утреннюю тренировку в 23:00, и ответ нужен ему сейчас.</p>
+<h2 id="kak-ustroena-shema-raspisanie-telegram-i-neyroset">Как устроена схема: расписание, Telegram и нейросеть?</h2>
+<p>Схема собирается из пяти частей: мессенджер, где пишет клиент, нейросеть, которая понимает свободный текст, код с правилами студии, база с расписанием и абонементами и рабочий чат администратора. Нейросеть здесь отвечает только за разговор. Места, деньги и даты считает код.</p>
+<!-- img: type=scheme what="клиент пишет в Telegram или WhatsApp → нейросеть понимает запрос (занятие, дата, время) → код проверяет свободные места и правила студии → запись в таблицу расписания или CRM → подтверждение клиенту; отдельная стрелка: спорный случай → карточка администратору с кнопками «Отправить» и «Исправить»" caption="Схема ИИ-администратора студии: нейросеть ведёт разговор, а места и деньги считает код по таблице." alt="схема ИИ-администратора для фитнес-студии: запись на занятия через чат-бот и нейросеть" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="Схема ИИ-администратора студии: клиент пишет в мессенджер, нейросеть понимает запрос, код проверяет места и правила, запись попадает в таблицу, клиент получает подтверждение, а спорный случай уходит администратору">
+<title>Схема ИИ-администратора студии: нейросеть ведёт разговор, а места и деньги считает код по таблице</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<!-- Строка 1: главный путь -->
+<rect x="40" y="60" width="320" height="150" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="76" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="76" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
+<text x="108" y="104" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Клиент пишет</text>
+<text x="64" y="144" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Telegram или WhatsApp,</text>
+<text x="64" y="170" font-family="var(--font-body)" font-size="19" fill="var(--muted)">обычным текстом:</text>
+<text x="64" y="196" font-family="var(--font-body)" font-size="19" fill="var(--muted)">«Есть место на йогу?»</text>
+
+<rect x="440" y="60" width="320" height="150" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="476" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="476" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">2</text>
+<text x="508" y="104" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Нейросеть</text>
+<text x="464" y="144" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Понимает запрос:</text>
+<text x="464" y="170" font-family="var(--font-body)" font-size="19" fill="var(--muted)">занятие, дата, время.</text>
+<text x="464" y="196" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Только разговор</text>
+
+<rect x="840" y="60" width="320" height="150" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="876" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="876" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">3</text>
+<text x="908" y="104" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Код студии</text>
+<text x="864" y="144" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Проверяет свободные</text>
+<text x="864" y="170" font-family="var(--font-body)" font-size="19" fill="var(--muted)">места и правила.</text>
+<text x="864" y="196" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Места и деньги — тут</text>
+
+<line x1="360" y1="135" x2="436" y2="135" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<line x1="760" y1="135" x2="836" y2="135" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+<!-- Строка 2: запись и подтверждение (справа налево) -->
+<rect x="840" y="290" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="876" cy="326" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="876" y="333" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">4</text>
+<text x="908" y="334" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Таблица</text>
+<text x="864" y="374" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Запись в расписание</text>
+<text x="864" y="400" font-family="var(--font-body)" font-size="19" fill="var(--muted)">или в CRM</text>
+
+<rect x="440" y="290" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="476" cy="326" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="476" y="333" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">5</text>
+<text x="508" y="334" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Подтверждение</text>
+<text x="464" y="374" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Клиент получает ответ:</text>
+<text x="464" y="400" font-family="var(--font-body)" font-size="19" fill="var(--muted)">«Записала на 8:00»</text>
+
+<!-- 3 -> 4 -->
+<line x1="1000" y1="210" x2="1000" y2="286" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<!-- 4 -> 5 -->
+<line x1="840" y1="355" x2="764" y2="355" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+<!-- Спорный случай -->
+<rect x="40" y="290" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="64" y="334" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Спорный случай</text>
+<text x="64" y="374" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Возврат, исключение,</text>
+<text x="64" y="400" font-family="var(--font-body)" font-size="19" fill="var(--muted)">жалоба, неясный запрос</text>
+
+<path d="M900 210 L900 250 L200 250 L200 286" fill="none" stroke="var(--line)" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arr)"/>
+<text x="560" y="240" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">код не уверен — не отвечает сам</text>
+
+<!-- Карточка администратору -->
+<rect x="40" y="480" width="560" height="130" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="64" y="522" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Карточка администратору</text>
+<text x="64" y="558" font-family="var(--font-body)" font-size="19" fill="var(--muted)">В рабочем чате: что спросил клиент и какой</text>
+<text x="64" y="584" font-family="var(--font-body)" font-size="19" fill="var(--muted)">ответ предложен. Кнопки «Отправить» и «Исправить»</text>
+
+<line x1="200" y1="420" x2="200" y2="476" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+<!-- Возврат к клиенту -->
+<path d="M600 545 L660 545 L660 450 L600 450 L600 424" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+<text x="680" y="500" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ответ человека уходит клиенту</text>
+</svg>
+<figcaption>Схема ИИ-администратора студии: нейросеть ведёт разговор, а места и деньги считает код по таблице.</figcaption>
+</figure>
+
+<p>Как это работает по шагам:</p>
+<ol>
+<li><strong>Мессенджер.</strong> Клиент пишет в Telegram или WhatsApp. В Orient оба канала подключены через сервис Wazzup и прямого Telegram-бота.</li>
+<li><strong>Нейросеть.</strong> Языковая модель (программа, которая понимает и пишет текст) достаёт из сообщения суть: какое занятие, какой день, какое время, кто пишет. Фраза «можно завтра вечером на растяжку?» превращается в аккуратный запрос.</li>
+<li><strong>Код с правилами.</strong> Обычная программа сверяет запрос с расписанием: есть ли такое занятие, остались ли места, действует ли абонемент. Это обычный код, он не ошибается творчески.</li>
+<li><strong>База.</strong> Таблица, CRM или журнал записей, где у студии уже лежат клиенты, группы и абонементы. Бот читает её и пишет туда бронь.</li>
+<li><strong>Администратор.</strong> Всё, что не прошло правила, приходит в рабочий чат карточкой: что спросил клиент, что предлагает бот, кнопки.</li>
+</ol>
+<p>Ответы на вопросы о студии (правила отмены, что взять на первое занятие, как добраться) бот берёт из базы знаний, то есть из набора документов студии. В кейсе <a href="/je30/">JE 3.0</a> поиск по такой базе гибридный: по смыслу и по словам, свежий проверенный материал выигрывает у старого. Ответ приходит в Telegram примерно за полминуты, и рядом указан источник, по кейсу на 18.10.2026. Для студии это значит, что бот отвечает по правилам, которые утвердила студия, а не по тому, что модель «помнит» про фитнес вообще.</p>
+<h2 id="kak-ii-proveryaet-sloty-i-zapisyvaet-na-zanyatie-bez-naklado">Как ИИ проверяет слоты и записывает на занятие без накладок?</h2>
+<p>Накладок не будет, если бронь ставит код, а нейросеть в этом не участвует. Модель понимает, куда хочет клиент, код за одно действие проверяет остаток мест и записывает. Двух людей на последнее место такая связка не пустит.</p>
+<p>Этот принцип я проверил на деньгах. В Orient главное решение проекта такое: нейросеть ведёт разговор, но цену не считает. Диалог идёт по состояниям, и на каждом шаге код знает, чего ещё не хватает. Что заказывает клиент, модель вытаскивает из реплик клиента, а сумму считает функция по таблице цен. В промпт (задание для нейросети) попадает готовое число, и называть другое боту запрещено. В кейсе на 18.10.2026 так и записано: в Orient ноль цен от ИИ: стоимость всегда считает код.</p>
+<p>Для записи в студию я бы сделал так:</p>
+<ol>
+<li>Опиши занятия в таблице: название, тренер, день, время, вместимость зала, сколько уже записано.</li>
+<li>Дай боту два инструмента, то есть две команды, которые нейросеть может вызвать: «найти занятия» и «записать клиента». Агент в этой схеме и есть нейросеть с такими инструментами.</li>
+<li>«Найти занятия» возвращает только то, где есть места. Модель не видит полные группы и не может их предложить.</li>
+<li>«Записать клиента» перед записью ещё раз проверяет остаток. Мест нет, значит, отказ и следующий ближайший вариант.</li>
+<li>Бот отвечает клиенту, только когда команда вернула «записан». До этого никаких «вы записаны».</li>
+<li>Каждая бронь и отказ пишутся в журнал. В Orient журнал действий бота окупился в первую же неделю: без него спорные случаи не разобрать.</li>
+</ol>
+<p>Ещё одно правило из Orient, которое переносится на студию напрямую: бот уступает место человеку. Если сделку уже взял менеджер, бот молча перестаёт отвечать, чтобы не спорить с живым сотрудником. В студии это значит: администратор вошёл в диалог, бот замолчал.</p>
+<!-- img: type=screenshot url=https://petrsolovarov.ru/orient/ selector=".figures" caption="Цифры кейса Orient: ночное окно, 8 шагов диалога и ноль цен от ИИ. Тот же подход годится для записи на занятия." alt="ИИ-бот записи клиентов: цифры кейса Orient на petrsolovarov.ru" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="ИИ-бот записи клиентов: цифры кейса Orient на petrsolovarov.ru" src="/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/img/screenshot-2.jpg"></div><figcaption>Цифры кейса Orient: ночное окно, 8 шагов диалога и ноль цен от ИИ. Тот же подход годится для записи на занятия.</figcaption></figure>
+<h2 id="kak-avtomatizirovat-prodlenie-abonementov-i-napominaniya-ob-">Как автоматизировать продление абонементов и напоминания об оплате?</h2>
+<p>Продление автоматизируется проверкой по расписанию: раз в день бот смотрит в базе, у кого абонемент кончается через несколько дней, и пишет клиенту в личку с его персональной ссылкой на оплату. Оплата прошла, и бот сам продлевает срок. Не оплатил, бот напоминает ещё раз и потом передаёт клиента администратору.</p>
+<p>Так у меня с 01.11.2026 продлевается клуб ii.systema. По README продюсер-бота на 15.11.2026 цепочка такая:</p>
+<ol>
+<li>В 10:00 бот проверяет даты. За 3 дня до конца оплаченного периода участник получает в личку свою ссылку на продление.</li>
+<li>Личка у человека закрыта, тогда карточка приходит мне, и я пишу ему сам.</li>
+<li>Платёжный сервис присылает боту уведомление об оплате. Бот добавляет участнику 30 дней, мне приходит карточка «💳».</li>
+<li>Не продлил через 3 дня после конца, бот выводит участника из группы и пишет об этом нам обоим.</li>
+</ol>
+<p>С 02.11.2026 к этому добавилось автосписание: подписка в Продамусе сама списывает деньги раз в 30 дней, при неудаче пробует ещё 10 раз через каждые 8 часов (запись в «Журнале изменений» от 02.11.2026). Пока автосписание действует, бот не шлёт ссылку на продление, чтобы человек не заплатил дважды. Важная оговорка: подписки в Продамусе принимают только карты РФ.</p>
+<p>Что из этого берёт студия:</p>
+<ul>
+<li><strong>Источник даты.</strong> Дата окончания абонемента должна лежать в базе, а не в голове администратора. Если её там нет, это первое, что нужно навести.</li>
+<li><strong>Личная ссылка.</strong> У каждого клиента своя ссылка на оплату, по ней платёжный сервис понимает, чей абонемент продлевать.</li>
+<li><strong>Уведомление об оплате.</strong> Платёжный сервис стучится на адрес бота (это и есть вебхук: адрес, куда сервис сам присылает событие). Без него бот не узнает, что человек заплатил.</li>
+<li><strong>Напоминание о занятии.</strong> Та же проверка по расписанию, только по записям: накануне вечером или за пару часов до тренировки. Клиент отвечает «не приду», и код освобождает место для следующего.</li>
+</ul>
+<h2 id="gde-granitsa-kogda-ii-obyazan-peredat-dialog-cheloveku">Где граница: когда ИИ обязан передать диалог человеку?</h2>
+<p>Человеку уходит всё, где есть деньги сверх прайса, исключения из правил, жалобы и вопросы, на которые нет ответа в базе знаний. В этих случаях бот не отвечает клиенту сам, а готовит черновик и присылает администратору карточку с кнопками.</p>
+<p>Это первое правило всех моих проектов с клиентской перепиской: бот сам клиентам не пишет то, что может стоить денег или отношений. В кейсе <a href="/je30/">JE 3.0</a> сообщение уходит клиенту только после кнопки «Отправил» у менеджера. В статье про <a href="/blog/razbor-obrascheniy-klientov-ii-chernoviki/">разбор обращений через ИИ</a> я разбирал схему подробно: под черновиком кнопки «Отправить», «Исправить» и «Пропустить», а внимательно читать нужно только черновики с пометкой «Сомневаюсь» и темы про деньги, договоры и жалобы.</p>
+<p>Для студии я бы прописал такой список передачи:</p>
+<ul>
+<li>просьба о скидке, заморозке или возврате;</li>
+<li>перенос сверх правил отмены («заболел, верните занятие»);</li>
+<li>жалоба на тренера, зал, раздевалку;</li>
+<li>вопрос, ответа на который нет в документах студии;</li>
+<li>клиент злится или пишет третий раз подряд одно и то же;</li>
+<li>просьба позвать человека.</li>
+</ul>
+<p>С базой знаний тоже нужна защита. В JE 3.0 новый документ можно загрузить в чат или в панель, бот находит затронутые карточки и предлагает замены, но изменение вступает в силу только после кнопки «Согласен» у администратора. Для студии это спасает от простой беды: кто-то загрузил старый прайс, и бот неделю называет неправильные цены.</p>
+<h2 id="proveril-na-sebe-kak-rabotayut-podtverzhdeniya-i-prodleniya-">Проверил на себе: как работают подтверждения и продления в моих ботах</h2>
+<p>Фитнес-клиента у меня пока не было, поэтому опираюсь на три своих системы, где каждый кусок этой схемы уже работает: продление клуба, бот приёма заявок Orient и черновики ответов в JE 3.0 и в моём боте «Мозг».</p>
+<!-- img: type=telegram chat=producer topic="🏛 Клуб" find="карточка об оплате или продлении участника клуба" caption="Тема «🏛 Клуб» в группе продюсера: сюда приходят карточки об оплате и продлении, напоминания участникам бот шлёт сам." alt="ИИ бот продление абонемента: карточка оплаты в Telegram" -->
+
+<p><strong>Продление клуба.</strong> Работает с 01.11.2026. От меня тут остаётся одна задача: написать человеку, если у него закрыта личка. Напоминание, ссылка, проверка оплаты, плюс 30 дней и выход из группы для тех, кто не продлил, идут без меня. Сломалось здесь вот что: в Продамусе все четыре адреса для уведомлений уже были заняты другими проектами. Пришлось настроить сервер так, чтобы он отдавал боту клуба копию каждого уведомления об оплате, а остальные проекты получали их как раньше. Вывод для студии: заранее проверь, куда твой платёжный сервис шлёт уведомления и не занят ли этот адрес.</p>
+<p><strong>Orient.</strong> Бот ведёт клиента по 8 шагам, от приветствия до передачи менеджеру, по кейсу на 18.10.2026. Пара правил оттуда, которые я бы забрал в студию. Контакты бот просит только после того, как клиент согласился с ценой, иначе диалог похож на анкету. Повторного клиента бот узнаёт по телефону в CRM и не спрашивает имя второй раз. Прайс и синонимы названий лежат в панели, а не в коде, потому что меняются чаще всего. Что честно не измерено: сколько ночных заявок бот довёл до оплаты. Эти цифры принадлежат заказчику, и без его согласия я их не называю.</p>
+<p><strong>Черновики с кнопкой.</strong> В боте «Мозг» на вопрос клиента в группе проекта ИИ готовит два текста: ответ мне (что на самом деле, со ссылкой на файл) и черновик клиенту. Под черновиком «Отправить в группу», и только второе нажатие «Да, отправить» отправляет его. Поправить можно словами: «короче», «добавь, что…». Для администратора студии это та же экономия: он не набирает ответ с нуля, он проверяет и жмёт.</p>
+<p>Отдельно про первый бот Orient. Его я собирал на жёстких ветках с кнопками, и первый же живой клиент написал нестандартный запрос сразу про два языка, да ещё и с архивом. Бот запрос не понял, зациклился и стал спамить одним и тем же вопросом. Отсюда правило, которое я теперь ставлю всегда: свободный текст понимает нейросеть, а шаги и деньги держит код.</p>
+<h2 id="skolko-stoit-razrabotka-i-podderzhka-ii-administratora-dlya-">Сколько стоит разработка и поддержка ИИ-администратора для студии?</h2>
+<p>Содержание складывается из трёх строк: сервер, нейросеть и платёжный сервис. Разработка зависит от того, где сейчас лежат расписание и абонементы и сколько у студии каналов. Цены на настройку под ключ и сопровождение стоят в блоке под статьёй.</p>
+<p>Что я знаю по своим проектам:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Статья расходов</th>
+<th>Цифра</th>
+<th>Откуда</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Сервер под ботов</td>
+<td>от 500 ₽ в месяц</td>
+<td>мой стек, статья про <a href="/blog/zadachi-ii-golosom-telegram/">задачи голосом</a>, 01.11.2026</td>
+</tr>
+<tr>
+<td>Сервер клиентского проекта с базой знаний</td>
+<td>около $12 в месяц</td>
+<td>JE 3.0, договорённость с заказчиком 02.11.2026</td>
+</tr>
+<tr>
+<td>Ответ базы знаний на один вопрос</td>
+<td>около 2 центов</td>
+<td>кейс <a href="/je30/">JE 3.0</a>, 18.10.2026</td>
+</tr>
+<tr>
+<td>Расшифровка голосовых</td>
+<td>бесплатно на своём сервере</td>
+<td>Whisper, статья про задачи голосом</td>
+</tr>
+<tr>
+<td>Подписка с автосписанием в Продамусе</td>
+<td>подключение 2 000 ₽, +1% к каждому списанию</td>
+<td>«Журнал изменений», 02.11.2026</td>
+</tr>
+</tbody>
+</table></div>
+<p>Как удешевить, не потеряв в качестве. В JE 3.0 я перевёл часть запросов с дорогой модели Gemini Pro на модели семейства Flash, когда посчитал расходы за месяц. Простые вопросы о расписании спокойно отвечает быстрая и дешёвая модель, сильную оставляй для разбора жалоб и сложных черновиков.</p>
+<p>Чего в смете нет: стоимости CRM или программы записи, если студия ими уже пользуется. Бот подключается к ним, а не заменяет их.</p>
+<h2 id="kak-vnedrit-i-proverit-ii-administratora-za-7-dney-na-odnoy-">Как внедрить и проверить ИИ-администратора за 7 дней на одной группе?</h2>
+<p>Начинай с одной группы и одного канала, например с вечернего пилатеса и Telegram. За неделю ты проверишь запись, напоминания и передачу человеку на живых клиентах, а ошибки останутся маленькими.</p>
+<p>Пошаговый план:</p>
+<ol>
+<li><strong>День 1. Наведи порядок в таблице.</strong> Одна таблица: занятия, вместимость, записи, клиенты, дата конца абонемента. Если этого нет, остальное подождёт.</li>
+<li><strong>День 2. Собери базу знаний.</strong> Правила отмены, прайс, адрес, что взять с собой, ответы на 20 частых вопросов. Каждый документ утверждает администратор.</li>
+<li><strong>День 3. Подключи инструменты.</strong> «Найти занятия», «записать», «отменить». Проверь руками: попробуй записать двух человек на последнее место.</li>
+<li><strong>День 4. Пропиши границу.</strong> Список тем, которые уходят человеку, и карточка для администратора с кнопками «Отправить» и «Исправить».</li>
+<li><strong>День 5. Напоминания.</strong> Напоминание о занятии накануне и о конце абонемента за 3 дня, со ссылкой на оплату. Проверь на себе: заплати тестовую сумму и посмотри, продлился ли срок.</li>
+<li><strong>День 6. Запасной путь.</strong> Сообщение клиента пишется в базу до запроса к нейросети. Таймаут модели держи на 10–15 секундах, а если нейросеть не ответила, клиент получает честное «приняли, администратор ответит».</li>
+<li><strong>День 7. Разбор журнала.</strong> Прочитай все диалоги недели. Где бот переспрашивал лишний раз, где отдал человеку то, что мог решить сам, где ошибся. Поправь правила и только потом подключай остальные группы.</li>
+</ol>
+<h2 id="chto-lomaetsya-chasche-vsego">Что ломается чаще всего?</h2>
+<p>Ломается почти всегда на стыках, а не в нейросети. Вот пять мест, которые я бы проверил первыми:</p>
+<ul>
+<li><strong>Расписание в двух местах.</strong> Администратор правит бумажный журнал, бот смотрит в таблицу. Через день они расходятся. Источник правды должен быть один.</li>
+<li><strong>Бот обещает до записи.</strong> Модель пишет «вы записаны», а код ещё не ответил или отказал. Лечится правилом: подтверждение только по ответу команды.</li>
+<li><strong>Старый прайс в базе знаний.</strong> Без кнопки «Согласен» у администратора любая загрузка документа меняет ответы бота сразу.</li>
+<li><strong>Уведомление об оплате не доходит.</strong> Адрес занят, подпись не сошлась, и бот не знает, что клиент заплатил. В итоге человек получает напоминание после оплаты и злится.</li>
+<li><strong>Бот спорит с администратором.</strong> Оба отвечают в одном диалоге. Нужна отметка «диалог у человека», после которой бот молчит.</li>
+</ul>
+<p>Вся моя система ботов, баз и проверок собрана в <a href="/iisystema/">кейсе ii.systema</a>, там видно, как эти куски живут вместе.</p>
+<p>Если хочешь отдать рутину стойки боту и настроить его под своё расписание, напиши мне в личку слово «система»: https://t.me/solovarov. Разберём, как сейчас идут запись и продление, и посмотрим, какие задачи администратора можно спокойно передать нейросети.</p>
+    </article>
+
+    
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Может ли ИИ случайно записать двух клиентов на одно место?</h3><p>Может, если запись делает сама нейросеть. Поэтому в правильной схеме место бронирует код, который проверяет остаток мест и пишет бронь одним действием. Нейросеть только понимает, куда хочет клиент, и передаёт это коду. Тот же принцип у меня в кейсе Orient, где цену считает функция по прайсу, а модель её только озвучивает.</p></div><div class="qa"><h3 id="faq-2">Что делать, если клиент пишет голосовым или с опечатками?</h3><p>Голосовое сначала расшифровывается в текст, у меня это делает Whisper на своём сервере, дальше бот работает с текстом как с обычным сообщением. Опечатки и вольные формулировки вроде «завтра вечером на растяжку» языковая модель понимает хорошо. Если она не уверена, она переспрашивает клиента, а не гадает.</p></div><div class="qa"><h3 id="faq-3">Как бот понимает, что у клиента заканчивается абонемент?</h3><p>Он берёт дату окончания из твоей таблицы или CRM и раз в день проверяет, у кого до конца осталось несколько дней. В клубе ii.systema так работает продление с 01.11.2026, по README продюсер-бота на 15.11.2026: в 10:00 за 3 дня до конца участник получает в личку свою ссылку на оплату. Оплатил, и бот сам добавляет 30 дней.</p></div><div class="qa"><h3 id="faq-4">Нужно ли менять CRM ради ИИ-администратора?</h3><p>Нет. Бот подключается к тому, что уже есть, к таблице расписания, CRM или журналу. В кейсе JE 3.0 заказчику не понадобились ни новая CRM, ни новый регламент, надстройка читает таблицу сделок и переписку. Новая система нужна, только если записей сейчас нет нигде, кроме блокнота администратора.</p></div><div class="qa"><h3 id="faq-5">Что будет, если клиент просит скидку или жалуется на тренера?</h3><p>Такие сообщения бот не решает сам. Он пишет черновик ответа и присылает администратору карточку с кнопками «Отправить» и «Исправить». Деньги, жалобы и исключения из правил остаются за человеком, это правило всех моих проектов с клиентской перепиской.</p></div><div class="qa"><h3 id="faq-6">Сколько стоит содержать такого бота в месяц?</h3><p>Основные расходы это сервер и нейросеть. Сервер под ботов у меня стоит от 500 рублей в месяц, у клиентского проекта JE 3.0 сервер обходится примерно в $12 в месяц. Ответ «второго мозга» JE 3.0 на один вопрос стоит около 2 центов, по кейсу на 18.10.2026. Точный счёт зависит от числа клиентов и сообщений.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://petrsolovarov.ru/je30/" rel="noopener">Кейс JE 3.0 на petrsolovarov.ru</a> <span>гибридный поиск, ответ за полминуты с источниками, кнопка «Согласен», правило «бот сам клиентам не пишет», ≈2 цента за ответ; кейс на 18.10.2026</span></li><li><a href="https://petrsolovarov.ru/orient/" rel="noopener">Кейс Orient на petrsolovarov.ru</a> <span>бот в WhatsApp и Telegram, 8 шагов диалога, цена из кода, заявка в AMO CRM, ночное окно 21:00–09:00; кейс на 18.10.2026</span></li><li><a href="https://github.com/solovarov90/ii-systema/blob/main/producer-bot/README.md" rel="noopener">README продюсер-бота ii.systema (клуб, оплата и продление)</a> <span>напоминание о продлении в 10:00 за 3 дня, +30 дней после оплаты, выход через 3 дня после конца, автосписание; на 15.11.2026</span></li><li><a href="https://app.notion.com/p/40cdfdb148228106ae36de9db8f433a0" rel="noopener">Журнал изменений ii.systema, «Клуб, автосписание Продамуса включено»</a> <span>подписки на 30 дней, повтор списания 10 раз через 8 часов, только карты РФ; 02.11.2026</span></li><li><a href="https://petrsolovarov.ru/blog/razbor-obrascheniy-klientov-ii-chernoviki/" rel="noopener">Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</a> <span>схема «ИИ готовит черновик, человек утверждает», кнопки «Отправить» и «Исправить», таймаут 10–15 секунд; 09.11.2026</span></li><li><a href="https://petrsolovarov.ru/blog/zadachi-ii-golosom-telegram/" rel="noopener">Как ставить задачи ИИ голосом в Telegram и получать готовый результат</a> <span>расшифровка голосовых через Whisper, сервер от 500 рублей в месяц; 01.11.2026</span></li><li><a href="https://petrsolovarov.ru/iisystema/" rel="noopener">Кейс ii.systema</a> <span>вся система ботов и баз Notion, на которой собраны примеры статьи</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я настраиваю ИИ-администратора под расписание и правила твоей студии. Бот записывает клиентов и напоминает о продлении, сложные случаи отдаёт администратору готовой карточкой.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, списывается раз в месяц, отменить можно в любой момент</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</a><span>Автоматизация · 10 ноября 2026</span></li><li><a href="/blog/zadachi-ii-golosom-telegram/">Как ставить задачи ИИ голосом в Telegram и получать готовый результат</a><span>Автоматизация · 1 ноября 2026</span></li><li><a href="/blog/claude-code-agent-telegram-server/">Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</a><span>Автоматизация · 31 октября 2026</span></li><li><a href="/blog/claude-code-parallelnye-zadachi-biznes/">Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса</a><span>Инструменты · 14 ноября 2026</span></li></ul><h3 class="related-all-t">Все статьи блога</h3><ul class="related-all"><li><a href="/blog/skilly-claude-code-instruktsii-dlya-agenta/">Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз</a></li><li><a href="/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/">Почему Claude тупеет от MCP-коннекторов и как настроить инструменты</a></li><li><a href="/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/">ИИ-агенты в Premiere и Photoshop: что они умеют и кому заменят монтажёра</a></li><li><a href="/blog/razbor-obrascheniy-klientov-ii-chernoviki/">Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</a></li><li><a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">Память ИИ-агента: как сделать, чтобы Claude помнил бизнес и не путал контекст</a></li><li><a href="/blog/gemini-omni-1-2-flash-dlya-biznesa/">Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</a></li><li><a href="/blog/bezopasno-li-puskat-claude-code-na-server/">Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</a></li><li><a href="/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/">Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</a></li><li><a href="/blog/reklama-meta-cherez-claude-pipeboard/">Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</a></li><li><a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</a></li><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a></li><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a></li><li><a href="/blog/media-konveyer-na-ii/">Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</a></li><li><a href="/blog/avtootvet-kodovoe-slovo/">Автоответ в Instagram: как собирать заявки по кодовому слову через ИИ</a></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+}
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
+</script>
+</body>
+</html>

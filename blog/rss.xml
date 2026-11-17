@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Mon, 16 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов</title>
+    <link>https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/</guid>
+    <pubDate>Mon, 16 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Автоматизация</category>
+    <description>ИИ-администратор для фитнес-студии: как бот записывает на занятия без накладок, напоминает о тренировках и присылает ссылку на продление абонемента. Схема, шаги, смета.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса</title>
     <link>https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/</link>

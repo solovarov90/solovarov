@@ -1,0 +1,80 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="Схема ИИ-администратора студии: клиент пишет в мессенджер, нейросеть понимает запрос, код проверяет места и правила, запись попадает в таблицу, клиент получает подтверждение, а спорный случай уходит администратору">
+<title>Схема ИИ-администратора студии: нейросеть ведёт разговор, а места и деньги считает код по таблице</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+</defs>
+
+<!-- Строка 1: главный путь -->
+<rect x="40" y="60" width="320" height="150" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="76" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="76" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">1</text>
+<text x="108" y="104" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Клиент пишет</text>
+<text x="64" y="144" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Telegram или WhatsApp,</text>
+<text x="64" y="170" font-family="var(--font-body)" font-size="19" fill="var(--muted)">обычным текстом:</text>
+<text x="64" y="196" font-family="var(--font-body)" font-size="19" fill="var(--muted)">«Есть место на йогу?»</text>
+
+<rect x="440" y="60" width="320" height="150" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="476" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="476" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">2</text>
+<text x="508" y="104" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Нейросеть</text>
+<text x="464" y="144" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Понимает запрос:</text>
+<text x="464" y="170" font-family="var(--font-body)" font-size="19" fill="var(--muted)">занятие, дата, время.</text>
+<text x="464" y="196" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Только разговор</text>
+
+<rect x="840" y="60" width="320" height="150" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="876" cy="96" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="876" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">3</text>
+<text x="908" y="104" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Код студии</text>
+<text x="864" y="144" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Проверяет свободные</text>
+<text x="864" y="170" font-family="var(--font-body)" font-size="19" fill="var(--muted)">места и правила.</text>
+<text x="864" y="196" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Места и деньги — тут</text>
+
+<line x1="360" y1="135" x2="436" y2="135" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<line x1="760" y1="135" x2="836" y2="135" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+<!-- Строка 2: запись и подтверждение (справа налево) -->
+<rect x="840" y="290" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="876" cy="326" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="876" y="333" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">4</text>
+<text x="908" y="334" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Таблица</text>
+<text x="864" y="374" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Запись в расписание</text>
+<text x="864" y="400" font-family="var(--font-body)" font-size="19" fill="var(--muted)">или в CRM</text>
+
+<rect x="440" y="290" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="476" cy="326" r="18" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="476" y="333" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--accent)">5</text>
+<text x="508" y="334" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Подтверждение</text>
+<text x="464" y="374" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Клиент получает ответ:</text>
+<text x="464" y="400" font-family="var(--font-body)" font-size="19" fill="var(--muted)">«Записала на 8:00»</text>
+
+<!-- 3 -> 4 -->
+<line x1="1000" y1="210" x2="1000" y2="286" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+<!-- 4 -> 5 -->
+<line x1="840" y1="355" x2="764" y2="355" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+<!-- Спорный случай -->
+<rect x="40" y="290" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="64" y="334" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Спорный случай</text>
+<text x="64" y="374" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Возврат, исключение,</text>
+<text x="64" y="400" font-family="var(--font-body)" font-size="19" fill="var(--muted)">жалоба, неясный запрос</text>
+
+<path d="M900 210 L900 250 L200 250 L200 286" fill="none" stroke="var(--line)" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arr)"/>
+<text x="560" y="240" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">код не уверен — не отвечает сам</text>
+
+<!-- Карточка администратору -->
+<rect x="40" y="480" width="560" height="130" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+<text x="64" y="522" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Карточка администратору</text>
+<text x="64" y="558" font-family="var(--font-body)" font-size="19" fill="var(--muted)">В рабочем чате: что спросил клиент и какой</text>
+<text x="64" y="584" font-family="var(--font-body)" font-size="19" fill="var(--muted)">ответ предложен. Кнопки «Отправить» и «Исправить»</text>
+
+<line x1="200" y1="420" x2="200" y2="476" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+<!-- Возврат к клиенту -->
+<path d="M600 545 L660 545 L660 450 L600 450 L600 424" fill="none" stroke="var(--line)" stroke-width="2.5" marker-end="url(#arr)"/>
+<text x="680" y="500" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ответ человека уходит клиенту</text>
+</svg>
