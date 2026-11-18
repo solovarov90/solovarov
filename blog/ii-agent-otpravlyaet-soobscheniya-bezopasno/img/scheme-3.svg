@@ -1,0 +1,73 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Схема обработки директа: сообщение из Instagram Direct, проверка раз в 5 минут, черновик от Claude Opus, карточка в Telegram, ручная проверка и отправка клиенту только по кнопке">
+  <title>Схема обработки директа: нейросеть готовит черновик, отправляет только человек</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Ряд 1 -->
+  <rect x="40" y="60" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="76" cy="96" r="18" fill="var(--accent)"/>
+  <text x="76" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">1</text>
+  <text x="108" y="104" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Instagram Direct</text>
+  <text x="64" y="144" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Человек пишет</text>
+  <text x="64" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">входящее сообщение</text>
+
+  <rect x="440" y="60" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="476" cy="96" r="18" fill="var(--accent)"/>
+  <text x="476" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">2</text>
+  <text x="508" y="104" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Скрипт проверки</text>
+  <text x="464" y="144" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Раз в 5 минут читает</text>
+  <text x="464" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">переписки</text>
+
+  <rect x="840" y="60" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="876" cy="96" r="18" fill="var(--accent)"/>
+  <text x="876" y="103" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">3</text>
+  <text x="908" y="104" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Claude Opus</text>
+  <text x="864" y="144" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Готовит черновик</text>
+  <text x="864" y="168" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ответа</text>
+
+  <!-- Стрелки ряда 1 -->
+  <line x1="360" y1="125" x2="434" y2="125" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="760" y1="125" x2="834" y2="125" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Переход вниз: от Opus к карточке -->
+  <path d="M1000 190 L1000 250 L1000 290" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Ряд 2 (справа налево) -->
+  <rect x="840" y="294" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="876" cy="330" r="18" fill="var(--accent)"/>
+  <text x="876" y="337" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">4</text>
+  <text x="908" y="338" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Карточка в Telegram</text>
+  <text x="864" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Сообщение клиента</text>
+  <text x="864" y="402" font-family="var(--font-body)" font-size="18" fill="var(--muted)">и черновик ответа</text>
+
+  <rect x="440" y="294" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="476" cy="330" r="18" fill="var(--accent)"/>
+  <text x="476" y="337" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">5</text>
+  <text x="508" y="338" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Проверяю сам</text>
+  <text x="464" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Читаю, правлю, жму</text>
+  <text x="464" y="402" font-family="var(--font-body)" font-size="18" fill="var(--muted)">«Отправить»</text>
+
+  <rect x="40" y="294" width="320" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="76" cy="330" r="18" fill="var(--accent)"/>
+  <text x="76" y="337" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">6</text>
+  <text x="108" y="338" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Клиент</text>
+  <text x="64" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Получает ответ</text>
+  <text x="64" y="402" font-family="var(--font-body)" font-size="18" fill="var(--muted)">только после кнопки</text>
+
+  <!-- Стрелки ряда 2 -->
+  <line x1="840" y1="359" x2="766" y2="359" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="440" y1="359" x2="366" y2="359" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrAccent)"/>
+
+  <!-- Пометка у главной стрелки -->
+  <text x="400" y="340" text-anchor="middle" font-family="var(--font-body)" font-size="17" fill="var(--accent)">только так</text>
+
+  <!-- Нижняя плашка-вывод -->
+  <rect x="40" y="470" width="1120" height="80" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <text x="600" y="518" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Нейросеть пишет черновик. Решение об отправке принимаю я.</text>
+</svg>

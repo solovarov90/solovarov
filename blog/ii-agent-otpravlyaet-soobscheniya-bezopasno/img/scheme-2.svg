@@ -1,0 +1,79 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="Путь сообщения клиента: запись в базу, обезличивание, поиск ответа в базе знаний, черновик с меткой уверенности, карточка менеджеру с тремя кнопками и отправка от бота">
+  <title>Путь сообщения клиента: нейросеть готовит черновик, а отправляет человек</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Ряд 1 -->
+  <rect x="40" y="60" width="320" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="78" cy="98" r="18" fill="var(--accent)"/>
+  <text x="78" y="105" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">1</text>
+  <text x="108" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Сообщение клиента</text>
+  <text x="64" y="148" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Пришло в мессенджер</text>
+  <text x="64" y="174" font-family="var(--font-body)" font-size="18" fill="var(--muted)">или на почту</text>
+
+  <rect x="440" y="60" width="320" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="478" cy="98" r="18" fill="var(--accent)"/>
+  <text x="478" y="105" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">2</text>
+  <text x="508" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Запись в базу</text>
+  <text x="464" y="148" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Заявка сохраняется</text>
+  <text x="464" y="174" font-family="var(--font-body)" font-size="18" fill="var(--muted)">до любого ответа</text>
+
+  <rect x="840" y="60" width="320" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="878" cy="98" r="18" fill="var(--accent)"/>
+  <text x="878" y="105" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">3</text>
+  <text x="908" y="106" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Обезличивание</text>
+  <text x="864" y="148" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Имена и контакты</text>
+  <text x="864" y="174" font-family="var(--font-body)" font-size="18" fill="var(--muted)">убираются из текста</text>
+
+  <line x1="360" y1="130" x2="436" y2="130" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="760" y1="130" x2="836" y2="130" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Переход вниз -->
+  <path d="M1000 200 L1000 250 L200 250 L200 290" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Ряд 2 -->
+  <rect x="40" y="290" width="320" height="140" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="78" cy="328" r="18" fill="var(--accent)"/>
+  <text x="78" y="335" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">4</text>
+  <text x="108" y="336" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Поиск ответа</text>
+  <text x="64" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">ИИ ищет в базе знаний</text>
+  <text x="64" y="404" font-family="var(--font-body)" font-size="18" fill="var(--muted)">только по регламенту</text>
+
+  <rect x="440" y="290" width="320" height="140" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="478" cy="328" r="18" fill="var(--accent)"/>
+  <text x="478" y="335" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">5</text>
+  <text x="508" y="336" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Черновик + оценка</text>
+  <text x="464" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Метка «Уверен»</text>
+  <text x="464" y="404" font-family="var(--font-body)" font-size="18" fill="var(--muted)">или «Сомневаюсь»</text>
+
+  <rect x="840" y="290" width="320" height="140" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="878" cy="328" r="18" fill="var(--accent)"/>
+  <text x="878" y="335" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">6</text>
+  <text x="908" y="336" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Карточка человеку</text>
+  <text x="864" y="378" font-family="var(--font-body)" font-size="18" fill="var(--muted)">«Отправить», «Исправить»,</text>
+  <text x="864" y="404" font-family="var(--font-body)" font-size="18" fill="var(--muted)">«Пропустить»</text>
+
+  <line x1="360" y1="360" x2="436" y2="360" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="760" y1="360" x2="836" y2="360" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrA)"/>
+
+  <!-- Переход вниз к отправке -->
+  <path d="M1000 430 L1000 490" fill="none" stroke="var(--accent)" stroke-width="4" marker-end="url(#arrA)"/>
+  <text x="1020" y="468" font-family="var(--font-body)" font-size="18" fill="var(--accent)">нажал человек</text>
+
+  <!-- Ряд 3 -->
+  <rect x="840" y="490" width="320" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+  <circle cx="878" cy="528" r="18" fill="var(--accent)"/>
+  <text x="878" y="535" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--surface)">7</text>
+  <text x="908" y="536" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Отправка от бота</text>
+  <text x="864" y="578" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Клиент получает ответ</text>
+
+  <!-- Граница: ИИ / человек -->
+  <text x="40" y="520" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Нейросеть доходит до черновика.</text>
+  <text x="40" y="550" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Наружу сообщение уходит только после кнопки.</text>
+</svg>

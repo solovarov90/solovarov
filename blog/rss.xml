@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Tue, 17 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>ИИ-агент пишет клиентам от твоего имени: как не дать ему отправить лишнее</title>
+    <link>https://petrsolovarov.ru/blog/ii-agent-otpravlyaet-soobscheniya-bezopasno/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/ii-agent-otpravlyaet-soobscheniya-bezopasno/</guid>
+    <pubDate>Mon, 16 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Автоматизация</category>
+    <description>ИИ-агент отправляет сообщения от моего имени: как ограничить его права, поставить подтверждение действий и защитить переписку с клиентами от выдумок и утечек.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/ii-agent-otpravlyaet-soobscheniya-bezopasno/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов</title>
     <link>https://petrsolovarov.ru/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/</link>
