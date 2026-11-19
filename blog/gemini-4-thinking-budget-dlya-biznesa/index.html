@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini 4 Thinking: когда модели думать долго, а когда быстро, и сколько это стоит — блог Петра Соловарова</title>
+<meta name="description" content="Gemini 4 для бизнеса без переплат за размышления. Как работает thinking budget и thinking_level, где долгое думание окупается, а где режет ответы бота.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Gemini 4 Thinking: когда модели думать долго, а когда быстро, и сколько это стоит">
+<meta property="og:description" content="Gemini 4 для бизнеса без переплат за размышления. Как работает thinking budget и thinking_level, где долгое думание окупается, а где режет ответы бота.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gemini 4 для бизнеса и thinking budget, обложка статьи о режиме размышлений">
+<meta property="article:published_time" content="2026-11-17">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Инструменты">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gemini 4 Thinking: когда модели думать долго, а когда быстро, и сколько это стоит">
+<meta name="twitter:description" content="Gemini 4 для бизнеса без переплат за размышления. Как работает thinking budget и thinking_level, где долгое думание окупается, а где режет ответы бота.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/"
+   },
+   "headline": "Gemini 4 Thinking: когда модели думать долго, а когда быстро, и сколько это стоит",
+   "description": "Gemini 4 для бизнеса без переплат за размышления. Как работает thinking budget и thinking_level, где долгое думание окупается, а где режет ответы бота.",
+   "image": [
+    "https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-17",
+   "dateModified": "2026-11-19",
+   "inLanguage": "ru-RU",
+   "wordCount": 3688,
+   "articleSection": "Инструменты",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Gemini 4 Thinking: когда модели думать долго, а когда быстро, и сколько это стоит",
+     "item": "https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Что такое Thinking Budget простыми словами?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Это сколько модель может «подумать про себя» перед ответом. Размышления идут отдельными токенами, ты их не видишь, но платишь за них как за ответ. В новых моделях Gemini вместо числа токенов ставится уровень thinking_level, у Gemini 4 Carbon это low, medium или high."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему включённые размышления опасны для Telegram-бота?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Размышления занимают тот же лимит выходных токенов, что и сам ответ. Если лимит маленький, модель тратит его на мысли и обрывает текст на полуслове. У моего робота Бадди так и было, пока 12.11.2026 я не выключил размышления и не стал резать оборванный текст до целой фразы."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько стоит Gemini 4 в быстром режиме и с глубокими размышлениями?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "По документации Google цена ответа это сумма выходных токенов и токенов размышлений, поэтому высокий уровень всегда дороже. Точные цены за миллион токенов меняются, сверяй их на странице цен Gemini API в день подключения. В тесте Google от 3 ноября 2026 Gemini 3.8 Flash на уровне low решила все 50 задач и стоила заметно меньше, чем на уровне по умолчанию."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Можно ли использовать бесплатный ключ Gemini API в реальном бизнесе?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Для проб и своих задач да, у меня на бесплатном лимите с 30.09.2026 работал разбор роликов. Для клиентских данных нет. На бесплатном тарифе Google AI Studio запросы могут идти на дообучение моделей, поэтому рабочие проекты переводи на платный тариф с Cloud Billing."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как обойти блокировку Google AI Studio из России?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Напрямую не выйдет. 02.11.2026 я проверял, AI Studio и Gemini API для России отвечают 403. В проекте VetCT с 30.10.2026 запросы к Gemini идут через российский шлюз Polza.ai с оплатой в рублях, формат запросов остаётся гугловский."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Когда Gemini 4 выгоднее, чем Claude?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Когда задача повторяется сотни раз в день и её запускает бот, а не человек. Разбор одного ролика на платной Flash у меня стоит около цента. Claude по подписке я оставляю на сценарии, тексты и работу с кодом, где важен результат с первой попытки."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Нужно ли ставить Gemini 4 на высокий уровень размышлений для поддержки клиентов?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Нет. Ответы клиентам, сортировка заявок и короткие сводки идут на low или на облегчённой модели. Высокий уровень нужен на аудите кода, длинных договорах и многошаговых расчётах, где ошибка стоит дороже токенов."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+.related-all-t { font-size: 18px; margin: 28px 0 12px; }
+.related ul.related-all { gap: 8px; }
+.related ul.related-all li { background: none; border: 0; border-radius: 0; padding: 0; }
+.related ul.related-all li a { font-family: inherit; font-weight: 400; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Инструменты</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Разбор инструмента · Инструменты · 20 мин чтения</div>
+    <h1>Gemini 4 Thinking: когда модели думать долго, а когда быстро, и сколько это стоит</h1>
+    <p class="lead">Gemini 4 для бизнеса без переплат за размышления. Как работает thinking budget и thinking_level, где долгое думание окупается, а где режет ответы бота.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-17">17 ноября 2026</time> · обновлено <time datetime="2026-11-19">19 ноября 2026</time> · 3 688 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/gemini-4-thinking-budget-dlya-biznesa/img/cover.jpg" alt="Gemini 4 для бизнеса и thinking budget, обложка статьи о режиме размышлений" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#chto-takoe-thinking-budget-v-gemini-4-i-pochemu-model-nachal">Что такое Thinking Budget в Gemini 4 и почему модель начала думать дольше?</a></li><li><a href="#kogda-dolgoe-razmyshlenie-okupaetsya-a-gde-biznesu-nuzhen-by">Когда долгое размышление окупается, а где бизнесу нужен быстрый ответ?</a></li><li><a href="#skolko-stoit-rabota-gemini-4-s-razmyshleniyami-i-kak-ne-szhe">Сколько стоит работа Gemini 4 с размышлениями и как не сжечь лимиты?</a></li><li><a href="#kak-podklyuchit-gemini-4-api-v-rossii-i-nastroit-byudzhet-ra">Как подключить Gemini 4 API в России и настроить бюджет размышлений?</a></li><li><a href="#proveril-na-sebe-kak-razmyshleniya-obryvali-otvety-botov-i-k">Проверил на себе: как размышления обрывали ответы ботов и как я настроил связку</a></li><li><a href="#gemini-4-ili-claude-kakuyu-neyroset-stavit-pod-kapot-biznes-">Gemini 4 или Claude: какую нейросеть ставить под капот бизнес-процессов?</a></li><li><a href="#gemma-4-lokalno-imeet-li-smysl-podnimat-model-na-svoem-serve">Gemma 4 локально: имеет ли смысл поднимать модель на своём сервере?</a></li><li><a href="#s-chego-nachat-esli-gemini-uzhe-stoit-u-tebya-v-bote">С чего начать, если Gemini уже стоит у тебя в боте?</a></li></ol></nav>
+    <article class="article">
+<p>Gemini 4 для бизнеса стоит включать на долгие размышления только там, где нужна сложная логика: аудит кода, длинные договоры, нестандартные расчёты. Ответы клиентам, сортировка заявок и короткие сводки идут на низком уровне размышлений или на облегчённой Flash. Иначе ты платишь за мысли, которых никто не видит, а бот в Telegram обрывает ответы на полуслове.</p>
+<p>Ниже разбираю, как устроен thinking budget в Gemini 4, сколько он стоит, как настроить его в API и что у меня ломалось в собственных ботах. Цифры свои с датами, чужие со ссылками.</p>
+<h2 id="chto-takoe-thinking-budget-v-gemini-4-i-pochemu-model-nachal">Что такое Thinking Budget в Gemini 4 и почему модель начала думать дольше?</h2>
+<p>Thinking Budget это сколько модель может рассуждать про себя перед ответом. Рассуждения идут отдельными токенами (токен это кусочек слова, по ним считают и цену, и лимиты). В новых моделях Gemini вместо числа токенов ставится уровень <code>thinking_level</code>: low, medium или high.</p>
+<p>По <a href="https://aistudio.google.com/docs/thinking">документации Gemini API</a>, которую я читал 17.11.2026, у Gemini 4 Carbon и Gemini 4 Argon размышления включены по умолчанию на уровне medium. Доступны три уровня:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Уровень</th>
+<th>Что делает</th>
+<th>Где брать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>low</td>
+<td>короткий проход, быстрый ответ</td>
+<td>ответы клиентам, сортировка, сводки</td>
+</tr>
+<tr>
+<td>medium</td>
+<td>по умолчанию у Gemini 4 Carbon и Argon</td>
+<td>разбор документа средней сложности</td>
+</tr>
+<tr>
+<td>high</td>
+<td>максимальная глубина рассуждений</td>
+<td>аудит кода, расчёты, длинные цепочки условий</td>
+</tr>
+</tbody>
+</table></div>
+<p>Почему модель «начала думать дольше»? Раньше размышления надо было включать, теперь они стоят по умолчанию. Если ты подключил Gemini 4 и ничего не трогал, каждый запрос идёт со средним уровнем размышлений, даже «спасибо, заказ принят».</p>
+<p>Есть уровень <code>minimal</code>, почти без размышлений, с самым быстрым ответом. По той же документации он не поддерживается у моделей Gemini 4 и у gemini-3.8-flash. Он есть у облегчённых моделей вроде gemini-3.1-flash-lite. Значит, у Gemini 4 полностью выключить размышления нельзя, самый быстрый вариант у неё это low.</p>
+<p>Старый параметр <code>thinking_budget</code> с числом токенов в <a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/thinking">документации Vertex AI</a> оставлен для совместимости. Код со старым параметром работает, но Google называет этот путь устаревшим. Если передать оба параметра сразу, модель вернёт ошибку.</p>
+<!-- img: type=screenshot url=https://aistudio.google.com/docs/thinking caption="Таблица уровней размышлений в документации Gemini API: у Gemini 4 Carbon по умолчанию medium, minimal недоступен." alt="gemini thinking budget что это: таблица уровней thinking_level в документации Gemini API" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="gemini thinking budget что это: таблица уровней thinking_level в документации Gemini API" src="/blog/gemini-4-thinking-budget-dlya-biznesa/img/screenshot-1.jpg"></div><figcaption>Таблица уровней размышлений в документации Gemini API: у Gemini 4 Carbon по умолчанию medium, minimal недоступен.</figcaption></figure>
+<h2 id="kogda-dolgoe-razmyshlenie-okupaetsya-a-gde-biznesu-nuzhen-by">Когда долгое размышление окупается, а где бизнесу нужен быстрый ответ?</h2>
+<p>Долгое размышление окупается там, где ошибка стоит дороже токенов и где ответ строится в несколько шагов. Быстрый ответ нужен везде, где задача короткая, типовая и повторяется сотни раз в день.</p>
+<p>Gemini 4 Carbon сильна как раз в тяжёлых задачах. В посте канала <a href="https://t.me/solovarovp/2094">«4 новости недели»</a> 30.10.2026 я разбирал её выход: первое место в рейтинге Artificial Analysis с 59 баллами и 88,2% точности в коде и поиске уязвимостей. Такие цифры получаются на высоком уровне размышлений. Платить за этот уровень на ответе «во сколько вы открываетесь» нет смысла.</p>
+<p>Как я раскладываю задачи:</p>
+<ul>
+<li><strong>High.</strong> Аудит кода и баз, поиск уязвимостей, разбор длинного договора на риски, финансовые расчёты в несколько шагов, план внедрения.</li>
+<li><strong>Medium.</strong> Разбор документа на 5–10 страниц, сравнение двух предложений поставщиков, черновик регламента.</li>
+<li><strong>Low или облегчённая Flash.</strong> Ответы клиентам по базе знаний, сортировка заявок по типу, короткая сводка переписки, алерты, благодарности, подписи к роликам.</li>
+</ul>
+<p>Тот же принцип есть у Claude. В <a href="https://app.notion.com/p/Claude-3f6dfdb1482281a886d8daa5f156cca0">схеме выбора моделей</a> на 11.10.2026 я описывал регулятор Effort: на Medium модель рассуждает короче и тратит меньше лимита, чем на High, а выводы остаются на уровне. Названия разные, суть одна: умную модель можно оставить, а глубину размышлений подобрать под задачу.</p>
+<!-- img: type=scheme what="роутинг запросов: входящий запрос → быстрая проверка типа задачи → короткая задача (ответ клиенту, сортировка, сводка) → Flash-Lite или low → ответ; сложная задача (аудит, договор, расчёт) → Gemini 4 на high → проверка ответа → ответ" caption="Как разводить запросы бота по уровням размышлений: рутина идёт быстрым путём, сложное уходит на глубокий." alt="gemini 4 для бизнеса: схема выбора уровня размышлений под задачу" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="Схема роутинга запросов бота по уровням размышлений: быстрая проверка типа задачи, короткие задачи уходят на Flash-Lite или low, сложные на Gemini 4 на high с проверкой ответа">
+  <title>Роутинг запросов: рутина идёт быстрым путём, сложное уходит на глубокий</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- 1. Входящий запрос -->
+  <rect x="400" y="20" width="400" height="80" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="436" cy="60" r="16" fill="var(--accent)"/>
+  <text x="436" y="67" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">1</text>
+  <text x="470" y="68" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Входящий запрос</text>
+
+  <!-- стрелка 1 -> 2 -->
+  <line x1="600" y1="100" x2="600" y2="150" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrAccent)"/>
+
+  <!-- 2. Быстрая проверка -->
+  <rect x="340" y="152" width="520" height="104" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <circle cx="376" cy="204" r="16" fill="var(--accent)"/>
+  <text x="376" y="211" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">2</text>
+  <text x="408" y="198" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Быстрая проверка</text>
+  <text x="408" y="230" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Какого типа задача?</text>
+
+  <!-- стрелки к ветвям -->
+  <path d="M520 256 L520 290 L270 290 L270 324" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <path d="M680 256 L680 290 L930 290 L930 324" fill="none" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="400" y="282" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">короткая</text>
+  <text x="800" y="282" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">сложная</text>
+
+  <!-- 3. Короткая задача -->
+  <rect x="40" y="326" width="460" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="76" cy="358" r="16" fill="var(--accent)"/>
+  <text x="76" y="365" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">3</text>
+  <text x="104" y="366" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Короткая задача</text>
+  <text x="68" y="404" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Ответ клиенту, сортировка заявок,</text>
+  <text x="68" y="430" font-family="var(--font-body)" font-size="18" fill="var(--muted)">сводка переписки</text>
+
+  <!-- 3. Сложная задача -->
+  <rect x="700" y="326" width="460" height="130" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="736" cy="358" r="16" fill="var(--accent)"/>
+  <text x="736" y="365" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">3</text>
+  <text x="764" y="366" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Сложная задача</text>
+  <text x="728" y="404" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Аудит, разбор договора,</text>
+  <text x="728" y="430" font-family="var(--font-body)" font-size="18" fill="var(--muted)">многошаговый расчёт</text>
+
+  <!-- вниз к моделям -->
+  <line x1="270" y1="456" x2="270" y2="496" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="930" y1="456" x2="930" y2="496" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- 4. Flash-Lite / low -->
+  <rect x="40" y="498" width="460" height="100" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="76" cy="534" r="16" fill="var(--accent)"/>
+  <text x="76" y="541" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">4</text>
+  <text x="104" y="541" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Flash-Lite или low</text>
+  <text x="68" y="578" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Быстро и дёшево, сразу ответ</text>
+
+  <!-- 4. Gemini 4 high -->
+  <rect x="700" y="498" width="460" height="100" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <circle cx="736" cy="534" r="16" fill="var(--accent)"/>
+  <text x="736" y="541" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--surface)">4</text>
+  <text x="764" y="541" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Gemini 4 на high</text>
+  <text x="728" y="578" font-family="var(--font-body)" font-size="18" fill="var(--muted)">Долгое размышление, затем проверка ответа</text>
+</svg>
+<figcaption>Как разводить запросы бота по уровням размышлений: рутина идёт быстрым путём, сложное уходит на глубокий.</figcaption>
+</figure>
+
+<h2 id="skolko-stoit-rabota-gemini-4-s-razmyshleniyami-i-kak-ne-szhe">Сколько стоит работа Gemini 4 с размышлениями и как не сжечь лимиты?</h2>
+<p>Цена ответа равна сумме выходных токенов и токенов размышлений. Так прямо написано в <a href="https://aistudio.google.com/docs/thinking">документации</a>: платишь за все мысли, которые модель сгенерировала, даже если показала только краткую сводку. Поэтому каждый шаг вверх по уровню размышлений делает тот же ответ дороже.</p>
+<p>Точных цен за миллион токенов для Gemini 4 я сюда не ставлю: они меняются, и верная цифра бывает только на странице цен Gemini API в день подключения. Зато есть замер самого Google. В <a href="https://developers.googleblog.com/cost-per-task-using-cheap-classifiers-to-route-across-gemini-models-and-thinking-levels/">статье Google for Developers</a> от 3 ноября 2026 прогнали 50 задач для агента, который пишет код:</p>
+<ul>
+<li>Gemini 3.8 Flash на уровне low решила все 50 задач и обошлась заметно дешевле, чем на уровне по умолчанию.</li>
+<li>Связка «сначала Flash-Lite, сложное отдать 3.8 Flash на low» тоже решила 50 из 50 и снизила и цену, и время ответа.</li>
+<li>Flash-Lite одна отвечала на простые задачи за полсекунды, но провалила 6 сложных из 25.</li>
+<li>Ограничение длины ответа не помогло: модель тратила почти столько же токенов на размышления, а 7 сложных задач из 25 сломались.</li>
+</ul>
+<p>Вывод Google совпадает с моим: ставь уровень размышлений напрямую, <code>thinkingLevel: "LOW"</code>, а не пытайся обрезать ответ лимитом.</p>
+<p>Что у меня видно по счетам:</p>
+<ol>
+<li><strong>Разбор роликов.</strong> С 30.09.2026 чужие ролики смотрит Gemini Flash, разбор одного на платном тарифе стоит около цента. Подробно в статье <a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">«Почему лимит Claude кончается к обеду»</a>.</li>
+<li><strong>Счёт клиента.</strong> В проекте JE 3.0 расходы за месяц на Gemini API и сервер вышли $46 вместе с двумя месяцами аренды (04.11.2026). Основную часть съедали алерты на Pro, которые запускаются каждые 5 минут. Об этом ниже, в разделе про свой опыт.</li>
+</ol>
+<p>Как не сжечь лимиты:</p>
+<ul>
+<li>Посчитай, какой сценарий запускается чаще всего. Алерт раз в 5 минут даёт 288 вызовов в сутки, и уровень размышлений на нём важнее, чем на редком отчёте.</li>
+<li>Поставь каждому сценарию свою модель и свой уровень в настройках, а не одну на весь бот.</li>
+<li>Включи кэш контекста, если бот каждый раз отправляет одну и ту же инструкцию. В той же статье Google сказано, что повторный контекст из кэша стоит на 75–90% дешевле. Кэш привязан к одной модели, при смене модели скидка теряется.</li>
+<li>Поставь потолок расходов и предупреждение. 15.11.2026 у меня с 06:33 до 10:16 МСК кончился баланс Gemini (ошибка 402), и упали подпись ролика, утренние новости и план продюсера канала (<a href="https://app.notion.com/p/Gemini-419dfdb1482281d3a5aecb9774f7e920">журнал изменений</a>). Теперь боты сами повторяют такие задачи через 30 минут, час и два часа.</li>
+</ul>
+<h2 id="kak-podklyuchit-gemini-4-api-v-rossii-i-nastroit-byudzhet-ra">Как подключить Gemini 4 API в России и настроить бюджет размышлений?</h2>
+<p>Из России напрямую не подключиться: 02.11.2026 я проверял, Google AI Studio и Gemini API отвечают ошибкой 403. Рабочий путь у меня один, российский шлюз Polza.ai. В проекте <a href="/vetctschool/">VetCT</a> с 30.10.2026 все запросы к Gemini идут через него, оплата в рублях, ключ передаётся тем же заголовком <code>x-goog-api-key</code>. Код почти не меняется, меняется адрес. Есть ли в шлюзе уже Gemini 4 Carbon, проверь перед подключением: у меня такого факта нет.</p>
+<p>Ещё одно правило до первого запроса. На бесплатном тарифе Google AI Studio текст твоих запросов Google может брать на обучение моделей. Записал это в гайде от 09.11.2026. Для клиентских переписок, регламентов и договоров переводи проект на платный тариф с Cloud Billing.</p>
+<p>Порядок настройки:</p>
+<ol>
+<li><strong>Разбей бота на сценарии.</strong> Ответ клиенту, сортировка заявки, сводка, отчёт. Каждому сценарию своя строка в настройках.</li>
+<li><strong>Задай модель и уровень на сценарий.</strong> Рутина: облегчённая Flash или low. Сложный разбор: Gemini 4 на high.</li>
+<li><strong>Передавай уровень в запросе.</strong> В <code>generation_config</code> ставится <code>thinking_level: "low"</code>. Старый <code>thinking_budget</code> в одном запросе с новым параметром не смешивай, получишь ошибку.</li>
+<li><strong>Дай запас на длину ответа.</strong> По документации <code>max_output_tokens</code> включает и размышления. Если модель упрётся в потолок, пока думает, она вернёт статус <code>incomplete</code>, а за мысли ты всё равно заплатишь. Лечится понижением уровня, а не уменьшением лимита.</li>
+<li><strong>Выключи сводку мыслей, если она не нужна.</strong> Параметр <code>thinking_summaries: "none"</code>. По умолчанию модель и так отдаёт только финальный ответ.</li>
+<li><strong>Проверяй ответ перед действием.</strong> Ответ не в JSON, значит один повтор. Нужной модели нет (ошибка 404), значит запрос уходит в запасную.</li>
+</ol>
+<h2 id="proveril-na-sebe-kak-razmyshleniya-obryvali-otvety-botov-i-k">Проверил на себе: как размышления обрывали ответы ботов и как я настроил связку</h2>
+<p>Самая наглядная история случилась с роботом Бадди, помощником в ботах «Снимай». Он отвечает людям через Gemini. Размышления у модели были включены, и они съедали лимит ответа: текст обрывался на полуслове, человек получал половину фразы.</p>
+<p>12.11.2026 я выключил размышления в его запросах (<code>thinkingBudget: 0</code>, по <a href="https://github.com/solovarov90/ii-systema/blob/main/snimai/README.md">README проекта</a>) и добавил страховку: если текст всё же оборван, бот режет его до последней целой фразы. После этого ответы перестали обрываться. Для помощника, который отвечает на «как записать дубль», размышления не нужны совсем.</p>
+<!-- img: type=gen prompt="a chat message bubble cut in half by a glowing golden hourglass, tokens as small gold cubes flowing away, dark graphite background, minimal" caption="Размышления и ответ делят один лимит токенов: если мысли съели его, ответ обрывается." alt="настройка режима thinking в gemini api: почему бот обрывает ответ" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="настройка режима thinking в gemini api: почему бот обрывает ответ" src="/blog/gemini-4-thinking-budget-dlya-biznesa/img/gen-3.jpg"></div><figcaption>Размышления и ответ делят один лимит токенов: если мысли съели его, ответ обрывается.</figcaption></figure>
+<p>Вторая история про деньги. В проекте JE 3.0 бот следит за группами клиента и ставит алерты по смыслу каждые 5 минут. Всё шло на тяжёлой Pro, и счёт за месяц вместе с арендой сервера вышел $46. 05.11.2026 я перевёл на Flash (<a href="https://app.notion.com/p/LLM-je30-server-Flash-40fdfdb1482281dd845fd6c683367685">задача в Notion</a>):</p>
+<ul>
+<li>алерты по смыслу, на которые уходила основная часть счёта;</li>
+<li>карточки уснувших клиентов и «Другой вариант»;</li>
+<li>черновики «Клиент ждёт ответа» и благодарности.</li>
+</ul>
+<p>На Pro остались загрузка знаний, долгий разговор без сделки, второй мозг и чат проекта. Там нужен большой контекст, и экономить на нём я не стал. У каждого сценария свой ключ модели в настройках, поэтому откатить один алерт обратно на Pro можно одной строкой, если ложных срабатываний станет больше.</p>
+<p>Что сломалось по дороге:</p>
+<ul>
+<li><strong>Облегчённая модель на длинной инструкции.</strong> 18.10.2026 в конвейере «Техномага» flash-lite вызвала запись файла без пути, и весь прогон упал. Длинные шаги я перевёл на gemini-3-flash-preview.</li>
+<li><strong>Старая модель пропала из API.</strong> Gemini 1.5 Flash уже сняли, поэтому в JE 3.0 я поставил алиас <code>gemini-flash-latest</code>, а на случай 404 запрос уходит в Pro.</li>
+<li><strong>Кончился баланс.</strong> Тот самый сбой 15.11.2026: три с половиной часа без ответов Gemini, пока я не пополнил счёт.</li>
+<li><strong>Ответ не в том формате.</strong> Облегчённые модели чаще ломают JSON, поэтому один повтор стоит в каждом сценарии.</li>
+</ul>
+<h2 id="gemini-4-ili-claude-kakuyu-neyroset-stavit-pod-kapot-biznes-">Gemini 4 или Claude: какую нейросеть ставить под капот бизнес-процессов?</h2>
+<p>Ставь обе и раздели задачи. Gemini берёт поток: разбор видео, сортировку, подписи, алерты, всё, что бот запускает сотни раз. Claude берёт то, где нужно думать и писать с первой попытки: сценарии, статьи, работу с кодом.</p>
+<p>Так у меня устроен медиа-штаб ii.systema. 30.09.2026 я перевёл разбор чужих роликов с Claude на Gemini, и с тех пор лимит подписки Claude уходит только на разговор и сценарии. Разбор одного ролика на Flash стоит около цента. Сценарии, хуки и статьи пишет Claude Opus 5.5 по подписке, без оплаты за каждый вызов. Как вся связка работает от референса до выкладки, видно в <a href="/iisystema/">кейсе ii.systema</a>.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th></th>
+<th>Gemini по ключу</th>
+<th>Claude по подписке</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Как платишь</td>
+<td>за каждый токен, включая размышления</td>
+<td>фиксированно в месяц</td>
+</tr>
+<tr>
+<td>Где упираешься</td>
+<td>в деньги и баланс</td>
+<td>в окно лимита подписки</td>
+</tr>
+<tr>
+<td>Что у меня делает</td>
+<td>разбор роликов, подписи, алерты, сводки</td>
+<td>сценарии, статьи, код, разговор</td>
+</tr>
+<tr>
+<td>Что настроить</td>
+<td>уровень размышлений на сценарий</td>
+<td>Effort и выбор модели</td>
+</tr>
+</tbody>
+</table></div>
+<p>Лидеры рейтингов меняются каждый месяц. В посте 30.10.2026 я писал, что на одну модель не завязываюсь: система собрана из модулей, и под аудит кода я подключаю ту, что сейчас сильнее. Gemini 4 Carbon в коде и уязвимостях сейчас в топе, значит, на такие задачи её и стоит пробовать, на высоком уровне.</p>
+<h2 id="gemma-4-lokalno-imeet-li-smysl-podnimat-model-na-svoem-serve">Gemma 4 локально: имеет ли смысл поднимать модель на своём сервере?</h2>
+<p>Для малого бизнеса чаще всего нет. Своя модель окупается, когда переписку и документы нельзя отдавать наружу совсем или когда запросов так много, что счёт за API выше аренды сервера с видеокартой. В остальных случаях Flash на low по ключу дешевле и проще.</p>
+<p>Gemma 4 это открытая модель Google, её веса можно скачать и запустить у себя. У неё тоже есть режим размышлений, он включается отдельным служебным токеном, это разобрано в <a href="https://dev.to/pulkitgovrani/gemma-4s-thinking-mode-a-practical-guide-to-the-think-token-8c5">статье на DEV Community</a>. В <a href="https://dev.to/wildeconforce/i-ran-a-7500-token-architecture-spec-through-4-models-the-cheapest-one-caught-everything-the-9ka">другом замере</a> Gemma 4 31B на разборе технического задания совпала с флагманами в 3 модулях из 4 примерно за 1/14 цены вызова.</p>
+<p>Gemma 4 я сам ещё не запускал, поэтому своих цифр по ней нет. Что знаю по своим серверам: мой транскрибатор живёт на Hetzner с 2 ядрами и 4 ГБ памяти без видеокарты, и запись на 76 минут он расшифровывает за 25–40 минут (замер 13.06.2026). Языковой модели среднего размера на таком железе будет тесно. Перед покупкой сервера с видеокартой посчитай, сколько ты сейчас платишь за API в месяц, и сравни с арендой.</p>
+<p>Когда своя модель всё же нужна:</p>
+<ul>
+<li>медицинские карты, юридические и финансовые документы, которые нельзя передавать сторонним сервисам;</li>
+<li>закрытый контур компании без выхода в интернет;</li>
+<li>очень большой поток однотипных запросов, где каждый цент за вызов складывается в заметную сумму.</li>
+</ul>
+<h2 id="s-chego-nachat-esli-gemini-uzhe-stoit-u-tebya-v-bote">С чего начать, если Gemini уже стоит у тебя в боте?</h2>
+<p>Начни с аудита запросов, а не со смены модели. Открой настройки бота и выпиши, какие сценарии вызывают Gemini и как часто. Почти всегда окажется, что пара частых сценариев съедает основной счёт.</p>
+<ol>
+<li>Выпиши сценарии и частоту вызовов за сутки.</li>
+<li>Отметь, где нужна глубокая логика, а где хватит быстрого ответа.</li>
+<li>Частым и простым поставь low или облегчённую Flash.</li>
+<li>Сложным оставь high, но запускай их реже и проверяй ответ.</li>
+<li>Через 1–2 дня сверь счёт и качество: ложных срабатываний не стало больше, ответы не обрываются.</li>
+<li>Добавь повтор при сбое и предупреждение о балансе.</li>
+</ol>
+<p>Если хочешь автоматизировать разбор заявок, поддержку или конвейер контента без переплат за лишние токены, напиши мне в личку <a href="https://t.me/solovarov">t.me/solovarov</a> слово «система». Посмотрим, какие процессы у тебя можно перевести на быстрые и дешёвые модели, а где оставить глубокое размышление.</p>
+    </article>
+
+    
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Что такое Thinking Budget простыми словами?</h3><p>Это сколько модель может «подумать про себя» перед ответом. Размышления идут отдельными токенами, ты их не видишь, но платишь за них как за ответ. В новых моделях Gemini вместо числа токенов ставится уровень thinking_level, у Gemini 4 Carbon это low, medium или high.</p></div><div class="qa"><h3 id="faq-2">Почему включённые размышления опасны для Telegram-бота?</h3><p>Размышления занимают тот же лимит выходных токенов, что и сам ответ. Если лимит маленький, модель тратит его на мысли и обрывает текст на полуслове. У моего робота Бадди так и было, пока 12.11.2026 я не выключил размышления и не стал резать оборванный текст до целой фразы.</p></div><div class="qa"><h3 id="faq-3">Сколько стоит Gemini 4 в быстром режиме и с глубокими размышлениями?</h3><p>По документации Google цена ответа это сумма выходных токенов и токенов размышлений, поэтому высокий уровень всегда дороже. Точные цены за миллион токенов меняются, сверяй их на странице цен Gemini API в день подключения. В тесте Google от 3 ноября 2026 Gemini 3.8 Flash на уровне low решила все 50 задач и стоила заметно меньше, чем на уровне по умолчанию.</p></div><div class="qa"><h3 id="faq-4">Можно ли использовать бесплатный ключ Gemini API в реальном бизнесе?</h3><p>Для проб и своих задач да, у меня на бесплатном лимите с 30.09.2026 работал разбор роликов. Для клиентских данных нет. На бесплатном тарифе Google AI Studio запросы могут идти на дообучение моделей, поэтому рабочие проекты переводи на платный тариф с Cloud Billing.</p></div><div class="qa"><h3 id="faq-5">Как обойти блокировку Google AI Studio из России?</h3><p>Напрямую не выйдет. 02.11.2026 я проверял, AI Studio и Gemini API для России отвечают 403. В проекте VetCT с 30.10.2026 запросы к Gemini идут через российский шлюз Polza.ai с оплатой в рублях, формат запросов остаётся гугловский.</p></div><div class="qa"><h3 id="faq-6">Когда Gemini 4 выгоднее, чем Claude?</h3><p>Когда задача повторяется сотни раз в день и её запускает бот, а не человек. Разбор одного ролика на платной Flash у меня стоит около цента. Claude по подписке я оставляю на сценарии, тексты и работу с кодом, где важен результат с первой попытки.</p></div><div class="qa"><h3 id="faq-7">Нужно ли ставить Gemini 4 на высокий уровень размышлений для поддержки клиентов?</h3><p>Нет. Ответы клиентам, сортировка заявок и короткие сводки идут на low или на облегчённой модели. Высокий уровень нужен на аудите кода, длинных договорах и многошаговых расчётах, где ошибка стоит дороже токенов.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://aistudio.google.com/docs/thinking" rel="noopener">Документация Gemini API: Thinking (thinking_level, цены, лимиты)</a> <span>уровни размышлений моделей Gemini 4 и Flash, оплата токенов размышлений, статус incomplete; прочитано 17.11.2026</span></li><li><a href="https://developers.googleblog.com/cost-per-task-using-cheap-classifiers-to-route-across-gemini-models-and-thinking-levels/" rel="noopener">Google for Developers: Cost per task, роутинг по моделям и уровням размышлений</a> <span>тест на 50 задачах, Gemini 3.8 Flash на уровне low, 3 ноября 2026</span></li><li><a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/thinking" rel="noopener">Vertex AI: Thinking, совместимость thinking_budget</a> <span>старый параметр thinking_budget у новых моделей оставлен для совместимости</span></li><li><a href="https://dev.to/pulkitgovrani/gemma-4s-thinking-mode-a-practical-guide-to-the-think-token-8c5" rel="noopener">DEV Community: Gemma 4&#x27;s Thinking Mode</a> <span>как включается режим размышлений у открытой Gemma 4</span></li><li><a href="https://dev.to/wildeconforce/i-ran-a-7500-token-architecture-spec-through-4-models-the-cheapest-one-caught-everything-the-9ka" rel="noopener">DEV Community: 7 500-token spec через 4 модели</a> <span>Gemma 4 31B против флагманов, примерно 1/14 цены за вызов</span></li><li><a href="https://t.me/solovarovp/2094" rel="noopener">Пост канала: 4 новости недели для бизнеса (Gemini 4 Carbon)</a> <span>59 баллов в Artificial Analysis и 88,2% в поиске уязвимостей, 30.10.2026</span></li><li><a href="https://petrsolovarov.ru/blog/gemini-omni-1-2-flash-dlya-biznesa/" rel="noopener">Статья: Gemini Omni 1.2 Flash для бизнеса</a> <span>403 из России 02.11.2026, шлюз Polza.ai в VetCT с 30.10.2026, счёт JE 3.0 $46</span></li><li><a href="https://app.notion.com/p/LLM-je30-server-Flash-40fdfdb1482281dd845fd6c683367685" rel="noopener">Задача: перевод je30-server с Pro на Flash</a> <span>какие сценарии ушли на Flash 05.11.2026, а какие остались на Pro</span></li><li><a href="https://github.com/solovarov90/ii-systema/blob/main/snimai/README.md" rel="noopener">README «Снимай»: робот Бадди</a> <span>thinkingBudget 0, ответы перестали обрываться, 12.11.2026</span></li><li><a href="https://app.notion.com/p/Gemini-419dfdb1482281d3a5aecb9774f7e920" rel="noopener">Журнал изменений: сбой баланса Gemini 15.11.2026</a> <span>ошибка 402 с 06:33 до 10:16 МСК, что упало и как повторяется</span></li><li><a href="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/" rel="noopener">Статья: почему лимит Claude кончается к обеду</a> <span>разбор роликов перенесён на Gemini 30.09.2026, около цента за ролик</span></li><li><a href="https://app.notion.com/p/YouTube-3fadfdb14822810e8aeac466af3729d9" rel="noopener">Гайд: ассистент, который учится по YouTube</a> <span>данные бесплатного тарифа AI Studio могут идти на обучение, 09.11.2026</span></li><li><a href="https://app.notion.com/p/Claude-3f6dfdb1482281a886d8daa5f156cca0" rel="noopener">Схема выбора моделей Claude</a> <span>регулятор Effort в Claude, 11.10.2026</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Я разложу твои процессы по моделям и уровням размышлений, настрою бота и проверки ответа, чтобы рутина шла быстро и не съедала бюджет на токены.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, списывается раз в месяц, отменить можно в любой момент</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/claude-code-parallelnye-zadachi-biznes/">Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса</a><span>Инструменты · 14 ноября 2026</span></li><li><a href="/blog/skilly-claude-code-instruktsii-dlya-agenta/">Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз</a><span>Инструменты · 13 ноября 2026</span></li><li><a href="/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/">Почему Claude тупеет от MCP-коннекторов и как настроить инструменты</a><span>Инструменты · 13 ноября 2026</span></li><li><a href="/blog/gemini-omni-1-2-flash-dlya-biznesa/">Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</a><span>Инструменты · 7 ноября 2026</span></li></ul><h3 class="related-all-t">Все статьи блога</h3><ul class="related-all"><li><a href="/blog/ii-agent-otpravlyaet-soobscheniya-bezopasno/">ИИ-агент пишет клиентам от твоего имени: как не дать ему отправить лишнее</a></li><li><a href="/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/">ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов</a></li><li><a href="/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/">ИИ-агенты в Premiere и Photoshop: что они умеют и кому заменят монтажёра</a></li><li><a href="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</a></li><li><a href="/blog/razbor-obrascheniy-klientov-ii-chernoviki/">Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</a></li><li><a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">Память ИИ-агента: как сделать, чтобы Claude помнил бизнес и не путал контекст</a></li><li><a href="/blog/bezopasno-li-puskat-claude-code-na-server/">Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</a></li><li><a href="/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/">Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</a></li><li><a href="/blog/zadachi-ii-golosom-telegram/">Как ставить задачи ИИ голосом в Telegram и получать готовый результат</a></li><li><a href="/blog/reklama-meta-cherez-claude-pipeboard/">Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</a></li><li><a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</a></li><li><a href="/blog/claude-code-agent-telegram-server/">Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</a></li><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a></li><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a></li><li><a href="/blog/media-konveyer-na-ii/">Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</a></li><li><a href="/blog/avtootvet-kodovoe-slovo/">Автоответ в Instagram: как собирать заявки по кодовому слову через ИИ</a></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+}
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
+</script>
+</body>
+</html>

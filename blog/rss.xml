@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Wed, 18 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>Gemini 4 Thinking: когда модели думать долго, а когда быстро, и сколько это стоит</title>
+    <link>https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/</guid>
+    <pubDate>Tue, 17 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Инструменты</category>
+    <description>Gemini 4 для бизнеса без переплат за размышления. Как работает thinking budget и thinking_level, где долгое думание окупается, а где режет ответы бота.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>ИИ-агент пишет клиентам от твоего имени: как не дать ему отправить лишнее</title>
     <link>https://petrsolovarov.ru/blog/ii-agent-otpravlyaet-soobscheniya-bezopasno/</link>
