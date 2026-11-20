@@ -6,7 +6,16 @@
   <atom:link href="https://petrsolovarov.ru/blog/rss.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи и инструкции про внедрение ИИ в бизнес: конвейеры контента, автоответы, базы знаний. Факты из своих проектов.</description>
   <language>ru</language>
-  <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <lastBuildDate>Fri, 20 Nov 2026 09:00:00 +0300</lastBuildDate>
+  <item>
+    <title>GPT-6.2 Astra и Sol: что умеют и стоит ли менять на них Claude в бизнесе</title>
+    <link>https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/</link>
+    <guid isPermaLink="true">https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/</guid>
+    <pubDate>Wed, 18 Nov 2026 09:00:00 +0300</pubDate>
+    <category>Инструменты</category>
+    <description>GPT-6.2 для бизнеса: чем отличаются Astra и Sol, сколько стоят, стоит ли менять на них Claude и как закрепить версию модели в боте, чтобы обновление не сломало работу.</description>
+    <enclosure url="https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/img/cover.jpg" type="image/jpeg" length="0"/>
+  </item>
   <item>
     <title>Gemini 4 Thinking: когда модели думать долго, а когда быстро, и сколько это стоит</title>
     <link>https://petrsolovarov.ru/blog/gemini-4-thinking-budget-dlya-biznesa/</link>

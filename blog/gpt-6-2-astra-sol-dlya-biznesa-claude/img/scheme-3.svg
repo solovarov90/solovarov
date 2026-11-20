@@ -1,0 +1,59 @@
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Проверка новой модели на копии: рабочий бот закреплён на версии с номером, копия с GPT-6.2 отвечает на те же вопросы, переключение только после сравнения">
+<title>Проверка новой модели на копии</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+<marker id="arrLine" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+</defs>
+
+<!-- Рабочий бот -->
+<rect x="40" y="30" width="520" height="190" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="80" cy="72" r="20" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="80" y="79" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">1</text>
+<text x="116" y="80" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Рабочий бот</text>
+<!-- замок -->
+<rect x="480" y="58" width="44" height="34" rx="6" fill="var(--accent)"/>
+<path d="M489 58 V46 A13 13 0 0 1 515 46 V58" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<text x="80" y="136" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Версия с номером,</text>
+<text x="80" y="164" font-family="var(--font-body)" font-size="19" fill="var(--muted)">на нём отвечают клиентам</text>
+<text x="80" y="198" font-family="var(--font-body)" font-size="18" fill="var(--fg)">Не трогаем, пока копия не проверена</text>
+
+<!-- Копия -->
+<rect x="640" y="30" width="520" height="190" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="680" cy="72" r="20" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="680" y="79" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">2</text>
+<text x="716" y="80" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Копия</text>
+<text x="680" y="136" font-family="var(--font-body)" font-size="19" fill="var(--muted)">GPT-6.2, те же вопросы</text>
+<text x="680" y="164" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Тот же промпт, база знаний</text>
+<text x="680" y="192" font-family="var(--font-body)" font-size="19" fill="var(--muted)">и подключения</text>
+
+<!-- Стрелки вниз к таблице -->
+<line x1="300" y1="220" x2="300" y2="300" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+<line x1="900" y1="220" x2="900" y2="300" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+
+<!-- Таблица сравнения -->
+<rect x="40" y="310" width="1120" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="80" cy="352" r="20" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="80" y="359" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">3</text>
+<text x="116" y="360" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Сравнение на 20–30 вопросах клиентов</text>
+<line x1="40" y1="390" x2="1160" y2="390" stroke="var(--line)" stroke-width="2"/>
+<line x1="420" y1="390" x2="420" y2="520" stroke="var(--line)" stroke-width="2"/>
+<line x1="790" y1="390" x2="790" y2="520" stroke="var(--line)" stroke-width="2"/>
+<text x="230" y="426" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Вопрос</text>
+<text x="605" y="426" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Ответ рабочего</text>
+<text x="975" y="426" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Ответ копии</text>
+<line x1="40" y1="446" x2="1160" y2="446" stroke="var(--line)" stroke-width="1"/>
+<text x="230" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">цены, сроки, обещания</text>
+<text x="605" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">факты, тон, длина</text>
+<text x="975" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">не хуже?</text>
+<line x1="40" y1="500" x2="40" y2="500" stroke="var(--line)"/>
+
+<!-- Главная стрелка: переключить -->
+<line x1="600" y1="520" x2="600" y2="600" stroke="var(--accent)" stroke-width="4" marker-end="url(#arr)"/>
+<rect x="240" y="610" width="720" height="70" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+<text x="600" y="640" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Переключить рабочего бота</text>
+<text x="600" y="668" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">только если копия не хуже на всех важных вопросах</text>
+</svg>

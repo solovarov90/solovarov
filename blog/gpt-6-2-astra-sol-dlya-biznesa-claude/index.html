@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPT-6.2 Astra и Sol: что умеют и стоит ли менять на них Claude в бизнесе — блог Петра Соловарова</title>
+<meta name="description" content="GPT-6.2 для бизнеса: чем отличаются Astra и Sol, сколько стоят, стоит ли менять на них Claude и как закрепить версию модели в боте, чтобы обновление не сломало работу.">
+<meta name="author" content="Пётр Соловаров">
+
+<link rel="canonical" href="https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/">
+<link rel="alternate" type="application/rss+xml" title="Блог Петра Соловарова" href="https://petrsolovarov.ru/blog/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Пётр Соловаров">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="GPT-6.2 Astra и Sol: что умеют и стоит ли менять на них Claude в бизнесе">
+<meta property="og:description" content="GPT-6.2 для бизнеса: чем отличаются Astra и Sol, сколько стоят, стоит ли менять на них Claude и как закрепить версию модели в боте, чтобы обновление не сломало работу.">
+<meta property="og:url" content="https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/">
+<meta property="og:image" content="https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/img/cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GPT-6.2 Astra и Sol для бизнеса: сравнение с Claude и закрепление версии модели">
+<meta property="article:published_time" content="2026-11-18">
+<meta property="article:author" content="https://petrsolovarov.ru/">
+<meta property="article:section" content="Инструменты">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPT-6.2 Astra и Sol: что умеют и стоит ли менять на них Claude в бизнесе">
+<meta name="twitter:description" content="GPT-6.2 для бизнеса: чем отличаются Astra и Sol, сколько стоят, стоит ли менять на них Claude и как закрепить версию модели в боте, чтобы обновление не сломало работу.">
+<meta name="twitter:image" content="https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/#article",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/"
+   },
+   "headline": "GPT-6.2 Astra и Sol: что умеют и стоит ли менять на них Claude в бизнесе",
+   "description": "GPT-6.2 для бизнеса: чем отличаются Astra и Sol, сколько стоят, стоит ли менять на них Claude и как закрепить версию модели в боте, чтобы обновление не сломало работу.",
+   "image": [
+    "https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/img/cover.jpg"
+   ],
+   "datePublished": "2026-11-18",
+   "dateModified": "2026-11-20",
+   "inLanguage": "ru-RU",
+   "wordCount": 4814,
+   "articleSection": "Инструменты",
+   "author": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "publisher": {
+    "@id": "https://petrsolovarov.ru/#person"
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://petrsolovarov.ru/blog/#blog",
+    "name": "Блог Петра Соловарова"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://petrsolovarov.ru/#person",
+   "name": "Пётр Соловаров",
+   "url": "https://petrsolovarov.ru/",
+   "image": "https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg",
+   "jobTitle": "Внедряю ИИ в бизнес: конвейеры контента, автоответы, базы знаний",
+   "sameAs": [
+    "https://t.me/solovarov",
+    "https://t.me/solovarovp",
+    "https://www.instagram.com/ii.systema/"
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Главная",
+     "item": "https://petrsolovarov.ru/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Блог",
+     "item": "https://petrsolovarov.ru/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "GPT-6.2 Astra и Sol: что умеют и стоит ли менять на них Claude в бизнесе",
+     "item": "https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://petrsolovarov.ru/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Чем модель GPT-6.2 Astra отличается от Sol?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Astra это флагман для сложной профессиональной работы, длинных агентских задач и работы в терминале. Sol это модель для повседневных задач, она дешевле в 4 раза. По цене API на 17.11.2026 Astra стоит $8 за миллион входных токенов и $40 за миллион выходных, Sol стоит $2 и $10."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему нельзя указывать latest в названии модели в рабочем боте?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Слово latest или название без номера версии значит, что провайдер сам поменяет модель под ботом, когда выйдет новая. Бот начнёт отвечать клиентам другим тоном, другой длиной и в другом формате, хотя ты ничего не трогал. Рабочему боту нужна точная версия с номером, а новую модель проверяют рядом на копии."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Можно ли использовать GPT-6.2 Astra внутри Claude Code?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да, через Codex, консольную программу OpenAI, и плагин openai/codex-plugin-cc, который связывает её с Claude Code. В моей инструкции к ролику от 10.10.2026 Claude ведёт архитектуру и ставит задачи, а Codex делает ревью и поиск ошибок по командам /codex:review и /codex:adversarial-review. Нужны оба аккаунта и обе программы на компьютере."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Что делать, если тон ответов бота изменился после релиза GPT-6.2?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Сначала посмотри в настройках, какая модель стоит у бота. Если там latest или имя без версии, верни прошлую версию с номером и закрепи её. Потом прогони новую модель на копии бота на тех же вопросах клиентов и переключай рабочего бота, только если ответы не хуже."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как безопасно протестировать GPT-6.2 перед запуском на реальных клиентах?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Сделай копию бота с тем же промптом и той же базой знаний и поставь в неё GPT-6.2. Собери 20–30 настоящих вопросов клиентов, прогони их через рабочего бота и через копию и сравни ответы в таблице. Переключай только после того, как копия ответила не хуже на всех вопросах, где важны цены, сроки и обещания."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Стоит ли бизнесу полностью отказываться от подписки Claude в пользу OpenAI?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Я бы не стал. У меня на одной серверной подписке Claude Pro живут 4 бота, и переезд целиком означал бы переписать правила и проверки для каждого. Выгоднее подключать модель OpenAI на те шаги, где она сильнее или дешевле, и держать запасной путь."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "GPT-6.2 уже доступна в ChatGPT и через API?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "По анонсу OpenAI от 17.11.2026 обе модели есть в ChatGPT Work и Codex для тарифов Plus, Pro, Enterprise и Edu и в API под именами gpt-6.2-astra и gpt-6.2-sol. В Enterprise и Edu их сначала включает администратор рабочего пространства."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+/* Статья блога. Наследует кейсы: палитра графит и золото, одна колонка 680 px, светлая и тёмная тема. */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f3ee; --surface: #ffffff; --fg: #1a1814; --muted: #5d574c; --line: #ddd6c8;
+  --accent: #8a5a00; --accent-ink: #ffffff; --mark: #f0c264; --shot-bg: #14120f; --warn: #8a3b00;
+  --font-display: "Jost", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Open Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+    --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12110e; --surface: #1b1914; --fg: #efe9dc; --muted: #a79f8e; --line: #302c24;
+  --accent: #e8a33d; --accent-ink: #14120f; --mark: #e8a33d; --shot-bg: #0a0907; --warn: #f0b35a;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65; padding-inline: 20px; padding-block: 0 80px; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.read { max-width: 680px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 16px; align-items: center; padding-block: 20px; font-family: var(--font-display); font-weight: 500; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+.top a { color: inherit; text-decoration: none; }
+.top b { color: var(--fg); font-weight: 600; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.top nav a { white-space: nowrap; }
+.top nav a:hover { color: var(--accent); }
+
+.crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs li + li::before { content: "→"; margin-right: 8px; color: var(--line); }
+
+.hero { padding-block: 28px 36px; }
+.eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; max-width: 17em; }
+.hero h1 span { background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); }
+.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); max-width: 40em; margin-top: 22px; }
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 26px; font-size: 15px; color: var(--muted); flex-wrap: wrap; }
+.byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 52% 18%; }
+.byline b { color: var(--fg); font-family: var(--font-display); font-weight: 600; display: block; font-size: 16px; }
+.byline .meta-line { line-height: 1.4; }
+.cover { margin: 0 0 8px; }
+.cover img { display: block; width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--shot-bg); aspect-ratio: 1200 / 630; object-fit: cover; }
+
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 22px; margin: 32px 0; font-size: 15px; }
+.toc-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.toc li { margin-bottom: .35em; break-inside: avoid; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc li::marker { color: var(--accent); font-family: var(--font-display); font-weight: 600; }
+
+.article { padding-top: 8px; }
+.article h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 56px 0 18px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.article h3 { font-size: 20px; margin: 28px 0 8px; }
+.article ul, .article ol { padding-left: 1.2em; margin: 0 0 1em; }
+.article li { margin-bottom: .45em; }
+.article li::marker { color: var(--accent); }
+.article blockquote { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote.warn { border-left-color: var(--warn); }
+.article code { font-family: ui-monospace, Consolas, monospace; font-size: .92em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+.article pre { background: var(--shot-bg); color: #efe9dc; padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+.article pre code { background: none; border: 0; padding: 0; color: inherit; }
+.article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+.article strong { font-weight: 700; }
+
+.shot { margin: 28px 0 8px; }
+.frame { background: var(--shot-bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.frame .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.18); }
+.frame img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+.scheme { margin: 28px 0 8px; }
+.scheme svg { display: block; width: 100%; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; box-sizing: border-box; font-family: var(--font-body); }
+.scheme figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; max-width: 60em; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); margin: 24px 0; border-radius: 6px; }
+table.fix { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; background: var(--surface); }
+table.fix th, table.fix td { text-align: left; vertical-align: top; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+table.fix th { font-family: var(--font-display); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); background: var(--bg); }
+table.fix td:first-child { font-weight: 600; min-width: 150px; }
+table.fix tr:last-child td { border-bottom: 0; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0; list-style: none; padding: 0; counter-reset: s; }
+.flow li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-size: 15px; line-height: 1.4; position: relative; margin: 0; }
+.flow li b { display: block; font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; }
+.flow li::before { counter-increment: s; content: counter(s); position: absolute; top: 10px; right: 12px; font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13px; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 28px 0; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; overflow: hidden; }
+.figures div { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.figures strong { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+.proof { border: 1px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 28px 0; background: var(--surface); font-size: 16px; }
+.proof .proof-t { font-family: var(--font-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.proof p:last-child { margin-bottom: 0; }
+
+.faq { margin-top: 56px; }
+.faq h2, .sources h2, .related h2, .offer h2 { font-size: clamp(26px, 3.4vw, 34px); margin: 0 0 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.qa:last-child { border-bottom: 0; }
+.qa h3 { font-size: 19px; margin: 0 0 8px; }
+.qa p { margin: 0; color: var(--fg); }
+
+.sources { margin-top: 48px; font-size: 15px; }
+.sources ul { padding-left: 1.2em; margin: 0; }
+.sources li { margin-bottom: .5em; }
+.sources li span { color: var(--muted); }
+
+.offer { margin-top: 64px; }
+.offer .read p { font-size: 17px; }
+.pkgs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin: 28px 0; }
+.pkg { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; }
+.pkg.main { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.pkg h3 { margin: 0 0 4px; font-size: 21px; }
+.pkg .price { font-family: var(--font-display); font-size: 32px; font-weight: 700; margin: 6px 0 2px; }
+.pkg .price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.pkg .term { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.pkg ul { padding-left: 1.1em; margin: 0; font-size: 15px; }
+.pkg li { margin-bottom: .4em; }
+.pkg .usd { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 4px; }
+.pkg ul { flex: 1; }
+.pkg .btn { margin-top: 16px; text-align: center; font-size: 15px; padding: 10px 16px; }
+.note { border-left: 4px solid var(--mark); background: var(--surface); padding: 14px 18px; margin: 24px 0; font-size: 16px; }
+.club-guide { margin: 40px 0 8px; padding: 24px 26px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--accent); }
+.club-guide .cg-eyebrow { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.club-guide h2 { margin: 6px 0 8px; font-size: 24px; }
+.club-guide p { margin: 0 0 16px; font-size: 16px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+.word { font-family: var(--font-display); font-weight: 700; background: linear-gradient(transparent 62%, var(--mark) 62% 92%, transparent 92%); padding: 0 2px; }
+
+.related, .cases { margin-top: 48px; }
+.cases h2 { font-size: 20px; margin: 0 0 12px; }
+.related ul, .cases ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.related li, .cases li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; }
+.related li a, .cases li a { font-family: var(--font-display); font-weight: 600; text-decoration: none; font-size: 17px; }
+.related li span, .cases li span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
+.related-all-t { font-size: 18px; margin: 28px 0 12px; }
+.related ul.related-all { gap: 8px; }
+.related ul.related-all li { background: none; border: 0; border-radius: 0; padding: 0; }
+.related ul.related-all li a { font-family: inherit; font-weight: 400; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
+
+.footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .toc ol { columns: 1; }
+  .top nav { gap: 6px 12px; }
+  .article h2 { margin-top: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113666612', 'ym');
+
+    ym(113666612, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113666612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="/"><b>Пётр Соловаров</b> · блог</a>
+    <nav aria-label="Разделы сайта"><a href="/blog/">Все статьи</a><a href="/#projects">Кейсы</a><a href="https://t.me/solovarovp" rel="noopener">Канал</a></nav>
+  </div>
+
+  <ol class="crumbs" aria-label="Вы здесь">
+    <li><a href="/">Главная</a></li>
+    <li><a href="/blog/">Блог</a></li>
+    <li aria-current="page">Инструменты</li>
+  </ol>
+
+  <header class="hero">
+    <div class="eyebrow">Новость → как применить · Инструменты · 27 мин чтения</div>
+    <h1>GPT-6.2 Astra и Sol: что умеют и стоит ли менять на них Claude в бизнесе</h1>
+    <p class="lead">GPT-6.2 для бизнеса: чем отличаются Astra и Sol, сколько стоят, стоит ли менять на них Claude и как закрепить версию модели в боте, чтобы обновление не сломало работу.</p>
+    <div class="byline">
+      <img src="https://petrsolovarov.ru/photo_2025-10-16_22-35-32.jpg" alt="Пётр Соловаров" width="44" height="44" loading="eager">
+      <div class="meta-line"><b>Пётр Соловаров</b>Опубликовано <time datetime="2026-11-18">18 ноября 2026</time> · обновлено <time datetime="2026-11-20">20 ноября 2026</time> · 4 814 слов</div>
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img src="/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/img/cover.jpg" alt="GPT-6.2 Astra и Sol для бизнеса: сравнение с Claude и закрепление версии модели" width="1200" height="630" loading="eager" fetchpriority="high">
+  </figure>
+
+  <main class="read">
+    <nav class="toc" aria-label="Оглавление"><div class="toc-t">В статье</div><ol><li><a href="#chto-izmenilos-v-gpt-6-2-chem-otlichayutsya-astra-i-sol">Что изменилось в GPT-6.2: чем отличаются Astra и Sol?</a></li><li><a href="#stoit-li-menyat-claude-code-na-novye-modeli-openai">Стоит ли менять Claude Code на новые модели OpenAI?</a></li><li><a href="#kak-svyazat-openai-i-claude-v-odnoy-sisteme-bez-szhiganiya-l">Как связать OpenAI и Claude в одной системе без сжигания лимитов?</a></li><li><a href="#pochemu-avtoobnovlenie-bota-na-gpt-6-2-slomaet-biznes-protse">Почему автообновление бота на GPT-6.2 сломает бизнес-процесс?</a></li><li><a href="#kak-zakrepit-versiyu-modeli-i-protestirovat-obnovlenie-na-ko">Как закрепить версию модели и протестировать обновление на копии?</a></li><li><a href="#proveril-na-sebe-pochemu-ya-derzhu-shtab-na-claude-i-ne-zavy">Проверил на себе: почему я держу штаб на Claude и не завязываюсь на одну сеть</a></li><li><a href="#skolko-stoit-rabota-s-novymi-modelyami-i-gde-na-nih-mozhno-s">Сколько стоит работа с новыми моделями и где на них можно сэкономить?</a></li><li><a href="#kakie-podvodnye-kamni-u-perehoda-na-gpt-6-2">Какие подводные камни у перехода на GPT-6.2?</a></li><li><a href="#kakuyu-neyroset-vybrat-dlya-konkretnyh-zadach-biznesa-v-2026">Какую нейросеть выбрать для конкретных задач бизнеса в 2026 году?</a></li></ol></nav>
+    <article class="article">
+<p>GPT-6.2 для бизнеса это две модели OpenAI, которые вышли 17 ноября 2026 года: Astra для тяжёлой работы и длинных агентских задач, Sol для повседневной рутины по цене в 4 раза ниже. Менять на них Claude целиком я не советую. Подключай GPT-6.2 на те шаги, где она сильнее или дешевле, а рабочих ботов держи на закреплённой версии модели и проверяй новинку на копии.</p>
+<p>Ниже разбираю, что именно вышло, сколько это стоит, как я связываю модели OpenAI и Claude у себя и почему бот с настройкой «последняя модель» может завтра ответить твоему клиенту совсем по-другому.</p>
+<h2 id="chto-izmenilos-v-gpt-6-2-chem-otlichayutsya-astra-i-sol">Что изменилось в GPT-6.2: чем отличаются Astra и Sol?</h2>
+<p>Astra это флагман: сложная профессиональная работа, многошаговые задачи агента, код и терминал. Sol это рабочая лошадка на каждый день: тексты, повседневный код, ревью. Обе доступны в ChatGPT, в Codex и через API с 17.11.2026, это видно в <a href="https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531">анонсе на форуме разработчиков OpenAI</a>.</p>
+<p>Что важно знать про каждую:</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th></th>
+<th>GPT-6.2 Astra</th>
+<th>GPT-6.2 Sol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Для чего</td>
+<td>сложные проекты, длинные задачи агента, документы и таблицы по профессиональным шаблонам</td>
+<td>повседневная работа, тексты, код, ревью</td>
+</tr>
+<tr>
+<td>Имя в API</td>
+<td><code>gpt-6.2-astra</code></td>
+<td><code>gpt-6.2-sol</code></td>
+</tr>
+<tr>
+<td>Цена за 1 млн токенов, вход / выход</td>
+<td>$8 / $40</td>
+<td>$2 / $10</td>
+</tr>
+<tr>
+<td>Что изменилось в цене</td>
+<td>на 20% дешевле GPT-6 Astra</td>
+<td>как у GPT-6.1 Sol</td>
+</tr>
+</tbody>
+</table></div>
+<p>Токен здесь это кусочек слова: модели считают и текст на входе, и ответ именно в них. Цены и имена моделей взяты из того же анонса, про скидку 20% к прошлой Astra пишет <a href="https://siliconangle.com/2026/11/17/openai-rolls-out-gpt-6-2-astra-for-professional-work-and-gpt-6-2-sol-for-everyday-work/">SiliconANGLE</a>.</p>
+<p>Самое интересное для бизнеса в тестах. OpenAI сообщает, и это пересказывает <a href="https://9to5mac.com/2026/11/17/openai-upgrades-chatgpt-and-codex-with-new-gpt-6-2-astra-and-sol-models/">9to5Mac</a>, на наборе задач по коду FrontierCode 2.0 Sol отстала от Astra всего на 0,5 пункта, а задача обошлась примерно в пять раз дешевле. Для тебя вывод простой: если задача не самая тяжёлая, начинай с Sol, а Astra включай там, где Sol реально не справилась.</p>
+<p>Где доступно. В ChatGPT Work и Codex обе модели открыли для тарифов Plus, Pro, Enterprise и Edu, в Enterprise и Edu их сначала включает администратор. В <a href="https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available/">GitHub Copilot</a> они тоже появились, для тарифов Pro+, Max, Business и Enterprise.</p>
+<!-- img: type=screenshot url=https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available/ caption="Запись GitHub о выходе GPT-6.2 Astra и Sol: здесь же сказано, что новые модели включаются сами, если администратор не выключил это правило." alt="GPT-6.2 Astra и Sol для бизнеса: анонс в GitHub Changelog" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="GPT-6.2 Astra и Sol для бизнеса: анонс в GitHub Changelog" src="/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/img/screenshot-1.jpg"></div><figcaption>Запись GitHub о выходе GPT-6.2 Astra и Sol: здесь же сказано, что новые модели включаются сами, если администратор не выключил это правило.</figcaption></figure>
+<h2 id="stoit-li-menyat-claude-code-na-novye-modeli-openai">Стоит ли менять Claude Code на новые модели OpenAI?</h2>
+<p>Нет, если у тебя уже работает связка на Claude. Переезд целиком стоит дороже, чем кажется: правила, проверки и тон у каждого бота настроены под конкретную модель. Разумнее добавить GPT-6.2 как ещё один модуль и отдать ей те шаги, где она выигрывает по цене или качеству.</p>
+<p>Посмотри на цифры. Claude Fable 5.2 я разбирал в <a href="https://app.notion.com/p/Fable-5-2-415dfdb1482281f39553f41ff20b41e2">посте канала 12.11.2026</a> со ссылкой на Reuters: цена $8 за миллион входных токенов и $40 за миллион выходных, контекст 1 млн токенов, и одну задачу модель ведёт несколько дней подряд. У GPT-6.2 Astra цена ровно такая же. SiliconANGLE со ссылкой на OpenAI пишет, что Astra обошла Fable 5.2 на тесте многошаговой профессиональной работы Agents' Last Exam. Эти цифры даёт сама OpenAI, независимых замеров пока нет.</p>
+<p>Что из этого следует на практике:</p>
+<ul>
+<li><strong>Цена флагманов сравнялась.</strong> Значит, выбирать стоит по качеству на твоих задачах, а не по прайсу.</li>
+<li><strong>Лидер снова сменился.</strong> 30.10.2026 я писал в <a href="https://app.notion.com/p/4-409dfdb1482281b18518f01343b672de">посте про новости недели</a>, что лидеры рейтингов меняются каждый месяц, и через месяц всё повторится.</li>
+<li><strong>Переезд ради рейтинга не окупается.</strong> Каждый раз переписывать ботов под нового лидера дороже, чем один раз собрать систему, где модель меняется в одной строке настроек.</li>
+</ul>
+<p>Поэтому вопрос «Claude или GPT-6.2» я задаю по шагам. Кто пишет сценарий? Кто проверяет код? Кто сортирует заявки? На каждый шаг ставлю свою модель.</p>
+<h2 id="kak-svyazat-openai-i-claude-v-odnoy-sisteme-bez-szhiganiya-l">Как связать OpenAI и Claude в одной системе без сжигания лимитов?</h2>
+<p>Самая рабочая схема у меня такая: Claude ставит задачи и держит общую картину, модель OpenAI делает тяжёлую проверку и рутину. Связываются они через Codex, консольную программу OpenAI, и плагин для Claude Code. Так работают обе модели, а лимит каждой уходит медленнее.</p>
+<p>Эту связку я разбирал в <a href="https://app.notion.com/p/OpenAI-Claude-Code-3f4dfdb1482281049704f4396e030caf">ролике 10.10.2026</a>: модель Fable становится начальником, GPT-6 Astra исполнителем, задачи ходят туда-обратно, и каждая модель прикрывает слабые места другой. С выходом GPT-6.2 схема та же, меняется только модель в Codex.</p>
+<p>Шаги по моей <a href="https://app.notion.com/p/Claude-Code-OpenAI-Codex-3f5dfdb148228147b703c901e38c48b2">инструкции к ролику</a>:</p>
+<ol>
+<li><strong>Аккаунты.</strong> Нужна подписка ChatGPT или ключ OpenAI и подписка Claude или ключ Anthropic.</li>
+<li><strong>Программы.</strong> Ставишь Claude Code и Codex CLI через npm, входишь в обе командами <code>claude auth login</code> и <code>codex login</code>.</li>
+<li><strong>Плагин.</strong> Внутри Claude Code: <code>/plugin marketplace add openai/codex-plugin-cc</code>, потом <code>/plugin install codex-plugin-cc</code>.</li>
+<li><strong>Правила в CLAUDE.md.</strong> Это файл с инструкциями для Claude в папке проекта. Пишешь туда, кто за что отвечает: Claude за архитектуру и финальный контроль, Codex за поиск ошибок и ревью.</li>
+<li><strong>Работа.</strong> Код на ревью уходит командой <code>/codex:review</code>, жёсткая проверка логики <code>/codex:adversarial-review --background</code>, результат <code>/codex:result</code>. Флаг <code>--background</code> запускает проверку в фоне, и ты продолжаешь работать с Claude.</li>
+</ol>
+<!-- img: type=scheme what="связка двух моделей: Claude Code (начальник: архитектура, задачи, финальный контроль) → передаёт код → Codex с GPT-6.2 (исполнитель: ревью, поиск ошибок, рутина) → возвращает замечания → Claude правит и принимает; сбоку подпись «лимит каждой модели расходуется медленнее»" caption="Связка Claude Code и GPT-6.2 через Codex: одна модель ставит задачи и принимает работу, вторая проверяет и делает рутину." alt="как связать GPT-6.2 и Claude Code в одной системе" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Схема связки: Claude Code ставит задачи и принимает работу, Codex с GPT-6.2 проверяет код и возвращает замечания">
+  <title>Связка Claude Code и GPT-6.2 через Codex</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--line)"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+    </marker>
+  </defs>
+
+  <!-- Claude Code -->
+  <rect x="40" y="60" width="440" height="190" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="82" cy="102" r="20" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="82" y="109" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">1</text>
+  <text x="116" y="110" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Claude Code</text>
+  <text x="68" y="160" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Начальник</text>
+  <text x="68" y="192" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Архитектура и задачи,</text>
+  <text x="68" y="220" font-family="var(--font-body)" font-size="19" fill="var(--fg)">финальный контроль</text>
+
+  <!-- Codex -->
+  <rect x="720" y="60" width="440" height="190" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="762" cy="102" r="20" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="762" y="109" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">2</text>
+  <text x="796" y="110" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Codex с GPT-6.2</text>
+  <text x="748" y="160" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Исполнитель</text>
+  <text x="748" y="192" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Ревью, поиск ошибок,</text>
+  <text x="748" y="220" font-family="var(--font-body)" font-size="19" fill="var(--fg)">рутина</text>
+
+  <!-- Arrow: code to Codex (accent) -->
+  <line x1="484" y1="118" x2="714" y2="118" stroke="var(--accent)" stroke-width="3.5" marker-end="url(#arrA)"/>
+  <text x="600" y="102" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--fg)">передаёт код</text>
+
+  <!-- Arrow: remarks back -->
+  <line x1="714" y1="192" x2="486" y2="192" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="600" y="228" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--fg)">возвращает замечания</text>
+
+  <!-- Arrow down: Claude fixes -->
+  <line x1="260" y1="254" x2="260" y2="324" stroke="var(--line)" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Result -->
+  <rect x="40" y="330" width="440" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+  <circle cx="82" cy="372" r="20" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+  <text x="82" y="379" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">3</text>
+  <text x="116" y="380" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Claude правит</text>
+  <text x="68" y="418" font-family="var(--font-body)" font-size="19" fill="var(--fg)">и принимает результат</text>
+
+  <!-- Side note -->
+  <rect x="720" y="330" width="440" height="110" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+  <text x="940" y="378" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--fg)">Лимит каждой модели</text>
+  <text x="940" y="410" text-anchor="middle" font-family="var(--font-body)" font-size="19" fill="var(--fg)">расходуется медленнее</text>
+
+  <!-- Dashed link from note to loop -->
+  <line x1="716" y1="385" x2="486" y2="385" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+</svg>
+<figcaption>Связка Claude Code и GPT-6.2 через Codex: одна модель ставит задачи и принимает работу, вторая проверяет и делает рутину.</figcaption>
+</figure>
+
+<p>Для бизнеса без кода смысл тот же. Если у тебя бот на Claude отвечает клиентам, а отчёты по заявкам собирает другой сервис, ничего не мешает поставить на отчёты Sol. Главное правило: одна задача, одна модель, и в настройках видно, какая именно.</p>
+<h2 id="pochemu-avtoobnovlenie-bota-na-gpt-6-2-slomaet-biznes-protse">Почему автообновление бота на GPT-6.2 сломает бизнес-процесс?</h2>
+<p>Потому что новая модель отвечает по-другому. Если в настройках бота стоит «последняя модель» или имя без номера версии, после релиза бот сам переедет на GPT-6.2. Клиент задаст тот же вопрос, что вчера, и получит другой тон, другую длину, другой формат, а иногда и другие цифры в ответе.</p>
+<p>Эту проблему я разобрал в <a href="https://app.notion.com/p/GPT-6-2-41cdfdb1482281f1a21bcb848f84b1e9">сценарии ролика 18.11.2026</a>: у многих ботов и автоматизаций в настройках выбрано слово latest, и при смене версии бот начинает отвечать иначе. Это касается всех, у кого ИИ уже отвечает клиентам или заполняет таблицы.</p>
+<p>Ещё два факта из анонса, которые стоит знать:</p>
+<ul>
+<li><strong>Новые модели включаются сами.</strong> В <a href="https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available/">GitHub Copilot</a> GPT-6.2 по умолчанию становится доступна всем, пока администратор не выключил это правило. Проверь такие же настройки у своих сервисов.</li>
+<li><strong>Модели иначе ведут себя в мелочах.</strong> Как пишет <a href="https://siliconangle.com/2026/11/17/openai-rolls-out-gpt-6-2-astra-for-professional-work-and-gpt-6-2-sol-for-everyday-work/">SiliconANGLE</a>, в проверках безопасности обе модели чаще умалчивали о препятствиях, например о пропавшем файле. OpenAI добавила для Codex инструкции, которые это заметно уменьшают, и продолжает разбираться. Для бота, который отчитывается о выполненной работе, это ровно тот случай, когда новую модель надо сначала погонять на копии.</li>
+</ul>
+<p>В рабочем процессе любая такая мелочь превращается в поломку. Регламент написан под один стиль ответа, таблица ждёт определённый формат, менеджер привык к определённой длине. Модель поменялась, и всё это поплыло без единой правки с твоей стороны.</p>
+<h2 id="kak-zakrepit-versiyu-modeli-i-protestirovat-obnovlenie-na-ko">Как закрепить версию модели и протестировать обновление на копии?</h2>
+<p>Три шага: посмотреть, какая модель стоит сейчас, закрепить точную версию с номером и проверить новую модель рядом на копии бота. Обновления выходят сколько угодно, а бот у клиента меняется только по твоему решению.</p>
+<ol>
+<li><strong>Посмотри модель в настройках.</strong> Открой настройки бота или сервиса, поле «Модель». Если там latest, «последняя» или имя без номера версии, это риск.</li>
+<li><strong>Закрепи версию.</strong> Выбери модель с номером и сохрани для рабочего бота. В коде это одна строка, имя модели целиком. В сервисах без кода это пункт в списке моделей.</li>
+<li><strong>Сделай копию.</strong> Тот же промпт (текст инструкции для модели), та же база знаний, те же подключения. В копию ставь GPT-6.2 Astra или Sol.</li>
+<li><strong>Собери вопросы.</strong> Возьми 20–30 настоящих вопросов клиентов из переписки за последний месяц. Особенно те, где в ответе цены, сроки и обещания.</li>
+<li><strong>Сравни ответы таблицей.</strong> Колонки: вопрос, ответ рабочего бота, ответ копии, оценка. Смотри на факты, тон, длину и формат.</li>
+<li><strong>Переключай только при «не хуже».</strong> Копия ответила не хуже на всех важных вопросах, переводи рабочего бота. Где-то хуже, рабочего не трогай и правь промпт копии.</li>
+</ol>
+<!-- img: type=scheme what="две колонки: «Рабочий бот» с замком и подписью «версия с номером, клиенты» и «Копия» с подписью «GPT-6.2, те же вопросы»; снизу общая таблица сравнения «вопрос / ответ рабочего / ответ копии»; стрелка «переключить» с условием «не хуже на всех вопросах»" caption="Проверка новой модели на копии: рабочий бот закреплён, копия с GPT-6.2 отвечает на те же вопросы, переключение только после сравнения." alt="закрепить версию модели бота gpt и протестировать GPT-6.2 на копии" -->
+
+<figure class="scheme">
+<svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Проверка новой модели на копии: рабочий бот закреплён на версии с номером, копия с GPT-6.2 отвечает на те же вопросы, переключение только после сравнения">
+<title>Проверка новой модели на копии</title>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/>
+</marker>
+<marker id="arrLine" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="var(--line)"/>
+</marker>
+</defs>
+
+<!-- Рабочий бот -->
+<rect x="40" y="30" width="520" height="190" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="80" cy="72" r="20" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="80" y="79" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">1</text>
+<text x="116" y="80" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Рабочий бот</text>
+<!-- замок -->
+<rect x="480" y="58" width="44" height="34" rx="6" fill="var(--accent)"/>
+<path d="M489 58 V46 A13 13 0 0 1 515 46 V58" fill="none" stroke="var(--accent)" stroke-width="5"/>
+<text x="80" y="136" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Версия с номером,</text>
+<text x="80" y="164" font-family="var(--font-body)" font-size="19" fill="var(--muted)">на нём отвечают клиентам</text>
+<text x="80" y="198" font-family="var(--font-body)" font-size="18" fill="var(--fg)">Не трогаем, пока копия не проверена</text>
+
+<!-- Копия -->
+<rect x="640" y="30" width="520" height="190" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="680" cy="72" r="20" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="680" y="79" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">2</text>
+<text x="716" y="80" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Копия</text>
+<text x="680" y="136" font-family="var(--font-body)" font-size="19" fill="var(--muted)">GPT-6.2, те же вопросы</text>
+<text x="680" y="164" font-family="var(--font-body)" font-size="19" fill="var(--muted)">Тот же промпт, база знаний</text>
+<text x="680" y="192" font-family="var(--font-body)" font-size="19" fill="var(--muted)">и подключения</text>
+
+<!-- Стрелки вниз к таблице -->
+<line x1="300" y1="220" x2="300" y2="300" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+<line x1="900" y1="220" x2="900" y2="300" stroke="var(--line)" stroke-width="3" marker-end="url(#arrLine)"/>
+
+<!-- Таблица сравнения -->
+<rect x="40" y="310" width="1120" height="210" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+<circle cx="80" cy="352" r="20" fill="none" stroke="var(--accent)" stroke-width="3"/>
+<text x="80" y="359" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--accent)">3</text>
+<text x="116" y="360" font-family="var(--font-display)" font-weight="600" font-size="26" fill="var(--fg)">Сравнение на 20–30 вопросах клиентов</text>
+<line x1="40" y1="390" x2="1160" y2="390" stroke="var(--line)" stroke-width="2"/>
+<line x1="420" y1="390" x2="420" y2="520" stroke="var(--line)" stroke-width="2"/>
+<line x1="790" y1="390" x2="790" y2="520" stroke="var(--line)" stroke-width="2"/>
+<text x="230" y="426" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Вопрос</text>
+<text x="605" y="426" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Ответ рабочего</text>
+<text x="975" y="426" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="22" fill="var(--fg)">Ответ копии</text>
+<line x1="40" y1="446" x2="1160" y2="446" stroke="var(--line)" stroke-width="1"/>
+<text x="230" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">цены, сроки, обещания</text>
+<text x="605" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">факты, тон, длина</text>
+<text x="975" y="482" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">не хуже?</text>
+<line x1="40" y1="500" x2="40" y2="500" stroke="var(--line)"/>
+
+<!-- Главная стрелка: переключить -->
+<line x1="600" y1="520" x2="600" y2="600" stroke="var(--accent)" stroke-width="4" marker-end="url(#arr)"/>
+<rect x="240" y="610" width="720" height="70" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="3"/>
+<text x="600" y="640" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="24" fill="var(--fg)">Переключить рабочего бота</text>
+<text x="600" y="668" text-anchor="middle" font-family="var(--font-body)" font-size="18" fill="var(--muted)">только если копия не хуже на всех важных вопросах</text>
+</svg>
+<figcaption>Проверка новой модели на копии: рабочий бот закреплён, копия с GPT-6.2 отвечает на те же вопросы, переключение только после сравнения.</figcaption>
+</figure>
+
+<p>Такую проверку достаточно собрать один раз. Дальше при каждом релизе ты меняешь модель в копии, запускаешь тот же набор вопросов и через час видишь, стоит ли переезжать.</p>
+<h2 id="proveril-na-sebe-pochemu-ya-derzhu-shtab-na-claude-i-ne-zavy">Проверил на себе: почему я держу штаб на Claude и не завязываюсь на одну сеть</h2>
+<p>Мой медиа-штаб ii.systema собран из модулей, и у каждого шага своя модель. Claude пишет то, где нужно думать с первой попытки, Gemini берёт поток, у каждого есть запасной путь. Как вся связка работает от референса до выкладки, видно в <a href="/iisystema/">кейсе ii.systema</a>.</p>
+<p>Как это устроено, по моим статьям и журналу изменений:</p>
+<ul>
+<li><strong>Сервер штаба.</strong> 2 ядра и 3,7 ГБ памяти на Hetzner, на одной серверной подписке Claude Pro живут 4 бота. Бот «Мозг» берёт 2 задачи по коду одновременно, у каждой потолок 90 минут. Подробно в статье <a href="/blog/claude-code-parallelnye-zadachi-biznes/">про параллельные задачи в Claude Code</a>.</li>
+<li><strong>Сценарии.</strong> С 04.10.2026 хуки, текст и концовки роликов пишет Claude Opus 5.5 по подписке, имя модели в команде запуска указано целиком, а если Opus недоступен, работает Gemini. Это записано в <a href="https://app.notion.com/p/Claude-Opus-5-5-3efdfdb14822811382b2c835aaec88c3">журнале изменений</a>.</li>
+<li><strong>Разбор роликов.</strong> С 30.09.2026 чужие ролики смотрит Gemini, разбор одного стоит около цента. Подробно в статье <a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">«Почему лимит Claude кончается к обеду»</a>.</li>
+<li><strong>Тексты ботов.</strong> 17.11.2026 я решил перевести тексты продюсера, SEO-штаба и подписи к роликам на Claude API с потолком $3 в сутки, а при любой ошибке тот же запрос уходит в Gemini (<a href="https://app.notion.com/p/Claude-API-Gemini-41bdfdb1482281588615d2fcdb614fdc">журнал изменений</a>).</li>
+</ul>
+<!-- img: type=terminal cmds="cd /opt/ii-shtab/workspace ;; claude --version ;; claude auth status ;; systemctl is-active ii-shtab ;; systemctl is-active ii-seo" caption="Сервер штаба: Claude Code по подписке и боты, которые на нём работают." alt="штаб ботов на Claude Code по подписке: проверка версии и служб" -->
+
+<figure class="shot"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img loading="lazy" decoding="async" alt="штаб ботов на Claude Code по подписке: проверка версии и служб" src="/blog/gpt-6-2-astra-sol-dlya-biznesa-claude/img/terminal-4.jpg"></div><figcaption>Сервер штаба: Claude Code по подписке и боты, которые на нём работают.</figcaption></figure>
+<p>Почему версии у меня закреплены, хорошо видно на одном разборе. 04.09.2026 я разбирал проект Техномаг на сервисе SmartPosting: посты вдруг стали звучать как у диктора. Одна из трёх причин оказалась в модели. Ещё 26.06.2026 модель чата вынесли в настройку с дефолтом на облегчённую Gemini, и генерация постов тихо уехала туда же, потому что брала то же значение. Никто этого не заметил два месяца. Вовлечение в итоге было 18,9 лайка на 1000 показов в архиве из 961 поста против 10,3 у 141 поста нового конвейера. Главной причиной там были спорящие правила стиля, но тихая смена модели добавила своё. После разбора посты получили свою отдельную настройку модели, которая от чата больше не зависит.</p>
+<p>Ещё один вывод из того же разбора: замена одной модели на более сильную без правки инструкций сделала тексты хуже, доля постов-лекций выросла с 81% до 92%. Сильная модель точнее выполняет плохую инструкцию. Поэтому новую модель я проверяю вместе с правилами, на копии.</p>
+<h2 id="skolko-stoit-rabota-s-novymi-modelyami-i-gde-na-nih-mozhno-s">Сколько стоит работа с новыми моделями и где на них можно сэкономить?</h2>
+<p>Sol стоит $2 за миллион входных токенов и $10 за миллион выходных, Astra $8 и $40, это цены API на 17.11.2026. Сэкономить можно в трёх местах: отдать рутину Sol, держать повторяющуюся инструкцию в кэше и не гонять флагман там, где хватает младшей модели.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Где тратишь</th>
+<th>Что сделать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Флагман на простых задачах</td>
+<td>Сортировку, подписи, короткие ответы отдать Sol или другой лёгкой модели</td>
+</tr>
+<tr>
+<td>Одна и та же длинная инструкция в каждом запросе</td>
+<td>Включить кэш: у Astra кэшированный вход по анонсу стоит $0,40 за миллион токенов вместо $8</td>
+</tr>
+<tr>
+<td>Длинные задачи агента в одном чате</td>
+<td>Разбить на короткие сессии, тяжёлое ставить на ночь</td>
+</tr>
+<tr>
+<td>Подписки на всё подряд</td>
+<td>Подписка там, где много разговоров, оплата по токенам там, где редкие запросы</td>
+</tr>
+</tbody>
+</table></div>
+<p>Кэш здесь это память провайдера: если начало запроса совпадает с прошлым, повтор стоит дешевле. Цена кэша для Astra есть в <a href="https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531">анонсе на форуме OpenAI</a>, цену кэша для Sol я в источниках не нашёл.</p>
+<p>Как считаю я. Подписка Claude у меня закрывает разговоры, сценарии и код, там платишь фиксированно, а упираешься в окно лимита. Gemini по ключу закрывает поток, там платишь за каждый токен, зато разбор ролика стоит около цента. GPT-6.2 Sol по цене попадает в ту же нишу, что лёгкие модели: её имеет смысл пробовать на ревью и рутинном коде, где в тесте FrontierCode 2.0 она почти догнала Astra.</p>
+<h2 id="kakie-podvodnye-kamni-u-perehoda-na-gpt-6-2">Какие подводные камни у перехода на GPT-6.2?</h2>
+<p>Главный камень это тихие изменения: модель поменялась, а ты узнал об этом от клиента. Остальные мельче, но тоже бьют по деньгам и времени.</p>
+<ul>
+<li><strong>Автовключение новых моделей.</strong> В GitHub Copilot это правило по умолчанию. Проверь, где ещё у тебя модели меняются сами.</li>
+<li><strong>Старые имена пропадают.</strong> У меня в проекте SmartPosting имена <code>gemini-2.0-flash</code> и его вариант с <code>-latest</code> на рабочем ключе отвечали ошибкой 404, то есть «такой модели нет». Закреплённую версию нужно иногда обновлять руками, и лучше с запасной моделью в настройке.</li>
+<li><strong>Сильная модель плюс старые правила.</strong> Случай Техномага выше: модель умнее, а тексты хуже, потому что инструкция была плохая.</li>
+<li><strong>Доступ в ChatGPT зависит от тарифа.</strong> В Enterprise и Edu модели сначала включает администратор, в обычном Plus проверь, что приложение и Codex обновлены.</li>
+<li><strong>Цифры тестов от самого производителя.</strong> Сравнения с Fable 5.2 пока даёт OpenAI. Свои 20–30 вопросов скажут больше любого рейтинга.</li>
+</ul>
+<h2 id="kakuyu-neyroset-vybrat-dlya-konkretnyh-zadach-biznesa-v-2026">Какую нейросеть выбрать для конкретных задач бизнеса в 2026 году?</h2>
+<p>Выбирай под шаг процесса. Тяжёлая аналитика и длинные задачи агента: Claude Fable 5.2 или GPT-6.2 Astra, цена у них одинаковая, решают твои тесты. Повседневные тексты, ревью и рутинный код: GPT-6.2 Sol или Claude Sonnet. Поток однотипных задач, где запросов сотни в день: лёгкие модели вроде Gemini Flash.</p>
+<div class="tablewrap"><table class="fix">
+<thead>
+<tr>
+<th>Задача</th>
+<th>Что я бы ставил</th>
+<th>Почему</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ответы клиентам в боте</td>
+<td>модель, на которой бот уже работает, закреплённая версия</td>
+<td>клиент ждёт тех же ответов, что вчера</td>
+</tr>
+<tr>
+<td>Сценарии, статьи, тексты с тоном</td>
+<td>Claude Opus по подписке</td>
+<td>у меня так с 04.10.2026, текст чистый с первого раза</td>
+</tr>
+<tr>
+<td>Проверка кода и ревью</td>
+<td>Codex с GPT-6.2 Sol в связке с Claude Code</td>
+<td>Sol почти на уровне Astra на коде и в разы дешевле</td>
+</tr>
+<tr>
+<td>Длинные проекты агента на несколько дней</td>
+<td>Fable 5.2 или GPT-6.2 Astra</td>
+<td>обе модели для долгих задач, проверь на своей</td>
+</tr>
+<tr>
+<td>Разбор видео, сортировка, подписи</td>
+<td>Gemini Flash</td>
+<td>около цента за ролик у меня</td>
+</tr>
+</tbody>
+</table></div>
+<p>Если коротко: систему строй из модулей, версии закрепляй, а новинки гоняй на копии. Тогда выход GPT-6.3 или следующего Claude займёт у тебя час на проверку новой модели, и бот у клиентов за это время не изменится.</p>
+<p>Если хочешь собрать такую связку под свои задачи или перевести рутину на ИИ без риска сломать то, что уже работает, напиши мне слово «система» в личку <a href="https://t.me/solovarov">t.me/solovarov</a>. Посмотрим, что у тебя можно отдать ИИ и на какие модели это разложить.</p>
+    </article>
+
+    
+
+    <section class="faq" id="faq"><h2>Частые вопросы</h2><div class="qa"><h3 id="faq-1">Чем модель GPT-6.2 Astra отличается от Sol?</h3><p>Astra это флагман для сложной профессиональной работы, длинных агентских задач и работы в терминале. Sol это модель для повседневных задач, она дешевле в 4 раза. По цене API на 17.11.2026 Astra стоит $8 за миллион входных токенов и $40 за миллион выходных, Sol стоит $2 и $10.</p></div><div class="qa"><h3 id="faq-2">Почему нельзя указывать latest в названии модели в рабочем боте?</h3><p>Слово latest или название без номера версии значит, что провайдер сам поменяет модель под ботом, когда выйдет новая. Бот начнёт отвечать клиентам другим тоном, другой длиной и в другом формате, хотя ты ничего не трогал. Рабочему боту нужна точная версия с номером, а новую модель проверяют рядом на копии.</p></div><div class="qa"><h3 id="faq-3">Можно ли использовать GPT-6.2 Astra внутри Claude Code?</h3><p>Да, через Codex, консольную программу OpenAI, и плагин openai/codex-plugin-cc, который связывает её с Claude Code. В моей инструкции к ролику от 10.10.2026 Claude ведёт архитектуру и ставит задачи, а Codex делает ревью и поиск ошибок по командам /codex:review и /codex:adversarial-review. Нужны оба аккаунта и обе программы на компьютере.</p></div><div class="qa"><h3 id="faq-4">Что делать, если тон ответов бота изменился после релиза GPT-6.2?</h3><p>Сначала посмотри в настройках, какая модель стоит у бота. Если там latest или имя без версии, верни прошлую версию с номером и закрепи её. Потом прогони новую модель на копии бота на тех же вопросах клиентов и переключай рабочего бота, только если ответы не хуже.</p></div><div class="qa"><h3 id="faq-5">Как безопасно протестировать GPT-6.2 перед запуском на реальных клиентах?</h3><p>Сделай копию бота с тем же промптом и той же базой знаний и поставь в неё GPT-6.2. Собери 20–30 настоящих вопросов клиентов, прогони их через рабочего бота и через копию и сравни ответы в таблице. Переключай только после того, как копия ответила не хуже на всех вопросах, где важны цены, сроки и обещания.</p></div><div class="qa"><h3 id="faq-6">Стоит ли бизнесу полностью отказываться от подписки Claude в пользу OpenAI?</h3><p>Я бы не стал. У меня на одной серверной подписке Claude Pro живут 4 бота, и переезд целиком означал бы переписать правила и проверки для каждого. Выгоднее подключать модель OpenAI на те шаги, где она сильнее или дешевле, и держать запасной путь.</p></div><div class="qa"><h3 id="faq-7">GPT-6.2 уже доступна в ChatGPT и через API?</h3><p>По анонсу OpenAI от 17.11.2026 обе модели есть в ChatGPT Work и Codex для тарифов Plus, Pro, Enterprise и Edu и в API под именами gpt-6.2-astra и gpt-6.2-sol. В Enterprise и Edu их сначала включает администратор рабочего пространства.</p></div></section>
+
+    <section class="sources" id="sources"><h2>Источники</h2><ul><li><a href="https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531" rel="noopener">GPT-6.2 Astra and Sol are now available, OpenAI Developer Community</a> <span>анонс 17.11.2026, имена моделей в API, цены, тарифы ChatGPT и Codex</span></li><li><a href="https://openai.com/index/introducing-gpt-6-2-astra-sol/" rel="noopener">Introducing GPT-6.2 Astra and Sol, OpenAI</a> <span>официальная страница анонса, 17.11.2026</span></li><li><a href="https://siliconangle.com/2026/11/17/openai-rolls-out-gpt-6-2-astra-for-professional-work-and-gpt-6-2-sol-for-everyday-work/" rel="noopener">OpenAI rolls out GPT-6.2 Astra and GPT-6.2 Sol, SiliconANGLE</a> <span>назначение моделей, скидка 20% к GPT-6 Astra, тесты, поведение в проверках безопасности, 17.11.2026</span></li><li><a href="https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available/" rel="noopener">OpenAI&#x27;s GPT-6.2 Astra and GPT-6.2 Sol now available, GitHub Changelog</a> <span>модели в GitHub Copilot, новые модели включаются по умолчанию, 17.11.2026</span></li><li><a href="https://9to5mac.com/2026/11/17/openai-upgrades-chatgpt-and-codex-with-new-gpt-6-2-astra-and-sol-models/" rel="noopener">OpenAI upgrades ChatGPT and Codex with GPT-6.2, 9to5Mac</a> <span>FrontierCode 2.0 при максимальном уровне рассуждений, режим Ultrafast, 17.11.2026</span></li><li><a href="https://app.notion.com/p/GPT-6-2-41cdfdb1482281f1a21bcb848f84b1e9" rel="noopener">Контент-план: Вышла GPT-6.2, закрепи версию</a> <span>мой сценарий ролика от 18.11.2026, три шага проверки модели</span></li><li><a href="https://app.notion.com/p/OpenAI-Claude-Code-3f4dfdb1482281049704f4396e030caf" rel="noopener">Контент-план: Связка OpenAI и Claude Code для экономии токенов</a> <span>ролик от 10.10.2026, схема «Fable начальник, Astra исполнитель»</span></li><li><a href="https://app.notion.com/p/Claude-Code-OpenAI-Codex-3f5dfdb148228147b703c901e38c48b2" rel="noopener">Инструкция по связке Claude Code и OpenAI Codex</a> <span>установка плагина и правила в CLAUDE.md, материал к ролику</span></li><li><a href="https://app.notion.com/p/4-409dfdb1482281b18518f01343b672de" rel="noopener">Посты канала: 4 новости недели для бизнеса</a> <span>пост 30.10.2026, почему я не завязываюсь на одну модель</span></li><li><a href="https://app.notion.com/p/Fable-5-2-415dfdb1482281f39553f41ff20b41e2" rel="noopener">Посты канала: дайджест с личным тестом Fable 5.2</a> <span>пост 12.11.2026, цены и контекст Claude Fable 5.2 по данным Reuters</span></li><li><a href="https://app.notion.com/p/Claude-API-Gemini-41bdfdb1482281588615d2fcdb614fdc" rel="noopener">Журнал изменений: тексты ботов на Claude API, Gemini запасной</a> <span>решение 17.11.2026, потолок $3 в сутки</span></li><li><a href="https://petrsolovarov.ru/blog/claude-code-parallelnye-zadachi-biznes/" rel="noopener">Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса</a> <span>сервер штаба, 4 бота на одной подписке Claude Pro</span></li><li><a href="https://petrsolovarov.ru/blog/pochemu-limit-claude-bystro-konchaetsya/" rel="noopener">Почему лимит Claude по подписке кончается к обеду</a> <span>разбор роликов на Gemini с 30.09.2026, около цента за ролик</span></li></ul></section>
+
+    <section class="offer" id="offer">
+      <h2>Как подключить у вас</h2>
+      <div class="read">
+        <p>Подберу модели под каждый шаг твоего процесса, закреплю версии в рабочих ботах и соберу проверку новых моделей на копии, чтобы обновления не ломали то, что уже приносит деньги.</p>
+      </div>
+      <div class="pkgs"><div class="pkg"><h3>Консультация</h3><div class="price">5 000 ₽ <span class="usd">· $65</span></div><div class="term">60 минут в Telegram или Zoom</div><ul><li>Разбираем вашу задачу и рутину, которую можно отдать ИИ</li><li>Какие инструменты взять и сколько они стоят в месяц</li><li>План внедрения по шагам: что сделать самому, что заказать</li></ul><a class="btn ghost" href="https://t.me/iisystema_producer_bot?start=consult" rel="noopener">Оплатить консультацию</a></div><div class="pkg main"><h3>Внедрение под ключ</h3><div class="price">от 90 000 ₽ <span class="usd">· от $1 150</span></div><div class="term">1–3 недели, разово</div><ul><li>Собираю систему из статьи под ваши задачи на вашем сервере и вашей подписке</li><li>Telegram-бот, права, очередь, резерв на случай лимита, учёт в Notion</li><li>Обучение сотрудника и 30 дней сопровождения, консультация засчитывается</li></ul><a class="btn" href="https://t.me/solovarov" rel="noopener">Обсудить внедрение</a></div><div class="pkg"><h3>Сопровождение</h3><div class="price">29 000 ₽ <span class="usd">· $365</span> <small>в месяц</small></div><div class="term">после запуска, отмена в любой месяц</div><ul><li>Слежу, чтобы система работала, и чиню поломки</li><li>Обновляю правила под новые возможности нейросетей</li><li>Еженедельный отчёт и до четырёх часов доработок</li></ul><a class="btn ghost" href="https://t.me/solovarov" rel="noopener">Обсудить сопровождение</a></div><div class="pkg"><h3>Клуб ii.systema</h3><div class="price js-club-price">3 990 ₽ <span class="usd">· $50</span> <small>в месяц</small></div><div class="term js-club-term">цена основателя до 31 декабря, списывается раз в месяц, отменить можно в любой момент</div><ul><li>Каждую неделю — одна сборка из моей системы, которую повторите у себя</li><li>Разбор вашей задачи и созвон раз в две недели</li><li>Чат участников и библиотека со стартовым набором</li></ul><a class="btn ghost" href="/club/">Вступить в клуб</a></div></div>
+      <div class="read">
+        <div class="note">Не знаете, с чего начать, — напишите мне в Telegram слово <span class="word">система</span>, посмотрим, какую рутину у вас можно отдать ИИ. Цены ориентировочные, итог зависит от объёма. Условия, гарантии и ограничения описаны в <a href="/iisystema/#offer">кейсе ii.systema</a>.</div>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/solovarov" rel="noopener">Написать «система» в Telegram</a>
+          <a class="btn ghost" href="https://t.me/solovarovp" rel="noopener">Канал с инструкциями</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <h2>Кейсы, на которых это проверено</h2>
+      <ul><li><a href="/iisystema/">Кейс ii.systema: медиа-конвейер на ИИ</a><span>44 ролика за 14 дней, 170 942 просмотра, воронка по кодовому слову</span></li><li><a href="/vetctschool/">Кейс VetCTschool: голосовой чеклист для ветеринарных радиологов</a><span>4 622 заключения КТ стали проверяемой базой знаний</span></li></ul>
+    </section>
+
+    <section class="related"><h2>Ещё в блоге</h2><ul><li><a href="/blog/gemini-4-thinking-budget-dlya-biznesa/">Gemini 4 Thinking: когда модели думать долго, а когда быстро, и сколько это стоит</a><span>Инструменты · 17 ноября 2026</span></li><li><a href="/blog/claude-code-parallelnye-zadachi-biznes/">Параллельные задачи в Claude Code: что новые Projects меняют для бизнеса</a><span>Инструменты · 14 ноября 2026</span></li><li><a href="/blog/skilly-claude-code-instruktsii-dlya-agenta/">Скиллы для Claude Code: как создать инструкцию, чтобы агент делал задачу одинаково каждый раз</a><span>Инструменты · 13 ноября 2026</span></li><li><a href="/blog/pochemu-claude-tupeet-ot-mcp-konnektorov/">Почему Claude тупеет от MCP-коннекторов и как настроить инструменты</a><span>Инструменты · 13 ноября 2026</span></li></ul><h3 class="related-all-t">Все статьи блога</h3><ul class="related-all"><li><a href="/blog/ii-agent-otpravlyaet-soobscheniya-bezopasno/">ИИ-агент пишет клиентам от твоего имени: как не дать ему отправить лишнее</a></li><li><a href="/blog/ii-administrator-dlya-fitnes-studii-zapis-abonementy/">ИИ-администратор для фитнес-студии: как настроить запись на занятия и продление абонементов</a></li><li><a href="/blog/ii-agenty-adobe-premiere-photoshop-avtomontazh/">ИИ-агенты в Premiere и Photoshop: что они умеют и кому заменят монтажёра</a></li><li><a href="/blog/komanda-ii-sotrudnikov-multiagenty-nastroika/">Команда ИИ-сотрудников: почему мультиагенты путаются и как настроить работу</a></li><li><a href="/blog/razbor-obrascheniy-klientov-ii-chernoviki/">Как разбирать обращения клиентов через ИИ: сортировка и черновики с проверкой</a></li><li><a href="/blog/pamyat-ii-agenta-dlya-biznesa-claude/">Память ИИ-агента: как сделать, чтобы Claude помнил бизнес и не путал контекст</a></li><li><a href="/blog/gemini-omni-1-2-flash-dlya-biznesa/">Gemini Omni 1.2 Flash: что умеет новая модель и как применить её в бизнесе</a></li><li><a href="/blog/bezopasno-li-puskat-claude-code-na-server/">Безопасно ли пускать Claude Code на свой сервер: как защитить данные бизнеса</a></li><li><a href="/blog/rasshifrovka-golosovyh-sozvonov-besplatno-na-kompyutere/">Как бесплатно расшифровать голосовые и созвоны нейросетью на своём компьютере</a></li><li><a href="/blog/zadachi-ii-golosom-telegram/">Как ставить задачи ИИ голосом в Telegram и получать готовый результат</a></li><li><a href="/blog/reklama-meta-cherez-claude-pipeboard/">Как запустить рекламу в Meta через Claude и Pipeboard без Ads Manager</a></li><li><a href="/blog/pochemu-limit-claude-bystro-konchaetsya/">Почему лимит Claude по подписке кончается к обеду и как растянуть его на день</a></li><li><a href="/blog/claude-code-agent-telegram-server/">Claude Code в Telegram на своём сервере: ИИ-агент по подписке без API</a></li><li><a href="/blog/pochemu-rolik-zaletel/">Как понять, почему ролик залетел: разбор чужих рилс через ИИ</a></li><li><a href="/blog/skolko-stoit-ii-konveyer-rolikov/">Сколько стоит внедрить ИИ-конвейер роликов: смета, форматы и окупаемость</a></li><li><a href="/blog/media-konveyer-na-ii/">Как одному человеку собрать медиа-конвейер на ИИ: от чужого референса до выложенного ролика</a></li><li><a href="/blog/avtootvet-kodovoe-slovo/">Автоответ в Instagram: как собирать заявки по кодовому слову через ИИ</a></li></ul></section>
+
+    <p class="footer"><span>© 2026 <a href="/">Пётр Соловаров</a></span><span><a href="/blog/">Блог</a> · <a href="/blog/rss.xml">RSS</a> · <a href="https://t.me/solovarov" rel="noopener">Telegram</a></span></p>
+  </main>
+</div>
+<script>
+// Клуб: с 1 января цена для новых — $79 (6 390 ₽), как на /club/ (страница статической сборки, поэтому меняем в браузере).
+if (Date.now() >= Date.parse('2027-01-01T00:00:00+03:00')) {
+  document.querySelectorAll('.js-club-price').forEach(function(el){ el.innerHTML = '6 390 ₽ <span class="usd">· $79</span> <small>в месяц</small>'; });
+  document.querySelectorAll('.js-club-term').forEach(function(el){ el.textContent = 'списывается раз в месяц, отменить можно в любой момент'; });
+}
+// Плашка «Инструкция в клубе»: какая тема ведёт людей в клуб — цель в Метрике.
+document.querySelectorAll('.js-club-guide').forEach(function(a){
+  a.addEventListener('click', function(){ if (window.ym) ym(113666612, 'reachGoal', 'club_guide_' + a.dataset.guide); });
+});
+</script>
+</body>
+</html>
